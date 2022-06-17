@@ -1,9 +1,9 @@
 
 
 
---        SELECT *
---        FROM USER_BANCU.ADD_NEW_SU;
+        SELECT *
+        FROM USER_BANCU.ADD_NEW_SU;
 --        
         UPDATE USER_BANCU.ADD_NEW_SU 
         
-        SET CUIIO_VERS = 2011;
+        SET CUIIO_VERS = 1053;
