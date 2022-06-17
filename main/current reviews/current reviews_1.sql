@@ -1,0 +1,33 @@
+SELECT 
+D.CUATM,
+COUNT (DISTINCT CASE WHEN D.FORM  = 3 THEN  D.CUIIO END ) AS COL1
+
+FROM
+(
+SELECT
+DISTINCT D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+--C.FULL_CODE,
+D.FORM
+
+
+    FROM CIS.VW_DATA_ALL D
+        INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL 
+    
+    WHERE 
+    
+    D.PERIOADA = :pPERIOADA 
+    AND D.FORM = 3
+    ) D
+    
+GROUP BY 
+
+D.CUATM
+        
+ORDER BY
+D.CUATM        
+
+
+                
+    
