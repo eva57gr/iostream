@@ -78,8 +78,8 @@
     GEN_INSTITUTIE,
     IDNO
 
-                    FROM --USER_BANCU.VW_MAX_RENIM_CIS2
-                         USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                    FROM USER_BANCU.VW_MAX_RENIM_CIS2
+                        -- USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                     
@@ -93,4 +93,4 @@
                     )
                     
                     
-                    --AND CUIIO_VERS <>   1053
+                   AND CUIIO_VERS <>   2011
