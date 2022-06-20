@@ -1,14 +1,14 @@
-﻿
-INSERT INTO CIS2.RENIM R (
-        CUIIO,
-        CUIIO_VERS,
-        DENUMIRE,
-        EDIT_USER,
-        STATUT,
-        CUATM,
-        CFP,
-        CFOJ
-)
+﻿--
+--INSERT INTO CIS2.RENIM R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        DENUMIRE,
+--        EDIT_USER,
+--        STATUT,
+--        CUATM,
+--        CFP,
+--        CFOJ
+--)
 
 
 
@@ -30,4 +30,4 @@ INSERT INTO CIS2.RENIM R (
                         
                         WHERE 
                         
-                        C.CUIIO  IS  NULL 
+                        C.CUIIO  IS NOT   NULL 

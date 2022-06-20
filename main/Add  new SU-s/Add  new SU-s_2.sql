@@ -6,4 +6,4 @@
 --        
         UPDATE USER_BANCU.ADD_NEW_SU 
         
-        SET CUIIO_VERS = 1053;
+        SET CUIIO_VERS = 2011;
