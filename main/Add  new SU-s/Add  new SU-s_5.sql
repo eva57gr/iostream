@@ -25,7 +25,7 @@
         FROM USER_BANCU.ADD_NEW_SU L
         
         
-                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
+                        LEFT JOIN CIS.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
