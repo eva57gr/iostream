@@ -1,64 +1,35 @@
 SELECT 
+D.CUATM,
+NULL AS COL1,
+NULL AS COL2,
+COUNT (DISTINCT CASE WHEN D.FORM  = 3 THEN  D.CUIIO END ) AS COL3
 
-L.CUIIO,
-L.CUIIO_VERS,
-R.CUIIO R_CUIIO
-
-
-FROM 
+FROM
 (
-SELECT 
-    DISTINCT D.CUIIO,
-    D.CUIIO_VERS
+SELECT
+DISTINCT D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+--C.FULL_CODE,
+D.FORM
 
-    FROM CIS.VW_DATA_ALL D
+
+    FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+        INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL 
     
     WHERE 
     
     D.PERIOADA = :pPERIOADA 
     AND D.FORM = 3
+    ) D
     
-            ) L LEFT JOIN (
-            
-            
-SELECT 
-DISTINCT FC.CUIIO,
-FC.CUIIO_VERS 
-FROM 
+GROUP BY 
 
-(
-SELECT     
+D.CUATM
+        
+ORDER BY
+D.CUATM        
 
-           R.CUIIO,
-           R. CUIIO_VERS,
-           FC.FORM,
-          
-           R.CUATM
-           
-      FROM (SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
-                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (3) AND CUIIO_VERS <= :pPERIOADA 
-                               GROUP BY CUIIO) BB
-                       ON (    BB.CUIIO = FC.CUIIO
-                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (3) AND FC.STATUT <> '3') FC
-           INNER JOIN CIS.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)) FC 
-               
-              
-               
-               
-               
 
-            
-             ) R ON L.CUIIO = R.CUIIO    AND L.CUIIO_VERS = R.CUIIO_VERS
-             
-             WHERE 
-             
-             R.CUIIO IS NULL 
+                
+    
