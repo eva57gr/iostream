@@ -30,6 +30,7 @@ NULL AS COL6
 
 FROM 
 
+
 (
 SELECT     
 
@@ -96,7 +97,10 @@ D.FORM
     WHERE 
     
     D.PERIOADA = :pPERIOADA 
-    AND D.FORM IN  (3,4)
+    AND 
+    
+    
+    D.FORM IN  (3,4)
     ) D
     
     
