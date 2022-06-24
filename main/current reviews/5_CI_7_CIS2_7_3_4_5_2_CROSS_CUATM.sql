@@ -17,7 +17,13 @@ SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL11 ELSE NULL EN
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL12 ELSE NULL END ) AS CONS_TS_COL12,
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL13 ELSE NULL END ) AS MUNCA_2_COL13,
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL14 ELSE NULL END ) AS MUNCA_2_COL14,
-SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL15 ELSE NULL END ) AS MUNCA_2_COL15
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL15 ELSE NULL END ) AS MUNCA_2_COL15,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.auto_1_COL16 ELSE NULL END ) AS auto_1_COL16,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.auto_1_COL17 ELSE NULL END ) AS auto_1_COL17,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.auto_1_COL18 ELSE NULL END ) AS auto_1_COL18,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL19 ELSE NULL END ) AS CIS_5_CI__COL19,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL20 ELSE NULL END ) AS CIS_5_CI__COL20,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL21 ELSE NULL END ) AS CIS_5_CI__COL21
 
 
 FROM 
@@ -41,7 +47,14 @@ NULL AS COL11,
 NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+
 FROM 
 
 
@@ -101,7 +114,13 @@ NULL AS COL11,
 NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 
 
 FROM
@@ -153,7 +172,13 @@ NULL AS COL11,
 NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 
 
 
@@ -206,7 +231,13 @@ NULL AS COL11,
 NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 
 
 
@@ -272,8 +303,13 @@ COUNT (DISTINCT CASE WHEN D.FORM  = 2 THEN  D.CUIIO END ) AS COL11,
 NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
-
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 
 FROM
 (
@@ -353,7 +389,13 @@ NULL AS COL11,
 COUNT (DISTINCT CASE WHEN D.FORM  = 2 THEN  D.CUIIO END ) AS COL12,
 NULL AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 
 
 FROM
@@ -431,7 +473,13 @@ NULL AS COL11,
 NULL AS COL12,
 COUNT (DISTINCT CASE WHEN FC.FORM  = 7 THEN  FC.CUIIO END ) AS COL13,
 NULL AS COL14,
-NULL AS COL15
+NULL AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
 FROM 
 
 
@@ -506,7 +554,14 @@ UNION
          NULL                                                       AS COL12,
          NULL                                                       AS COL13,
          COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS COL14,
-         NULL                                                       AS COL15
+         NULL                                                       AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+
     FROM (SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
                           D.CUATM,
@@ -572,7 +627,16 @@ SELECT C.CODUL,
          NULL                                                       AS COL12,
          NULL                                                       AS COL13,
          NULL                                                       AS COL14,
-         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS COL15
+         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS COL15,
+NULL AS auto_1_COL16,
+NULL AS auto_1_COL17,
+NULL AS auto_1_COL18,
+
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+
+
     FROM (SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
                           D.CUATM,
@@ -614,9 +678,313 @@ SELECT C.CODUL,
                                         AND P.TIP_PERIOADA = PP.TIP_PERIOADA
                                         AND P.ANUL = PP.ANUL) P) MP
                      ON MP.PERIOADA = D.PERIOADA
-           WHERE D.PERIOADA = MP.PERIOADA AND D.FORM IN (7)) D
+           WHERE D.PERIOADA = MP.PERIOADA AND D.FORM IN (7)
+             AND D.ID_SCHEMA = 1   
+           ) D
          INNER JOIN CIS.VW_CL_CUATM C ON C.CODUL = D.CUATM
 GROUP BY C.CODUL, C.FULL_CODE
+--START _1_AUTO
+UNION 
+SELECT 
+C.CODUL,
+C.FULL_CODE,
+NULL AS COL1,
+NULL AS COL2,
+NULL AS COL3,
+NULL AS COL4,
+NULL AS COL5,
+NULL AS COL6,
+NULL AS COL7,
+NULL AS COL8,
+NULL AS COL9,
+NULL AS COL10,
+NULL AS COL11,
+NULL AS COL12,
+NULL AS COL13,
+NULL AS COL14,
+NULL AS COL15,
+COUNT (DISTINCT CASE WHEN FC.FORM  = 7 THEN  FC.CUIIO END ) AS auto_1_COL16,
+NULL  AS auto_1__COL17,
+NULL  AS auto_1__COL18,
+
+NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+FROM 
+
+
+(
+SELECT     
+
+           R.CUIIO,
+           R. CUIIO_VERS,
+           FC.FORM,
+          
+           R.CUATM
+           
+      FROM (SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS2.FORM_CUIIO  FC
+                         
+              
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (7) AND CUIIO_VERS <= 443 
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (7) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS2.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               
+               ) FC 
+          
+               
+                 INNER JOIN CIS2.VW_CL_CUATM C   ON C.CODUL = FC.CUATM
+              
+               GROUP BY 
+              C.CODUL,
+              C.FULL_CODE
+              
+              UNION 
+              
+  SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+         NULL                                                       AS auto_1__COL16,
+         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS auto_1__COL17,
+         NULL                                                       AS auto_1__COL18,
+         
+         NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+         
+         
+         
+    FROM (SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM CIS2.VW_DATA_ALL D
+                 INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = 443 AND D.FORM IN (7)) D
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE
+
+UNION 
+
+
+  SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+         NULL                                                       AS auto_1__COL16,
+         NULL                                                       AS auto_1__COL17,
+         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)      AS auto_1__COL18,
+         
+         NULL AS CIS_5_CI__COL19,
+NULL AS CIS_5_CI__COL20,
+NULL AS CIS_5_CI__COL21
+         
+         
+         
+    FROM (SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+                 INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = 443 AND D.FORM IN (7)
+                 AND D.ID_SCHEMA = 2     
+           
+           ) D
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE            
+
+--END  _1_AUTO 
+UNION 
+--ADD 5 CI 
+
+SELECT 
+C.CODUL,
+C.FULL_CODE,
+NULL AS COL1,
+NULL AS COL2,
+NULL AS COL3,
+NULL AS COL4,
+NULL AS COL5,
+NULL AS COL6,
+NULL AS COL7,
+NULL AS COL8,
+NULL AS COL9,
+NULL AS COL10,
+NULL AS COL11,
+NULL AS COL12,
+NULL AS COL13,
+NULL AS COL14,
+NULL AS COL15,
+   NULL AS auto_1_COL16,
+         NULL AS auto_1_COL17,
+         NULL AS auto_1_COL18,
+COUNT (DISTINCT CASE WHEN FC.FORM  = 1 THEN  FC.CUIIO END ) AS CIS_5_CI__COL19,
+NULL  AS CIS_5_CI__COL20,
+NULL  AS CIS_5_CI__COL21
+FROM 
+
+
+(
+SELECT     
+
+           R.CUIIO,
+           R. CUIIO_VERS,
+           FC.FORM,
+          
+           R.CUATM
+           
+      FROM (SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS.FORM_CUIIO  FC
+                         
+              
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS.FORM_CUIIO
+                                  WHERE FORM IN (1) AND CUIIO_VERS <= :pPERIOADA_TRIM 
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (1) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               
+               ) FC 
+          
+               
+                 INNER JOIN CIS.VW_CL_CUATM C   ON C.CODUL = FC.CUATM
+              
+               GROUP BY 
+              C.CODUL,
+              C.FULL_CODE
+              
+              UNION 
+
+SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+         NULL AS auto_1_COL16,
+         NULL AS auto_1_COL17,
+         NULL AS auto_1_COL18,
+         NULL                                                       AS CIS_5_CI__COL19,
+         COUNT (DISTINCT CASE WHEN D.FORM = 1 THEN D.CUIIO END)     AS CIS_5_CI__COL20,
+         NULL                                                       AS CIS_5_CI__COL21
+         
+         
+         
+    FROM (SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM CIS.VW_DATA_ALL D
+                 INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (1)
+             
+           ) D
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE
+
+UNION 
+
+  SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+     NULL AS auto_1_COL16,
+         NULL AS auto_1_COL17,
+         NULL AS auto_1_COL18,
+         NULL                                                       AS CIS_5_CI__COL19,
+         NULL                                                       AS CIS_5_CI__COL20,
+         COUNT (DISTINCT CASE WHEN D.FORM = 1 THEN D.CUIIO END)     AS CIS_5_CI__COL21
+         
+         
+         
+    FROM (SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+                 INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (1)
+             AND D.ID_SCHEMA = 1    
+           ) D
+         INNER JOIN CIS.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE
+     
+
+-- END 5 CI 
+
 
 
               ) L
