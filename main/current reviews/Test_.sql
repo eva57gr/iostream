@@ -24,7 +24,20 @@ SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.auto_1_COL17 ELSE 
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.auto_1_COL18 ELSE NULL END ) AS auto_1_COL18,
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL19 ELSE NULL END ) AS CIS_5_CI__COL19,
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL20 ELSE NULL END ) AS CIS_5_CI__COL20,
-SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL21 ELSE NULL END ) AS CIS_5_CI__COL21
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.CIS_5_CI__COL21 ELSE NULL END ) AS CIS_5_CI__COL21,
+
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_2_INV___COL22 ELSE NULL END ) AS TRIM_2_INV___COL22,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_2_INV___COL23 ELSE NULL END ) AS TRIM_2_INV___COL23,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_2_INV___COL24 ELSE NULL END ) AS TRIM_2_INV___COL24,
+
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_65_auto_COL25 ELSE NULL END ) AS TRIM_65_auto_COL25,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_65_auto_COL26 ELSE NULL END ) AS TRIM_65_auto_COL26,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_65_auto_COL27 ELSE NULL END ) AS TRIM_65_auto_COL27,
+
+
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_1_turism_COL28 ELSE NULL END ) AS TRIM_1_turism_COL28,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_1_turism_COL29 ELSE NULL END ) AS TRIM_1_turism_COL29,
+SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.TRIM_1_turism_COL30 ELSE NULL END ) AS TRIM_1_turism_COL30
 
 
 FROM 
@@ -49,12 +62,24 @@ NULL AS COL12,
 NULL AS COL13,
 NULL AS COL14,
 NULL AS COL15,
-   NULL AS auto_1_COL16,
+         NULL AS auto_1_COL16,
          NULL AS auto_1_COL17,
          NULL AS auto_1_COL18,
-COUNT (DISTINCT CASE WHEN FC.FORM  = 1 THEN  FC.CUIIO END ) AS CIS_5_CI__COL19,
-NULL  AS CIS_5_CI__COL20,
-NULL  AS CIS_5_CI__COL21
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+                                                      NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+       NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       COUNT (DISTINCT CASE WHEN FC.FORM  = 6 THEN  FC.CUIIO END) AS TRIM_1_turism_COL28,
+       NULL AS TRIM_1_turism_COL29,
+       NULL AS TRIM_1_turism_COL30
 FROM 
 
 
@@ -72,23 +97,23 @@ SELECT
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                          
               
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (1) AND CUIIO_VERS <= :pPERIOADA_TRIM 
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (6) AND CUIIO_VERS <= :pPERIOADA_TRIM 
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (1) AND FC.STATUT <> '3') FC
-           INNER JOIN CIS.RENIM R
+             WHERE FC.FORM IN (6) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                ) FC 
           
                
-                 INNER JOIN CIS.VW_CL_CUATM C   ON C.CODUL = FC.CUATM
+                 INNER JOIN CIS2.VW_CL_CUATM C   ON C.CODUL = FC.CUATM
               
                GROUP BY 
               C.CODUL,
@@ -113,12 +138,24 @@ SELECT C.CODUL,
          NULL                                                       AS COL13,
          NULL                                                       AS COL14,
          NULL                                                       AS COL15,
-         NULL AS auto_1_COL16,
-         NULL AS auto_1_COL17,
-         NULL AS auto_1_COL18,
-         NULL                                                       AS CIS_5_CI__COL19,
-         COUNT (DISTINCT CASE WHEN D.FORM = 1 THEN D.CUIIO END)     AS CIS_5_CI__COL20,
-         NULL                                                       AS CIS_5_CI__COL21
+         NULL  AS auto_1_COL16,
+         NULL  AS auto_1_COL17,
+         NULL  AS auto_1_COL18,
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+         NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+       NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       NULL AS TRIM_1_turism_COL28,
+       COUNT (DISTINCT CASE WHEN D.FORM  = 6 THEN  D.CUIIO END) AS TRIM_1_turism_COL29,
+       NULL AS TRIM_1_turism_COL30
          
          
          
@@ -126,10 +163,10 @@ SELECT C.CODUL,
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM
-            FROM CIS.VW_DATA_ALL D
+            FROM CIS2.VW_DATA_ALL D
                  INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
-           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (1)
+           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (6)
              
            ) D
          INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
@@ -154,12 +191,24 @@ UNION
          NULL                                                       AS COL13,
          NULL                                                       AS COL14,
          NULL                                                       AS COL15,
-     NULL AS auto_1_COL16,
+         NULL AS auto_1_COL16,
          NULL AS auto_1_COL17,
          NULL AS auto_1_COL18,
-         NULL                                                       AS CIS_5_CI__COL19,
-         NULL                                                       AS CIS_5_CI__COL20,
-         COUNT (DISTINCT CASE WHEN D.FORM = 1 THEN D.CUIIO END)     AS CIS_5_CI__COL21
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+                                                            NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+        NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       NULL AS TRIM_1_turism_COL28,
+       NULL AS TRIM_1_turism_COL29,
+       COUNT (DISTINCT CASE WHEN D.FORM  = 6 THEN  D.CUIIO END) AS TRIM_1_turism_COL30
          
          
          
@@ -168,12 +217,12 @@ UNION
                           D.CUATM,
                           D.FORM
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
-                 INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
-           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (1)
-             AND D.ID_SCHEMA = 1    
+           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (6)
+             AND D.ID_SCHEMA = 2    
            ) D
-         INNER JOIN CIS.VW_CL_CUATM C ON C.CODUL = D.CUATM
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
 GROUP BY C.CODUL, C.FULL_CODE
 
  ) L
