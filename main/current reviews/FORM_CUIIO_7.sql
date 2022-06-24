@@ -38,7 +38,21 @@ SELECT
               
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (7) AND CUIIO_VERS <= :pPERIOADA 
+                                  WHERE FORM IN (7) AND CUIIO_VERS <= (CASE          
+                                                                      
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 368 AND 390 THEN 368      
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 380 AND 391 THEN 380     
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 392 AND 403 THEN 392 
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 404 AND 415 THEN 404 
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 416 AND 427 THEN 416  
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 428 AND 439 THEN 428                        
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 440 AND 451 THEN 440 
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 452 AND 463 THEN 452 
+                                                                                     WHEN TO_NUMBER(:pPERIOADA)BETWEEN 464 AND 473 THEN 464 
+                                                                                     ELSE TO_NUMBER(:pPERIOADA) END
+                                                                                     
+                                                                                     
+                                                                                   ) 
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)

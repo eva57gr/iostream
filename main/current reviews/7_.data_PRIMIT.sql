@@ -14,13 +14,13 @@
          NULL                                                       AS COL11,
          NULL                                                       AS COL12,
          NULL                                                       AS COL13,
-         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS COL14,
-         NULL                                                       AS COL15
+         NULL                                                       AS COL14,
+         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)     AS COL15
     FROM (SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM
-            FROM CIS.VW_DATA_ALL D
+            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
                  INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  INNER JOIN
                  (SELECT P.PERIOADA, P.TIP_PERIOADA, P.ANUL

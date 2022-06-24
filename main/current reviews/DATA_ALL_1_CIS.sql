@@ -16,9 +16,12 @@
          NULL                                                       AS COL13,
          NULL                                                       AS COL14,
          NULL                                                       AS COL15,
-         NULL                                                       AS auto_1__COL16,
-         NULL                                                       AS auto_1__COL17,
-         COUNT (DISTINCT CASE WHEN D.FORM = 7 THEN D.CUIIO END)      AS auto_1__COL18
+         NULL AS COL16,
+         NULL AS COL17,
+         NULL AS COL18,
+         NULL                                                       AS CIS_5_CI__COL19,
+         COUNT (DISTINCT CASE WHEN D.FORM = 1 THEN D.CUIIO END)     AS CIS_5_CI__COL20,
+         NULL                                                       AS CIS_5_CI__COL21
          
          
          
@@ -26,9 +29,11 @@
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM
-            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
-                 INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
+            FROM CIS.VW_DATA_ALL D
+                 INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
-           WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (7)) D
+           WHERE D.PERIOADA = :pPERIOADA_TRIM AND D.FORM IN (1)
+             
+           ) D
          INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
 GROUP BY C.CODUL, C.FULL_CODE
