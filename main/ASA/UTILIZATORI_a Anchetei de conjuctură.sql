@@ -1,7 +1,7 @@
         SELECT *
         
         
-            FROM CIS2.SYS_USER
+            FROM CIS2.SYS_USER  
             
             WHERE 
             
