@@ -10696,7 +10696,10 @@ SELECT DECODE (CS.CODUL,
                '9600000', '39',
                '9601000', '40',
                '9602000', '41',
-               '9603000', '42')
+               '9603000', '42'
+               
+               
+               )
       AS NR_ROW,
       CS.DENUMIRE AS NUME_ROW,
       CS.CODUL AS CS_CUATM

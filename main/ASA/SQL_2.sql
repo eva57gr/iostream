@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
         SELECT 
            1 ORDINE, 
             D.CUIIO, 

@@ -43,7 +43,7 @@
 
  SELECT 
     CUIIO,
-    CUIIO_VERS,
+    1053 CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -78,19 +78,32 @@
     GEN_INSTITUTIE,
     IDNO
 
-                    FROM USER_BANCU.VW_MAX_RENIM_CIS2
-                        -- USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                    FROM --USER_BANCU.VW_MAX_RENIM_CIS2
+                          USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                     
                     CUIIO IN (
                     
-                     SELECT 
+                
  
-        L.CUIIO
-   
-        FROM USER_BANCU.ADD_NEW_SU L
-                    )
+
+7309,
+24437,
+27335,
+35949,
+51470,
+98513,
+104573,
+2068,
+2128,
+24489
+
+
+ 
+
+
+               )
                     
                     
-                   AND CUIIO_VERS <>   2011
+                   AND CUIIO_VERS <>   1053
