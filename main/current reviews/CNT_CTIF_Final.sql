@@ -239,9 +239,12 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
+      
    NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
+   
+   
   FROM  
 
 
@@ -389,7 +392,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -532,7 +536,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -674,7 +679,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -832,7 +838,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1001,7 +1008,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1168,8 +1176,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-   
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1336,7 +1344,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1496,7 +1505,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1655,7 +1665,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1804,7 +1815,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -1931,7 +1943,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -2060,7 +2073,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -2209,7 +2223,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -2334,7 +2349,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -2462,7 +2478,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -2611,7 +2628,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -2735,7 +2753,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -2868,7 +2887,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -3018,7 +3038,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -3145,7 +3166,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -3275,9 +3297,10 @@ NULL AS AN_1_Inf_rev_COL70,
    
     NULL AS RSF3_reprezentanta_COL80,
    NULL AS RSF3_reprezentanta_COL81,
-   NULL AS RSF3_reprezentanta_COL82.
+   NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -3428,7 +3451,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -3555,7 +3579,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -3687,7 +3712,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -3836,7 +3862,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -3962,7 +3989,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -4093,7 +4121,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
    
@@ -4242,7 +4271,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -4369,7 +4399,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -4501,7 +4532,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
        
@@ -4654,7 +4686,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -4780,7 +4813,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -4909,7 +4943,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -5060,7 +5095,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -5189,7 +5225,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -5321,7 +5358,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -5473,7 +5511,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -5604,7 +5643,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -5735,7 +5775,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
       
@@ -5889,7 +5930,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6019,7 +6061,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6154,7 +6197,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -6307,7 +6351,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6437,7 +6482,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6572,7 +6618,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -6728,7 +6775,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6860,7 +6908,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -6999,7 +7048,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -7159,7 +7209,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -7294,7 +7345,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
          
@@ -7437,7 +7489,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -7596,7 +7649,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -7733,7 +7787,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -7878,7 +7933,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8039,7 +8095,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8177,7 +8234,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8321,7 +8379,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8482,7 +8541,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8622,7 +8682,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8767,7 +8828,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -8931,7 +8993,8 @@ NULL AS AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9074,7 +9137,9 @@ COUNT (DISTINCT CASE WHEN D.FORM  = 71 THEN  D.CUIIO END)   AN_1_Inf_rev_COL70,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+   
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9220,7 +9285,8 @@ NULL AS RSF1_COL73,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9389,7 +9455,8 @@ NULL AS RSF1_COL73,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9534,7 +9601,9 @@ COUNT (DISTINCT CASE WHEN D.FORM  = 57 THEN  D.CUIIO END)  AS RSF1_COL73,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+   
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9681,7 +9750,8 @@ NULL AS RSF2_COL76,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9852,7 +9922,8 @@ NULL AS RSF2_COL76,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -9994,7 +10065,8 @@ COUNT (DISTINCT CASE WHEN D.FORM  = 59 THEN  D.CUIIO END)  AS RSF2_COL76,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10145,7 +10217,8 @@ NULL AS RSF1prescurtat_COL79,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10318,7 +10391,8 @@ NULL AS RSF1prescurtat_COL79,
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10461,7 +10535,8 @@ COUNT (DISTINCT CASE WHEN D.FORM  = 63 THEN  D.CUIIO END)  AS RSF1prescurtat_COL
    NULL AS RSF3_reprezentanta_COL81,
    NULL AS RSF3_reprezentanta_COL82,
    
-     NULL AS Prodmold_COL83,
+      
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10610,7 +10685,8 @@ COUNT (DISTINCT CASE WHEN FC.FORM  = 66 THEN  FC.CUIIO END)  AS RSF3_reprezentan
 NULL AS RSF3_reprezentanta_COL81,
 NULL AS RSF3_reprezentanta_COL82,
 
-  NULL AS Prodmold_COL83,
+   
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10784,8 +10860,8 @@ NULL AS  RSF3_reprezentanta_COL80,
 COUNT (DISTINCT CASE WHEN D.FORM  = 66 THEN  D.CUIIO END)  AS RSF3_reprezentanta_COL81,
 NULL AS RSF3_reprezentanta_COL82,
 
-
-  NULL AS Prodmold_COL83,
+   
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10928,7 +11004,8 @@ NULL AS  RSF3_reprezentanta_COL80,
 NULL AS  RSF3_reprezentanta_COL81,
 COUNT (DISTINCT CASE WHEN D.FORM  = 66 THEN  D.CUIIO END)  AS RSF3_reprezentanta_COL82,
 
-  NULL AS Prodmold_COL83,
+   
+   NULL AS Prodmold_COL83,
    NULL AS Prodmold_COL84,
    NULL AS Prodmold_COL85
 
@@ -10955,31 +11032,525 @@ GROUP BY C.CODUL, C.FULL_CODE
 
 
 
+UNION 
+
+
+SELECT 
+C.CODUL,
+C.FULL_CODE,
+NULL AS COL1,
+NULL AS COL2,
+NULL AS COL3,
+NULL AS COL4,
+NULL AS COL5,
+NULL AS COL6,
+NULL AS COL7,
+NULL AS COL8,
+NULL AS COL9,
+NULL AS COL10,
+NULL AS COL11,
+NULL AS COL12,
+NULL AS COL13,
+NULL AS COL14,
+NULL AS COL15,
+         NULL AS auto_1_COL16,
+         NULL AS auto_1_COL17,
+         NULL AS auto_1_COL18,
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+                                                      NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+       NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       NULL AS TRIM_1_turism_COL28,
+       NULL AS TRIM_1_turism_COL29,
+       NULL AS TRIM_1_turism_COL30,
+       
+       NULL AS TRIM_1_INVEST_COL31,
+       NULL AS TRIM_1_INVEST_COL32,
+       NULL AS TRIM_1_INVEST_COL33,
+       
+       NULL AS TRIM_5_CON_COL34,
+       NULL AS TRIM_5_CON_COL35,
+       NULL AS TRIM_5_CON_COL36,
+       
+       NULL AS  TRIM_1_B_SC_COL37,
+       NULL AS  TRIM_1_B_SC_COL38,
+       NULL AS  TRIM_1_B_SC_COL39,
+       
+       
+       NULL AS M3_COL40,
+       NULL AS M3_COL41,
+       NULL AS M3_COL42,
+       
+ 
+NULL AS ANUL_1_TR_AUTO_COL43,
+NULL AS ANUL_1_TR_AUTO_COL44,
+NULL AS ANUL_1_TR_AUTO_COL45,
+
+
+NULL AS ANUL_2_INV_COL47,
+NULL AS ANUL_2_INV_COL48,
+NULL AS ANUL_2_INV_COL49,
+
+
+NULL AS ANUL_1_CC_COL50,
+NULL AS ANUL_1_CC_COL51,      
+NULL AS ANUL_1_CC_COL52,
 
 
 
+NULL AS FORPRO_COL53,
+NULL AS FORPRO_COL54,
+NULL AS FORPRO_COL55,
+
+
+
+NULL AS ANUL_1_A_SC_COL56,
+NULL AS ANUL_1_A_SC_COL57,
+NULL AS ANUL_1_A_SC_COL58,
+
+
+NULL AS Nr_9_AGR_COL59,
+NULL AS Nr_9_AGR_COL60,
+NULL AS Nr_9_AGR_COL61,
+
+
+NULL AS  ASA_COL62,
+NULL AS ASA_COL63,
+NULL AS ASA_COL64,
+
+
+NULL AS AN_1_INVEST_COL65,
+NULL AS AN_1_INVEST_COL66,
+NULL AS AN_1_INVEST_COL67,
+
+
+
+NULL AS AN_1_Inf_rev_COL68,
+NULL AS AN_1_Inf_rev_COL69,
+NULL AS AN_1_Inf_rev_COL70,
+
+
+NULL AS RSF1_COL71,
+NULL AS RSF1_COL72,
+NULL AS RSF1_COL73,
+
+
+NULL AS RSF2_COL74,
+NULL AS RSF2_COL75,
+NULL AS RSF2_COL76,
+
+
+NULL AS  RSF1prescurtat_COL77,
+NULL AS RSF1prescurtat_COL78,
+NULL AS RSF1prescurtat_COL79,
+
+NULL AS  RSF3_reprezentanta_COL80,
+NULL AS RSF3_reprezentanta_COL81,
+NULL AS RSF3_reprezentanta_COL82,
+
+
+ COUNT (DISTINCT CASE WHEN FC.FORM  = 10 THEN  FC.CUIIO END)  AS  Prodmold_COL83,
+ NULL AS  Prodmold_COL84,
+ NULL AS  Prodmold_COL85
+FROM 
+
+(
+SELECT     
+
+           R.CUIIO,
+           R. CUIIO_VERS,
+           FC.FORM,
+          
+           R.CUATM
+           
+      FROM (
+      
+  SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS.FORM_CUIIO  FC
+                         
+              
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS.FORM_CUIIO
+                                  WHERE FORM IN (10) AND CUIIO_VERS <= :pPERIOADA_ANUL 
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (10) AND FC.STATUT <> '3'
+                        
+             
+             
+             ) FC
+           INNER JOIN CIS.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               
+               ) FC 
+          
+               
+                 INNER JOIN CIS2.VW_CL_CUATM C   ON C.CODUL = FC.CUATM
+              
+               GROUP BY 
+              C.CODUL,
+              C.FULL_CODE
+              
+              UNION 
+
+SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+         NULL  AS auto_1_COL16,
+         NULL  AS auto_1_COL17,
+         NULL  AS auto_1_COL18,
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+       NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+       NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       NULL AS TRIM_1_turism_COL28,
+       NULL AS TRIM_1_turism_COL29,
+       NULL AS TRIM_1_turism_COL30,
+       
+       NULL AS TRIM_1_INVEST_COL31,
+       NULL AS TRIM_1_INVEST_COL32,
+       NULL AS TRIM_1_INVEST_COL33,
+       
+       NULL AS TRIM_5_CON_COL34,
+       NULL AS TRIM_5_CON_COL35,
+       NULL AS TRIM_5_CON_COL36,
+       
+        NULL AS  TRIM_1_B_SC_COL37,
+       NULL AS  TRIM_1_B_SC_COL38,
+       NULL AS  TRIM_1_B_SC_COL39,
+       
+       
+   NULL AS M3_COL40,
+       NULL AS M3_COL41,
+       NULL AS M3_COL42,
+       
+ 
+ 
+NULL AS ANUL_1_TR_AUTO_COL43,
+NULL AS ANUL_1_TR_AUTO_COL44,
+NULL AS ANUL_1_TR_AUTO_COL45,
+
+NULL AS ANUL_2_INV_COL47,
+NULL AS ANUL_2_INV_COL48,
+NULL AS ANUL_2_INV_COL49,
+
+
+NULL AS ANUL_1_CC_COL50,
+NULL AS ANUL_1_CC_COL51,      
+NULL AS ANUL_1_CC_COL52,
+
+
+
+NULL AS FORPRO_COL53,
+NULL AS FORPRO_COL54,
+NULL AS FORPRO_COL55,
+
+
+
+NULL AS ANUL_1_A_SC_COL56,
+NULL AS ANUL_1_A_SC_COL57,
+NULL AS ANUL_1_A_SC_COL58,
+
+
+NULL AS Nr_9_AGR_COL59,
+NULL AS Nr_9_AGR_COL60,
+NULL AS Nr_9_AGR_COL61,
+
+
+NULL AS  ASA_COL62,
+NULL AS ASA_COL63,
+NULL AS ASA_COL64,
+
+
+
+NULL AS AN_1_INVEST_COL65,
+NULL AS AN_1_INVEST_COL66,
+NULL AS AN_1_INVEST_COL67,
+
+
+
+NULL AS AN_1_Inf_rev_COL68,
+NULL AS AN_1_Inf_rev_COL69,
+NULL AS AN_1_Inf_rev_COL70,
+
+
+NULL AS RSF1_COL71,
+NULL AS RSF1_COL72,
+NULL AS RSF1_COL73,
+
+
+
+NULL AS RSF2_COL74,
+NULL AS RSF2_COL75,
+NULL AS RSF2_COL76,
+
+
+
+NULL AS  RSF1prescurtat_COL77,
+NULL AS RSF1prescurtat_COL78,
+NULL AS RSF1prescurtat_COL79,
+
+NULL AS  RSF3_reprezentanta_COL80,
+NULL AS RSF3_reprezentanta_COL81,
+NULL AS RSF3_reprezentanta_COL82,
+
+
+  NULL AS Prodmold_COL83,
+  COUNT (DISTINCT CASE WHEN D.FORM  = 10 THEN  D.CUIIO END)  AS  Prodmold_COL84,
+  NULL AS  Prodmold_COL85
+
+
+         
+         
+    FROM (SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM CIS.VW_DATA_ALL D
+                 INNER JOIN CIS.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = :pPERIOADA_ANUL AND D.FORM IN (10)
+             
+           ) D
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE
+
+UNION 
+
+  SELECT C.CODUL,
+         C.FULL_CODE,
+         NULL                                                       AS COL1,
+         NULL                                                       AS COL2,
+         NULL                                                       AS COL3,
+         NULL                                                       AS COL4,
+         NULL                                                       AS COL5,
+         NULL                                                       AS COL6,
+         NULL                                                       AS COL7,
+         NULL                                                       AS COL8,
+         NULL                                                       AS COL9,
+         NULL                                                       AS COL10,
+         NULL                                                       AS COL11,
+         NULL                                                       AS COL12,
+         NULL                                                       AS COL13,
+         NULL                                                       AS COL14,
+         NULL                                                       AS COL15,
+         NULL AS auto_1_COL16,
+         NULL AS auto_1_COL17,
+         NULL AS auto_1_COL18,
+         NULL  AS CIS_5_CI__COL19,
+         NULL  AS CIS_5_CI__COL20,
+         NULL  AS CIS_5_CI__COL21,
+
+                                                            NULL AS TRIM_2_INV___COL22,
+                                                      NULL AS  TRIM_2_INV___COL23,
+                                                      NULL AS  TRIM_2_INV___COL24,
+                                                      
+        NULL AS   TRIM_65_auto_COL25,                                              
+       NULL AS  TRIM_65_auto_COL26,                                              
+       NULL AS  TRIM_65_auto_COL27,
+       
+       NULL AS TRIM_1_turism_COL28,
+       NULL AS TRIM_1_turism_COL29,
+       NULL AS TRIM_1_turism_COL30,
+       
+           NULL AS TRIM_1_INVEST_COL31,
+       NULL AS TRIM_1_INVEST_COL32,
+       NULL AS TRIM_1_INVEST_COL33,
+       
+       NULL AS TRIM_5_CON_COL34,
+       NULL AS TRIM_5_CON_COL35,
+       NULL AS TRIM_5_CON_COL36,
+       
+        NULL AS  TRIM_1_B_SC_COL37,
+       NULL AS  TRIM_1_B_SC_COL38,
+       NULL AS  TRIM_1_B_SC_COL39,
+       
+       
+       NULL AS M3_COL40,
+       NULL AS M3_COL41,
+       NULL AS M3_COL42,
+       
+ 
+NULL AS ANUL_1_TR_AUTO_COL43,
+NULL AS ANUL_1_TR_AUTO_COL44,
+NULL AS ANUL_1_TR_AUTO_COL45,
+
+
+NULL AS ANUL_2_INV_COL47,
+NULL AS ANUL_2_INV_COL48,
+NULL AS ANUL_2_INV_COL49,
+
+
+NULL AS ANUL_1_CC_COL50,
+NULL AS ANUL_1_CC_COL51,      
+NULL AS ANUL_1_CC_COL52,
+
+
+
+NULL AS FORPRO_COL53,
+NULL AS FORPRO_COL54,
+NULL AS FORPRO_COL55,
+
+
+
+NULL AS ANUL_1_A_SC_COL56,
+NULL AS ANUL_1_A_SC_COL57,
+NULL AS ANUL_1_A_SC_COL58,
+
+
+NULL AS Nr_9_AGR_COL59,
+NULL AS Nr_9_AGR_COL60,
+NULL AS Nr_9_AGR_COL61,
+
+
+NULL AS  ASA_COL62,
+NULL AS ASA_COL63,
+NULL AS ASA_COL64,
+
+
+
+NULL AS AN_1_INVEST_COL65,
+NULL AS AN_1_INVEST_COL66,
+NULL AS AN_1_INVEST_COL67,
+
+
+
+NULL AS AN_1_Inf_rev_COL68,
+NULL AS AN_1_Inf_rev_COL69,
+NULL AS AN_1_Inf_rev_COL70,
+
+
+NULL AS RSF1_COL71,
+NULL AS RSF1_COL72,
+NULL AS RSF1_COL73,
+
+
+NULL AS RSF2_COL74,
+NULL AS RSF2_COL75,
+NULL AS RSF2_COL76,
+
+
+NULL AS  RSF1prescurtat_COL77,
+NULL AS RSF1prescurtat_COL78,
+NULL AS RSF1prescurtat_COL79,
+
+NULL AS  RSF3_reprezentanta_COL80,
+NULL AS RSF3_reprezentanta_COL81,
+NULL AS RSF3_reprezentanta_COL82,
+
+
+  NULL AS Prodmold_COL83,
+  NULL AS Prodmold_COL84,
+  COUNT (DISTINCT CASE WHEN D.FORM  = 10 THEN  D.CUIIO END)  AS  Prodmold_COL85
+
+
+
+         
+         
+    FROM (
+    
+    SELECT DISTINCT D.CUIIO,
+                          D.CUIIO_VERS,
+                          D.CUATM,
+                          D.FORM
+            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+                 INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
+                 
+           WHERE D.PERIOADA = :pPERIOADA_ANUL AND D.FORM IN (10)
+             AND D.ID_SCHEMA = 1
+             
+                 
+           ) D
+         INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
+GROUP BY C.CODUL, C.FULL_CODE
+--End RSF Reprezentanta
               ) L
      
      INNER JOIN CIS.VW_CL_CUATM C   ON C.CODUL = L.CODUL
      CROSS JOIN (
      
      /* Formatted on 6/22/2022 4:39:31 PM (QP5 v5.326) */
-SELECT
-      DECODE(CS.CODUL, 
-      '0000000','01','0100000','02','1111111','03','0300000','04',
-      '1400000','05','3400000','06','3600000','07','4100000','08','4300000','09',
-      '4500000','10','4800000','11','6200000','12','7100000','13','7400000','14',
-      '7800000','15','2222222','16','1000000','17','2500000','18','3100000','19',
-      '3800000','20','5300000','21','5500000','22','6000000','23','6400000','24',
-      '6700000','25','8000000','26','8300000','27','8900000','28','9200000','29',
-      '3333333','30','1200000','31','1700000','32','2100000','33','2700000','34',
-      '2900000','35','5700000','36','8500000','37','8700000','38','9600000','39',
-          
+SELECT DECODE (CS.CODUL,
+               '0000000', '01',
+               '0100000', '02',
+               '1111111', '03',
+               '0300000', '04',
+               '1400000', '05',
+               '3400000', '06',
+               '3600000', '07',
+               '4100000', '08',
+               '4300000', '09',
+               '4500000', '10',
+               '4800000', '11',
+               '6200000', '12',
+               '6700000', '13',
+               '7100000', '14',
+               '7400000', '15',
+               '7800000', '16',
+               '8900000', '17',
+               '2222222', '18',
+               '1000000', '19',
+               '2500000', '20',
+               '2700000', '21',
+               '2900000', '22',
+               '3100000', '23',
+               '3800000', '24',
+               '5300000', '25',
+               '5500000', '26',
+               '6000000', '27',
+               '6400000', '28',
+               '8000000', '29',
+               '8300000', '30',
+               '8500000', '31',
+               '9200000', '32',
+               '3333333', '33',
+               '1200000', '34',
+               '1700000', '35',
+               '2100000', '36',
+               '5700000', '37',
+               '8700000', '38',
+               '9600000', '39',
                '9601000', '40',
                '9602000', '41',
                '9603000', '42'
-      
-      )
+               
+               
+               )
       AS NR_ROW,
       CS.DENUMIRE AS NUME_ROW,
       CS.CODUL AS CS_CUATM
@@ -10991,13 +11562,10 @@ SELECT
          '0000000','0100000','1111111','0300000','1400000','3400000','3600000','4100000','4300000','4500000',
          '4800000','6200000','7100000','7400000','7800000','2222222','1000000','2500000','3100000','3800000',
          '5300000','5500000','6000000','6400000','6700000','8000000','8300000','8900000','9200000','3333333',
-         '1200000','1700000','2100000','2700000','2900000','5700000','8500000','8700000','9600000',
-              
-               '9601000', 
-               '9602000', 
-               '9603000' 
-         
+         '1200000','1700000','2100000','2700000','2900000','5700000','8500000','8700000','9600000','9601000',
+         '9602000','9603000'
         )
+        
       
      ) CR 
      
