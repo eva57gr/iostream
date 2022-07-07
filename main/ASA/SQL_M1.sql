@@ -1,7 +1,7 @@
 SELECT
             D.ANUL, 
             D.CUIIO,
-            D.CUATM, 
+            D.COL33, 
             D.RIND,
         
             SUM(D.COL9) AS NSAL,
@@ -26,11 +26,11 @@ SELECT
                     GROUP BY 
                        D.ANUL, 
             D.CUIIO,
-            D.CUATM, 
+            D.COL33, 
             D.RIND
             
             ORDER BY 
-              D.CUATM, 
+--              D.COL33, 
               D.CUIIO,
           
             D.RIND

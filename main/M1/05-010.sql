@@ -1,30 +1,30 @@
 
 SELECT DISTINCT 
 
-'Rind 20 = '||
+'Rind 40 = '||
 SUM( CASE WHEN   D.PERIOADA IN (:PERIOADA) AND DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('20') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('40') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12)ELSE 0 END)
                                    
                                    
-                                   ||' > '|| 'Rind 10 = '||
+                                   ||' > '|| 'Rind 30 = '||
 SUM( CASE WHEN  D.PERIOADA IN (:PERIOADA) AND  DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('10') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('30') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) ELSE 0 END)||' Col.'||N.NR_COLUMN
                                    
   
-||' - Perioada precedenta - Rind 20 =  '||
+||' - Perioada precedenta - Rind 40 =  '||
 SUM( CASE WHEN   D.PERIOADA IN (:PERIOADA -3) AND DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('20') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('40') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12)ELSE 0 END)
                                    
                                    
-                                   ||' > '|| 'Rind 10 = '||
+                                   ||' > '|| 'Rind 30 = '||
 SUM( CASE WHEN  D.PERIOADA IN (:PERIOADA-3) AND  DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('10') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('30') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) ELSE 0 END)||' Col.'||N.NR_COLUMN
                                  
@@ -54,8 +54,7 @@ WHERE
   (:CAPITOL=:CAPITOL            OR :CAPITOL <> :CAPITOL) AND
   (:CAPITOL_VERS=:CAPITOL_VERS  OR :CAPITOL_VERS <>  :CAPITOL_VERS) AND
   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
-  D.RIND IN ('20','10')
-  
+  D.RIND IN ('30','40')
   
   
 GROUP BY N.NR_COLUMN
@@ -63,11 +62,11 @@ GROUP BY N.NR_COLUMN
 
 HAVING
 SUM( CASE WHEN D.PERIOADA IN (:PERIOADA) AND  DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('20') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('40') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) ELSE 0 END)>
 SUM( CASE WHEN   D.PERIOADA IN (:PERIOADA) AND DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
-                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('10') 
+                                   '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) IS NOT NULL AND D.RIND IN ('30') 
           THEN DECODE(N.NR_COLUMN, '1', D.COL1, '2', D.COL2, '3', D.COL3, '4', D.COL4, '5', D.COL5, '6', D.COL6,
                                    '7', D.COL7, '8', D.COL8, '9', D.COL9, '10', D.COL10, '11', D.COL11, '12', D.COL12) ELSE 0 END)
 
