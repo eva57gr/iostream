@@ -44,7 +44,7 @@ SELECT
     
     D.PERIOADA IN (:pPERIOADA)
     AND D.FORM IN (:pFORM)    
-    
+    AND D.CAPITOL IN (365)
     
 GROUP BY 
   C.CODUL,
