@@ -1,3 +1,32 @@
+    SELECT 
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+    GENDER_CODE AS NR_SECTIE,
+    GENDER AS NUME_SECTIE,
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1,
+    '0' AS NR_SECTIE2,
+    '0' AS NUME_SECTIE2,
+    
+      CODUL AS NR_ROW, 
+      ROWNUM ORDINE, 
+       '0000' AS DECIMAL_POS,  
+       
+         NAME_CODE NUME_ROW,
+         COL1,
+         COL2,
+         COL3,
+         COL4,
+         NULL AS COL5,
+         NULL AS COL6
+         
+         FROM
+          
+
+(
 SELECT 
 CS.CODUL GENDER_CODE,
 CS.NAME_CODE AS GENDER,
@@ -58,3 +87,5 @@ CS.ORDINE
 ORDER BY
 CR.CODUL,
 CS.CODUL
+
+)
