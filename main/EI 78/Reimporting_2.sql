@@ -1,0 +1,4 @@
+
+
+        SELECT *
+        FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT
