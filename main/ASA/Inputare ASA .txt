@@ -1,0 +1,19 @@
+A fost Lilian  Galer la mine cu subiectul  urmator. 
+In ASA trebuie de adaugat un rind si o coloana (Inputare). 
+In care se va introduce valoare si la care trebuie sa aiba acces anumiti statiticieni. 
+
+
+1. Capitolul ISO din ASA (capitol=100 capitol vers=2009) se inca in urmatoarele forme (42,4,8,3,64,16,12). 
+2.  Introducerea valorii in randul imputare este corelata cu cap SR din ASA. 
+Daca Cap SR este completat randul (2,3,7) sa fie introdus in colana (0 sau 1 (trebuie de specificat))
+Daca Cap SR este completat randul (14,5,6) sa arate arate eroare (sa fie blocat). 
+
+Cum sa fac ? 
+1. Sa adaug un rand in Cap SR (aici se poate de lucrat cu JS  ) sau sa adug  un Capitol nou la care sa dam acces la unimite persoane si sa adaugam control  care sa verifice cu Cap SR (Statisticianul a introdus datele in inputare  si verifica raportul) daca nu da eroare e bine, daca este eroare nu introduce 
+Deci.  Cum sa fac ? 
+
+S-a adaugat din 2021 in Cap SR ASA Rind nou pentru imputare. 
+Sau adaugat si 2 reguli de validare 
+
+64-060 Cap. SR. Rind (INMPUT) = 1 - Verifica daca a fost completat rind, atunci sa fie 1
+64-061 Daca rind 2,3,7 este selectat  atunci Inputare este (1)  - Verifica daca este rind 2, 3, 5 di DACA este INPUT atunci sa fie 1 daca nu eroare. 
