@@ -1,11 +1,14 @@
 
 SELECT 
-
-L.CUIIO 
+L.CUIIO,
+L.CUATM,
+C.DENUMIRE,
+C.FULL_CODE 
 FROM 
 (
  SELECT 
-                    DISTINCT D.CUIIO 
+                    DISTINCT D.CUIIO,
+                    D.CUATM 
                     FROM CIS2.VW_DATA_ALL D 
                     
                   
@@ -47,7 +50,13 @@ FROM
                     ) R ON R.CUIIO = L.CUIIO 
                     
                     
+                    
+                        INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = L.CUATM 
+                    
                     WHERE 
                     
                     R.CUIIO IS NULL 
+                    
+                    ORDER BY 
+                    C.FULL_CODE
                    
