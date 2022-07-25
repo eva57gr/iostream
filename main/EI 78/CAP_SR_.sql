@@ -4,24 +4,30 @@
 
                 SELECT 
                 
-    DISTINCT CUIIO,
+    DISTINCT 
+    D.CUIIO,
+    R.DENUMIRE,
 
-    CUATM,
-    CUATM_FULL,
+    D.CUATM,
+    D.CUATM_FULL,
     
-    DATA_REG,
+    D.DATA_REG,
     
   
-    COL4,
+    D.COL4,
    
    
-    COL31,
+    D.COL31,
  
-    COL33
+    D.COL33,
+    T_XML_FORM_ID,
+    F.STATUS
  
    
 
                 FROM USER_EREPORTING.VW_DATA_ALL D
+                            INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+                            INNER JOIN USER_EREPORTING.F_XML_FORMS F ON F.FORMID = D.T_XML_FORM_ID AND F.STATUS = '5'
                 
                 WHERE 
                 D.PERIOADA IN (:pPERIOADA)
@@ -29,20 +35,23 @@
                 
                 
         GROUP BY 
-        CUIIO,
+        D.CUIIO,
+        R.DENUMIRE,
+         F.STATUS,
 
-    CUATM,
-    CUATM_FULL,
+    D.CUATM,
+    D.CUATM_FULL,
     
-    DATA_REG,
+    D.DATA_REG,
     
   
-    COL4,
+    D.COL4,
    
    
-    COL31,
+    D.COL31,
  
-    COL33
+    D.COL33,
+    T_XML_FORM_ID
                 
                 HAVING 
                 
@@ -52,6 +61,8 @@
     AND COL31 IS NULL 
  
     AND COL33 IS null  
+    
+    
     
             ORDER BY 
                 DATA_REG DESC,

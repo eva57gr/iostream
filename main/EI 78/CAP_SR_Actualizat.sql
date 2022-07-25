@@ -1,8 +1,22 @@
 SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
+       R.DENUMIRE,
+
+      R.CUATM,
+    R.CUATM_FULL,
+    
+    R.DATA_REG,
+    
+  
+    R.COL4,
+   
+   
+    R.COL31,
+ 
+    R.COL33,
+    R.T_XML_FORM_ID,
+    R.STATUS
+
+
               FROM
 (
 SELECT FC.CUIIO,
@@ -22,7 +36,23 @@ SELECT FC.CUIIO,
              SELECT 
                 
     DISTINCT 
-    D.CUIIO
+   D.CUIIO,
+    R.DENUMIRE,
+
+    D.CUATM,
+    D.CUATM_FULL,
+    
+    D.DATA_REG,
+    
+  
+    D.COL4,
+   
+   
+    D.COL31,
+ 
+    D.COL33,
+    T_XML_FORM_ID,
+    F.STATUS
    
  
    
@@ -68,3 +98,6 @@ SELECT FC.CUIIO,
              WHERE 
              
              R.CUIIO IS NOT NULL 
+             
+             ORDER BY 
+             DATA_REG DESC 
