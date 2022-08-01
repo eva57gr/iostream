@@ -95,9 +95,10 @@ SELECT FC.CUIIO,
     AND COL33 IS null 
              ) R  ON R.CUIIO = FC.CUIIO 
              
+             
              WHERE 
              
              R.CUIIO IS NOT NULL 
-             
+             AND   R.DATA_REG >  TO_DATE('07/28/2022 14:00:00', 'MM/DD/YYYY HH24:MI:SS')
              ORDER BY 
-             DATA_REG DESC 
+             DATA_REG ASC 
