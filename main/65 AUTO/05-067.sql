@@ -1,0 +1,77 @@
+SELECT 
+
+'Rind '||L.RIND||':  '||SUM(L.COL2) ||' < '|| SUM(R.COL2)  AS REZULTAT      
+
+
+
+FROM 
+
+(
+SELECT   
+D.RIND,  
+  
+SUM(D.COL2) AS COL2
+   
+ 
+
+FROM
+  USER_EREPORTING.VW_DATA_ALL_FOR_VALIDATE  D   
+ 
+
+WHERE
+   D.PERIOADA IN (:PERIOADA) AND
+  (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS       ) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (5)  AND
+  D.CAPITOL IN (312)
+  AND  D.NUM IN (2,3,4)
+  AND D.RIND NOT IN ('-')
+ 
+GROUP BY D.RIND ) L LEFT JOIN (
+
+SELECT   
+D.RIND,  
+  
+SUM(D.COL2) AS COL2
+   
+ 
+
+FROM
+  CIS2.VW_DATA_ALL D
+ 
+
+WHERE
+   D.PERIOADA IN (:PERIOADA-1) AND
+  (D.CUIIO=:CUIIO              ) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  ) AND
+  
+  D.FORM IN (5)  AND
+  D.CAPITOL IN (312)
+  AND  D.NUM IN (1,2,3)
+  AND D.RIND NOT IN ('-')
+ 
+GROUP BY D.RIND
+
+
+
+) R ON R.RIND = L.RIND
+
+WHERE 
+
+1=1
+
+
+GROUP BY 
+L.RIND,
+R.RIND
+
+HAVING 
+
+SUM(L.COL2) <  SUM(R.COL2)
