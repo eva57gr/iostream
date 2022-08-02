@@ -1,0 +1,15 @@
+SELECT CONTROL,
+        CUIIO,
+        REZULTAT,    
+        DATA_REG  
+FROM USER_EREPORTING.CONTROL
+
+    WHERE 
+    
+    FORM = 5 
+    AND PERIOADA = 1053
+    AND REZULTAT <> 'OK'
+  
+    
+    ORDER BY 
+    DATA_REG DESC
