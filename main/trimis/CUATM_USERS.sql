@@ -3,7 +3,8 @@
 
 
 
-        SELECT ID_USER        
+        SELECT ID_USER,
+        CUATM        
 
 
         FROM CIS2.SYS_USER_ACCES
@@ -12,4 +13,4 @@
         
         FORM IN (59)
 
-AND CUATM  LIKE '01%'
+AND CUATM   LIKE '01%'

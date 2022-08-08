@@ -99,6 +99,6 @@ SELECT FC.CUIIO,
              WHERE 
              
              R.CUIIO IS NOT NULL 
-             AND   R.DATA_REG >  TO_DATE('07/28/2022 14:00:00', 'MM/DD/YYYY HH24:MI:SS')
+             AND   R.DATA_REG >   TO_DATE('08/01/2022 15:18:00', 'MM/DD/YYYY HH24:MI:SS')
              ORDER BY 
              DATA_REG ASC 
