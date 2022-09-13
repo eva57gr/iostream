@@ -1,0 +1,18 @@
+/* Formatted on 8/24/2022 9:15:13 AM (QP5 v5.326) */
+SELECT 
+        DISTINCT CUIIO,
+        PERIOADA,
+       CUIIO_VERS,
+       CUATM,
+       CUATM_FULL,
+       FORM,
+       --   FORM_VERS,
+       FORM_DEN,
+       T_XML_FORM_ID,
+       DATA_REG,
+       ID_SCHEMA
+  FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT
+ WHERE PERIOADA IN (450,451,1054)
+ 
+ ORDER BY 
+ DATA_REG DESC 
