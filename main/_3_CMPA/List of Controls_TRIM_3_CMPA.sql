@@ -1,8 +1,15 @@
 ﻿SELECT 
       L.CONTROL,
+      L.CONTROL_VERS,
+      L.FORM,
+      L.FORM_VERS,
+      L.CAPITOL,
+      L.CAPITOL_VERS,
+      L.ID_MD, 
       L.FORMULA,
-    --  L.SQL_TEXT,
+      L.SQL_TEXT,
       L.PRIORITATEA,
+      L.DATA_REG, 
       L.STATUT
       
       
@@ -12,9 +19,16 @@
 ( 
 SELECT 
       B.CONTROL,
+      B.CONTROL_VERS,
+      B.FORM,
+      B.FORM_VERS,
+      B.CAPITOL,
+      B.CAPITOL_VERS,
+      B.ID_MD, 
       B.FORMULA,
       B.SQL_TEXT, 
       B.PRIORITATEA,
+      B.DATA_REG, 
       B.STATUT
       
       
@@ -29,7 +43,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 62
+         AND A.FORM  = 61
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +56,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 62
+         AND B.FORM  = 61
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
