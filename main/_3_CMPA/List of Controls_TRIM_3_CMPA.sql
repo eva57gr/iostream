@@ -1,6 +1,25 @@
-﻿SELECT 
+﻿--INSERT INTO CIS2.MD_CONTROL
+--(
+--
+--
+--      CONTROL,
+--      CONTROL_VERS,
+--      FORM,
+--      FORM_VERS,
+--      CAPITOL,
+--      CAPITOL_VERS,
+--      ID_MD, 
+--      FORMULA,
+--      SQL_TEXT,
+--      PRIORITATEA,
+--      DATA_REG, 
+--      STATUT
+--) 
+
+
+SELECT 
       L.CONTROL,
-      L.CONTROL_VERS,
+      1054 CONTROL_VERS,
       L.FORM,
       L.FORM_VERS,
       L.CAPITOL,
@@ -64,3 +83,7 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
+          
+          
+          WHERE 
+          L.CONTROL_VERS <> 1054
