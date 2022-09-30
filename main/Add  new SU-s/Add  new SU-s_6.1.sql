@@ -1,4 +1,8 @@
 
+SELECT     L.CUIIO,
+           R.CUIIO_VERS
+          
+      FROM (
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
@@ -17,6 +21,17 @@ SELECT     R.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
+               
+               RIGHT JOIN (
+               
+               SELECT CUIIO
+               
+        FROM USER_BANCU.ADD_NEW_SU
+               ) L ON L.CUIIO = R.CUIIO 
+               
+               WHERE 
+               R.CUIIO IS   NULL 
+               
                
               

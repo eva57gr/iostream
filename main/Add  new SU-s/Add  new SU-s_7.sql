@@ -1,11 +1,11 @@
-
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
+--
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
 
 
 
@@ -13,7 +13,7 @@ INSERT INTO CIS2.FORM_CUIIO R (
  
         L.CUIIO,
         L.CUIIO_VERS,
-        13 FORM,
+        18 FORM,
         1004   FORM_VERS,
         '1' STATUT
        
