@@ -10,9 +10,9 @@
         FROM USER_BANCU.ADD_NEW_SU L
         
         
-                       -- LEFT JOIN CIS2.VW_CL_CUATM C ON C.CODUL =  L.CUATM
+                     --  LEFT JOIN CIS2.VW_CL_CUATM C ON C.CODUL =  L.CUATM
                         
-                         LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
+                        LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
                         
                         WHERE 
                         

@@ -11,7 +11,8 @@ DECLARE -- ====================================================================
         L.CUATM,
         L.CFP,
         L.CFOJ,
-        L.CAEM2
+        L.CAEM2,
+        L.IDNO
         FROM USER_BANCU.ADD_NEW_SU L
           
           ;
@@ -19,8 +20,13 @@ DECLARE -- ====================================================================
 BEGIN -- ======================================================================
   FOR CR IN C
   LOOP
-    UPDATE CIS.RENIM SET 
-      CAEM2 = CR.CAEM2
+    UPDATE CIS2.RENIM SET 
+      CAEM2 = CR.CAEM2,
+      DENUMIRE = CR.DENUMIRE,
+      CUATM = CR.CUATM,
+      CFP = CR.CFP,
+      CFOJ = CR.CFOJ,
+      IDNO = CR.IDNO
       
     WHERE 
       CUIIO  = CR.CUIIO AND

@@ -7,7 +7,9 @@
 --        STATUT,
 --        CUATM,
 --        CFP,
---        CFOJ
+--        CFOJ,
+--        CAEM2,
+--        IDNO
 --)
 
 
@@ -21,13 +23,15 @@
         '1' STATUT,
         L.CUATM,
         L.CFP,
-        L.CFOJ
+        L.CFOJ,
+        L.CAEM2,
+        L.IDNO
         FROM USER_BANCU.ADD_NEW_SU L
         
         
-                        LEFT JOIN CIS.RENIM C ON C.CUIIO  =  L.CUIIO  
+                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
                         
-                        C.CUIIO  IS   NULL 
+                        C.CUIIO  IS  NOT   NULL 
