@@ -1,0 +1,24 @@
+SELECT
+--'Eroare. Trebuie bifata TIP2 sau TIP3' AS REZULTAT,
+D.NR_GOSP
+FROM VW_DATA_ALL_GC D
+WHERE
+   
+  (D.PERIOADA=:PERIOADA          ) AND
+ -- (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
+  (D.UNIT_CODE_VERS=:UNIT_CODE_VERS     OR :UNIT_CODE_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+
+  D.FORM IN (58)  AND
+  D.CAPITOL IN (419)
+  AND D.RIND IN  ('TIP2','TIP3')
+  
+  GROUP BY
+  D.NR_GOSP 
+  HAVING 
+  COUNT(D.COL1) > 1
