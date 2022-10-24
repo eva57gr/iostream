@@ -43,7 +43,7 @@
 
  SELECT 
     CUIIO,
-     CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -84,8 +84,13 @@
                     WHERE 
                     
                     CUIIO IN (
-                 SELECT CUIIO
-        FROM USER_BANCU.ADD_NEW_SU
+                 40065794,
+40301711,
+40315239,
+40830763,
+41399310,
+41401107
+
 
 
 
