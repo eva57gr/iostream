@@ -42,4 +42,8 @@
             
             HAVING 
             R.IDNO IS NULL
+            OR 
+            R.IDNO = 0
+           
+            
             

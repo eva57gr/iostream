@@ -1,3 +1,21 @@
+DECLARE -- ====================================================================
+
+  CURSOR C IS
+        
+SELECT 
+CUIIO,
+2010 CUIIO_VERS,
+TRIM(IDNO) IDNO 
+FROM CIS2.X_RENIM_IMPORT
+
+WHERE 
+
+cuiio in (
+SELECT 
+CUIIO 
+FROM 
+
+(
 SELECT R.CUIIO,
                    R.CUIIO_VERS,
                    R.IDNO
@@ -6,7 +24,6 @@ SELECT R.CUIIO,
                     
                         WHERE 
                         R.CUIIO_VERS = 2010
-                        
                         
                         AND R.CUIIO IN (
                          SELECT 
@@ -42,10 +59,35 @@ SELECT R.CUIIO,
             R.IDNO IS NULL
             OR 
             R.IDNO = 0
+            )
+            
             
 
-            
-            ORDER BY 
-            R.CUIIO 
-            
-           -- 2741953
+
+)
+
+AND IDNO <> 0 
+
+ORDER BY 
+CUIIO  ;
+
+BEGIN -- ======================================================================
+  FOR CR IN C
+  LOOP
+    UPDATE CIS2.RENIM SET 
+--      CAEM2 = CR.CAEM2,
+--      DENUMIRE = CR.DENUMIRE,
+--      CUATM = CR.CUATM,
+--      CFP = CR.CFP,
+--      CFOJ = CR.CFOJ,
+      IDNO = CR.IDNO
+      
+    WHERE 
+      CUIIO  = CR.CUIIO AND
+      CUIIO_VERS = CR.CUIIO_VERS 
+      
+      
+      
+    ;
+  END LOOP;
+END; -- =======================================================================
