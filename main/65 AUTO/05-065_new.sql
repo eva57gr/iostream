@@ -1,0 +1,130 @@
+SELECT 
+
+'Rind '||L.RIND||':  '||SUM(NVAL(L.COL1)) ||' < '|| SUM(NVAL(R.COL1))  AS REZULTAT      
+
+
+
+FROM 
+
+(
+
+
+SELECT 
+L.RIND,
+L.DENUMIRE,
+L.ORDINE,
+SUM(R.COL1) AS COL1
+ FROM 
+(
+ SELECT  D.RIND,
+        D.DENUMIRE,
+        D.ORDINE 
+                
+            FROM CIS2.MD_RIND D 
+            
+            WHERE 
+            D.CAPITOL = 312
+AND D.RIND_VERS = 1052
+AND D.STATUT = '1'
+AND D.RIND NOT IN ('-','999') ) L LEFT JOIN (
+
+SELECT   
+
+D.RIND,
+MR.DENUMIRE,  
+SUM(D.COL1) AS COL1
+   
+ 
+
+FROM
+
+  USER_EREPORTING.VW_DATA_ALL_FOR_VALIDATE  D
+                INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
+
+
+WHERE
+   D.PERIOADA IN (:PERIOADA) AND
+  
+--  (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
+--  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+--  (D.FORM = :FORM               ) AND
+--  (D.FORM_VERS=:FORM_VERS       ) AND
+--  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+--  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+--  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+   (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     ) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS       ) AND
+  (D.CAPITOL=:CAPITOL           ) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS ) AND
+  (D.ID_MD=:ID_MD               ) AND
+  
+  
+  D.FORM IN (5)  AND
+  D.CAPITOL IN (312)
+  AND  D.NUM IN (2,3,4)
+
+ 
+GROUP BY 
+D.RIND,
+MR.DENUMIRE
+
+
+
+
+) R ON R.RIND = L.RIND
+
+
+GROUP BY 
+L.RIND,
+L.DENUMIRE,
+L.ORDINE
+
+
+) L LEFT JOIN (
+
+SELECT  
+D.CUIIO, 
+D.RIND,  
+  
+SUM(D.COL1) AS COL1
+   
+ 
+
+FROM
+  CIS2.VW_DATA_ALL D
+ 
+
+WHERE
+   D.PERIOADA IN (:PERIOADA-1) AND
+  (D.CUIIO=:CUIIO              ) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  ) AND
+  
+  D.FORM IN (5)  AND
+  D.CAPITOL IN (312)
+  AND  D.NUM IN (1,2,3)
+  AND D.RIND NOT IN ('-')
+ 
+GROUP BY 
+D.CUIIO,
+D.RIND
+
+
+
+) R ON R.RIND = L.RIND
+
+WHERE 
+
+1=1
+
+
+GROUP BY 
+L.RIND,
+R.RIND
+
+HAVING 
+
+SUM(NVAL(L.COL1)) <  SUM(NVAL(R.COL1))

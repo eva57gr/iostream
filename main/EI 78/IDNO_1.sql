@@ -1,4 +1,7 @@
-SELECT R.CUIIO,
+
+
+
+            SELECT R.CUIIO,
                    R.CUIIO_VERS,
                    R.IDNO
             
@@ -6,7 +9,6 @@ SELECT R.CUIIO,
                     
                         WHERE 
                         R.CUIIO_VERS = 2010
-                        
                         
                         AND R.CUIIO IN (
                          SELECT 
@@ -21,11 +23,11 @@ SELECT R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (5) AND CUIIO_VERS <= 1054
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1054
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (5) AND FC.STATUT <> '3') FC
+             WHERE FC.FORM IN (44) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                         
@@ -42,10 +44,6 @@ SELECT R.CUIIO,
             R.IDNO IS NULL
             OR 
             R.IDNO = 0
+           
             
-
             
-            ORDER BY 
-            R.CUIIO 
-            
-           -- 2741953
