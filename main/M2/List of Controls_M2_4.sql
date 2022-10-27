@@ -4,7 +4,7 @@ DECLARE -- ====================================================================
         
 SELECT 
 CUIIO,
-2010 CUIIO_VERS,
+2011 CUIIO_VERS,
 TRIM(IDNO) IDNO 
 FROM CIS2.X_RENIM_IMPORT
 
@@ -23,7 +23,7 @@ SELECT R.CUIIO,
                     FROM CIS2.RENIM R 
                     
                         WHERE 
-                        R.CUIIO_VERS = 2010
+                        R.CUIIO_VERS = 2011
                         
                         AND R.CUIIO IN (
                          SELECT 
