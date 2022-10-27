@@ -1,0 +1,112 @@
+SELECT 
+  :pPERIOADA AS PERIOADA,
+  :pFORM AS FORM,
+  :pFORM_VERS AS FORM_VERS,
+  :pID_MDTABLE AS ID_MDTABLE,
+  :pCOD_CUATM AS COD_CUATM,
+  
+   RR.NR_ROW AS NR_SECTIE,         
+   RR.NUME_ROW AS NUME_SECTIE,
+   
+  '0' AS NR_SECTIE1,
+  '0' AS NUME_SECTIE1,
+  '0' AS NR_SECTIE2,
+  '0' AS NUME_SECTIE2,
+  
+  R.NR_ROW||'~'||RR.NR_ROW AS NR_ROW,
+  TO_NUMBER(R.NR_ROW||'.'||RR.NR_ROW) AS ORDINE,
+  '100000' AS DECIMAL_POS,
+  
+  R.NUME_ROW AS NUME_ROW,
+
+
+  CASE WHEN RR.NR_ROW NOT IN ('04') THEN
+  ROUND(SUM( CASE WHEN (D.PERS BETWEEN RR.PERS_FROM AND RR.PERS_TO OR D.PERS IS NULL) THEN DECODE(R.NR_ROW, 
+         '01', D.CD,
+         '02',(CASE WHEN D.COL1 BETWEEN 0 AND 3  THEN D.CD END),
+         '03',(CASE WHEN D.COL1 BETWEEN 3 AND 6  THEN D.CD END),
+         '04',(CASE WHEN D.COL1 BETWEEN 6 AND 9  THEN D.CD END),
+         '05',(CASE WHEN D.COL1 BETWEEN 9 AND 12 THEN D.CD END),
+         '06',(CASE WHEN NVAL(D.COL2) > 0  THEN D.CD END),
+         '07',(CASE WHEN NVAL(D.COL3) > 0  THEN D.CD END),
+         '08',(CASE WHEN NVAL(D.COL4) > 0  THEN D.CD END)) END),1)
+  ELSE
+  ROUND(SUM( CASE WHEN (D.PERS BETWEEN RR.PERS_FROM AND RR.PERS_TO) THEN (DECODE(R.NR_ROW, 
+         '01', D.CD,
+         '02',(CASE WHEN D.COL1 BETWEEN 0 AND 3  THEN D.CD END),
+         '03',(CASE WHEN D.COL1 BETWEEN 3 AND 6  THEN D.CD END),
+         '04',(CASE WHEN D.COL1 BETWEEN 6 AND 9  THEN D.CD END),
+         '05',(CASE WHEN NVAL(D.COL1) BETWEEN 9 AND 12 THEN D.CD END),
+         '06',(CASE WHEN NVAL(D.COL2) > 0 THEN D.CD END),
+         '07',(CASE WHEN NVAL(D.COL3) > 0 THEN D.CD END),
+         '08',(CASE WHEN NVAL(D.COL4) > 0 THEN D.CD END))) END),1) END AS COL1
+         
+
+         
+
+  
+  FROM(
+
+-------------------------------------------------------------------------------
+SELECT 
+ DISTINCT D.CUIIO,D. CUATM,D.CFP,
+SUM(CASE WHEN D.CAPITOL IN (1123) AND D.RIND IN ('I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII') THEN  D.COL1 ELSE 0 END)  AS COL1 ,
+SUM(CASE WHEN D.CAPITOL IN (1123) AND D.RIND IN ('1') THEN  D.COL1 ELSE 0 END)  AS COL2, 
+SUM(CASE WHEN D.CAPITOL IN (1123) AND D.RIND IN ('2') THEN  D.COL1 ELSE 0 END)  AS COL3,  
+SUM(CASE WHEN D.CAPITOL IN (1123) AND D.RIND IN ('3') THEN  D.COL1 ELSE 0 END)  AS COL4,
+SUM(CASE WHEN D.CAPITOL IN (1127) AND D.RIND IN ('400') THEN  D.COL4 ELSE 0 END)  AS COL5,
+-------
+SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  D.COL1 ELSE 0 END)  AS CD,
+(SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
+
+ FROM
+   CIS2.DATA_ALL DD
+ WHERE
+   DD.PERIOADA IN (D.PERIOADA) AND
+   DD.FORM = 64 AND
+   DD.ID_MD IN (58791) AND
+   DD.CUIIO IN (D.CUIIO)) AS PERS
+                                                       
+
+FROM   
+    CIS2.VW_DATA_ALL_COEF D 
+--      INNER JOIN CIS2.VW_CL_CFP VC ON (D.CFP = VC.CODUL)
+ 
+WHERE
+  D.FORM IN (64)             AND 
+  D.FORM_VERS = :pFORM_VERS  AND      
+  D.PERIOADA =:pPERIOADA AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'   AND
+   D.CAPITOL IN (100,1123,1127)
+  AND D.RIND IN ('I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','1','CD','2','3','400')
+ AND D.CUIIO = 411016
+ GROUP BY D.CUIIO,D.CUATM, D.CFP,D.PERIOADA,D.FORM
+ 
+ HAVING
+ SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  NVAL(D.COL1) ELSE 0 END)>0
+)D
+  CROSS JOIN
+  ( 
+    SELECT 'Numarul intreprinderilor total'              AS NUME_ROW, '01' AS NR_ROW, '01' AS ORDINE  FROM DUAL UNION
+    SELECT 'au activat pina la 3 luni'                   AS NUME_ROW, '02' AS NR_ROW, '02' AS ORDINE  FROM DUAL UNION
+    SELECT 'au activat de la 3 pina la 6 luni'           AS NUME_ROW, '03' AS NR_ROW, '03' AS ORDINE  FROM DUAL UNION
+    SELECT 'au activat de la 6 pina la 9 luni'           AS NUME_ROW, '04' AS NR_ROW, '04' AS ORDINE  FROM DUAL UNION
+    SELECT 'au activat de la 9 pina la 12 luni'          AS NUME_ROW, '05' AS NR_ROW, '05' AS ORDINE  FROM DUAL UNION
+    SELECT 'Intreprinderea a fost inreg-ta, dar act. n-a fost inceputa'  AS NUME_ROW, '06' AS NR_ROW, '06' AS ORDINE  FROM DUAL UNION
+    SELECT 'Activitatea a fost incetata temporar'        AS NUME_ROW, '07' AS NR_ROW, '07' AS ORDINE  FROM DUAL UNION
+    SELECT 'Activitatea a fost incetata si nu va fi reluata'         AS NUME_ROW, '08' AS NR_ROW, '08' AS ORDINE  FROM DUAL     
+    
+  ) R
+  
+   CROSS JOIN
+  ( 
+    SELECT 'Întreprinderile cu numarul de salariati 0-9 persoane'              AS NUME_ROW, '01' AS NR_ROW, 0 AS PERS_FROM, 9 AS PERS_TO, NULL AS PERS FROM DUAL UNION
+    SELECT 'Întreprinderile cu numarul de salariati 0-49 persoane'             AS NUME_ROW, '02' AS NR_ROW, 0 AS PERS_FROM, 49 AS PERS_TO, NULL AS PERS FROM DUAL UNION
+    SELECT 'Întreprinderile cu numarul de salariati 0-249 persoane'            AS NUME_ROW, '03' AS NR_ROW, 0 AS PERS_FROM, 249 AS PERS_TO, NULL AS PERS FROM DUAL UNION
+    SELECT 'Întreprinderile cu numarul de salariati 250 si mai mult persoane'  AS NUME_ROW, '04' AS NR_ROW, 250 AS PERS_FROM, 99999999 AS PERS_TO, NULL AS PERS FROM DUAL UNION
+    SELECT 'Total republica Moldova'                                         AS NUME_ROW, '05' AS NR_ROW, 0 AS PERS_FROM, 99999999 AS PERS_TO, NULL AS PERS FROM DUAL
+        
+    
+  ) RR  
+  
+  GROUP BY RR.NUME_ROW,RR.NR_ROW, R.NR_ROW,R.NUME_ROW,R.ORDINE

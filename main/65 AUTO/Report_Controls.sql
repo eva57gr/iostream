@@ -1,0 +1,27 @@
+
+  SELECT 
+  CONTROL,
+  CONTROL_VERS,
+  PERIOADA,
+  CUIIO,
+  CUIIO_VERS,
+  FORM,
+  FORM_VERS,
+  CAPITOL,
+  CAPITOL_VERS,
+  ID_MD,
+  REZULTAT,
+  DATA_REG,
+  ID_SCHEMA
+    
+
+        FROM USER_EREPORTING.CONTROL
+        
+        
+        WHERE 
+        FORM  = :pFORM 
+        AND PERIOADA = :pPERIOADA 
+        AND REZULTAT <> 'OK' 
+        ORDER BY
+        DATA_REG DESC  
+        

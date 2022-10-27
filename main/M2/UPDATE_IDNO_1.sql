@@ -1,59 +1,75 @@
-
-
-
-
-SELECT *
+SELECT 
+CUIIO,
+2011 CUIIO_VERS,
+TRIM(IDNO) IDNO 
 FROM CIS2.X_RENIM_IMPORT
 
 WHERE 
 
 cuiio in (
-9202,
-3210850,
-7074906,
-41418332,
-1587355,
-2167997,
-5692161,
-5913171,
-40631222,
-40875642,
-41047189,
-41123714,
-2049140,
-2167885,
-40274500,
-41073086,
-41171707,
-41171854,
-41123625,
-2167796,
-2336394,
-7003838,
-20294682,
-40512508,
-40687589,
-40687604,
-41315951,
-41214730,
-40716333,
-2053070,
-7002396,
-7003668,
-7005302,
-37285,
-1587349,
-7073947,
-40044831,
-40840715,
-1587480,
-3598363,
-20942,
-2336508,
-3210809,
-7002031,
-7005029,
-40564741
+SELECT 
+CUIIO 
+FROM 
+
+(
+SELECT R.CUIIO,
+                   R.CUIIO_VERS,
+                   R.IDNO
+            
+                    FROM CIS2.RENIM R 
+                    
+                        WHERE 
+                        R.CUIIO_VERS = 2011
+                        
+                        AND R.CUIIO IN (
+                         SELECT 
+                         
+                         
+                         R.CUIIO
+      FROM (SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS2.FORM_CUIIO  FC
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (5) AND CUIIO_VERS <= 1054
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (5) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS2.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+                        
+                        )
+                        
+                        
+            
+                        GROUP BY 
+                        R.CUIIO,
+                        R.CUIIO_VERS,
+                        R.IDNO
+            
+            HAVING 
+            R.IDNO IS NULL
+            OR 
+            R.IDNO = 0
+            
+
+            
+            ORDER BY 
+            R.CUIIO 
+            
+           -- 2741953
+            )
+            
+            
 
 
 )
+
+AND IDNO <> 0 
+
+ORDER BY 
+CUIIO 
