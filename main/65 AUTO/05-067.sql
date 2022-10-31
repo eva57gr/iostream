@@ -1,25 +1,52 @@
 SELECT 
-
-'Rind '||L.RIND||':  '||SUM(L.COL2) ||' < '|| SUM(R.COL2)  AS REZULTAT      
-
-
-
+'Rind '||L.RIND||':  '||SUM(NVAL(L.COL2)) ||' < '|| SUM(NVAL(R.COL2))  AS REZULTAT
 FROM 
-
+( 
+SELECT 
+L.RIND,
+L.ID_MD,
+L.DENUMIRE,
+L.ORDINE,
+SUM(R.COL2) AS COL2
+ FROM 
 (
+ 
+SELECT  
+        D.RIND,
+        D.ID_MD,
+        D.DENUMIRE,
+        D.ORDINE 
+                
+            FROM CIS2.MD_RIND D 
+            
+            WHERE 
+            D.CAPITOL = 312
+AND D.RIND_VERS <= 1052
+AND D.STATUT = '1'
+AND D.RIND NOT IN ('-','999','002') 
+
+
+
+) L LEFT JOIN (
+
 SELECT   
-D.RIND,  
-  
+
+D.RIND,
+D.ID_MD,
+MR.DENUMIRE,  
 SUM(D.COL2) AS COL2
    
  
 
 FROM
-  USER_EREPORTING.VW_DATA_ALL_FOR_VALIDATE  D   
- 
+
+  USER_EREPORTING.VW_DATA_ALL_FOR_VALIDATE  D
+                INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
+
 
 WHERE
    D.PERIOADA IN (:PERIOADA) AND
+  
   (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
   (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (D.FORM = :FORM               ) AND
@@ -28,15 +55,38 @@ WHERE
   (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
   
+
+  
+  
   D.FORM IN (5)  AND
   D.CAPITOL IN (312)
   AND  D.NUM IN (2,3,4)
-  AND D.RIND NOT IN ('-')
  
-GROUP BY D.RIND ) L LEFT JOIN (
+ 
+GROUP BY 
+D.RIND,
+D.ID_MD,
+MR.DENUMIRE
+) R ON R.RIND = L.RIND
 
-SELECT   
+
+GROUP BY 
+L.RIND,
+L.DENUMIRE,
+L.ORDINE,
+L.ID_MD
+
+ORDER BY
+L.ORDINE 
+
+
+
+) L  LEFT JOIN (
+
+SELECT  
+D.CUIIO, 
 D.RIND,  
+D.ID_MD,
   
 SUM(D.COL2) AS COL2
    
@@ -51,27 +101,30 @@ WHERE
   (D.CUIIO=:CUIIO              ) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS  ) AND
+   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
   
   D.FORM IN (5)  AND
   D.CAPITOL IN (312)
   AND  D.NUM IN (1,2,3)
-  AND D.RIND NOT IN ('-')
+  AND D.RIND NOT IN ('-','999','002')
+  
  
-GROUP BY D.RIND
+GROUP BY 
+D.CUIIO,
+D.RIND,
+D.ID_MD
 
 
 
-) R ON R.RIND = L.RIND
-
-WHERE 
-
-1=1
-
+)  R ON R.RIND = L.RIND AND L.ID_MD = R.ID_MD
 
 GROUP BY 
 L.RIND,
-R.RIND
+R.RIND,
+R.ID_MD,
+L.ID_MD 
+
 
 HAVING 
 
-SUM(L.COL2) <  SUM(R.COL2)
+SUM(NVAL(L.COL2)) <  SUM(NVAL(R.COL2))

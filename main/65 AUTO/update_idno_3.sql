@@ -2,7 +2,7 @@ SELECT
            R.CUIIO,
            R.CUIIO_VERS,
            R.IDNO
-        FROM USER_BANCU.VW_RENIM_2010_CIS2 R
+        FROM USER_BANCU.VW_RENIM_2011_CIS2 R
         
         WHERE 
         R.CUIIO IN (
