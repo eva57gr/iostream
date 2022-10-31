@@ -45,22 +45,14 @@ FROM
 WHERE
    D.PERIOADA IN (:PERIOADA) AND
   
---  (D.CUIIO=:CUIIO               ) AND
---  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
---  (D.FORM = :FORM               ) AND
---  (D.FORM_VERS=:FORM_VERS       ) AND
---  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
---  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
---  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
-  
-   (D.CUIIO=:CUIIO               ) AND
-  (D.CUIIO_VERS=:CUIIO_VERS     ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS       ) AND
-  (D.CAPITOL=:CAPITOL           ) AND
-  (D.CAPITOL_VERS=:CAPITOL_VERS ) AND
-  (D.ID_MD=:ID_MD               ) AND
-  
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+
   
   D.FORM IN (5)  AND
   D.CAPITOL IN (312)
