@@ -1,22 +1,19 @@
 SELECT 
-
-'Rind '||L.RIND||':  '||SUM(NVAL(L.COL1)) ||' < '|| SUM(NVAL(R.COL1))  AS REZULTAT      
-
-
-
+'Rind '||L.RIND||':  '||SUM(NVAL(L.COL1)) ||' < '|| SUM(NVAL(R.COL1))  AS REZULTAT
 FROM 
-
-(
-
-
+( 
 SELECT 
 L.RIND,
+L.ID_MD,
 L.DENUMIRE,
 L.ORDINE,
 SUM(R.COL1) AS COL1
  FROM 
 (
- SELECT  D.RIND,
+ 
+SELECT  
+        D.RIND,
+        D.ID_MD,
         D.DENUMIRE,
         D.ORDINE 
                 
@@ -26,11 +23,16 @@ SUM(R.COL1) AS COL1
             D.CAPITOL = 312
 AND D.RIND_VERS = 1052
 AND D.STATUT = '1'
-AND D.RIND NOT IN ('-','999') ) L LEFT JOIN (
+AND D.RIND NOT IN ('-','999','002') 
+
+
+
+) L LEFT JOIN (
 
 SELECT   
 
 D.RIND,
+D.ID_MD,
 MR.DENUMIRE,  
 SUM(D.COL1) AS COL1
    
@@ -45,7 +47,7 @@ FROM
 WHERE
    D.PERIOADA IN (:PERIOADA) AND
   
-  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
   (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS       ) AND
@@ -53,41 +55,38 @@ WHERE
   (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
   
---   (D.CUIIO=:CUIIO               ) AND
---  (D.CUIIO_VERS=:CUIIO_VERS     ) AND
---  (D.FORM = :FORM               ) AND
---  (D.FORM_VERS=:FORM_VERS       ) AND
---  (D.CAPITOL=:CAPITOL           ) AND
---  (D.CAPITOL_VERS=:CAPITOL_VERS ) AND
---  (D.ID_MD=:ID_MD               ) AND
+
   
   
   D.FORM IN (5)  AND
   D.CAPITOL IN (312)
   AND  D.NUM IN (2,3,4)
-
+ 
  
 GROUP BY 
 D.RIND,
+D.ID_MD,
 MR.DENUMIRE
-
-
-
-
 ) R ON R.RIND = L.RIND
 
 
 GROUP BY 
 L.RIND,
 L.DENUMIRE,
-L.ORDINE
+L.ORDINE,
+L.ID_MD
+
+ORDER BY
+L.ORDINE 
 
 
-) L LEFT JOIN (
+
+) L  LEFT JOIN (
 
 SELECT  
 D.CUIIO, 
 D.RIND,  
+D.ID_MD,
   
 SUM(D.COL1) AS COL1
    
@@ -102,29 +101,30 @@ WHERE
   (D.CUIIO=:CUIIO              ) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS  ) AND
+   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
   
   D.FORM IN (5)  AND
   D.CAPITOL IN (312)
   AND  D.NUM IN (1,2,3)
-  AND D.RIND NOT IN ('-')
+  AND D.RIND NOT IN ('-','999','002')
+  
  
 GROUP BY 
 D.CUIIO,
-D.RIND
+D.RIND,
+D.ID_MD
 
 
 
-) R ON R.RIND = L.RIND
-
-WHERE 
-
-1=1
-
+)  R ON R.RIND = L.RIND AND L.ID_MD = R.ID_MD
 
 GROUP BY 
 L.RIND,
-R.RIND
+R.RIND,
+R.ID_MD,
+L.ID_MD 
 
-HAVING 
 
-SUM(NVAL(L.COL1)) <  SUM(NVAL(R.COL1))
+--HAVING 
+--
+--SUM(NVAL(L.COL1)) <  SUM(NVAL(R.COL1))
