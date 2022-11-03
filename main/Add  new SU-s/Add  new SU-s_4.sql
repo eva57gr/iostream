@@ -78,25 +78,40 @@
     GEN_INSTITUTIE,
     IDNO
 
-                    FROM --USER_BANCU.VW_MAX_RENIM_CIS2
-                          USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                    FROM USER_BANCU.VW_MAX_RENIM_CIS2
+                        --  USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                     
                     CUIIO IN (
-                 40065794,
-40301711,
-40315239,
-40830763,
-41399310,
-41401107
+                 41509081,
+41523371,
+37107520,
+4137332267,
+41560426,
+41154175,
+38500857,
+41191182,
+41392880,
+4143030467,
+41509075,
+41428030,
+4129008567,
+40874743,
+4149110667,
+4091605167,
+2039356267,
+4146944767,
+4074522467,
+4150610267
+
 
 
 
 
 ) 
                     
-           --      AND CUIIO_VERS <>  1054
+                AND CUIIO_VERS IN (2010,2011)
              
              ORDER BY 
              CUIIO_VERS DESC 

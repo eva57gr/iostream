@@ -22,6 +22,7 @@
         FORM  = :pFORM 
         AND PERIOADA = :pPERIOADA 
         AND REZULTAT <> 'OK' 
+    --    AND CUIIO = 40898353
         ORDER BY
         DATA_REG DESC  
         
