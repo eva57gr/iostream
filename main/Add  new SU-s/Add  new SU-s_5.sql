@@ -34,4 +34,4 @@
                         
                         WHERE 
                         
-                        C.CUIIO  IS  NOT   NULL 
+                        C.CUIIO  IS  NOT  NULL 

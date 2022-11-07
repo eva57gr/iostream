@@ -3,7 +3,7 @@
 --        
         UPDATE USER_BANCU.ADD_NEW_SU 
         
-        SET CUIIO_VERS = 1054;
+        SET CUIIO_VERS = 1055;
         
         
              SELECT CUIIO
