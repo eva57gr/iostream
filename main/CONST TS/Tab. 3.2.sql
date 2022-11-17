@@ -172,13 +172,20 @@ WHERE
 
   
   D.FORM_VERS = :PFORM_VERS
-  AND D.CAPITOL IN (6)           AND --CAP VLC   
+ AND  D.CAPITOL IN (6)           AND --CAP VLC   
  D.PERIOADA IN (:pPERIOADA,:pPERIOADA-12) AND
   --D.PERIOADA =:pPERIOADA AND
   CC.FULL_CODE LIKE '%'||:pCOD_CUATM||';%'
-   AND  
-  D.NUM IN (SELECT NUM FROM (SELECT DISTINCT NUM FROM  CIS.MD_PERIOADA WHERE  NUM BETWEEN (SELECT  NUM-2 FROM  CIS.MD_PERIOADA WHERE PERIOADA IN (:pPERIOADA)) AND 
-  (SELECT  NUM FROM   CIS.MD_PERIOADA WHERE   PERIOADA IN (:pPERIOADA)) ) )
+--   AND  
+--  D.NUM IN (SELECT NUM
+--          FROM (SELECT DISTINCT NUM
+--                  FROM CIS.MD_PERIOADA
+--                 WHERE NUM BETWEEN (SELECT NUM - 2
+--                                      FROM CIS.MD_PERIOADA
+--                                     WHERE PERIOADA IN ( :pPERIOADA))
+--                               AND (SELECT NUM
+--                                      FROM CIS.MD_PERIOADA
+--                                     WHERE PERIOADA IN ( :pPERIOADA))))
   
 GROUP BY
   R.NR_ROW, R.NUME_ROW

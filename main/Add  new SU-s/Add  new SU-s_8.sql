@@ -23,11 +23,11 @@ BEGIN -- ======================================================================
     UPDATE CIS2.RENIM SET 
       
 --      CAEM2 = CR.CAEM2,
---      DENUMIRE = CR.DENUMIRE,
-      CUATM = CR.CUATM,
+      DENUMIRE = CR.DENUMIRE
+ --     CUATM = CR.CUATM
 --      CFP = CR.CFP,
 --      CFOJ = CR.CFOJ,
-      IDNO = CR.IDNO
+    --  IDNO = CR.IDNO
       
     WHERE 
       CUIIO  = CR.CUIIO AND
