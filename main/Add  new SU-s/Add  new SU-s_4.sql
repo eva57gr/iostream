@@ -43,7 +43,7 @@
 
  SELECT 
     CUIIO,
-    2011 CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -79,21 +79,17 @@
     IDNO
 
                     FROM USER_BANCU.VW_MAX_RENIM_CIS2
-                          --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                       --   USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                     
                     CUIIO IN (
- SELECT 
- 
-        L.CUIIO
-       
-   
-        FROM USER_BANCU.ADD_NEW_SU L                    
+SELECT CUIIO
+        FROM USER_BANCU.ADD_NEW_SU
+                  
  ) 
                  
-             
-   AND CUIIO_VERS <> 2011
+                AND CUIIO_VERS =  2011
  
              ORDER BY 
              CUIIO_VERS DESC 

@@ -10,4 +10,6 @@
         
         
              SELECT CUIIO
-        FROM USER_BANCU.ADD_NEW_SU;
+        FROM USER_BANCU.ADD_NEW_SU
+        
+        
