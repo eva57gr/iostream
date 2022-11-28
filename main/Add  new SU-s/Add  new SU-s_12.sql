@@ -13,7 +13,7 @@
         L.CUIIO,
         2011 CUIIO_VERS,
          4  FORM,
-        2000    FORM_VERS,
+        2000    FORM_VERS, --- 
         '1' STATUT
  FROM  USER_BANCU.ADD_NEW_SU  L 
  WHERE 
