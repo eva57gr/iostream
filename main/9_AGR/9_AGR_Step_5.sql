@@ -97,7 +97,7 @@
                   
  ) 
                  
-             --   AND CUIIO_VERS    =   2011
+               -- AND CUIIO_VERS    <>    2011
  
              ORDER BY 
              CUIIO 

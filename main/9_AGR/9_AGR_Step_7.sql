@@ -1,4 +1,4 @@
-﻿----There are 11 statistical units that are not in the new catalog but have already been introduced.
+----There are 11 statistical units that are not in the new catalog but have already been introduced.
    SELECT 
           D.CUIIO D_CUIIO,
           R.CUIIO R_CUIIO,
