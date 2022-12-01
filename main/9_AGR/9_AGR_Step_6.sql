@@ -1,8 +1,13 @@
 ﻿----There are 11 statistical units that are not in the new catalog but have already been introduced.
+SELECT 
+R_CUIIO CUIIO  
+
+FROM 
+(
    SELECT 
           D.CUIIO D_CUIIO,
-          R.CUIIO R_CUIIO,
-          R.DATA_REG
+          R.CUIIO R_CUIIO ,
+          MAX(R.DATA_REG) DATA_REG 
                 
   FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D RIGHT  JOIN (
      SELECT 
@@ -27,6 +32,10 @@ D.DATA_REG DESC
   D.CUIIO IS  NULL 
 
 
-ORDER BY 
-R.DATA_REG DESC                    
-                     
+
+GROUP BY 
+
+    D.CUIIO,
+    R.CUIIO
+                  
+                     ) L 
