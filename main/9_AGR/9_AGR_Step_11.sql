@@ -17,4 +17,6 @@ SELECT     R.CUIIO,
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
+               WHERE 
+               R.CUIIO_VERS <> 2011
                

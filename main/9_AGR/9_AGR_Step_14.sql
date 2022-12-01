@@ -8,7 +8,9 @@
      SELECT     R.CUIIO,
            R.CUIIO_VERS
           
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -21,6 +23,9 @@
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
+             
+             
+             
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
 
@@ -32,4 +37,19 @@
    
   1=1
   
-  AND R.CUIIO IS NOT NULL 
+  AND R.CUIIO IS  NULL 
+  
+  
+--  AND R.CUIIO IN (
+--  
+--  41189162,
+--41313923,
+--41031544,
+--36742714,
+--31298717,
+--501029700
+--  )
+--  
+  
+  ORDER BY 
+  R.CUIIO DESC 

@@ -16,3 +16,5 @@ SELECT     R.CUIIO,
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               
+               

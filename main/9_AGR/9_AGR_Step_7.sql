@@ -1,32 +1,36 @@
-----There are 11 statistical units that are not in the new catalog but have already been introduced.
+----The statistical units that are in the new catalog and are in the old catalog.
    SELECT 
           D.CUIIO D_CUIIO,
-          R.CUIIO R_CUIIO,
-          R.DATA_REG
+          R.CUIIO R_CUIIO
+          
                 
-  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D RIGHT  JOIN (
-     SELECT 
-        DISTINCT D.CUIIO,
-                 D.DATA_REG
-            
-                FROM CIS2.VW_DATA_ALL D
-
-                    WHERE 
-                    D.PERIOADA IN (:pPERIOADA)
-                    AND D.FORM  IN (:pFORM)
-                
-
-ORDER BY 
-D.DATA_REG DESC
+  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D LEFT   JOIN (
+     SELECT     R.CUIIO,
+           R.CUIIO_VERS
+          
+      FROM (SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS2.FORM_CUIIO  FC
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS2.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
 
 
 
   ) R ON D.CUIIO = R.CUIIO 
   
   WHERE 
-  D.CUIIO IS  NULL 
+  R.CUIIO IS  NOT NULL 
 
 
-ORDER BY 
-R.DATA_REG DESC                    
+                  
                      

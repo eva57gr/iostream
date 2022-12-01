@@ -1,10 +1,10 @@
-----The statistical units that are in the new catalog and are in the old catalog.
+----Statistical units that are not in the old catalog and must be blocked.
    SELECT 
           D.CUIIO D_CUIIO,
           R.CUIIO R_CUIIO
           
                 
-  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D LEFT   JOIN (
+  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D RIGHT   JOIN (
      SELECT     R.CUIIO,
            R.CUIIO_VERS
           
@@ -29,7 +29,7 @@
   ) R ON D.CUIIO = R.CUIIO 
   
   WHERE 
-  R.CUIIO IS  NOT NULL 
+  D.CUIIO IS NULL 
 
 
                   
