@@ -1,0 +1,25 @@
+SELECT  DISTINCT       
+
+             D.CUIIO,  
+             MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM,
+             SUM(CASE WHEN D.CAPITOL IN (1180) AND D.RIND IN ('800') THEN D.COL1 ELSE 0 END ) AS CAP_8_RIND_800_COL1
+           
+ 
+            FROM CIS2.VW_DATA_ALL D
+                    WHERE 
+                    D.FORM IN (64)
+                    AND D.PERIOADA IN (2010)
+
+                    GROUP BY 
+                    D.CUIIO
+
+
+HAVING 
+
+SUM(CASE WHEN D.CAPITOL IN (1180) AND D.RIND IN ('800') THEN D.COL1 ELSE 0 END ) > 0 
+
+AND 
+
+MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END)  NOT   LIKE '47%'
+
+
