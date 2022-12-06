@@ -1,0 +1,25 @@
+SELECT  DISTINCT       
+
+             D.CUIIO,  
+             MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM,
+             ROUND(SUM(CASE WHEN D.CAPITOL IN (1179) AND D.RIND IN ('700') THEN D.COL1 ELSE 0 END ),2) AS CAP_7_RIND_700_COL1
+           
+ 
+            FROM CIS2.VW_DATA_ALL_COEF D
+                    WHERE 
+                    D.FORM IN (64)
+                    AND D.PERIOADA IN (2010)
+
+                    GROUP BY 
+                    D.CUIIO
+
+
+HAVING 
+
+SUM(CASE WHEN D.CAPITOL IN (1179) AND D.RIND IN ('700') THEN D.COL1 ELSE 0 END ) > 0 
+
+AND 
+
+MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END)  NOT  LIKE '46%'
+
+
