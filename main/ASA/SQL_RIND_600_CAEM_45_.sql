@@ -1,11 +1,30 @@
-/* Formatted on 12/7/2022 10:00:48 AM (QP5 v5.326) */
-  SELECT DISTINCT D.CUIIO, D.CUIIO_VERS
-    FROM CIS2.VW_DATA_ALL D
-   WHERE D.FORM IN (64) AND D.PERIOADA IN (2010)
-GROUP BY D.CUIIO, D.CUIIO_VERS
-  HAVING MAX (
-             CASE
-                 WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31
-                 ELSE NULL
-             END) LIKE
-             '45%'
+SELECT  DISTINCT       
+
+             D.CUIIO,  
+             R.CAEM2,
+             MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM_CALCULAT,
+             ROUND(SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600') THEN D.COL1 ELSE 0 END ),2) AS CAP_6_RIND_600_COL1
+           
+ 
+            FROM CIS2.VW_DATA_ALL_COEF D 
+            
+                    INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+                    WHERE 
+                    D.FORM IN (64)
+                    AND D.PERIOADA IN (2010)
+--                    AND D.CUIIO = 400053 
+
+                    GROUP BY 
+                    D.CUIIO,
+                    R.CAEM2
+
+
+HAVING 
+
+SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600') THEN D.COL1 ELSE 0 END ) > 0 
+
+--AND 
+--
+--MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END)  NOT  LIKE '46%'
+
+
