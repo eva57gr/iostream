@@ -1,35 +1,27 @@
 SELECT 
 CUIIO 
 FROM 
-
 (
 SELECT  DISTINCT       
 
              D.CUIIO, 
-             SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600') THEN D.COL1 ELSE 0 END ) AS COL1,
+            
              MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM
                           
  
             FROM CIS2.VW_DATA_ALL D
                     WHERE 
                     D.FORM IN (64)
-                    AND D.PERIOADA IN (2010)
+                    AND D.PERIOADA IN (:pPERIOADA)
 
                     GROUP BY 
                     D.CUIIO
-
-
 HAVING 
---SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600') THEN D.COL1 ELSE 0 END ) > 0 
---
---AND 
-
-MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) LIKE '45%'
-
-
-ORDER BY 
-SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600') THEN D.COL1 ELSE 0 END ) 
-
-
-
+MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) LIKE '45%' 
 )
+
+
+
+
+
+

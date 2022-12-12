@@ -1,0 +1,22 @@
+    
+ SELECT  
+  
+
+ 
+ SUM(CIS2.NVAL( D.COL1)) AS COL1, 
+ NULL AS COL2
+FROM   
+    CIS2.VW_DATA_ALL 
+          
+WHERE
+  (D.FORM=:pFORM) AND
+  (D.FORM_VERS=:pFORM_VERS) AND
+  (:pID_MDTABLE=:pID_MDTABLE) AND
+  (D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%') AND   
+  D.PERIOADA IN (:pPERIOADA) AND
+  D.FORM IN (64) AND 
+  D.CAPITOL IN (1178)   
+  
+  
+
+    

@@ -1,4 +1,3 @@
---
 --INSERT INTO CIS2.FORM_CUIIO R (
 --        CUIIO,
 --        CUIIO_VERS,
@@ -6,15 +5,15 @@
 --        FORM_VERS,
 --        STATUT 
 --)
-
+--
 
 
  SELECT 
  
         L.CUIIO,
         L.CUIIO_VERS,
-        39 FORM,
-        2000    FORM_VERS,
+        37 FORM,
+        1800    FORM_VERS,
         '1' STATUT
        
         FROM --USER_BANCU.ADD_NEW_SU L
@@ -23,20 +22,48 @@
         WHERE 
    
         
-L.CUIIO IN (
 
 
 
-SELECT CUIIO
-        FROM USER_BANCU.ADD_NEW_SU
-)
+CUIIO IN  ( 
 
-AND FORM = 4
+32128762,
+37566712,
+37745574,
+37803917,
+38636031,
+38988304,
+--40502036,
+40502510,
+40530771,
+40776265,
+40802703,
+40982817,
+41069541,
+41153951,
+41191012,
+41191667,
+41232127,
+41311427,
+41559601,
+41560260,
+591224367,
+3760323664,
+3775870821,
+3851185567,
+3899330964,
+4028251167,
+4122965460,
+4125230660
 
-AND  CUIIO_VERS = 2011
 
-      --  AND CUIIO_VERS IN (2011)
-               
+) 
+  AND 
+  
+  
+  CUIIO_VERS IN (1825)
+
+
                
               
         
