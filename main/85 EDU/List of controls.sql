@@ -1,5 +1,6 @@
 ﻿SELECT 
       L.CONTROL,
+      L.CONTROL_VERS,
       L.FORMULA,
       L.SQL_TEXT,
       L.PRIORITATEA,
@@ -12,6 +13,7 @@
 ( 
 SELECT 
       B.CONTROL,
+      B.CONTROL_VERS,
       B.FORMULA,
       B.SQL_TEXT,
       B.PRIORITATEA,
@@ -44,9 +46,24 @@ SELECT
          1=1
          AND B.FORM  = 17
          AND B.STATUT <> '3'
-        -- AND B.FORM_VERS = 2009
-               
+         
+      --   AND B.CONTROL LIKE '17-4%'
+      --   AND B.SQL_TEXT  LIKE '%D.CAPITOL in (1004)%'
+         
+--         AND 
+--         
+--         (
+--         
+--         B.FORMULA  LIKE '%RIND.030%'
+--         OR 
+--         
+--         B.CONTROL LIKE '%17-401%'
+--         ) 
+--               
          
          
          ORDER BY 
           B.CONTROL ) L
+          
+          ORDER BY 
+          L.CONTROL
