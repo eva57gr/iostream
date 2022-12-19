@@ -45,7 +45,7 @@
 
 SELECT 
     CUIIO,
-    1056 CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
