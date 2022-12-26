@@ -1,0 +1,27 @@
+SELECT
+    D.CUIIO,
+    R.CUATM,
+    R.DENUMIRE,
+    D.RIND,
+    SUM(D.COL1)  AS COL1
+
+    FROM VW_DATA_ALL D 
+    
+            INNER JOIN RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+
+
+            WHERE
+  (D.PERIOADA =:pPERIOADA) AND
+  (D.FORM =:pFORM) AND
+  (D.FORM_VERS =:pFORM_VERS) AND 
+  (:pID_MDTABLE =:pID_MDTABLE)  AND 
+  (D.CUATM_FULL LIKE '%' ||:pCOD_CUATM||';%') AND
+   D.FORM = 40 AND
+   D.CAPITOL = 1031
+   AND D.RIND IN ('19')
+   
+   GROUP BY
+        D.CUIIO,
+    R.CUATM,
+    R.DENUMIRE,
+    D.RIND
