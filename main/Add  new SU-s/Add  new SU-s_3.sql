@@ -16,7 +16,7 @@
                         
                         WHERE 
                         
-                        C.CODUL IS NOT NULL 
+                        C.CODUL IS NULL 
 
 
 
