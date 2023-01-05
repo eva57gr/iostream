@@ -27,11 +27,11 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
---      CAEM2 = CR.CAEM2,
-    --  DENUMIRE = CR.DENUMIRE
-       CUATM = CR.CUATM
---      CFP = CR.CFP,
---      CFOJ = CR.CFOJ,
+       CAEM2 = CR.CAEM2,
+       DENUMIRE = CR.DENUMIRE,
+       CUATM = CR.CUATM,
+       CFP = CR.CFP,
+       CFOJ = CR.CFOJ
     --  IDNO = CR.IDNO
       
     WHERE 
