@@ -29,15 +29,15 @@ BEGIN -- ======================================================================
       
 --      CAEM2 = CR.CAEM2,
     --  DENUMIRE = CR.DENUMIRE
- --     CUATM = CR.CUATM
+       CUATM = CR.CUATM
 --      CFP = CR.CFP,
 --      CFOJ = CR.CFOJ,
-      IDNO = CR.IDNO
+    --  IDNO = CR.IDNO
       
     WHERE 
       CUIIO  = CR.CUIIO 
---      AND
---      CUIIO_VERS = CR.CUIIO_VERS 
+      AND
+      CUIIO_VERS = CR.CUIIO_VERS 
       
       
       
