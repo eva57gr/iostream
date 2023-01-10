@@ -1,45 +1,45 @@
--- INSERT INTO CIS2.RENIM (
--- 
--- 
--- CUIIO,
---    CUIIO_VERS,
---    DENUMIRE,
---    EDIT_USER,
---    STATUT,
---    CUATM,
---    CFP,
---    CFOJ,
---    COCM,
---    CAEM,
---    BUGET,
---    TIP,
---    PROD,
---    FOR_CUB,
---    GENMUZEE,
---    TIPMUZEE,
---    TIP_LOCAL,
---    TIP_INST,
---    CAEM2,
---    N85_NTL,
---    N85_NTIIP,
---    N85_NDIIP,
---    N85_NPDS,
---    N85_NRIIP,
---    N85_NSIIP,
---    GENMUZEE2,
---    NFI,
---    NTII,
---    NPDS,
---    ORGANE,
---    TIP_INV,
---    RENIM_PERS,
---    ORGANE_COND,
---    GEN_INSTITUTIE,
---    IDNO
---
--- 
--- )
---
+ INSERT INTO CIS2.RENIM (
+ 
+ 
+ CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    EDIT_USER,
+    STATUT,
+    CUATM,
+    CFP,
+    CFOJ,
+    COCM,
+    CAEM,
+    BUGET,
+    TIP,
+    PROD,
+    FOR_CUB,
+    GENMUZEE,
+    TIPMUZEE,
+    TIP_LOCAL,
+    TIP_INST,
+    CAEM2,
+    N85_NTL,
+    N85_NTIIP,
+    N85_NDIIP,
+    N85_NPDS,
+    N85_NRIIP,
+    N85_NSIIP,
+    GENMUZEE2,
+    NFI,
+    NTII,
+    NPDS,
+    ORGANE,
+    TIP_INV,
+    RENIM_PERS,
+    ORGANE_COND,
+    GEN_INSTITUTIE,
+    IDNO
+
+ 
+ )
+
 
 
 
@@ -86,11 +86,14 @@ SELECT
                     WHERE 
                     
                     CUIIO IN (
-SELECT     L.CUIIO  
---           R.CUIIO  R_CUIIO,
---           R.CUIIO_VERS
-          
-      FROM (
+           SELECT 
+        L.CUIIO
+      
+        
+        FROM 
+
+
+(
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
@@ -109,19 +112,14 @@ SELECT     R.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
-               RIGHT JOIN (
-               
-               SELECT CUIIO
-               
-        FROM USER_BANCU.ADD_NEW_SU
-               ) L ON L.CUIIO = R.CUIIO 
                
                WHERE 
-               R.CUIIO IS   NULL 
-                  
- ) 
-                 
-            
-            AND CUIIO_VERS  =      2011
+               
+               R.CUIIO_VERS <>   2011
+                ) L
+        
+        ) 
+        
+        AND CUIIO_VERS <>   2011
