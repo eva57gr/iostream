@@ -1,27 +1,9 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
 
 
 
 
-SELECT 
-        L.CUIIO,
-        2011 CUIIO_VERS,
-        16 FORM,
-        2000    FORM_VERS,
-        '1' STATUT
-        
-        FROM 
 
-
-(
-
-SELECT     R.CUIIO,
+        SELECT     R.CUIIO,
            R.CUIIO_VERS
           
       FROM (SELECT FC.CUIIO,
@@ -39,9 +21,3 @@ SELECT     R.CUIIO,
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
-               
-               
-               WHERE 
-               
-               R.CUIIO_VERS <>   2011
-                ) L
