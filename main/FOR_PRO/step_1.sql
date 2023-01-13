@@ -1,44 +1,44 @@
-DROP VIEW USER_BANCU.VW_2_EDU_2020;
-
-/* Formatted on 1/6/2023 10:55:20 AM (QP5 v5.326) */
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_2_EDU_2020
-(
-    CUIIO,
-    CUIIO_VERS,
-    DENUMIRE,
-    EDIT_USER,
-    STATUT,
-    CUATM,
-    CFP,
-    CFOJ,
-    COCM,
-    CAEM,
-    BUGET,
-    TIP,
-    PROD,
-    FOR_CUB,
-    GENMUZEE,
-    TIPMUZEE,
-    TIP_LOCAL,
-    TIP_INST,
-    CAEM2,
-    N85_NTL,
-    N85_NTIIP,
-    N85_NDIIP,
-    N85_NPDS,
-    N85_NRIIP,
-    N85_NSIIP,
-    GENMUZEE2,
-    NFI,
-    NTII,
-    NPDS,
-    ORGANE,
-    TIP_INV,
-    RENIM_PERS,
-    ORGANE_COND,
-    IDNO
-)
-AS
+--DROP VIEW USER_BANCU.VW_2_EDU_2020;
+--
+--/* Formatted on 1/6/2023 10:55:20 AM (QP5 v5.326) */
+--CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_2_EDU_2020
+--(
+--    CUIIO,
+--    CUIIO_VERS,
+--    DENUMIRE,
+--    EDIT_USER,
+--    STATUT,
+--    CUATM,
+--    CFP,
+--    CFOJ,
+--    COCM,
+--    CAEM,
+--    BUGET,
+--    TIP,
+--    PROD,
+--    FOR_CUB,
+--    GENMUZEE,
+--    TIPMUZEE,
+--    TIP_LOCAL,
+--    TIP_INST,
+--    CAEM2,
+--    N85_NTL,
+--    N85_NTIIP,
+--    N85_NDIIP,
+--    N85_NPDS,
+--    N85_NRIIP,
+--    N85_NSIIP,
+--    GENMUZEE2,
+--    NFI,
+--    NTII,
+--    NPDS,
+--    ORGANE,
+--    TIP_INV,
+--    RENIM_PERS,
+--    ORGANE_COND,
+--    IDNO
+--)
+--AS
     SELECT R.CUIIO,
            R.CUIIO_VERS,
            R.DENUMIRE,
@@ -81,10 +81,17 @@ AS
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (40) AND CUIIO_VERS <= 2009
+                                  WHERE FORM IN (16) AND CUIIO_VERS <= 2011
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (40) AND FC.STATUT <> '3') FC
+             WHERE FC.FORM IN (16) AND FC.STATUT <> '3') FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS);
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+
+
+WHERE 
+R.CUIIO_VERS  =  2011
+--R.IDNO IS NULL 
+--AND 
+

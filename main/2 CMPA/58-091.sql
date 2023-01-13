@@ -1,11 +1,11 @@
 SELECT
---'Eroare. Trebuie bifata TIP2 sau TIP3' AS REZULTAT,
-D.NR_GOSP
+D.NR_GOSP,
+'Eroare. Trebuie bifata TIP2 sau TIP3' AS REZULTAT
 FROM VW_DATA_ALL_GC D
 WHERE
    
-  (D.PERIOADA=:PERIOADA          ) AND
- -- (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
+   (D.PERIOADA=:PERIOADA          ) AND
+--  (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
   (D.UNIT_CODE_VERS=:UNIT_CODE_VERS     OR :UNIT_CODE_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS ) AND

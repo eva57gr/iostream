@@ -1,4 +1,6 @@
 SELECT 
+R.NR_GOSP,
+  L.NR_GOSP,
 'Eroare. Nu trebuie sa fie date in raport.' AS REZULTAT 
 FROM 
 
@@ -11,7 +13,7 @@ FROM VW_DATA_ALL_GC D
 WHERE
    
    (D.PERIOADA=:PERIOADA          ) AND
-  (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
+  --(D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
   (D.UNIT_CODE_VERS=:UNIT_CODE_VERS     OR :UNIT_CODE_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS ) AND
@@ -33,15 +35,15 @@ WHERE
   
   SELECT
 DISTINCT D.NR_GOSP,
-D.CAPITOL
---D.RIND,
---SUM(D.COL1) AS COL1
+D.CAPITOL,
+D.RIND,
+SUM(D.COL1) AS COL1
 
 FROM VW_DATA_ALL_GC D
 WHERE
    
    (D.PERIOADA=:PERIOADA          ) AND
-  (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
+ -- (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
   (D.UNIT_CODE_VERS=:UNIT_CODE_VERS     OR :UNIT_CODE_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS ) AND
@@ -55,11 +57,11 @@ WHERE
   
   GROUP BY
   D.NR_GOSP,
-  D.CAPITOL
-  
+  D.CAPITOL,
+  D.RIND 
 
 HAVING 
-D.CAPITOL > 0
+SUM(D.COL1) > 0
 
   )  R ON R.NR_GOSP = L.NR_GOSP
   
