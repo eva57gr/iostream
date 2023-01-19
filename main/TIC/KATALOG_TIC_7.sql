@@ -9,24 +9,24 @@
 
 
 
-SELECT 
-        L.CUIIO,
-        2011 CUIIO_VERS,
-        71 FORM,
-        2000    FORM_VERS,
-        '1' STATUT
-        
-        FROM 
-
-
-(
+--SELECT 
+--        L.CUIIO,
+--        2011 CUIIO_VERS,
+--        71 FORM,
+--        2000    FORM_VERS,
+--        '1' STATUT
+--        
+--        FROM 
+--
+--
+--(
 
 
 SELECT   
 
 
   
-       --  R.CUIIO  R_CUIIO,       
+         R.CUIIO  R_CUIIO,       
          L.CUIIO  CUIIO
          
          FROM (
@@ -34,7 +34,10 @@ SELECT
 SELECT     R.CUIIO,
            R.CUIIO_VERS
           
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -46,7 +49,11 @@ SELECT     R.CUIIO,
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (71) AND FC.STATUT <> '3') FC
+             WHERE FC.FORM IN (71) AND FC.STATUT <> '3'
+             
+             
+             
+             ) FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
@@ -59,8 +66,8 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CUIIO IS   NULL  
-               ) L  
+               R.CUIIO IS  NULL  
+           --    ) L  
               
                
                
