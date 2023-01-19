@@ -85,21 +85,24 @@ SELECT
                     
                     WHERE 
                     
-                    CUIIO IN (
-           
-        SELECT   
+                    
+                    CUIIO IN ( 
+                    SELECT   
 
 
   
-         R.CUIIO        
-        -- L.CUIIO  CUIIO
+  --       R.CUIIO  R_CUIIO,       
+         L.CUIIO  CUIIO
          
          FROM (
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
           
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -107,25 +110,33 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (71) AND CUIIO_VERS <= 2011
+                                  WHERE FORM IN (3) AND CUIIO_VERS <= 2011
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (71) AND FC.STATUT <> '3') FC
+             WHERE FC.FORM IN (3) AND FC.STATUT <> '3'
+             
+             
+             
+             ) FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
-               LEFT   JOIN (
+               RIGHT  JOIN (
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_NEW_SU_TIC
+        FROM USER_BANCU.ADD_NEW_SU_M3
+        
+        
                ) L ON L.CUIIO = R.CUIIO
                
                
                WHERE 
-               L.CUIIO IS   NULL  
-        
-        ) 
-        
-        AND CUIIO_VERS <>       2011
+               R.CUIIO IS  NULL  
+                    )
+                    
+
+
+AND CUIIO_VERS <> 2011       
+

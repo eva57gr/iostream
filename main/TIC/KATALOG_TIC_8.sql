@@ -1,11 +1,11 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
-
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
+--
 
 
 
@@ -70,7 +70,7 @@ SELECT
                WHERE 
                L.CUIIO IS   NULL  
                
-               AND R.CUIIO_VERS <> 2011 
+               AND R.CUIIO_VERS = 2011 
 
 
 
