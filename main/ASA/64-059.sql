@@ -1,0 +1,42 @@
+SELECT
+'Nu este cap.6 ?i/sau cap.7 ?i/sau cap.8' AS REZULTAT  
+
+    FROM
+ CIS2.VW_DATA_ALL_TEMP D 
+       
+ 
+ 
+ 
+
+WHERE
+  (D.PERIOADA =:PERIOADA  ) AND
+  (D.CUIIO = :CUIIO   ) AND
+  (D.CUIIO_VERS = :CUIIO_VERS  OR  :CUIIO_VERS = -1   ) AND
+  (D.FORM = :FORM)   AND
+  (D.FORM_VERS=:FORM_VERS  ) AND
+  (:CAPITOL <>  :CAPITOL        OR :CAPITOL =  :CAPITOL ) AND
+  (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
+   (D.ID_MD=:ID_MD               OR :ID_MD = -1) 
+  AND 
+  D.FORM IN (64)
+  AND 
+  (
+                SUBSTR(D.CAEM2,2,5) LIKE '45%'
+                OR 
+                SUBSTR(D.CAEM2,2,5) LIKE '46%'
+                OR 
+                SUBSTR(D.CAEM2,2,5) LIKE '47%'
+  )
+  
+  
+
+
+   HAVING 
+   SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('150')  THEN NVAL(D.COL1) ELSE 0 END ) > 0 
+   
+   AND 
+   
+   (SUM(CASE WHEN D.CAPITOL IN (1178) AND D.RIND IN ('600')  THEN NVAL(D.COL1) ELSE 0 END ) + 
+   
+   SUM(CASE WHEN D.CAPITOL IN (1179) AND D.RIND IN ('700')  THEN NVAL(D.COL1) ELSE 0 END ) +
+   SUM(CASE WHEN D.CAPITOL IN (1180) AND D.RIND IN ('800','830','850','890','900')  THEN NVAL(D.COL1) ELSE 0 END ) = 0)
