@@ -77,6 +77,6 @@ FROM
   ROWNUM
   
   HAVING
-  ROWNUM = 5
+  ROWNUM < 10
   
   

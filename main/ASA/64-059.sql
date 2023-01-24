@@ -2,7 +2,7 @@ SELECT
 'Nu este cap.6 ?i/sau cap.7 ?i/sau cap.8' AS REZULTAT  
 
     FROM
- CIS2.VW_DATA_ALL_TEMP D 
+ CIS2.VW_DATA_ALL D 
        
  
  
