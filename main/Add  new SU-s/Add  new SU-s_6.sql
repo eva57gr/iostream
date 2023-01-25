@@ -1,25 +1,25 @@
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
-
-
-
-
-SELECT 
-        L.CUIIO,
-        2011 CUIIO_VERS,
-        16 FORM,
-        2000    FORM_VERS,
-        '1' STATUT
-        
-        FROM 
-
-
-(
+----INSERT INTO CIS2.FORM_CUIIO R (
+----        CUIIO,
+----        CUIIO_VERS,
+----        FORM,
+----        FORM_VERS,
+----        STATUT 
+----)
+--
+--
+--
+--
+--SELECT 
+--        L.CUIIO,
+--        2011 CUIIO_VERS,
+--        16 FORM,
+--        2000    FORM_VERS,
+--        '1' STATUT
+--        
+--        FROM 
+--
+--
+--(
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
@@ -41,7 +41,7 @@ SELECT     R.CUIIO,
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                
-               WHERE 
-               
-               R.CUIIO_VERS <>   2011
-                ) L
+--               WHERE 
+--               
+--               R.CUIIO_VERS <>   2011
+--                ) L
