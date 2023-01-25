@@ -26,7 +26,7 @@
         L.CFOJ,
         L.CAEM2,
         L.IDNO
-        FROM USER_BANCU.ADD_NEW_SU L
+        FROM USER_BANCU.ADD_NEW_1_TUR L
         
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
@@ -34,4 +34,4 @@
                         
                         WHERE 
                         
-                        C.CUIIO  IS     NOT  NULL 
+                        C.CUIIO  IS      NULL 
