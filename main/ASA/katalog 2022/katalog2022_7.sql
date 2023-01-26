@@ -1,10 +1,10 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
 
 
 
@@ -12,7 +12,7 @@ INSERT INTO CIS2.FORM_CUIIO R (
 SELECT 
         L.CUIIO,
         2011 CUIIO_VERS,
-        64 FORM,
+        48 FORM,
         2000    FORM_VERS,
         '1' STATUT
         
@@ -45,11 +45,11 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (64) AND CUIIO_VERS <= 2011
+                                  WHERE FORM IN (48) AND CUIIO_VERS <= 2011
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (64) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (48) AND FC.STATUT <> '3'
              
              
              
@@ -61,12 +61,14 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_NEW_ASA_2022
+        FROM USER_BANCU.ADD_NEW_1_INOV_2022
+        
+        
                ) L ON L.CUIIO = R.CUIIO
                
                
                WHERE 
-               R.CUIIO IS  NULL  
+               R.CUIIO IS   NULL  
                ) L  
               
                
