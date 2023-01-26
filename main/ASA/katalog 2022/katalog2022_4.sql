@@ -9,7 +9,7 @@
 --        L.CFOJ,
 --        L.CAEM2,
 --        L.IDNO
-        FROM USER_BANCU.ADD_NEW_ASA_2022 L
+        FROM USER_BANCU.ADD_NEW_1_INOV_2022 L
         
          GROUP BY 
          L.CUIIO 

@@ -26,7 +26,7 @@
         TRIM(L.CFOJ) CFOJ ,
         TRIM(L.CAEM2) CAEM2,
         TRIM(L.IDNO) IDNO
-        FROM USER_BANCU.ADD_NEW_ASA_2022 L
+        FROM USER_BANCU.ADD_NEW_1_INOV_2022 L
         
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
@@ -34,7 +34,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO IS NULL 
+                        C.CUIIO IS  NULL 
                         
                         
                         ORDER BY 

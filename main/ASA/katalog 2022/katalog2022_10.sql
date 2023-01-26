@@ -9,4 +9,4 @@
         L.CAEM2,
         L.IDNO,
         L.ADDRESS1
-        FROM USER_BANCU.ADD_NEW_ASA_2022 L
+        FROM USER_BANCU.ADD_NEW_1_INOV_2022 L
