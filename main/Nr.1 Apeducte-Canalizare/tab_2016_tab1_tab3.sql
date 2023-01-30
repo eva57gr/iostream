@@ -1,4 +1,9 @@
-
+SELECT 
+RIND,
+SUM(COL1) AS COL1,
+SUM(COL2) AS COL2
+FROM 
+(
 
 SELECT 
   D.CODUL,
@@ -128,6 +133,8 @@ SELECT
     AND D.FORM IN (:pFORM)    
     AND D.CAPITOL IN (1034)
     AND D.RIND IN ('0000000')
+   --  AND
+ --  D.CUIIO= 38923807 
    
     
 GROUP BY 
@@ -173,6 +180,8 @@ GROUP BY
     AND D.FORM IN (:pFORM)    
     AND D.CAPITOL IN (1036)
     AND D.RIND IN ('0000000')
+  --   AND
+ --  D.CUIIO= 38923807 
    
     
 GROUP BY 
@@ -226,3 +235,7 @@ FULL_CODE
 
 --WHERE 
 --R.IDNO  IS NULL 
+)
+
+GROUP BY 
+RIND
