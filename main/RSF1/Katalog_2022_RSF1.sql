@@ -3,7 +3,7 @@ SELECT R.CUIIO,
        --    R.DENUMIRE,
 --           R.EDIT_USER,
 --           R.STATUT,
-           R.CUATM
+           R.CUATM,
 --           R.CFP,
 --           R.CFOJ,
 --           R.COCM,
@@ -31,7 +31,7 @@ SELECT R.CUIIO,
 --           R.TIP_INV,
 --           R.RENIM_PERS,
 --           R.ORGANE_COND,
-        --   R.IDNO
+            R.IDNO
       FROM (SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
@@ -52,6 +52,14 @@ SELECT R.CUIIO,
              AND 
              FC.FORM_VERS IN (2000)
              AND FC.STATUT <> '3'
-             ) FC
+             ) FC   
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+               
+               
+               
+--               WHERE 
+--                LENGTH(R.IDNO) =   4 
+               
+               ORDER BY
+                R.IDNO

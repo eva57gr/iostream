@@ -1,0 +1,222 @@
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL2)||' :COL2'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+SUM(D.COL1) < 
+SUM(D.COL2)
+
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL3)||' :COL3'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) <
+SUM(D.COL3)
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL4)||' :COL4'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) < SUM(D.COL4)
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL5)||' :COL5'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) <
+SUM(D.COL5)
+
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL6)||' :COL6'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) <
+SUM(D.COL6)
+
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL7)||' :COL7'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) <
+SUM(D.COL7)
+
+
+UNION 
+
+SELECT   
+'FILIALA:'||D.FILIAL||' Rind '||D.RIND||'.COL1:  '||  
+SUM(D.COL1) ||' < '||  
+SUM(D.COL8)||' :COL8'
+  AS REZULTAT
+
+FROM
+  VW_DATA_ALL D
+ 
+WHERE
+  (D.PERIOADA =:PERIOADA        ) AND
+  (D.CUIIO=:CUIIO               ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (16)  AND
+  D.CAPITOL in (353) 
+ 
+ 
+GROUP BY D.RIND, D.FILIAL
+
+HAVING
+
+SUM(D.COL1) <SUM(D.COL8)
