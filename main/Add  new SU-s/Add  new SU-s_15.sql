@@ -1,11 +1,31 @@
+--UPDATE CIS.FORM_CUIIO
+--SELECT * 
+  --  SET STATUT = '3'     
+   -- from CIS.FORM_CUIIO 
+    
+    WHERE 
+
+CUIIO IN (
+
+SELECT 
+        L.CUIIO
+        
+
+        
+        FROM 
+
+
+(
+
+
 SELECT   
 
 
   
-         R.CUIIO       FROM (
-
-
-
+         R.CUIIO  CUIIO       
+      --   L.CUIIO  CUIIO
+         
+         FROM (
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
@@ -26,7 +46,7 @@ SELECT     R.CUIIO,
            INNER JOIN CIS.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
-               RIGHT  JOIN (
+               LEFT   JOIN (
                
                SELECT CUIIO
                
@@ -35,9 +55,19 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               L.CUIIO IS NOT NULL  
+               L.CUIIO IS   NULL  
+             
+
+  ) L   ) 
+  
+
+ AND FORM = 10 
+--  
+--  
+  AND CUIIO_VERS = 2011
+    AND FORM_VERS = 1999 
+  AND STATUT = '1' 
                
-              
                
                
               

@@ -1,14 +1,14 @@
  SELECT *
-        FROM USER_BANCU.ADD_NEW_1_TUR
+        FROM USER_BANCU.ADD_PRODMOLD_22
         
         
         ORDER BY 
         CUATM DESC
         ;
---        
-        UPDATE USER_BANCU.ADD_NEW_1_TUR
+       
+        UPDATE USER_BANCU.ADD_PRODMOLD_22
         SET CUATM = CASE WHEN (LENGTH(CUATM) = 6 AND (SUBSTR(CUATM,1,1) = 1  OR SUBSTR(CUATM,1,1) = 3 )) THEN '0'||CUATM ELSE CUATM END,
-         CUIIO_VERS = 1056
+         CUIIO_VERS = 2011
         --CUATM = '0'||REPLACE(CUATM,'O','0')
 --        ,
 --          CUATM  = '0'||CUATM

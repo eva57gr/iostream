@@ -10,10 +10,10 @@ DECLARE -- ====================================================================
         L.DENUMIRE,
         L.CUATM,
         L.CFP,
-        L.CFOJ,
-        L.CAEM2,
-        L.IDNO
-        FROM USER_BANCU.ADD_NEW_SU L
+      --  L.CFOJ,
+        L.CAEM2
+        --L.IDNO
+        FROM USER_BANCU.ADD_PRODMOLD_22 L
         
         
 --        WHERE 
@@ -25,13 +25,13 @@ DECLARE -- ====================================================================
 BEGIN -- ======================================================================
   FOR CR IN C
   LOOP
-    UPDATE CIS2.RENIM SET 
+    UPDATE CIS.RENIM SET 
       
        CAEM2 = CR.CAEM2,
        DENUMIRE = CR.DENUMIRE,
        CUATM = CR.CUATM,
-       CFP = CR.CFP,
-       CFOJ = CR.CFOJ
+       CFP = CR.CFP
+      -- CFOJ = CR.CFOJ
     --  IDNO = CR.IDNO
       
     WHERE 
