@@ -46,12 +46,12 @@ SELECT
                     CUIIO IN (
                     
                     
-                     SELECT 
- 
-        L.CUIIO
-       
-   
-        FROM USER_BANCU.ADD_NEW_SU L    
+--                     SELECT 
+-- 
+--        L.CUIIO
+--       
+--   
+--        FROM USER_BANCU.ADD_NEW_SU L    
                     )
                     
                     
