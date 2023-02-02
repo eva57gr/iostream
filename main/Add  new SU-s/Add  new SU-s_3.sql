@@ -7,7 +7,7 @@
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM USER_BANCU.ADD_PRODMOLD_22 L
+        FROM USER_BANCU.RSF_CUATM L
         
         
                         LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
