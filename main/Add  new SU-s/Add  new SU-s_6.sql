@@ -11,7 +11,7 @@
 
 SELECT 
         L.CUIIO,
-        2011 CUIIO_VERS,
+        L.CUIIO_VERS,
         10 FORM,
         1999    FORM_VERS,
         '1' STATUT
@@ -30,9 +30,9 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
+                                   FROM CIS2.FORM_CUIIO
                                   WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -41,11 +41,11 @@ SELECT     R.CUIIO,
              
              
              ) FC
-           INNER JOIN CIS.RENIM R
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                
                WHERE 
                
-               R.CUIIO_VERS <>   2011
+               R.CUIIO_VERS <>     2011
                 ) L
