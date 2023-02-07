@@ -221,6 +221,7 @@ FULL_CODE
 
 SELECT 
     CUIIO,
+
     IDNO
 
                     FROM  USER_BANCU.VW_MAX_RENIM_CIS2
