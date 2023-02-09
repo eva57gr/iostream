@@ -1,5 +1,5 @@
 SELECT R.CUIIO,
-       --    R.CUIIO_VERS,
+           R.CUIIO_VERS,
        --    R.DENUMIRE,
 --           R.EDIT_USER,
 --           R.STATUT,
@@ -41,16 +41,16 @@ SELECT R.CUIIO,
                    INNER JOIN
                    (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                         FROM CIS2.FORM_CUIIO
-                       WHERE     FORM IN (63)
-                             AND FORM_VERS = 2000
+                       WHERE     FORM IN (57)
+                             AND FORM_VERS = 2009
                              AND CUIIO_VERS <= :pPERIOADA
                     GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
-             FC.FORM IN (63) 
+             FC.FORM IN (57) 
              AND 
-             FC.FORM_VERS IN (2000)
+             FC.FORM_VERS IN (2009)
              AND FC.STATUT <> '3'
              ) FC   
            INNER JOIN CIS2.RENIM R
@@ -58,8 +58,10 @@ SELECT R.CUIIO,
                
                
                
---               WHERE 
---                LENGTH(R.IDNO) =   4 
+               WHERE 
+               -- LENGTH(R.IDNO) =   4
+               
+               R.CUIIO_VERS <> 2011 
                
                ORDER BY
                 R.IDNO

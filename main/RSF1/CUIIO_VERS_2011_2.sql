@@ -12,7 +12,7 @@ INSERT  INTO CIS2.FORM_CUIIO (
       
       SELECT       
          FC.CUIIO,
-                   FC.CUIIO_VERS,
+                   2011 CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
