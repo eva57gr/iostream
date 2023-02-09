@@ -1,51 +1,51 @@
-﻿ INSERT INTO CIS2.RENIM (
- 
- 
- CUIIO,
-    CUIIO_VERS,
-    DENUMIRE,
-    EDIT_USER,
-    STATUT,
-    CUATM,
-    CFP,
-    CFOJ,
-    COCM,
-    CAEM,
-    BUGET,
-    TIP,
-    PROD,
-    FOR_CUB,
-    GENMUZEE,
-    TIPMUZEE,
-    TIP_LOCAL,
-    TIP_INST,
-    CAEM2,
-    N85_NTL,
-    N85_NTIIP,
-    N85_NDIIP,
-    N85_NPDS,
-    N85_NRIIP,
-    N85_NSIIP,
-    GENMUZEE2,
-    NFI,
-    NTII,
-    NPDS,
-    ORGANE,
-    TIP_INV,
-    RENIM_PERS,
-    ORGANE_COND,
-    GEN_INSTITUTIE,
-    IDNO
-
- 
- )
+﻿-- INSERT INTO CIS2.RENIM (
+-- 
+-- 
+-- CUIIO,
+--    CUIIO_VERS,
+--    DENUMIRE,
+--    EDIT_USER,
+--    STATUT,
+--    CUATM,
+--    CFP,
+--    CFOJ,
+--    COCM,
+--    CAEM,
+--    BUGET,
+--    TIP,
+--    PROD,
+--    FOR_CUB,
+--    GENMUZEE,
+--    TIPMUZEE,
+--    TIP_LOCAL,
+--    TIP_INST,
+--    CAEM2,
+--    N85_NTL,
+--    N85_NTIIP,
+--    N85_NDIIP,
+--    N85_NPDS,
+--    N85_NRIIP,
+--    N85_NSIIP,
+--    GENMUZEE2,
+--    NFI,
+--    NTII,
+--    NPDS,
+--    ORGANE,
+--    TIP_INV,
+--    RENIM_PERS,
+--    ORGANE_COND,
+--    GEN_INSTITUTIE,
+--    IDNO
+--
+-- 
+-- )
 
 
 
 
 SELECT 
     CUIIO,
-    2011 CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -93,7 +93,9 @@ SELECT
           SELECT R.CUIIO
            
 
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -113,6 +115,8 @@ SELECT
 --             AND 
 --             FC.FORM_VERS IN (2009)
              AND FC.STATUT <> '3'
+             
+             
              ) FC   
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
@@ -123,7 +127,7 @@ SELECT
                1=1
                -- LENGTH(R.IDNO) =   4
                
-             --  AND R.CUIIO_VERS =  2011 
+               AND R.CUIIO_VERS =  2011 
                
           
         
@@ -131,4 +135,4 @@ SELECT
         
         ) 
         
-        AND CUIIO_VERS <>   2011
+       -- AND CUIIO_VERS <>   2011
