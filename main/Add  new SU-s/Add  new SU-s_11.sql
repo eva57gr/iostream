@@ -10,7 +10,7 @@
 --     --   L.CFOJ,
 --        L.CAEM2
 --      --  L.IDNO
-        FROM USER_BANCU.ADD_PRODMOLD_22 L
+        FROM USER_BANCU.ADD_EI_78_23 L
         
         WHERE 
         1=1
