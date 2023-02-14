@@ -1,4 +1,4 @@
---INSERT INTO CIS.FORM_CUIIO R (
+--INSERT INTO CIS2.FORM_CUIIO R (
 --        CUIIO,
 --        CUIIO_VERS,
 --        FORM,
@@ -11,9 +11,9 @@
 
 SELECT 
         L.CUIIO,
-        2011 CUIIO_VERS,
-        10 FORM,
-        1999    FORM_VERS,
+        1056 CUIIO_VERS,
+        44 FORM,
+        1004    FORM_VERS,
         '1' STATUT
         
         FROM 
@@ -42,33 +42,33 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (10) AND CUIIO_VERS <= 2011
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1056
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (10) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (44) AND FC.STATUT <> '3'
              
              
              
              ) FC
-           INNER JOIN CIS.RENIM R
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
                RIGHT  JOIN (
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_PRODMOLD_22
+        FROM USER_BANCU.ADD_EI_78_23
         
         
                ) L ON L.CUIIO = R.CUIIO
                
                
                WHERE 
-               R.CUIIO IS   NOT NULL  
+               R.CUIIO IS    NULL  
                ) L  
               
                

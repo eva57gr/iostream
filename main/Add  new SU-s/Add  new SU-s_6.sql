@@ -9,17 +9,17 @@
 --
 
 
-SELECT 
-        L.CUIIO,
-        L.CUIIO_VERS,
-        10 FORM,
-        1999    FORM_VERS,
-        '1' STATUT
-        
-        FROM 
-
-
-(
+--SELECT 
+--        L.CUIIO,
+--        L.CUIIO_VERS,
+--        10 FORM,
+--        1999    FORM_VERS,
+--        '1' STATUT
+--        
+--        FROM 
+--
+--
+--(
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS
@@ -47,5 +47,8 @@ SELECT     R.CUIIO,
                
                WHERE 
                
-               R.CUIIO_VERS <>     2011
-                ) L
+               R.CUIIO_VERS =      1056
+               
+
+
+-- ) L

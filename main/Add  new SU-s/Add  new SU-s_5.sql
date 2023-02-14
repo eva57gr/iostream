@@ -1,4 +1,4 @@
-﻿--INSERT INTO CIS.RENIM R (
+﻿--INSERT INTO CIS2.RENIM R (
 --        CUIIO,
 --        CUIIO_VERS,
 --        DENUMIRE,
@@ -6,12 +6,13 @@
 --        STATUT,
 --        CUATM,
 --        CFP,
---        CFOJ,
+--        --CFOJ,
 --        CAEM2,
---        ETAPA_PROD
+--        IDNO
+--        
 --        
 --)
---
+
 
 
  SELECT 
@@ -23,16 +24,18 @@
         '1' STATUT,
         TRIM(L.CUATM) CUATM,
         TRIM(L.CFP) CFP,
-        L.CFOJ,
+        -- L.CFOJ,
         TRIM(L.CAEM2)  CAEM2,
-        TRIM(L.ETAPA_PROD) ETAPA_PROD 
+        L.IDNO
+      --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM USER_BANCU.ADD_PRODMOLD_22 L
+        FROM USER_BANCU.ADD_EI_78_23 L
         
         
-                        LEFT JOIN CIS.RENIM C ON C.CUIIO  =  L.CUIIO  
+                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
                         
-                        C.CUIIO  IS  NOT     NULL 
+                        C.CUIIO  IS NOT   NULL
+                        AND  C.CUIIO_VERS IS not  NULL 

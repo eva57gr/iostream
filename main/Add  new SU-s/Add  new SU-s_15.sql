@@ -1,7 +1,7 @@
---UPDATE CIS.FORM_CUIIO
---SELECT * 
+-- UPDATE CIS2.FORM_CUIIO
+SELECT * 
   --  SET STATUT = '3'     
-   -- from CIS.FORM_CUIIO 
+    from CIS2.FORM_CUIIO 
     
     WHERE 
 
@@ -35,22 +35,22 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (10) AND CUIIO_VERS <= 2011
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1056
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (10) AND FC.STATUT <> '3') FC
-           INNER JOIN CIS.RENIM R
+             WHERE FC.FORM IN (44) AND FC.STATUT <> '3') FC
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
                LEFT   JOIN (
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_PRODMOLD_22
+        FROM USER_BANCU.ADD_EI_78_23
                ) L ON L.CUIIO = R.CUIIO
                
                
@@ -61,11 +61,11 @@ SELECT     R.CUIIO,
   ) L   ) 
   
 
- AND FORM = 10 
+ AND FORM = 44 
 --  
 --  
-  AND CUIIO_VERS = 2011
-    AND FORM_VERS = 1999 
+  AND CUIIO_VERS = 1056
+    AND FORM_VERS = 1004 
   AND STATUT = '1' 
                
                
