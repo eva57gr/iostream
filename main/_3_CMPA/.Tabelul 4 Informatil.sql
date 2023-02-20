@@ -1,0 +1,113 @@
+INSERT INTO  CIS2.TABLE_OUT
+    (
+      PERIOADA,
+      FORM,
+      FORM_VERS,
+      ID_MDTABLE,
+      COD_CUATM,
+      NR_SECTIE,
+      NUME_SECTIE,
+      NR_SECTIE1,
+      NUME_SECTIE1,
+      NR_SECTIE2,
+      NUME_SECTIE2,
+      NR_ROW,
+      ORDINE,
+      DECIMAL_POS,
+      NUME_ROW,
+       
+   COL1, COL2, COL3 
+    )   
+
+    SELECT 
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+    GENDER_CODE AS NR_SECTIE,
+    GENDER AS NUME_SECTIE,
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1,
+    '0' AS NR_SECTIE2,
+    '0' AS NUME_SECTIE2,
+    
+      CODUL AS NR_ROW, 
+      ROWNUM ORDINE, 
+       '000' AS DECIMAL_POS,  
+       
+         NAME_CODE NUME_ROW,
+  --       COL1,
+         COL1,
+         COL2,
+         COL3
+       
+         
+         FROM
+          
+
+(
+SELECT 
+CS.CODUL GENDER_CODE,
+CS.NAME_CODE AS GENDER,
+CR.CODUL,
+CR.NAME_CODE,
+--COUNT(DISTINCT CASE WHEN  CR.CODUL = D.COL1  AND CS.CODUL = D.COL2   THEN D.UNIT_CODE   ELSE NULL END) AS COL1,
+SUM(CASE WHEN  CR.CODUL = D.COL1  AND CS.CODUL = D.COL2   THEN D.COL3   ELSE NULL END) AS COL1,
+SUM(CASE WHEN  CR.CODUL = D.COL1  AND CS.CODUL = D.COL2   THEN D.COL4   ELSE NULL END) AS COL2,
+SUM(CASE WHEN  CR.CODUL = D.COL1  AND CS.CODUL = D.COL2   THEN D.COL5   ELSE NULL END) AS COL3
+
+
+
+
+       
+        
+FROM
+  VW_DATA_ALL_GC  D
+ CROSS JOIN (
+         SELECT 1 AS CODUL, 'Capul gospodariei'        AS NAME_CODE,     1 ORDINE FROM DUAL UNION  
+        SELECT 2 AS CODUL, 'Sot/sotie/partener(a)'    AS NAME_CODE,     2 ORDINE FROM DUAL UNION  
+        SELECT 3 AS CODUL, 'Fiu/fiica'                AS NAME_CODE,     3 ORDINE FROM DUAL UNION
+        SELECT 4 AS CODUL, 'Tata/mama'                AS NAME_CODE,     4 ORDINE FROM DUAL UNION
+        SELECT 5 AS CODUL, 'Frate/sora'               AS NAME_CODE,    5 ORDINE FROM DUAL UNION
+        SELECT 6 AS CODUL, 'Ginere/nora'              AS NAME_CODE,    6 ORDINE FROM DUAL UNION
+        SELECT 7 AS CODUL, 'Socru/soacra'              AS NAME_CODE,    7 ORDINE FROM DUAL UNION
+        SELECT 8 AS CODUL, 'Bunic/bunica'              AS NAME_CODE,    8 ORDINE FROM DUAL UNION
+        SELECT 9 AS CODUL, 'Nepot/nepoata'              AS NAME_CODE,    9 ORDINE FROM DUAL UNION
+        SELECT 10 AS CODUL, 'Alta ruda'                 AS NAME_CODE,    10 ORDINE FROM DUAL UNION
+        SELECT 11 AS CODUL, 'Neinrudit'                 AS NAME_CODE,    11 ORDINE FROM DUAL 
+ ) CR
+ 
+ CROSS JOIN (
+     
+        SELECT 1 AS CODUL, 'Masculin'        AS NAME_CODE,     1 ORDINE FROM DUAL UNION  
+        SELECT 2 AS CODUL, 'Feminin)'    AS NAME_CODE,     2 ORDINE FROM DUAL   
+ ) CS
+  
+  
+
+WHERE
+  (D.PERIOADA IN (:pPERIOADA))  AND   
+  (D.FORM =:pFORM) AND
+  (D.FORM_VERS =:pFORM_VERS) AND 
+  (:pID_MDTABLE =:pID_MDTABLE) AND
+  (D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%') AND
+
+  D.FORM IN (62) 
+  AND D.CAPITOL = 1198
+ --AND D.UNIT_CODE = 822223
+  GROUP BY 
+CS.CODUL,
+CS.NAME_CODE, 
+CR.CODUL,
+CR.NAME_CODE,
+CR.ORDINE,
+CS.ORDINE
+
+ORDER BY
+CR.CODUL,
+CS.CODUL
+
+)
+  
+  
