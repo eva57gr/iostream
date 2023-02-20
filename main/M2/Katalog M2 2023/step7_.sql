@@ -1,0 +1,76 @@
+--INSERT INTO CIS.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
+
+
+
+
+SELECT 
+        L.CUIIO,
+        456 CUIIO_VERS,
+        7 FORM,
+        299    FORM_VERS,
+        '1' STATUT
+        
+        FROM 
+
+
+(
+
+
+SELECT   
+
+
+  
+     --    R.CUIIO  R_CUIIO,       
+         L.CUIIO  CUIIO
+         
+         FROM (
+
+SELECT     R.CUIIO,
+           R.CUIIO_VERS
+          
+      FROM (
+      
+      
+      SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS.FORM_CUIIO  FC
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS.FORM_CUIIO
+                                  WHERE FORM IN (7) AND CUIIO_VERS <= 456
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE FC.FORM IN (7) AND FC.STATUT <> '3'
+             
+             
+             
+             ) FC
+           INNER JOIN CIS.RENIM R
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
+               
+               RIGHT  JOIN (
+               
+               SELECT CUIIO
+               
+        FROM USER_BANCU.ADD_NEW_SU_M2
+        
+        
+               ) L ON L.CUIIO = R.CUIIO
+               
+               
+               WHERE 
+               R.CUIIO IS   NULL  
+               ) L  
+              
+               
+               
+              
