@@ -29,13 +29,13 @@
         L.IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM USER_BANCU.ADD_NEW_SU_M2 L
+        FROM USER_BANCU.ADD_NEW_SU_AM L
         
         
-                        LEFT JOIN CIS.RENIM C ON C.CUIIO  =  L.CUIIO  
+                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
                         
-                        C.CUIIO  IS    NULL
+                        C.CUIIO  IS  NOT   NULL
                         --AND  C.CUIIO_VERS IS not  NULL 
