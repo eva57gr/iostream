@@ -1,7 +1,7 @@
- UPDATE CIS.FORM_CUIIO
---SELECT * 
-    SET STATUT = '3'     
- --   from CIS.FORM_CUIIO 
+ --UPDATE CIS2.FORM_CUIIO
+SELECT * 
+--   SET STATUT = '3'     
+    from CIS2.FORM_CUIIO 
     
     WHERE 
 
@@ -38,14 +38,23 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (7) AND CUIIO_VERS <= 456
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (42) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (7) AND FC.STATUT <> '3'
+             WHERE 
+             FC.FORM IN (42) 
+             AND FC.STATUT <> '3'
+             
+             
+           ---  AND FC.CUIIO_VERS <> 2011
+             
+             
+             
+             
              
              
              
@@ -55,7 +64,7 @@ SELECT     R.CUIIO,
              
              
              
-           INNER JOIN CIS.RENIM R
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) 
                
                
@@ -67,7 +76,7 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_NEW_SU_M2
+        FROM USER_BANCU.ADD_NEW_SU_AM
         
         
         
@@ -75,17 +84,17 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               L.CUIIO IS   NULL  
+               L.CUIIO IS   NOT  NULL  
              
 
   ) L   ) 
   
 
- AND FORM = 7 
+ AND FORM = 42 
 --  
 --  
-  AND CUIIO_VERS = 456
-    AND FORM_VERS = 299 
+  AND CUIIO_VERS = 2011
+    AND FORM_VERS = 2000 
   AND STATUT = '1' 
                
                
