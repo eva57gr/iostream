@@ -1,16 +1,11 @@
 SELECT *
        
-                FROM CIS.RENIM 
+                FROM CIS2.RENIM 
                 
                     WHERE
                     
                     CUIIO IN  (
-                    20477253,
-40286466,
-41076771,
-41117547,
-41194223,
-41525387
+                   37114106
 
                     )
                     
