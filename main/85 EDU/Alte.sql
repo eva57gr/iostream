@@ -11,7 +11,7 @@
                         D.FORM =  17 
                         AND D.CAPITOL IN (1004)
                         AND D.RIND IN ('020','030') 
-                        AND D.CFP IN ('15','16','28')
+                        AND D.CFP IN ('15','16','18','28')
                         GROUP BY 
                         D.ANUL    
                         
