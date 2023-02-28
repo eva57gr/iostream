@@ -12,6 +12,7 @@
                         AND D.CAPITOL IN (1004)
                         AND D.RIND IN ('020','030') 
                         AND D.CFP IN ('11','12','13')
+                        
                         GROUP BY 
                         D.ANUL    
                         
