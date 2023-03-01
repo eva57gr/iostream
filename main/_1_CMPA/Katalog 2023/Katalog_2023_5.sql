@@ -1,0 +1,23 @@
+SELECT  
+  L.UNIT_CODE,
+  L.UNIT_CODE_VERS,
+  L.NR_GOSP,
+  L.NR_MAPS,
+  L.SURNAME,
+  L.NAME,
+  L.PATRONIMIC,
+  L.CUATM,
+  L.ADDRESS_1,
+  L.ADDRESS_2,
+  L.ADDRESS_3,
+  L.ADDRESS_4,
+  L.ENVIRONMENT,
+  L.CSID,
+  L.EDIT_USER    
+
+FROM         REG_UNIT_GC_C2 L  LEFT JOIN CIS2.VW_CL_CUATM C  ON C.CODUL =  L.CUATM
+
+            WHERE
+            
+            L.CUATM IS  NULL 
+         
