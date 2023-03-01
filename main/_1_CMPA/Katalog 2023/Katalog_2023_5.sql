@@ -15,9 +15,9 @@ SELECT
   L.CSID,
   L.EDIT_USER    
 
-FROM         REG_UNIT_GC L  LEFT JOIN CIS2.VW_CL_CUATM C  ON C.CODUL =  L.CUATM
+FROM         REG_UNIT_GC_C2 L  LEFT JOIN CIS2.VW_CL_CUATM C  ON C.CODUL =  L.CUATM
 
             WHERE
             
-            L.CUATM IS NOT NULL 
+            L.CUATM IS  NULL 
          
