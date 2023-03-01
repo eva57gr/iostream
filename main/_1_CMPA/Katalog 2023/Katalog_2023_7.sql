@@ -1,23 +1,23 @@
-INSERT INTO REG_UNIT_GC
-
-(
-
-UNIT_CODE,
-  UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
-)
+--INSERT INTO REG_UNIT_GC
+--
+--(
+--
+--UNIT_CODE,
+--  UNIT_CODE_VERS,
+--  NR_GOSP,
+--  NR_MAPS,         
+--  SURNAME,         
+--  NAME,            
+--  PATRONIMIC,      
+--  CUATM,           
+--  ADDRESS_1,       
+--  ADDRESS_2,       
+--  ADDRESS_3,       
+--  ADDRESS_4,       
+--  ENVIRONMENT,     
+--  CSID,            
+--  EDIT_USER 
+--)
 
 
 
@@ -40,7 +40,7 @@ SELECT
   D.CSID,            
   D.EDIT_USER 
             
-            FROM USER_BANCU.REG_UNIT_GC D
+            FROM USER_BANCU.REG_UNIT_GC_C2 D
             
                             LEFT JOIN REG_UNIT_GC RN
                         ON     D.UNIT_CODE = RN.UNIT_CODE
@@ -51,7 +51,7 @@ SELECT
                   
                   WHERE 
                   
-                  RN.UNIT_CODE IS   NULL
+                  RN.UNIT_CODE IS    NULL
                   
                   
                   ORDER BY 
