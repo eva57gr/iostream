@@ -1,0 +1,2 @@
+ UPDATE    REG_UNIT_GC
+             SET UNIT_CODE_VERS = 1056;
