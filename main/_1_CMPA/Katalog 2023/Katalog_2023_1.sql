@@ -1,0 +1,6 @@
+SELECT *
+   FROM  REG_UNIT_GC;
+   
+  DELETE
+   FROM  REG_UNIT_GC;
+    
