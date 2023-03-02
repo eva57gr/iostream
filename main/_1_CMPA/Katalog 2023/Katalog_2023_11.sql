@@ -1,23 +1,23 @@
-INSERT INTO REG_UNIT_GC
-
-(
-
-UNIT_CODE,
-  UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
-)
+--INSERT INTO REG_UNIT_GC
+--
+--(
+--
+--UNIT_CODE,
+--  UNIT_CODE_VERS,
+--  NR_GOSP,
+--  NR_MAPS,         
+--  SURNAME,         
+--  NAME,            
+--  PATRONIMIC,      
+--  CUATM,           
+--  ADDRESS_1,       
+--  ADDRESS_2,       
+--  ADDRESS_3,       
+--  ADDRESS_4,       
+--  ENVIRONMENT,     
+--  CSID,            
+--  EDIT_USER 
+--)
 
 SELECT 
   UNIT_CODE,
@@ -66,7 +66,7 @@ FC.STATUT
        NR_GOSP,
        NR_MAPS
                        FROM CIS2.FORM_REG_UNIT_GC
-                      WHERE FORM IN (61) AND UNIT_CODE_VERS <= :pPERIOADA
+                      WHERE FORM IN (62) AND UNIT_CODE_VERS <= :pPERIOADA
                       
                       
                    GROUP BY 
@@ -85,7 +85,21 @@ FC.STATUT
                AND BB.NR_MAPS = FC.NR_MAPS
                
                )
- WHERE FC.FORM IN (61) AND FC.STATUT <> '3') FC   )
+ WHERE FC.FORM IN (62) 
+ 
+AND FC.STATUT <> '3'
+
+ -- AND FC.UNIT_CODE_VERS <>  1056
+ 
+ ) FC   
+ 
+ 
+ )
  
  
  AND UNIT_CODE_VERS <>  1056
+ 
+ 
+ 
+ ORDER BY
+ UNIT_CODE_VERS

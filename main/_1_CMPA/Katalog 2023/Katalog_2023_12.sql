@@ -6,7 +6,7 @@
       UPDATE CIS2.FORM_REG_UNIT_GC  FC
 
 SET  FC.STATUT = '3' 
-      
+--      
      WHERE 
      
      FC.UNIT_CODE  IN  (
@@ -36,7 +36,7 @@ FC.STATUT
        NR_GOSP,
        NR_MAPS
                        FROM CIS2.FORM_REG_UNIT_GC
-                      WHERE FORM IN (61) AND UNIT_CODE_VERS <= :pPERIOADA
+                      WHERE FORM IN (62) AND UNIT_CODE_VERS <= :pPERIOADA
                       
                       
                    GROUP BY 
@@ -55,14 +55,20 @@ FC.STATUT
                AND BB.NR_MAPS = FC.NR_MAPS
                
                )
- WHERE FC.FORM IN (61) AND FC.STATUT <> '3') FC 
+ WHERE FC.FORM IN (62) AND FC.STATUT <> '3'
  
-                                              LEFT JOIN  USER_BANCU.CMPA1_1052_FINAL D  ON FC.UNIT_CODE = D.UNIT_CODE  
+ 
+ 
+ 
+ 
+ ) FC 
+ 
+                                              LEFT JOIN  USER_BANCU.REG_UNIT_GC_C2 D  ON FC.UNIT_CODE = D.UNIT_CODE  
                                               
                                               
                                               WHERE 
                                               
-                                              D.UNIT_CODE IS NULL 
+                                              D.UNIT_CODE IS  NULL 
  
  
 -- WHERE 
@@ -71,7 +77,7 @@ FC.STATUT
      
      )
      
-     AND FC.UNIT_CODE_VERS  = 1052
-     AND FC.FORM = 61
-     AND FC.UNIT_CODE_VERS = 1052
+     AND FC.UNIT_CODE_VERS  = 1056
+     AND FC.FORM = 62
+     AND FC.UNIT_CODE_VERS = 1056
      AND FC.STATUT = '1' 
