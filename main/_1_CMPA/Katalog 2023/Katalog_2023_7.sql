@@ -51,7 +51,7 @@ SELECT
                   
                   WHERE 
                   
-                  RN.UNIT_CODE IS    NULL
+                  RN.UNIT_CODE IS  NOT   NULL
                   
                   
                   ORDER BY 

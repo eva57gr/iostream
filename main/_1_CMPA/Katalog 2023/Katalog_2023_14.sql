@@ -23,9 +23,9 @@ D.NR_MAPS,
             
            
             
-            FROM USER_BANCU.REG_UNIT_GC3 D
+            FROM USER_BANCU.REG_UNIT_GC D
             
-                            LEFT JOIN REG_UNIT_GC RN
+                            LEFT JOIN CIS2.REG_UNIT_GC RN
                         ON     D.UNIT_CODE = RN.UNIT_CODE
                   AND D.UNIT_CODE_VERS = RN.UNIT_CODE_VERS
                   AND D.NR_GOSP = RN.NR_GOSP
