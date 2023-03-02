@@ -23,7 +23,7 @@ SELECT     L.CUIIO
                 FROM CIS2.VW_DATA_ALL D 
                 
                 WHERE 
-                D.PERIOADA = 1055
+                D.PERIOADA = 1056
                 AND D.FORM = 45
              
             )  L ON L.CUIIO = FC.CUIIO 

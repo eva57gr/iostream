@@ -5,8 +5,8 @@ SELECT *
                 
                     WHERE 
                     
-                    FORM  = 57 
-                    AND CONTROL_VERS <>  2010 
+                    FORM  = 59 
+                    --AND CONTROL_VERS =   2011 
                     AND STATUT <> '3'
                     
                     
