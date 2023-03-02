@@ -49,7 +49,7 @@ SELECT
     
      SELECT UNIT_CODE
              
-                FROM USER_BANCU.REG_UNIT_GC_C2
+                FROM USER_BANCU.REG_UNIT_GC3
     
     )
     

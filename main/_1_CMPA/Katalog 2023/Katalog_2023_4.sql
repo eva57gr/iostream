@@ -1,10 +1,10 @@
- UPDATE    USER_BANCU.REG_UNIT_GC_C2
+ UPDATE    USER_BANCU.REG_UNIT_GC3
              SET UNIT_CODE_VERS = 1056;
              
              
              SELECT *
              
-                FROM USER_BANCU.REG_UNIT_GC_C2;
+                FROM USER_BANCU.REG_UNIT_GC3;
                 
                 
                 

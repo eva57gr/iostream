@@ -40,7 +40,7 @@ SELECT
   D.CSID,            
   D.EDIT_USER 
             
-            FROM USER_BANCU.REG_UNIT_GC_C2 D
+            FROM USER_BANCU.REG_UNIT_GC3 D
             
                             LEFT JOIN REG_UNIT_GC RN
                         ON     D.UNIT_CODE = RN.UNIT_CODE
