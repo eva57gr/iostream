@@ -3,7 +3,7 @@ DECLARE
   CURSOR C IS
 
 SELECT 
-    DF.PERIOADA,
+    DF.PERIOADA,  -------------------
     DF.FORM,
     DF.FORM_VERS,
     DF.ID_MDTABLE,
