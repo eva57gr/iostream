@@ -312,8 +312,8 @@ HAVING
     
    )
    
-   
-   GROUP BY 
+   -- Operator -   Nastas Tatiana 239
+   GROUP BY    
 CUIIO,
 PACHET,
 SERV_CODUL,
