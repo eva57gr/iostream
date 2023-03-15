@@ -4,7 +4,10 @@ FROM
   DUAL DL LEFT JOIN
   (
     SELECT
-      D.CUIIO
+       DISTINCT D.CUIIO,
+       D.RIND,
+       SUM(D.COL1) AS COL1, 
+       SUM(D.COL2) AS COL2
     FROM
       CIS2.VW_DATA_ALL_FR D
     WHERE
@@ -18,6 +21,25 @@ FROM
       :FORM = :FORM AND
        D.FORM IN (63)  AND
       D.CAPITOL IN(1120)
+      
+      
+      GROUP BY 
+      D.CUIIO,
+      D.RIND 
+      
+      HAVING 
+      
+      SUM(D.COL1) <> 0
+      
+      OR 
+      SUM(D.COL2) <> 0
+      
+      
+      
+      
+      
+      
+      
   ) D ON(1=1)
 WHERE
   D.CUIIO IS NULL
