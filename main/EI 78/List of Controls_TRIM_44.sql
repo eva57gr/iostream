@@ -50,3 +50,11 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
+          
+          
+          WHERE 
+          
+           L.FORMULA LIKE '%Cap.2%'
+          
+          
+          
