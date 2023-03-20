@@ -86,15 +86,18 @@ SELECT
       -------------------------------------------------------------------------------
         CROSS JOIN (
          SELECT
-            SUM(D.COL1)  AS COL1            
+            SUM(D.COL1) / 4 AS COL1            
                   FROM DATA_ALL D
-                         
+                         -- INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
                       
                         WHERE
-                            (D.PERIOADA =:pPERIOADA) AND          
+                            (D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA)  AND          
                             
                            D.ID_MD  = 44519        
-
+--                              D.FORM IN (101)
+--                              AND D.CUIIO IN (5)
+--                              AND MR.CAPITOL IN (10002)
+--                              AND MR.RIND IN ('01') 
                               
                               
                               
@@ -200,14 +203,14 @@ INNER JOIN VW_CLS_CLASS_ITEM CI ON  (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31
         CROSS JOIN (
         
         SELECT
-            SUM(D.COL1)  AS COL1            
+        SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                         
+                         -- INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
                       
                         WHERE
-                            (D.PERIOADA =:pPERIOADA) AND          
+                            (D.PERIOADA =:pPERIOADA) AND     
                             
-                           D.ID_MD  = 44519                           
+                           D.ID_MD  = 44519                              
                               
                               
                               ) CR
