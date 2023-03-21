@@ -1,0 +1,29 @@
+SELECT 
+DISTINCT 
+CUIIO,
+T_XML_FORM_ID,
+MAX(DATA_REG) DATA_REG
+
+
+        
+        
+                FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT
+                
+                
+                WHERE 
+                
+                FORM = 64
+AND PERIOADA IN (2011)
+ AND DATA_REG > TO_DATE('03/20/2023 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
+ 
+ 
+ 
+ GROUP BY 
+ 
+CUIIO,
+T_XML_FORM_ID,
+DATA_REG
+ 
+ ORDER BY
+ DATA_REG
+ 
