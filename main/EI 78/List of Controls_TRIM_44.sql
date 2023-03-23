@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 64
+         AND A.FORM  = 48
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 64
+         AND B.FORM  = 48
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
@@ -54,7 +54,7 @@ SELECT
           
           WHERE 
           1=1
-           --AND L.FORMULA LIKE '%Cap.2%'
+          AND  L.FORMULA LIKE '%Cap.2%'
           
           
           
