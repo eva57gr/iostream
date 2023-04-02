@@ -17,7 +17,8 @@ SELECT
       D.FORM IN  (:pFORM)     AND
       D.ID_MDTABLE  IN (:pID_MDTABLE) AND 
       D.COD_CUATM  IN (:pCOD_CUATM) AND 
-      D.FORM_VERS IN (:pFORM_VERS)
+      D.FORM_VERS IN (:pFORM_VERS)  
+      
       
       
       

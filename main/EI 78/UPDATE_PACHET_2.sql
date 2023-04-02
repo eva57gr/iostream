@@ -14,9 +14,9 @@ DECLARE
 
     FROM 
     
-    TABLE_OUT D
+   -- TABLE_OUT D
     
-   -- USER_BANCU.TABLE_OUT_EI_78 D 
+    USER_BANCU.TABLE_OUT_EI_78 D 
        
   --12215    
     WHERE
@@ -42,9 +42,9 @@ BEGIN
     
      
     
-        UPDATE TABLE_OUT 
+       -- UPDATE TABLE_OUT 
         
-    -- UPDATE  USER_BANCU.TABLE_OUT_EI_78
+    UPDATE  USER_BANCU.TABLE_OUT_EI_78
         
         SET  COL1 = CR.COL1 
 
