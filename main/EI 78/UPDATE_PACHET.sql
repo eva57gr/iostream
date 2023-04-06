@@ -1,6 +1,6 @@
 SELECT
 
-      D.PERIOADA,
+      DISTINCT D.PERIOADA,
       D.FORM, 
       D.COD_CUATM,
     
@@ -14,11 +14,17 @@ SELECT
   --12215    
     WHERE
       
-      D.FORM IN  (:pFORM)     AND
-      D.ID_MDTABLE  IN (:pID_MDTABLE) AND 
+      D.FORM IN  (44)     AND
+      D.ID_MDTABLE  IN (12695) AND 
       D.COD_CUATM  IN (:pCOD_CUATM) AND 
-      D.FORM_VERS IN (:pFORM_VERS)  
+      D.FORM_VERS IN (:pFORM_VERS) 
       
+      AND D.COL1 IS  not NULL 
+    
+      
+     
+     ORDER by 
+    SUBSTR(D.NR_ROW, 1, INSTR(D.NR_ROW, '-') - 1)
       
       
       

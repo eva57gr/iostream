@@ -14,9 +14,9 @@ DECLARE
 
     FROM 
     
-   -- TABLE_OUT D
+    TABLE_OUT D
     
-    USER_BANCU.TABLE_OUT_EI_78_2 D 
+   -- USER_BANCU.TABLE_OUT_EI_78 D 
        
   --12215    
     WHERE
@@ -25,8 +25,7 @@ DECLARE
       D.ID_MDTABLE  IN (:pID_MDTABLE) AND 
       D.COD_CUATM  IN (:pCOD_CUATM) AND 
       D.FORM_VERS IN (:pFORM_VERS)
-        and 
-      D.PERIOADA IN (:pPERIOADA)   
+      
       
       AND D.COL1 IS NOT NULL
        
@@ -43,25 +42,24 @@ BEGIN
     
      
     
-       -- UPDATE TABLE_OUT 
+        UPDATE TABLE_OUT 
         
-    UPDATE  USER_BANCU.TABLE_OUT_EI_78_2
-    
-      
-        SET  COL1 = CR.COL1 
+    -- UPDATE  USER_BANCU.TABLE_OUT_EI_78
+        
+        SET  CR.COL1 = COL1 
 
---      SELECT *
-      
---      FROM TABLE_OUT         
+            
         WHERE 
           COD_CUATM IN (:pCOD_CUATM)   AND
           PERIOADA IN (:pPERIOADA)     AND 
           ID_MDTABLE IN (:pID_MDTABLE) AND
           FORM IN (:pFORM)             AND
-          FORM_VERS IN (:pFORM_VERS) AND    
-          SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '-') - 1) =  CR.NR_ROW  
+          FORM_VERS IN (:pFORM_VERS) 
           
-          AND COL1 IS NULL 
+          AND    
+          UBSTR(NR_ROW, 1, INSTR(NR_ROW, '-') - 1) =  CR.NR_ROW  
+          
+     --     AND COL1 IS NULL 
           
           ;
          

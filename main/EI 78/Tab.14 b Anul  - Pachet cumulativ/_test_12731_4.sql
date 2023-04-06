@@ -2,7 +2,7 @@ DECLARE
     
   CURSOR C IS
     SELECT
-
+     DISTINCT 
       D.PERIOADA,
       D.FORM, 
       D.COD_CUATM,
@@ -14,9 +14,9 @@ DECLARE
 
     FROM 
     
-   -- TABLE_OUT D
+    TABLE_OUT D
     
-    USER_BANCU.TABLE_OUT_EI_78_2 D 
+  --  USER_BANCU.TABLE_OUT_EI_78_4 D 
        
   --12215    
     WHERE
@@ -43,9 +43,9 @@ BEGIN
     
      
     
-       -- UPDATE TABLE_OUT 
+       UPDATE TABLE_OUT 
         
-    UPDATE  USER_BANCU.TABLE_OUT_EI_78_2
+  --  UPDATE  USER_BANCU.TABLE_OUT_EI_78_4
     
       
         SET  COL1 = CR.COL1 

@@ -1,6 +1,6 @@
 
 
-create table  USER_BANCU.TABLE_OUT_EI_78
+create table  USER_BANCU.TABLE_OUT_EI_78_2
 AS 
         
 SELECT *
@@ -14,8 +14,8 @@ SELECT *
     WHERE
       
       D.FORM IN  (44)     AND
-      D.ID_MDTABLE  IN (12215) AND 
-      D.COD_CUATM  IN (0150000) AND 
+      D.ID_MDTABLE  IN (12695) AND 
+      D.COD_CUATM  IN (0000000) AND 
       D.FORM_VERS IN (1004)
       AND D.PERIOADA IN (1055)
       
@@ -24,12 +24,12 @@ SELECT *
       
       
        SELECT * 
-      FROM USER_BANCU.TABLE_OUT_EI_78 
+      FROM USER_BANCU.TABLE_OUT_EI_78_2 
       
       WHERE 
   --    COL1 IS   NULL 
       
-       NUME_ROW LIKE '%38583441%'
+       NUME_ROW LIKE '%41300493%'
       
     --  TABLE_OUT
       
