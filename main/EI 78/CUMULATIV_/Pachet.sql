@@ -1,0 +1,23 @@
+
+
+
+
+SELECT
+  DISTINCT D.CUIIO,
+   D.FORM, 
+   
+  D.PACHET AS COL1
+
+FROM
+  CIS2.VW_DATA_ALL D 
+ 
+WHERE 
+  (D.PERIOADA IN(:pPERIOADA)) AND    
+
+  (D.FORM =:pFORM) AND
+ (D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%') AND
+  D.FORM IN (44)
+ 
+  
+ AND D.CUIIO = 20146208 
+  
