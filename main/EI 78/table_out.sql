@@ -4,7 +4,7 @@ SELECT
 --  D.PERIOADA,
 --  D.ID_MDTABLE,
   T.DEN_SHORT,
-  D.DATA_CREATE
+  MAX(D.DATA_CREATE) DATA_CREATE 
     
   
 
@@ -32,6 +32,16 @@ AND D.PERIOADA = 1055
 
  AND D.DATA_CREATE > TO_DATE('03/24/2023 04:55:12', 'MM/DD/YYYY HH24:MI:SS')
 
+
+GROUP BY
+  D.COD_CUATM,
+
+  T.DEN_SHORT
+
 ORDER BY 
-D.DATA_CREATE DESC,
+DATA_CREATE DESC,
 D.COD_CUATM
+
+
+
+--Buna ziua. Tabelele au fost modificate. Acum se afiseaza pachetul din perioada curenta daca este pachet, daca nu este nu se afiseaza. Tabelele au fost create. 
