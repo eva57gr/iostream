@@ -46,9 +46,9 @@ FROM
 WHERE 
   (D.PERIOADA IN(:pPERIOADA)) AND    
 
-  (D.FORM =:pFORM) AND
+  (D.FORM =:pFORM)
 
-  D.FORM IN (44)
+ 
  
   
  AND D.CUIIO = 20146208 
