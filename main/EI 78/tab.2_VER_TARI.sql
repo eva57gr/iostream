@@ -1,28 +1,24 @@
 
-
-
-SELECT 
-
-
-
-     L.NR_ROW,
-     L.SHOW_ORDER,
-     L.ITEM_PATH,
-
+SELECT
+ROWNUM, 
+L.SHOW_ORDER||'.'||ROWNUM SHOW_ORDER,
+L.ITEM_PARENT,
+L.ITEM_PATH,
+L.NAME,
+L.NR_ROW,
 L.NUME_ROW,
 L.COL1,
 L.COL2,
 L.COL3,
 L.COL4
-
-
 FROM
+
 (
 SELECT 
 R.SHOW_ORDER,
 R.ITEM_PARENT,
 R.ITEM_PATH,
---R.NAME,
+R.NAME,
 L.NR_ROW,
 L.NUME_ROW,
 L.COL1,
@@ -106,39 +102,16 @@ NUME_ROW
    FROM VW_CLS_CLASS_ITEM CII 
    
    WHERE 
-   CII.CLASS_CODE IN ('CSPM2')) R ON (R.ITEM_CODE = L.NR_ROW )
- 
-  
-  
-  
-
+   CII.CLASS_CODE IN ('CSPM2')) R ON (R.ITEM_CODE = L.NR_ROW 
+   AND  TRIM(R.NAME) <>  TRIM(L.NUME_ROW)) 
    
    
    ORDER BY
    R.SHOW_ORDER
- ) L
- 
- 
- 
- 
---   LEFT JOIN     (
---    
---    SELECT 
---    ITEM_CODE,
---    ITEM_PARENT,
---    ITEM_PATH,
---    SHOW_ORDER,
---    NAME
--- 
---   FROM VW_CLS_CLASS_ITEM CII 
---   
---   WHERE 
---   CII.CLASS_CODE IN ('TARI_ISO')) RR ON (TRIM(RR.NAME) = TRIM(L.NUME_ROW) )
---  -- AND  TRIM(R.NAME) <>  TRIM(L.NUME_ROW)) 
---  
---  ORDER BY 
---  ORDINE
-  
-  
 
 
+) L
+
+ 
+  
+  
