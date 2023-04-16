@@ -1,19 +1,10 @@
- 
-    
-
-
-
-
-
-    
-    (
-    
-    SELECT 
+SELECT 
     ITEM_CODE,
     ITEM_PARENT,
+    NAME,
     SHOW_ORDER
  
    FROM VW_CLS_CLASS_ITEM CII 
    
    WHERE 
-   CII.CLASS_CODE IN ('CSPM2')
+   CII.CLASS_CODE IN ('TARI_ISO')

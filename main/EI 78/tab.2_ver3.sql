@@ -1,15 +1,15 @@
 SELECT
---    :pPERIOADA AS PERIOADA,
---    :pFORM AS FORM,
---    :pFORM_VERS AS FORM_VERS,
---    :pID_MDTABLE AS ID_MDTABLE,
---    :pCOD_CUATM AS COD_CUATM,
---    '0' AS NR_SECTIE,
---    '0' AS NUME_SECTIE,
---    '0' AS NR_SECTIE1,
---    '0' AS NUME_SECTIE1,
---    '0' AS NR_SECTIE2,
---   '0' AS NUME_SECTIE2,
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+    '0' AS NR_SECTIE,
+    '0' AS NUME_SECTIE,
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1,
+    '0' AS NR_SECTIE2,
+   '0' AS NUME_SECTIE2,
 
    (CASE WHEN NR_ROW = '98' THEN '99' ELSE NR_ROW END)||'~'||ROWNUM  NR_ROW,
    ROWNUM AS ORDINE,
@@ -73,12 +73,12 @@ SELECT
         
 
 SELECT
-            SUM(D.COL1)  AS COL1            
+            SUM(D.COL1) / 4   AS COL1            
                   FROM DATA_ALL D
                          
                       
                         WHERE
-                            (D.PERIOADA =:pPERIOADA) AND          
+                          (D.PERIOADA IN (1052,1053,1054,1055)) AND     
                             
                            D.ID_MD  = 44519    
                               
@@ -101,7 +101,7 @@ SELECT
   AND
   MR.CAPITOL IN (405,407)   
   
-  AND D.CUIIO = 1129894
+  --AND D.CUIIO = 1129894
   
       GROUP BY
  
@@ -178,12 +178,12 @@ SELECT
         CROSS JOIN (
         
 SELECT
-            SUM(D.COL1)  AS COL1            
+            SUM(D.COL1) / 4 AS COL1            
                   FROM DATA_ALL D
                          
                       
                         WHERE
-                            (D.PERIOADA =:pPERIOADA) AND          
+                       (D.PERIOADA IN (1052,1053,1054,1055)) AND 
                             
                            D.ID_MD  = 44519   
                               
@@ -205,7 +205,7 @@ SELECT
   AND TTT.ITEM_CODE NOT IN ('000')
   AND CII.ITEM_CODE NOT IN ('00.00.00')
   
-    AND D.CUIIO = 1129894
+  --  AND D.CUIIO = 1129894
   
       GROUP BY
       TTT.SHOW_ORDER,
