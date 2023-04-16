@@ -1,20 +1,38 @@
-SELECT
-
-
-   (CASE WHEN NR_ROW = '98' THEN '99' ELSE NR_ROW END)||'~'||ROWNUM  NR_ROW,
-   ROWNUM AS ORDINE,
-  '1111' AS DECIMAL_POS,
-   NUME_ROW,
-   ROUND(COL1,1) COL1,
-   ROUND(COL2,1) COL2,
-  ROUND(COL3,1) COL3,
-  ROUND(COL4,1) COL4
+   SELECT 
+  D.NR_ROW,
+  D.CL_ORDER_SERV,
+  -- CASE WHEN D.NR_ROW = '1.00.00' THEN  '0'|| D.NR_ROW ELSE D.NR_ROW END  NR_ROW,
+   D.ORDINE, 
+   D.NUME_ROW,
+   SUM(D.COL1) AS COL1,
+   SUM(D.COL2) AS COL2,
+   SUM(D.COL3) AS COL3,
+   SUM(D.COL4) AS COL4
+   
 FROM
+
+(
+
+SELECT 
+ -- CASE WHEN D.NR_ROW = '1.00.00' THEN  '0'|| D.NR_ROW ELSE D.NR_ROW END  NR_ROW,
+   D.NR_ROW,
+   D.CL_ORDER_SERV,
+   D.ORDINE, 
+   D.NUME_ROW,
+   ROUND (D.COL1 / 1000,1) AS COL1,
+   ROUND ((D.COL2 / CR.COL1) / 1000,1) AS COL2,
+   ROUND (D.COL3 / 1000,1) AS COL3,
+   ROUND ((D.COL4  / CR.COL1) / 1000,1) AS COL4
+   
+FROM
+
+
 (
 
 SELECT
 
    CODUL_SERV   NR_ROW,
+   CL_ORDER_SERV,
    ORDINE, 
    DENUMIRE  NUME_ROW,
   COL1,
@@ -33,10 +51,10 @@ SELECT
      CII.SHOW_ORDER CL_ORDER_SERV, 
      CII.ITEM_PATH FULL_CODE,
      
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)   )/1000,1) AS COL1,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  ) / CR.COL1)/1000,1) AS COL4
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
      
       
       FROM CIS2.DATA_ALL D 
@@ -59,25 +77,7 @@ SELECT
           AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
       
       -------------------------------------------------------------------------------
-        CROSS JOIN (
         
-
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1052)) AND     
-                            
-                           D.ID_MD  = 44519    
-                              
-                              
-                              
-                              
-                              
-                              
-                              ) CR
         ------------------------------------------------------------------------------      
       
    
@@ -98,8 +98,8 @@ SELECT
       CII.NAME,
       CII.ITEM_CODE,
        CII.ITEM_PATH,
-       CII.SHOW_ORDER, 
-       CR.COL1
+       CII.SHOW_ORDER 
+       
     
 UNION 
 
@@ -121,18 +121,10 @@ SELECT
       CII.ITEM_CODE CODUL_SERV,
       CII.SHOW_ORDER CL_ORDER_SERV, 
       CII.ITEM_PATH FULL_CODE,
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END))/1000,1) AS COL1,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1)/1000,1) AS COL4
-     
+      SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
       
       FROM CIS2.DATA_ALL D 
        
@@ -165,21 +157,7 @@ SELECT
           
           
        -------------------------------------------------------------------------------
-        CROSS JOIN (
-        
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1052)) AND     
-                            
-                           D.ID_MD  = 44519   
-                              
-                              
-                              
-                              ) CR
+  
         ------------------------------------------------------------------------------  
        
    WHERE 
@@ -204,9 +182,8 @@ SELECT
        TTT.ITEM_CODE,
        TTT.ITEM_PATH,
        CII.ITEM_PATH,
-      CII.SHOW_ORDER,
-      CR.COL1
-      
+      CII.SHOW_ORDER
+     
     ORDER BY
     TTT.SHOW_ORDER 
 
@@ -220,30 +197,55 @@ SELECT
   
 )  )
 
+) D
 
-)
 
-
---1053
-UNION 
+ CROSS JOIN (
+        
 
 SELECT
-
-
-   (CASE WHEN NR_ROW = '98' THEN '99' ELSE NR_ROW END)||'~'||ROWNUM  NR_ROW,
-   ROWNUM AS ORDINE,
-  '1111' AS DECIMAL_POS,
-   NUME_ROW,
-   ROUND(COL1,1) COL1,
-   ROUND(COL2,1) COL2,
-  ROUND(COL3,1) COL3,
-  ROUND(COL4,1) COL4
+           SUM(D.COL1)    AS COL1            
+                  FROM DATA_ALL D
+                         
+                      
+                        WHERE
+                          (D.PERIOADA IN (1052)) AND     
+                            
+                           D.ID_MD  = 44519    
+                              
+                              
+                              
+                              
+                              
+                              
+                              ) CR
+                              
+                              
+                              
+                              
+                              
+ UNION 
+ 
+ SELECT 
+ -- CASE WHEN D.NR_ROW = '1.00.00' THEN  '0'|| D.NR_ROW ELSE D.NR_ROW END  NR_ROW,
+    D.NR_ROW,
+    D.CL_ORDER_SERV,
+   D.ORDINE, 
+   D.NUME_ROW,
+   ROUND (D.COL1 / 1000,1) AS COL1,
+   ROUND ((D.COL2 / CR.COL1) / 1000,1) AS COL2,
+   ROUND (D.COL3 / 1000,1) AS COL3,
+   ROUND ((D.COL4  / CR.COL1) / 1000,1) AS COL4
+   
 FROM
+
+
 (
 
 SELECT
 
    CODUL_SERV   NR_ROW,
+   CL_ORDER_SERV,
    ORDINE, 
    DENUMIRE  NUME_ROW,
   COL1,
@@ -262,10 +264,10 @@ SELECT
      CII.SHOW_ORDER CL_ORDER_SERV, 
      CII.ITEM_PATH FULL_CODE,
      
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)   )/1000,1) AS COL1,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  ) / CR.COL1)/1000,1) AS COL4
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
      
       
       FROM CIS2.DATA_ALL D 
@@ -288,25 +290,7 @@ SELECT
           AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
       
       -------------------------------------------------------------------------------
-        CROSS JOIN (
         
-
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1053)) AND     
-                            
-                           D.ID_MD  = 44519    
-                              
-                              
-                              
-                              
-                              
-                              
-                              ) CR
         ------------------------------------------------------------------------------      
       
    
@@ -320,15 +304,15 @@ SELECT
   AND
   MR.CAPITOL IN (405,407)   
   
-  AND D.CUIIO = 1129894
+  --AND D.CUIIO = 1129894
   
       GROUP BY
  
       CII.NAME,
       CII.ITEM_CODE,
        CII.ITEM_PATH,
-       CII.SHOW_ORDER, 
-       CR.COL1
+       CII.SHOW_ORDER 
+       
     
 UNION 
 
@@ -350,18 +334,10 @@ SELECT
       CII.ITEM_CODE CODUL_SERV,
       CII.SHOW_ORDER CL_ORDER_SERV, 
       CII.ITEM_PATH FULL_CODE,
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END))/1000,1) AS COL1,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1)/1000,1) AS COL4
-     
+      SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
       
       FROM CIS2.DATA_ALL D 
        
@@ -394,21 +370,7 @@ SELECT
           
           
        -------------------------------------------------------------------------------
-        CROSS JOIN (
-        
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1053)) AND     
-                            
-                           D.ID_MD  = 44519   
-                              
-                              
-                              
-                              ) CR
+  
         ------------------------------------------------------------------------------  
        
    WHERE 
@@ -424,7 +386,7 @@ SELECT
   AND TTT.ITEM_CODE NOT IN ('000')
   AND CII.ITEM_CODE NOT IN ('00.00.00')
   
-    AND D.CUIIO = 1129894
+  --  AND D.CUIIO = 1129894
   
       GROUP BY
       TTT.SHOW_ORDER,
@@ -433,9 +395,8 @@ SELECT
        TTT.ITEM_CODE,
        TTT.ITEM_PATH,
        CII.ITEM_PATH,
-      CII.SHOW_ORDER,
-      CR.COL1
-      
+      CII.SHOW_ORDER
+     
     ORDER BY
     TTT.SHOW_ORDER 
 
@@ -449,31 +410,56 @@ SELECT
   
 )  )
 
-
-)
-
+) D
 
 
---1054
-UNION 
-
+ CROSS JOIN (
+        
 
 SELECT
+           SUM(D.COL1)    AS COL1            
+                  FROM DATA_ALL D
+                         
+                      
+                        WHERE
+                          (D.PERIOADA IN (1053)) AND     
+                            
+                           D.ID_MD  = 44519    
+                              
+                              
+                              
+                              
+                              
+                              
+                              ) CR                             
+                              
+            
 
-   (CASE WHEN NR_ROW = '98' THEN '99' ELSE NR_ROW END)||'~'||ROWNUM  NR_ROW,
-   ROWNUM AS ORDINE,
-  '1111' AS DECIMAL_POS,
-   NUME_ROW,
-   ROUND(COL1,1) COL1,
-   ROUND(COL2,1) COL2,
-  ROUND(COL3,1) COL3,
-  ROUND(COL4,1) COL4
+
+------------------------1054
+
+UNION 
+ 
+ SELECT 
+ --CASE WHEN D.NR_ROW = '1.00.00' THEN  '0'|| D.NR_ROW ELSE D.NR_ROW END  NR_ROW,
+   D.NR_ROW,
+   D.CL_ORDER_SERV,
+   D.ORDINE, 
+   D.NUME_ROW,
+   ROUND (D.COL1 / 1000,1) AS COL1,
+   ROUND ((D.COL2 / CR.COL1) / 1000,1) AS COL2,
+   ROUND (D.COL3 / 1000,1) AS COL3,
+   ROUND ((D.COL4  / CR.COL1) / 1000,1) AS COL4
+   
 FROM
+
+
 (
 
 SELECT
 
    CODUL_SERV   NR_ROW,
+   CL_ORDER_SERV,
    ORDINE, 
    DENUMIRE  NUME_ROW,
   COL1,
@@ -492,10 +478,10 @@ SELECT
      CII.SHOW_ORDER CL_ORDER_SERV, 
      CII.ITEM_PATH FULL_CODE,
      
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)   )/1000,1) AS COL1,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  ) / CR.COL1)/1000,1) AS COL4
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
      
       
       FROM CIS2.DATA_ALL D 
@@ -518,25 +504,7 @@ SELECT
           AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
       
       -------------------------------------------------------------------------------
-        CROSS JOIN (
         
-
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1054)) AND     
-                            
-                           D.ID_MD  = 44519    
-                              
-                              
-                              
-                              
-                              
-                              
-                              ) CR
         ------------------------------------------------------------------------------      
       
    
@@ -550,15 +518,15 @@ SELECT
   AND
   MR.CAPITOL IN (405,407)   
   
-  AND D.CUIIO = 1129894
+  --AND D.CUIIO = 1129894
   
       GROUP BY
  
       CII.NAME,
       CII.ITEM_CODE,
        CII.ITEM_PATH,
-       CII.SHOW_ORDER, 
-       CR.COL1
+       CII.SHOW_ORDER 
+       
     
 UNION 
 
@@ -580,18 +548,10 @@ SELECT
       CII.ITEM_CODE CODUL_SERV,
       CII.SHOW_ORDER CL_ORDER_SERV, 
       CII.ITEM_PATH FULL_CODE,
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END))/1000,1) AS COL1,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1)/1000,1) AS COL4
-     
+      SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
       
       FROM CIS2.DATA_ALL D 
        
@@ -624,21 +584,7 @@ SELECT
           
           
        -------------------------------------------------------------------------------
-        CROSS JOIN (
-        
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1054)) AND     
-                            
-                           D.ID_MD  = 44519   
-                              
-                              
-                              
-                              ) CR
+  
         ------------------------------------------------------------------------------  
        
    WHERE 
@@ -663,9 +609,8 @@ SELECT
        TTT.ITEM_CODE,
        TTT.ITEM_PATH,
        CII.ITEM_PATH,
-      CII.SHOW_ORDER,
-      CR.COL1
-      
+      CII.SHOW_ORDER
+     
     ORDER BY
     TTT.SHOW_ORDER 
 
@@ -679,32 +624,57 @@ SELECT
   
 )  )
 
+) D
 
-)
 
+ CROSS JOIN (
+        
+
+SELECT
+           SUM(D.COL1)    AS COL1            
+                  FROM DATA_ALL D
+                         
+                      
+                        WHERE
+                          (D.PERIOADA IN (1054)) AND     
+                            
+                           D.ID_MD  = 44519    
+                              
+                              
+                              
+                              
+                              
+                              
+                              ) CR           
+
+----------------------------1054
+
+
+--1055
 
 
 
 UNION 
-
-
-SELECT
-
-
-   (CASE WHEN NR_ROW = '98' THEN '99' ELSE NR_ROW END)||'~'||ROWNUM  NR_ROW,
-   ROWNUM AS ORDINE,
-  '1111' AS DECIMAL_POS,
-   NUME_ROW,
-   ROUND(COL1,1) COL1,
-   ROUND(COL2,1) COL2,
-  ROUND(COL3,1) COL3,
-  ROUND(COL4,1) COL4
+ 
+ SELECT 
+   D.NR_ROW,
+   D.CL_ORDER_SERV,
+   D.ORDINE, 
+   D.NUME_ROW,
+   ROUND (D.COL1 / 1000,1) AS COL1,
+   ROUND ((D.COL2 / CR.COL1) / 1000,1) AS COL2,
+   ROUND (D.COL3 / 1000,1) AS COL3,
+   ROUND ((D.COL4  / CR.COL1) / 1000,1) AS COL4
+   
 FROM
+
+
 (
 
 SELECT
 
    CODUL_SERV   NR_ROW,
+   CL_ORDER_SERV,
    ORDINE, 
    DENUMIRE  NUME_ROW,
   COL1,
@@ -723,10 +693,10 @@ SELECT
      CII.SHOW_ORDER CL_ORDER_SERV, 
      CII.ITEM_PATH FULL_CODE,
      
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)   )/1000,1) AS COL1,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  ) / CR.COL1)/1000,1) AS COL4
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
      
       
       FROM CIS2.DATA_ALL D 
@@ -749,25 +719,7 @@ SELECT
           AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
       
       -------------------------------------------------------------------------------
-        CROSS JOIN (
         
-
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1055)) AND     
-                            
-                           D.ID_MD  = 44519    
-                              
-                              
-                              
-                              
-                              
-                              
-                              ) CR
         ------------------------------------------------------------------------------      
       
    
@@ -781,15 +733,15 @@ SELECT
   AND
   MR.CAPITOL IN (405,407)   
   
-  AND D.CUIIO = 1129894
+  --AND D.CUIIO = 1129894
   
       GROUP BY
  
       CII.NAME,
       CII.ITEM_CODE,
        CII.ITEM_PATH,
-       CII.SHOW_ORDER, 
-       CR.COL1
+       CII.SHOW_ORDER 
+       
     
 UNION 
 
@@ -811,18 +763,10 @@ SELECT
       CII.ITEM_CODE CODUL_SERV,
       CII.SHOW_ORDER CL_ORDER_SERV, 
       CII.ITEM_PATH FULL_CODE,
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END))/1000,1) AS COL1,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1 )/1000,1) AS COL2,
-     
-     
-     ROUND((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) )/1000,1) AS COL3,
-     
-     
-     ROUND(((SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) ) / CR.COL1)/1000,1) AS COL4
-     
+      SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL1,
+     SUM(CASE WHEN  MC.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL2,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL3,
+     SUM(CASE WHEN  MC.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END)  AS COL4
       
       FROM CIS2.DATA_ALL D 
        
@@ -855,21 +799,7 @@ SELECT
           
           
        -------------------------------------------------------------------------------
-        CROSS JOIN (
-        
-SELECT
-           SUM(D.COL1)    AS COL1            
-                  FROM DATA_ALL D
-                         
-                      
-                        WHERE
-                          (D.PERIOADA IN (1055)) AND     
-                            
-                           D.ID_MD  = 44519   
-                              
-                              
-                              
-                              ) CR
+  
         ------------------------------------------------------------------------------  
        
    WHERE 
@@ -885,7 +815,7 @@ SELECT
   AND TTT.ITEM_CODE NOT IN ('000')
   AND CII.ITEM_CODE NOT IN ('00.00.00')
   
-    AND D.CUIIO = 1129894
+  --  AND D.CUIIO = 1129894
   
       GROUP BY
       TTT.SHOW_ORDER,
@@ -894,9 +824,8 @@ SELECT
        TTT.ITEM_CODE,
        TTT.ITEM_PATH,
        CII.ITEM_PATH,
-      CII.SHOW_ORDER,
-      CR.COL1
-      
+      CII.SHOW_ORDER
+     
     ORDER BY
     TTT.SHOW_ORDER 
 
@@ -910,113 +839,50 @@ SELECT
   
 )  )
 
-
-)
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
+) D
+
+
+ CROSS JOIN (
+        
+
+SELECT
+           SUM(D.COL1)    AS COL1            
+                  FROM DATA_ALL D
+                         
+                      
+                        WHERE
+                          (D.PERIOADA IN (1055)) AND     
+                            
+                           D.ID_MD  = 44519    
+                              
+                              
+                              
+                              
+                              
+                              
+                              ) CR           
+
+----------------------------1054
+
+                  
+    
+
+ORDER BY 
+
+NR_ROW,
+ORDINE     
+)   D
+                              
+
+GROUP BY
+
+   D.NR_ROW,
+   D.CL_ORDER_SERV,
+   D.ORDINE, 
+   D.NUME_ROW
+   
+   ORDER BY 
+
+CL_ORDER_SERV,
+ORDINE  
+    
