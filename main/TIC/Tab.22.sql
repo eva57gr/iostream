@@ -1,5 +1,25 @@
 --
-SELECT 
+--INSERT INTO CIS2.TABLE_OUT 
+--(
+--  PERIOADA,
+--  FORM,
+--  FORM_VERS,
+--  ID_MDTABLE,
+--  COD_CUATM,
+--  NR_SECTIE,
+--  NUME_SECTIE,
+--  NR_SECTIE1,
+--  NUME_SECTIE1,
+--  NR_SECTIE2,
+--  NUME_SECTIE2,
+--  NR_ROW,
+--  ORDINE,
+--  DECIMAL_POS,
+--  NUME_ROW,   
+--  COL1, COL2, COL3,COL4
+--)
+
+  SELECT 
   :pPERIOADA AS PERIOADA,
   :pFORM AS FORM,
   :pFORM_VERS AS FORM_VERS,
@@ -11,9 +31,9 @@ SELECT
   '0' AS NUME_SECTIE1,
   '0' AS NR_SECTIE2,
   '0' AS NUME_SECTIE2,
-   ROWNUM AS NR_ROW,
+     CUIIO||'~'||ROWNUM NR_ROW,  
   ROWNUM AS ORDINE,
-  '000' AS DECIMAL_POS,
+  '0000' AS DECIMAL_POS,
    DENUMIRE NUME_ROW,
    COL1 AS COL1, 
    COL2 AS COL2,
@@ -55,7 +75,7 @@ WHERE
        D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
        D.CAPITOL IN (1195) 
               
-    --   AND D.CUIIO = 1000545
+      AND D.CUIIO = 15789743 
          
 GROUP BY  
     R.CUIIO ,
@@ -88,7 +108,7 @@ WHERE
        D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
        D.CAPITOL IN (1195) 
               
-      -- AND D.CUIIO = 1000545
+       AND D.CUIIO = 15789743 
          
 GROUP BY  
     R.CUIIO ,
