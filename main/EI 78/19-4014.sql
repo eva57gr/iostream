@@ -1,0 +1,36 @@
+SELECT
+D.CUIIO,   
+'Rind.'||D.RIND||': '||' COL2 = '||  SUM(CIS2.NVAL(D.COL2)) ||' COL1 = '||  SUM(CIS2.NVAL(D.COL1))
+ 
+   
+  AS REZULTAT
+
+FROM
+  CIS2.VW_DATA_ALL D
+ 
+
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.CUIIO=:CUIIO                ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (19)  AND
+  D.CAPITOL IN (1017) 
+ 
+
+GROUP BY 
+D.RIND,
+D.CUIIO
+
+HAVING
+ SUM (CIS2.NVAL(D.COL2))  >  0
+ 
+ AND 
+ SUM(CIS2.NVAL(D.COL1)) = 0  
+ 
+ ORDER BY D.RIND DESC
