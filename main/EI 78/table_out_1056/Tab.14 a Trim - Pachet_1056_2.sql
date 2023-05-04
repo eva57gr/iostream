@@ -4,12 +4,16 @@ DECLARE
 SELECT
   DISTINCT D.CUIIO NR_ROW,
    D.FORM, 
-   D.PACHET AS COL1
+   D.PACHET AS COL1,
+   SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '-') - 1)
 FROM
   CIS2.VW_DATA_ALL D 
  WHERE 
   (D.PERIOADA IN(:pPERIOADA)) AND    
-  (D.FORM =:pFORM)  ;  
+  (D.FORM =:pFORM) 
+  
+
+ ;  
       
       
       
@@ -36,8 +40,11 @@ BEGIN
           PERIOADA IN (:pPERIOADA)     AND 
           ID_MDTABLE IN (:pID_MDTABLE) AND
           FORM IN (:pFORM)             AND
-          FORM_VERS IN (:pFORM_VERS) AND    
-          SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '-') - 1) =  CR.NR_ROW  
+          FORM_VERS IN (:pFORM_VERS) 
+          
+          AND    
+          --SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '-') - 1) =  CR.
+          NR_ROW  = SUBSTR(CR.NR_ROW, 1, INSTR(CR.NR_ROW, '-') - 1)
           
           AND COL1 IS NULL 
           
