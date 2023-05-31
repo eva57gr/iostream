@@ -6,7 +6,7 @@
 --        STATUT,
 --        CUATM,
 --        CFP,
---        --CFOJ,
+--        CFOJ,
 --        CAEM2,
 --        IDNO
 --        
@@ -24,12 +24,12 @@
         '1' STATUT,
         TRIM(L.CUATM) CUATM,
         TRIM(L.CFP) CFP,
-        -- L.CFOJ,
+        TRIM(L.CFOJ) CFOJ,
         TRIM(L.CAEM2)  CAEM2,
         L.IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM USER_BANCU.ADD_EI_78_23 L
+        FROM USER_BANCU.FR L
         
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
@@ -37,5 +37,5 @@
                         
                         WHERE 
                         
-                        C.CUIIO  IS NOT   NULL
-                        AND  C.CUIIO_VERS IS not  NULL 
+                        C.CUIIO  IS   NOT NULL
+--                       AND  C.CUIIO_VERS IS   NULL 

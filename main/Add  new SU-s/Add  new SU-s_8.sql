@@ -11,11 +11,11 @@ DECLARE -- ====================================================================
         L.DENUMIRE,
         L.CUATM,
         L.CFP,
---      --  L.CFOJ,
+        L.CFOJ,
         L.CAEM2,
         L.IDNO
         
-        FROM USER_BANCU.ADD_EI_78_23 L
+        FROM USER_BANCU.FR L
         
         
 --        WHERE 
@@ -33,7 +33,7 @@ BEGIN -- ======================================================================
         DENUMIRE = CR.DENUMIRE,
         CUATM = CR.CUATM,
         CFP = CR.CFP,
---      -- CFOJ = CR.CFOJ
+        CFOJ = CR.CFOJ,
         IDNO = CR.IDNO
  --     
   --  ETAPA_PROD = CR.ETAPA_PROD
