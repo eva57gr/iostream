@@ -1,0 +1,35 @@
+SELECT 
+D.RIND,
+  DECODE(CC.NR_COLUMN, '1', 'COL1 ', '2', 'COL2 ')||': '||
+   CIS2.NVAL(SUM(CASE WHEN D.RIND  IN('080')               THEN DECODE(CC.NR_COLUMN, '1', D.COL1, '2', D.COL2)  ELSE NULL END)) ||'<>'||
+   CIS2.NVAL(SUM(CASE WHEN D.RIND  IN('081','082','083')   THEN DECODE(CC.NR_COLUMN, '1', D.COL1, '2', D.COL2)  ELSE NULL END))
+   
+  AS REZULTAT
+
+FROM
+  CIS2.VW_DATA_ALL_GC D,             
+       (                               
+       SELECT '1' AS NR_COLUMN FROM DUAL UNION 
+       SELECT '2' AS NR_COLUMN FROM DUAL                                    
+       ) CC   
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.NR_GOSP=:NR_GOSP               OR :NR_GOSP = -1) AND
+  (D.UNIT_CODE_VERS=:UNIT_CODE_VERS    OR :UNIT_CODE_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (D.CAPITOL=:CAPITOL            OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+--  
+  D.FORM IN (61)  AND
+  D.CAPITOL IN (1111)   
+  
+GROUP BY
+  CC.NR_COLUMN,
+  D.RIND
+  
+HAVING
+   CIS2.NVAL(SUM(CASE WHEN D.RIND  IN('080')               THEN DECODE(CC.NR_COLUMN, '1', D.COL1, '2', D.COL2)  ELSE NULL END)) <>
+   CIS2.NVAL(SUM(CASE WHEN D.RIND  IN('081','082','083')   THEN DECODE(CC.NR_COLUMN, '1', D.COL1, '2', D.COL2)  ELSE NULL END))
+
