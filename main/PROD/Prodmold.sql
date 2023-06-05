@@ -9,7 +9,7 @@ SELECT *
         
         AND PERIOADA = 2011
         
---        AND CUIIO IN (
---       40758505
---
---        )
+        AND CUIIO IN (
+       40758505
+
+        )
