@@ -84,20 +84,21 @@ SELECT
                     FROM  --USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
-                          USER_BANCU.VW_MAX_RENIM_CIS2
+                          USER_BANCU.VW_MAX_RENIM_SIMESTRU_CIS2
                     
                     WHERE 
                     
                     CUIIO IN (
                      SELECT CUIIO
-        FROM USER_BANCU.FR
+        FROM USER_BANCU.LIV_2
         
 
         
         ) 
         
---        AND 
---        
---        (CUIIO_VERS  <>  2012 AND 
---        CUIIO_VERS  <>  2011 
---        ) 
+        AND 
+        
+        (
+        CUIIO_VERS  =   1826 
+         
+        ) 
