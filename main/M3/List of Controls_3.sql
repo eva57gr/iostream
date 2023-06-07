@@ -48,3 +48,7 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
+          
+          WHERE 
+          
+          L.CONTROL IN ('03-092','03-094','03-066','03-069','03-140')
