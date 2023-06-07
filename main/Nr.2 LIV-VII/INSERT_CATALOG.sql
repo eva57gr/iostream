@@ -39,13 +39,13 @@
 --
 -- 
 -- )
-
+--
 
 
 
 SELECT 
  CUIIO,
- CUIIO_VERS,
+ 1826 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
