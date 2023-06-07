@@ -50,3 +50,5 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
+          
+          --Vitalie Bancu
