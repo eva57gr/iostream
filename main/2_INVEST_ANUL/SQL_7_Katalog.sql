@@ -10,6 +10,6 @@ SELECT *
         AND PERIOADA = 2011
         
         AND CUIIO IN (
-       40758505
+       40531138
 
         )
