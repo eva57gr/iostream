@@ -12,7 +12,7 @@
 --        
 --        
 --)
-
+--
 
 
  SELECT 
@@ -34,9 +34,9 @@
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
-                                                  AND TRIM(L.CUATM) = C.CUATM
-                                                  AND TRIM(L.CFP) = C.CFP
-                                                  AND TRIM(L.CFOJ) = C.CFOJ
+--                                                  AND TRIM(L.CUATM) = C.CUATM
+--                                                  AND TRIM(L.CFP) = C.CFP
+--                                                  AND TRIM(L.CFOJ) = C.CFOJ
                         
                         WHERE 
                         
