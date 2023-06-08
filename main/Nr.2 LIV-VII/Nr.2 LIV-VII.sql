@@ -10,12 +10,7 @@ SELECT *
         AND PERIOADA = 1826
         
         AND CUIIO IN (
-        37111504,
-38529571,
-37769474,
-40903284,
-40802703,
-38930049,
-2735993
+           SELECT CUIIO
+        FROM USER_BANCU.LIV_2
 
         )
