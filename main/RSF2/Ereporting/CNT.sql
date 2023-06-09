@@ -1,0 +1,12 @@
+SELECT *
+        FROM USER_EREPORTING.CONTROL
+        
+        WHERE 
+        FORM IN  (57,59,63,66)
+
+AND PERIOADA = 2011
+
+ORDER BY 
+
+DATA_REG DESC
+        
