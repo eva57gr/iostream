@@ -299,6 +299,8 @@ function f1INVESTA_CAPII() {
         parseFloat(Number(R130_C4.val())) +
         parseFloat(Number(R130_C5.val())) +
         parseFloat(Number(R130_C6.val()))).toFixed(1));
+
+
     R130_01_C7.val(Number(parseFloat(Number(R130_01_C2.val())) +
         parseFloat(Number(R130_01_C3.val())) -
         parseFloat(Number(R130_01_C4.val())) +
@@ -329,11 +331,32 @@ function f1INVESTA_CAPII() {
         parseFloat(Number(R130_06_C4.val())) +
         parseFloat(Number(R130_06_C5.val())) +
         parseFloat(Number(R130_06_C6.val()))).toFixed(1));
+
+
     R130_07_C7.val(Number(parseFloat(Number(R130_07_C2.val())) +
         parseFloat(Number(R130_07_C3.val())) -
         parseFloat(Number(R130_07_C4.val())) +
         parseFloat(Number(R130_07_C5.val())) +
         parseFloat(Number(R130_07_C6.val()))).toFixed(1));
+
+    R130_08_C7.val(Number(parseFloat(Number(R130_08_C2.val())) +
+        parseFloat(Number(R130_08_C3.val())) -
+        parseFloat(Number(R130_08_C4.val())) +
+        parseFloat(Number(R130_08_C5.val())) +
+        parseFloat(Number(R130_08_C6.val()))).toFixed(1));
+
+
+    R130_09_C7.val(Number(parseFloat(Number(R130_09_C2.val())) +
+        parseFloat(Number(R130_09_C3.val())) -
+        parseFloat(Number(R130_09_C4.val())) +
+        parseFloat(Number(R130_09_C5.val())) +
+        parseFloat(Number(R130_09_C6.val()))).toFixed(1));   
+
+    R130_10_C7.val(Number(parseFloat(Number(R130_10_C2.val())) +
+        parseFloat(Number(R130_10_C3.val())) -
+        parseFloat(Number(R130_10_C4.val())) +
+        parseFloat(Number(R130_10_C5.val())) +
+        parseFloat(Number(R130_10_C6.val()))).toFixed(1));   
 
 
     //---------------------------------- Rind 140 --------------------------------------------------
@@ -415,6 +438,26 @@ function f1INVESTA_CAPII() {
         parseFloat(Number(R140_07_C4.val())) +
         parseFloat(Number(R140_07_C5.val())) +
         parseFloat(Number(R140_07_C6.val()))).toFixed(1));
+
+    R140_08_C7.val(Number(parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_08_C3.val())) -
+        parseFloat(Number(R140_08_C4.val())) +
+        parseFloat(Number(R140_08_C5.val())) +
+        parseFloat(Number(R140_08_C6.val()))).toFixed(1));
+
+
+    R140_09_C7.val(Number(parseFloat(Number(R140_09_C2.val())) +
+        parseFloat(Number(R140_09_C3.val())) -
+        parseFloat(Number(R140_09_C4.val())) +
+        parseFloat(Number(R140_09_C5.val())) +
+        parseFloat(Number(R140_09_C6.val()))).toFixed(1));
+
+    R140_10_C7.val(Number(parseFloat(Number(R140_10_C2.val())) +
+        parseFloat(Number(R140_10_C3.val())) -
+        parseFloat(Number(R140_10_C4.val())) +
+        parseFloat(Number(R140_10_C5.val())) +
+        parseFloat(Number(R140_10_C6.val()))).toFixed(1));
+
 
 
 
