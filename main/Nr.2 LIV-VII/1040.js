@@ -363,38 +363,67 @@ function f1INVESTA_CAPII() {
     R140_C2.val(Number(parseFloat(Number(R140_01_C2.val())) +
         parseFloat(Number(R140_02_C2.val())) +
         parseFloat(Number(R140_03_C2.val())) +
+        
         parseFloat(Number(R140_04_C2.val())) +
         parseFloat(Number(R140_05_C2.val())) +
         parseFloat(Number(R140_06_C2.val())) +
-        parseFloat(Number(R140_07_C2.val()))).toFixed(1));
+
+        parseFloat(Number(R140_07_C2.val())) +
+        parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_09_C2.val())) +
+
+
+        parseFloat(Number(R140_10_C2.val()))).toFixed(1));
     R140_C3.val(Number(parseFloat(Number(R140_01_C3.val())) +
         parseFloat(Number(R140_02_C3.val())) +
         parseFloat(Number(R140_03_C3.val())) +
         parseFloat(Number(R140_04_C3.val())) +
         parseFloat(Number(R140_05_C3.val())) +
         parseFloat(Number(R140_06_C3.val())) +
-        parseFloat(Number(R140_07_C3.val()))).toFixed(1));
+
+        parseFloat(Number(R140_07_C2.val())) +
+        parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_09_C2.val())) +
+
+        parseFloat(Number(R140_10_C3.val()))).toFixed(1));
+
+
     R140_C4.val(Number(parseFloat(Number(R140_01_C4.val())) +
         parseFloat(Number(R140_02_C4.val())) +
         parseFloat(Number(R140_03_C4.val())) +
         parseFloat(Number(R140_04_C4.val())) +
         parseFloat(Number(R140_05_C4.val())) +
         parseFloat(Number(R140_06_C4.val())) +
-        parseFloat(Number(R140_07_C4.val()))).toFixed(1));
+
+        parseFloat(Number(R140_07_C2.val())) +
+        parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_09_C2.val())) +
+        
+        parseFloat(Number(R140_10_C4.val()))).toFixed(1));
     R140_C5.val(Number(parseFloat(Number(R140_01_C5.val())) +
         parseFloat(Number(R140_02_C5.val())) +
         parseFloat(Number(R140_03_C5.val())) +
         parseFloat(Number(R140_04_C5.val())) +
         parseFloat(Number(R140_05_C5.val())) +
         parseFloat(Number(R140_06_C5.val())) +
-        parseFloat(Number(R140_07_C5.val()))).toFixed(1));
+
+        parseFloat(Number(R140_07_C2.val())) +
+        parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_09_C2.val())) +
+
+        parseFloat(Number(R140_10_C5.val()))).toFixed(1));
     R140_C6.val(Number(parseFloat(Number(R140_01_C6.val())) +
         parseFloat(Number(R140_02_C6.val())) +
         parseFloat(Number(R140_03_C6.val())) +
         parseFloat(Number(R140_04_C6.val())) +
         parseFloat(Number(R140_05_C6.val())) +
         parseFloat(Number(R140_06_C6.val())) +
-        parseFloat(Number(R140_07_C6.val()))).toFixed(1));
+
+        parseFloat(Number(R140_07_C2.val())) +
+        parseFloat(Number(R140_08_C2.val())) +
+        parseFloat(Number(R140_09_C2.val())) +
+
+        parseFloat(Number(R140_10_C6.val()))).toFixed(1));
 
     //---------------------------------- Rind 140 COL7--------------------------------------------------
 
