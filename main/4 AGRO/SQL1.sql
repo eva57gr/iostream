@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
- SELECT FC.CUIIO,
+SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
