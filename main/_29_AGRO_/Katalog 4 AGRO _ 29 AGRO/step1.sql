@@ -1,3 +1,9 @@
+--SELECT *
+--    
+--    FROM USER_BANCU.VW_4_AGRO_1057
+--    
+--    ;
+
 
 CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_4_AGRO_1057
 (
@@ -38,7 +44,7 @@ CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_4_AGRO_1057
 )
 AS
     SELECT R.CUIIO,
-           1053 CUIIO_VERS,
+           1057 CUIIO_VERS,
            R.DENUMIRE,
            R.EDIT_USER,
            R.STATUT,
@@ -92,4 +98,9 @@ AS
              
              ) FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS);
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
+
+
+
+WHERE 
+R.CUIIO_VERS <>  1057
