@@ -8,7 +8,7 @@
 --)
 
                SELECT 
-                   FC.CUIIO,
+                   R.CUIIO,
                    1057 CUIIO_VERS,
                    45 FORM,
                    1004 FORM_VERS,
@@ -31,7 +31,7 @@ SELECT FC.CUIIO,
              WHERE 
              FC.FORM IN (45) AND FC.STATUT <> '3'
              
-             ) FC LEFT  JOIN (
+             ) FC RIGHT  JOIN (
 
              SELECT CUIIO
 FROM USER_BANCU.VW_4_AGRO_1057
@@ -40,5 +40,5 @@ FROM USER_BANCU.VW_4_AGRO_1057
              ) R ON R.CUIIO = FC.CUIIO 
              
              WHERE 
-             R.CUIIO IS     NULL 
+             FC.CUIIO IS   NOT   NULL 
               
