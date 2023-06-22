@@ -40,7 +40,7 @@
          SELECT
          
     CUIIO,
-    1057 CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -92,7 +92,7 @@ SELECT FC.CUIIO
             
             )
             
-            AND CUIIO_VERS  <>   1057
+            -- AND CUIIO_VERS  <>   1057
 --            
             ORDER BY 
             CUIIO_VERS
