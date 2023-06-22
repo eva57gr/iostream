@@ -42,7 +42,7 @@ SELECT
          1=1
          AND B.FORM  = 64
          AND B.STATUT <> '3'
-        -- AND B.FORM_VERS = 2009
+         AND B.FORM_VERS = 2000
                
          
          
