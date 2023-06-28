@@ -2,8 +2,8 @@ SELECT
                DISTINCT 
                D.ANUL,
                D.CUIIO,
-               D.CUATM,
-               D.CUATM_FULL,
+               D.COL33,
+             
                D.RIND,
                SUM(D.COL9) AS COL1,
                SUM(D.COL10) AS COL2
@@ -12,22 +12,19 @@ SELECT
            
                                  
            
-                                  
-           
-           WHERE 
+          WHERE 
            D.FORM = 64
            AND D.PERIOADA = 2011 
            AND   D.CAPITOL = 1128                   
                    
+           GROUP BY 
                          
-        GROUP BY 
-               D.ANUL,
+             D.ANUL,
                D.CUIIO,
-               D.CUATM,
-               D.CUATM_FULL,
+               D.COL33,
+             
                D.RIND
-
  ORDER BY 
-    D.CUATM_FULL,
+ 
     D.CUIIO,
     D.RIND
