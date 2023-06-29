@@ -11,7 +11,7 @@
                 
                 WHERE 
                 D.FORM IN (43)
-                AND D.PERIOADA = 2011
+                AND D.PERIOADA = :pPERIOADA_ANUL 
                 ) L LEFT JOIN (
                 
                   SELECT FC.CUIIO,

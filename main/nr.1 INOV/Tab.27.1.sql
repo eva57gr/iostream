@@ -738,7 +738,8 @@ WHERE
  AND  CC.CODUL 
  
  
- IN (
+ IN 
+ (
   'B061',
 'B081',
 'C101',
