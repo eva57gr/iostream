@@ -1,0 +1,19 @@
+SELECT *
+
+FROM USER_EREPORTING.CONTROL
+
+
+WHERE 
+
+FORM  = 48
+
+AND PERIOADA = 2011
+
+
+ORDER BY 
+DATA_REG  DESC
+
+
+
+
+                
