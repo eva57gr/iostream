@@ -1,26 +1,9 @@
+In Oracle if I use LENGTH(D.COL31) and a completed full this  COL31
+ COL31       VARCHAR2(500 BYTE),
 
+ LENGTH(D.COL31) will show me 500 ? 
 
+ Max se poate salva 350 - 360 de caractere 
+ Exemplu 
 
-
---I have to find it 
---Which field value has the most rows in the view
-
-SELECT
-D.CUIIO,   
-COUNT (D.CUIIO) AS CNT         
-    
-        FROM CIS2.VW_DATA_ALL D
-        
-         WHERE 
-         D.PERIOADA = 1056
-         AND D.FORM =  26 
-
-GROUP BY 
-D.CUIIO        
-
-
-
-ORDER BY 
-CNT DESC 
-
---It is optimal ? 
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquet risus ligula, auctor fringilla quam consectetur ac. Mauris vitae enim id neque ullamcorper eleifend. Suspendisse scelerisque augue non nibh tempus, eget commodo elit luctus. Integer eget rhoncus ligula. Phasellus vulputate posuere eros a scelerisque. Vestibulum facilisis felis in mi interdum, in lacinia tellus"
