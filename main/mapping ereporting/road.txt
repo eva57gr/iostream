@@ -1,9 +1,133 @@
-In Oracle if I use LENGTH(D.COL31) and a completed full this  COL31
- COL31       VARCHAR2(500 BYTE),
+I run this SQL 
+SELECT 
+                D.CUIIO, 
+                D.FORM DEN_SHORT
+                
+                
+                        FROM CIS2.VW_DATA_ALL D
+                        
+                        WHERE 
+                        
+                        D.ANUL = 2022
+                        
+                        AND D.CUIIO IN (
+                        41349476,
+41000696,
+40866092,
+40220770,
+41169047,
+40774533,
+41419515,
+40065952,
+20283170,
+41290889,
+41101569,
+41286379,
+40669115,
+37787130
+                        )
+                        
+                        GROUP BY 
+                            D.CUIIO,
+                            D.FORM 
+                
+                
+                ORDER BY 
+                D.CUIIO
+                
 
- LENGTH(D.COL31) will show me 500 ? 
+                I get this 
 
- Max se poate salva 350 - 360 de caractere 
- Exemplu 
+20283170	8
+37787130	3
+37787130	8
+37787130	16
+37787130	71
+40065952	8
+40220770	8
+40774533	8
+40866092	8
+40866092	44
+41000696	3
+41290889	3
+41290889	8
+41349476	44
+41419515	3
+41419515	8
 
- "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquet risus ligula, auctor fringilla quam consectetur ac. Mauris vitae enim id neque ullamcorper eleifend. Suspendisse scelerisque augue non nibh tempus, eget commodo elit luctus. Integer eget rhoncus ligula. Phasellus vulputate posuere eros a scelerisque. Vestibulum facilisis felis in mi interdum, in lacinia tellus"
+
+I need them not to be grouped by DEN_SHORT but to be displayed in DEN_SHORT separated by commas
+
+I have this result
+
+20283170	8
+37787130	3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,8,16,16,16,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71
+40065952	8
+40220770	8,8,8,8,8,8,8,8,8,8
+40774533	8
+40866092	8,8,8,8,8,8,8,8,44,44,44,44,44,44,44,44
+41000696	3
+41290889	3,8,8,8,8,8,8,8,8,8,8,8
+41349476	44,44,44,44,44,44,44,44,44,44,44,44,44,44
+41419515	3,8
+
+
+
+I have this SQL 
+
+SELECT 
+                D.CUIIO,
+                LISTAGG(MF.FORM, ',') WITHIN GROUP (ORDER BY MF.FORM) AS DEN_FORM,
+                LISTAGG(MF.DEN_SHORT, ',') WITHIN GROUP (ORDER BY MF.DEN_SHORT) AS DEN_SHORT
+
+                 
+                
+                
+                        FROM CIS2.VW_DATA_ALL D
+                        
+                         INNER JOIN CIS2.MD_FORM MF ON  MF.FORM = D.FORM AND MF.FORM_VERS = D.FORM_VERS
+                        
+                        WHERE 
+                        
+                        D.ANUL = 2022
+                        
+                        AND D.CUIIO IN (
+                        41349476,
+41000696,
+40866092,
+40220770,
+41169047,
+40774533,
+41419515,
+40065952,
+20283170,
+41290889,
+41101569,
+41286379,
+40669115,
+37787130
+                        )
+                        
+                        GROUP BY 
+                         D.CUIIO 
+              
+                
+                
+                ORDER BY 
+                D.CUIIO
+                
+
+
+                I have this result 
+20283170	8	2-INV (anual)
+37787130	3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,8,16,16,16,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71	1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,2-INV (anual),FORPRO,FORPRO,FORPRO,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3
+40065952	8	2-INV (anual)
+40220770	8,8,8,8,8,8,8,8,8,8	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual)
+40774533	8	2-INV (anual)
+40866092	8,8,8,8,8,8,8,8,44,44,44,44,44,44,44,44	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8
+41000696	3	M3
+41290889	3,8,8,8,8,8,8,8,8,8,8,8	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),M3
+41349476	44,44,44,44,44,44,44,44,44,44,44,44,44,44	EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8
+41419515	3,8	2-INV (anual),M3
+
+If they are repeated, they should be deleted, not one more.
