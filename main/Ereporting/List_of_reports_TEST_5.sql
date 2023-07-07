@@ -1,26 +1,33 @@
 SELECT
-    D.CUIIO,
-    TRIM(',' FROM SYS_CONNECT_BY_PATH(D.FORM, ',')) AS DEN_SHORT
+    CUIIO,
+    LISTAGG(FORM, ',') WITHIN GROUP (ORDER BY FORM) AS DEN_SHORT
 FROM
-    CIS2.VW_DATA_ALL D
-WHERE
-    D.ANUL = 2022
-    AND D.CUIIO IN (
-        41349476,
-        41000696,
-        40866092,
-        40220770,
-        41169047,
-        40774533,
-        41419515,
-        40065952,
-        20283170,
-        41290889,
-        41101569,
-        41286379,
-        40669115,
-        37787130
+    (
+    SELECT
+        D.CUIIO,
+        D.FORM
+    FROM
+        CIS2.VW_DATA_ALL D
+    WHERE
+        D.ANUL = 2022
+        AND D.CUIIO IN (
+            41349476,
+            41000696,
+            40866092,
+            40220770,
+            41169047,
+            40774533,
+            41419515,
+            40065952,
+            20283170,
+            41290889,
+            41101569,
+            41286379,
+            40669115,
+            37787130
+        )
     )
-START WITH D.FORM = (SELECT MIN(FORM) FROM CIS2.VW_DATA_ALL WHERE CUIIO = D.CUIIO)
-CONNECT BY PRIOR D.CUIIO = D.CUIIO AND PRIOR D.FORM < D.FORM
-ORDER BY D.CUIIO;
+GROUP BY
+    CUIIO
+ORDER BY
+    CUIIO;

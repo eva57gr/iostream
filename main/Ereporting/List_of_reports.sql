@@ -1,13 +1,14 @@
 SELECT 
                 D.CUIIO, 
-                D.FORM 
+                MF.FORM DEN_FORM,
+                MF.DEN_SHORT
                 
                 
                         FROM CIS2.VW_DATA_ALL D
-                        
+                         INNER JOIN CIS2.MD_FORM MF ON  MF.FORM = D.FORM AND MF.FORM_VERS = D.FORM_VERS
                         WHERE 
                         
-                        D.ANUL = 2021
+                        D.ANUL = 2022
                         
                         AND D.CUIIO IN (
                         41349476,
@@ -27,8 +28,9 @@ SELECT
                         )
                         
                         GROUP BY 
-                            D.CUIIO,
-                            D.FORM 
+                          D.CUIIO, 
+                MF.FORM,
+                MF.DEN_SHORT
                 
                 
                 ORDER BY 

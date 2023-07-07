@@ -1,5 +1,5 @@
   SELECT FC.CUIIO,
-  MF.DENUMIRE,
+  MF.DEN_SHORT,
                 --   FC.CUIIO_VERS,
                 
                    FC.FORM,
@@ -15,11 +15,11 @@
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
+              FROM CIS.FORM_CUIIO  FC
                    INNER JOIN (  
                    SELECT CUIIO, 
                    MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
+                                   FROM CIS.FORM_CUIIO
                                   WHERE 
                                   1=1
                                GROUP BY CUIIO) 
@@ -63,7 +63,7 @@
                    
                   
 ) FC 
- INNER JOIN CIS2.MD_FORM MF ON  MF.FORM = FC.FORM AND MF.FORM_VERS = FC.FORM_VERS
+ INNER JOIN CIS.MD_FORM MF ON  MF.FORM = FC.FORM AND MF.FORM_VERS = FC.FORM_VERS
  
                    ORDER BY 
                         FC.CUIIO,
