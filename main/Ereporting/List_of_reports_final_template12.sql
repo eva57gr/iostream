@@ -1,4 +1,11 @@
-    SELECT
+SELECT   D.CUIIO, 
+          D.DENUMIRE,
+          L.DEN_SHORT,
+           LENGTH(L.DEN_SHORT) AS  LENGTH_ 
+
+    FROM USER_BANCU.LIST_OF_REPORTS D LEFT JOIN (
+    
+        SELECT
     CUIIO,
     LISTAGG(DEN_SHORT, ',') WITHIN GROUP (ORDER BY DEN_SHORT) AS DEN_SHORT
 FROM
@@ -57,6 +64,7 @@ FROM
     FROM USER_BANCU.LIST_OF_REPORTS
         )
         
+        
         UNION 
         SELECT DISTINCT
         D.CUIIO,
@@ -71,9 +79,6 @@ FROM
             SELECT CUIIO 
 
     FROM USER_BANCU.LIST_OF_REPORTS )
-        
-        
-        
         ORDER BY 
         
          CUIIO,
@@ -85,3 +90,13 @@ FROM
     CUIIO
 ORDER BY
     CUIIO
+    
+    ) L ON L.CUIIO = D.CUIIO
+    
+    INNER JOIN USER_BANCU.VW_MAX_RENIM_CIS2 CC ON D.CUIIO = CC.CUIIO
+    INNER JOIN CIS2.VW_CL_CUATM CU ON CU.CODUL = CC.CUATM
+    
+    ORDER BY
+    
+    LENGTH_ DESC
+    --CU.FULL_CODE
