@@ -1,29 +1,28 @@
-
 SELECT 
- 
---    :pPERIOADA AS PERIOADA,
---    :pFORM AS FORM,
---    :pFORM_VERS AS FORM_VERS,
---    :pID_MDTABLE AS ID_MDTABLE,
---    :pCOD_CUATM AS COD_CUATM,
---     NR_SECTIE   AS NR_SECTIE,
---     NUME_SECTIE AS NUME_SECTIE, 
---    '0' AS NR_SECTIE1,
---    '0' AS NUME_SECTIE1,
---    '0' AS NR_SECTIE2,
---    '0' AS NUME_SECTIE2, 
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+     NR_SECTIE   AS NR_SECTIE,
+     NUME_SECTIE AS NUME_SECTIE, 
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1,
+    '0' AS NR_SECTIE2,
+    '0' AS NUME_SECTIE2, 
  A.CUIIO||'~'||ROWNUM NR_ROW,
  ROWNUM  AS ORDINE,
  '0000004' AS DECIMAL_POS,
-  -- TRIM(A.DENUMIRE) NUME_ROW,
-  
-   TRIM(A.DENUMIRE)||' - '||(CASE WHEN TRIM(A.COL1) IS NOT NULL THEN TRIM(A.COL1) ELSE TRIM(A.COL2) END)  NUME_ROW,
+
+    TRIM(A.DENUMIRE)||' - '||(CASE WHEN TRIM(A.COL1) IS NOT NULL THEN TRIM(A.COL1) ELSE TRIM(A.COL2) END)  NUME_ROW,
     A.COL8   COL1,
     A.COL7   COL2,
    -- A.COL1   COL3,
      REPLACE(A.COL1,'.','') AS COL3,
     A.COL2   COL4,
  
+
+
   
     ---------------------
     ROUND(A.COL3,0)   COL5,
@@ -33,17 +32,16 @@ SELECT
    (
    
    
-   SELECT
+  SELECT
             SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
+ 
                       
                         WHERE
                              (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
-                              AND MR.CAPITOL IN (10002)
-                              AND MR.RIND IN ('01')
+                              AND D.ID_MD =  44519  
                               
                               
                               )  AS  COL7 
@@ -115,7 +113,7 @@ FROM CIS2.DATA_ALL D
   (:pID_MDTABLE =:pID_MDTABLE) AND
   (C.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
   D.FORM IN (44) AND
-  MR.CAPITOL IN (1)
+  MR.CAPITOL IN (14)
   AND MR.RIND NOT  IN ('0')
   -------------------------------------------------
   GROUP BY 
@@ -157,7 +155,7 @@ FROM CIS2.DATA_ALL D
         INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS
         INNER JOIN CIS2.VW_CL_CUATM C ON R.CUATM = C.CODUL
         INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
-      --  INNER  JOIN VW_CL_CUATM CT ON R.CUATM = CT.CODUL
+  
         INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
         
         
@@ -166,14 +164,15 @@ FROM CIS2.DATA_ALL D
          SELECT
             SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
+ 
                       
                         WHERE
                              (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
-                              AND MR.CAPITOL IN (10002)
-                              AND MR.RIND IN ('01') ) CR
+                              AND D.ID_MD =  44519  
+                              
+                              ) CR
         ------------------------------------------------------------------------------   
         
    WHERE 
@@ -183,7 +182,7 @@ FROM CIS2.DATA_ALL D
   (:pID_MDTABLE =:pID_MDTABLE) AND
   (C.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
   D.FORM IN (44) AND
-  MR.CAPITOL IN (405)
+  MR.CAPITOL IN (407)
   
   AND MR.RIND  IN ('1')
   -------------------------------------------------
@@ -199,78 +198,8 @@ FROM CIS2.DATA_ALL D
   D.PACHET 
   
   
---  UNION 
---  
---SELECT 
---    CC.CODUL,
---    CC.FULL_CODE,
---    CC.DENUMIRE DENUMIRE_CUATM,
---    D.CUIIO,
---    R.DENUMIRE DENUMIRE_CUIIO, 
---    MR.RIND,
---    MR.DENUMIRE,
---    '3' AS ORDINE, 
---    NULL AS  COL1,
---    NULL AS  COL2,
---   ------------------------- 
---    
---    SUM(CASE WHEN D.COL4 IS NOT NULL THEN D.COL4 END) COL3,
---    SUM(CASE WHEN D.COL4 IS NOT NULL THEN D.COL4 END) / CR.COL1 COL4,
---    NULL AS COL5,
---    ------------------------------
---    NULL AS COL6,
---    NULL AS COL7,
---    D.PACHET AS COL8 
---
---FROM CIS2.DATA_ALL D 
---        
---        INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS
---        INNER JOIN CIS2.VW_CL_CUATM C ON R.CUATM = C.CODUL
---        INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
---      --  INNER  JOIN VW_CL_CUATM CT ON R.CUATM = CT.CODUL
---        INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
---        
---        
---        -------------------------------------------------------------------------------
---        CROSS JOIN (
---         SELECT
---            SUM(D.COL1) AS COL1            
---                  FROM DATA_ALL D
---                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
---                      
---                        WHERE
---                             (D.PERIOADA =:pPERIOADA) AND               
---                              D.FORM IN (101)
---                              AND D.CUIIO IN (5)
---                              AND MR.CAPITOL IN (10002)
---                              AND MR.RIND IN ('01') ) CR
---        ------------------------------------------------------------------------------   
---        
---   WHERE 
---  (D.PERIOADA =:pPERIOADA) AND 
---  (D.FORM =:pFORM) AND
---  (D.FORM_VERS =:pFORM_VERS) AND 
---  (:pID_MDTABLE =:pID_MDTABLE) AND
---  (CT.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
---  D.FORM IN (44) AND
---  MR.CAPITOL IN (405)
---  
---  AND MR.RIND  IN ('2')
---  -------------------------------------------------
---  GROUP BY 
---  CC.CODUL,
---  CC.FULL_CODE,
---  CC.DENUMIRE, 
---  D.CUIIO,
---  R.DENUMIRE,
---  MR.RIND,
---  MR.DENUMIRE,
---  CR.COL1,
---  D.PACHET 
-  
   UNION 
---------------------------------------------------------------------------------  
-
+  
 SELECT 
 CODUL,
 FULL_CODE,
@@ -298,7 +227,7 @@ SELECT
   NULL DENUMIRE_CUIIO,
   NULL RIND,
   DENUMIRE,
-  --SUBSTR(ORDINE,1,1)  
+
   ORDINE,
   COL1,
   COL2,
@@ -341,41 +270,26 @@ FROM CIS2.DATA_ALL D
         
         -------------------------------------------------------------------------------
         CROSS JOIN (
-         SELECT
+        SELECT
             SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
+ 
                       
                         WHERE
                              (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
-                              AND MR.CAPITOL IN (10002)
-                              AND MR.RIND IN ('01') ) CR
-        ------------------------------------------------------------------------------   
-        
-        --INNER JOIN CIS2.VW_CL_SERVICII SS ON (rtrim(SS.CODUL, '0')=D.COL1 )
+                              AND D.ID_MD =  44519  
+                              
+                              
+                              
+                              
+                              ) CR
+  
 
-        INNER JOIN (
-         
-         SELECT
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER,
-                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
-                FROM
-                  VW_CLS_CLASS_ITEM CI
-                WHERE
-                  CI.CLASS_CODE IN ('CSPM2') 
-    
-                GROUP BY
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER
-                  
-             ) CI ON (TRIM(D.COL31)=TRIM(CI.ITEM_CODE))        
+     
+
+INNER JOIN  CIS2.VW_CLS_CLASS_ITEM CI  ON (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31)=TRIM(CI.ITEM_CODE)) 
         
         
         
@@ -386,7 +300,7 @@ FROM CIS2.DATA_ALL D
   (:pID_MDTABLE =:pID_MDTABLE) AND
   (C.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
   D.FORM IN (44) AND
-  MR.CAPITOL IN (405)
+  MR.CAPITOL IN (407)
   AND MR.RIND NOT IN ('1','-')
    
   -------------------------------------------------
@@ -439,42 +353,29 @@ FROM CIS2.DATA_ALL D
         
         -------------------------------------------------------------------------------
         CROSS JOIN (
-         SELECT
+         
+         
+SELECT
             SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
+ 
                       
                         WHERE
                              (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
-                              AND MR.CAPITOL IN (10002)
-                              AND MR.RIND IN ('01') ) CR
+                              AND D.ID_MD =  44519  
+                              
+                              
+                              
+                              ) CR
         ------------------------------------------------------------------------------   
         
        
-      -- INNER JOIN   CIS2.VW_CL_TARI TT  ON (TT.CODUL=D.COL3)
-      
-            INNER JOIN  (
-        SELECT
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER,
-                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
-                FROM
-                  VW_CLS_CLASS_ITEM CI
-                WHERE
-                  CI.CLASS_CODE IN ('TARI_ISO') 
-    
-                GROUP BY
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER
-           ) 
-           
-           TT ON  (TT.ITEM_CODE=D.COL33)
+     
+
+
+INNER JOIN  CIS2.VW_CLS_CLASS_ITEM TT  ON (TT.CLASS_CODE IN ('TARI_ISO') AND TT.ITEM_CODE=D.COL33)
         
    WHERE 
   (D.PERIOADA =:pPERIOADA) AND 
@@ -483,7 +384,7 @@ FROM CIS2.DATA_ALL D
   (:pID_MDTABLE =:pID_MDTABLE) AND
   (C.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
   D.FORM IN (44) AND
-  MR.CAPITOL IN (405)
+  MR.CAPITOL IN (407)
   AND MR.RIND NOT IN ('1','-')
    
   -------------------------------------------------
@@ -547,7 +448,7 @@ SELECT
     NULL AS COL2,
     
    
-    (SUM(CASE WHEN  MR.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-') AND D.COL4 IS NOT NULL THEN D.COL4 ELSE 0 END )  
+    (SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-') AND D.COL4 IS NOT NULL THEN D.COL4 ELSE 0 END )  
     
     
     )
@@ -555,7 +456,7 @@ SELECT
     ---------------------------------------------------------------------------------------------------------------------
   
     
-    (SUM(CASE WHEN  MR.CAPITOL IN (405)  AND MR.RIND NOT IN ('1','-') AND D.COL4 IS NOT NULL THEN D.COL4 ELSE 0 END )  
+    (SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-') AND D.COL4 IS NOT NULL THEN D.COL4 ELSE 0 END )  
     
     
     
@@ -574,49 +475,33 @@ FROM CIS2.DATA_ALL D
         INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS
         INNER JOIN CIS2.VW_CL_CUATM C ON R.CUATM = C.CODUL
         INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
-       -- INNER  JOIN VW_CL_CUATM CT ON R.CUATM = CT.CODUL
+    
         INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
         
---    INNER JOIN CIS2.VW_CL_SERVICII SS ON (rtrim(SS.CODUL, '0')=D.COL1 )
---    
---    INNER JOIN   CIS2.VW_CL_SERVICII SSS ON (SS.FULL_CODE LIKE '%' ||SSS.CODUL||';%' )
 
 
-INNER JOIN (
-         
-         SELECT
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER,
-                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
-                FROM
-                  VW_CLS_CLASS_ITEM CI
-                WHERE
-                  CI.CLASS_CODE IN ('CSPM2') 
-    
-                GROUP BY
-                  CI.ITEM_CODE,
-                  CI.ITEM_PATH,
-                  CI.NAME,
-                  CI.SHOW_ORDER
-                  
-             ) CI ON (TRIM(D.COL31)=TRIM(CI.ITEM_CODE))
+
+
+
+INNER JOIN  CIS2.VW_CLS_CLASS_ITEM CI  ON (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31)=TRIM(CI.ITEM_CODE))
           INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
         
         -------------------------------------------------------------------------------
         CROSS JOIN (
-         SELECT
+SELECT
             SUM(D.COL1) AS COL1            
                   FROM DATA_ALL D
-                          INNER  JOIN CIS2.MD_RIND MR ON D.ID_MD = MR.ID_MD
+ 
                       
                         WHERE
                              (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
-                              AND MR.CAPITOL IN (10002)
-                              AND MR.RIND IN ('01') ) CR
+                              AND D.ID_MD =  44519  
+                              
+                              
+                              
+                              ) CR
         ------------------------------------------------------------------------------   
         
    WHERE 
@@ -626,7 +511,7 @@ INNER JOIN (
   (:pID_MDTABLE =:pID_MDTABLE) AND
   (C.FULL_CODE LIKE '%'||:pCOD_CUATM||';%') AND
   D.FORM IN (44) AND
-  MR.CAPITOL IN (405)
+  MR.CAPITOL IN (407)
    
   AND  CII.ITEM_CODE IN ('00.00.00')
   -------------------------------------------------
