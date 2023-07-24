@@ -1,7 +1,4 @@
-
-
 SELECT
-
   C.CODUL,
   C.FULL_CODE,
   C.DENUMIRE,
