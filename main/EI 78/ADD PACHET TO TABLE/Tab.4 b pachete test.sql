@@ -1,6 +1,99 @@
-SELECT *
+--DECLARE
+--
+--  CURSOR C IS
+--
+--SELECT 
+--    DF.PERIOADA,
+--    DF.FORM,
+--    DF.FORM_VERS,
+--    DF.ID_MDTABLE,
+--    DF.COD_CUATM,
+--    DF.NR_SECTIE,
+--    DF.NUME_SECTIE,
+--    DF.NR_SECTIE1,
+--    DF.NUME_SECTIE1,
+--    DF.NR_SECTIE2,
+--    DF.NUME_SECTIE2,
+--    DF.NR_ROW NR_ROW,
+--    DF.ORDINE,
+--    DF.DECIMAL_POS,
+--    REGEXP_REPLACE(DF.NUME_ROW,'(^[[:space:]]*|[[:space:]]*$)') AS NUME_ROW,
+--    DF.COL1,
+--    DF.COL2,
+--    DF.COL3,
+--    DF.COL4,
+--    DF.COL5,
+--    DF.COL6,
+--    DF.COL7
+--    
+--    FROM 
+--(
+--
+--
+
+
+SELECT 
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+     NR_SECTIE   AS NR_SECTIE,
+     NUME_SECTIE AS NUME_SECTIE, 
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1,
+    '0' AS NR_SECTIE2,
+    '0' AS NUME_SECTIE2, 
+ A.CUIIO||'~'||ROWNUM NR_ROW,
+ ROWNUM  AS ORDINE,
+ '0000004' AS DECIMAL_POS,
+
+    TRIM(A.DENUMIRE)||' - '||(CASE WHEN TRIM(A.COL1) IS NOT NULL THEN TRIM(A.COL1) ELSE TRIM(A.COL2) END)  NUME_ROW,
+    A.COL8   COL1,
+    A.COL7   COL2,
+   -- A.COL1   COL3,
+     REPLACE(A.COL1,'.','') AS COL3,
+    A.COL2   COL4,
+ 
+
+
+  
+    ---------------------
+    ROUND(A.COL3,0)   COL5,
+    ROUND(A.COL4,0)   COL6,
+    
+    
+
+                              
+                              
+   NULL     AS  COL7 
+    
+    --------------------
+    
+    
+    
 FROM 
 (
+SELECT 
+
+    CODUL AS NR_SECTIE,
+    CODUL ||'-'||DENUMIRE_CUATM AS NUME_SECTIE,
+    CUIIO,
+    DENUMIRE_CUIIO,
+    DENUMIRE,
+    ORDINE,
+    COL1,
+    COL2,
+    SUM(COL3)  COL3,
+    SUM(COL4)  COL4,
+    SUM(COL5)  COL5,
+    MAX(COL6)  COL6,
+    MAX(COL7)  COL7,
+    MAX(COL8)  COL8
+FROM
+(
+
+
 SELECT 
     CC.CODUL,
     CC.FULL_CODE,
@@ -36,7 +129,7 @@ FROM CIS2.DATA_ALL D
         INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
         
    WHERE 
-  (D.PERIOADA =:pPERIOADA-1) AND 
+  (D.PERIOADA =:pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -96,7 +189,7 @@ FROM CIS2.DATA_ALL D
  
                       
                         WHERE
-                             (D.PERIOADA =:pPERIOADA-1) AND               
+                             (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
                               AND D.ID_MD =  44519  
@@ -105,7 +198,7 @@ FROM CIS2.DATA_ALL D
         ------------------------------------------------------------------------------   
         
    WHERE 
-  (D.PERIOADA =:pPERIOADA-1) AND 
+  (D.PERIOADA =:pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -156,6 +249,7 @@ SELECT
   NULL DENUMIRE_CUIIO,
   NULL RIND,
   DENUMIRE,
+  --SUBSTR(ORDINE,1,1)  
   ORDINE,
   COL1,
   COL2,
@@ -192,7 +286,7 @@ FROM CIS2.DATA_ALL D
         INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS
         INNER JOIN CIS2.VW_CL_CUATM C ON R.CUATM = C.CODUL
         INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
-     
+      --  INNER  JOIN VW_CL_CUATM CT ON R.CUATM = CT.CODUL
         INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
         
         
@@ -204,7 +298,7 @@ FROM CIS2.DATA_ALL D
  
                       
                         WHERE
-                             (D.PERIOADA =:pPERIOADA-1) AND               
+                             (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
                               AND D.ID_MD =  44519  
@@ -213,14 +307,37 @@ FROM CIS2.DATA_ALL D
                               
                               
                               ) CR
-             
+        ------------------------------------------------------------------------------   
+        
+        --INNER JOIN CIS2.VW_CL_SERVICII SS ON (rtrim(SS.CODUL, '0')=D.COL1 )
+
+--        INNER JOIN (
+--         
+--         SELECT
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER,
+--                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
+--                FROM
+--                  VW_CLS_CLASS_ITEM CI
+--                WHERE
+--                  CI.CLASS_CODE IN ('CSPM2') 
+--    
+--                GROUP BY
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER
+--                  
+--             ) CI ON (TRIM(D.COL31)=TRIM(CI.ITEM_CODE))       
 
 INNER JOIN  CIS2.VW_CLS_CLASS_ITEM CI  ON (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31)=TRIM(CI.ITEM_CODE)) 
         
         
         
    WHERE 
-  (D.PERIOADA =:pPERIOADA-1) AND 
+  (D.PERIOADA =:pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -287,7 +404,7 @@ SELECT
  
                       
                         WHERE
-                             (D.PERIOADA =:pPERIOADA-1) AND               
+                             (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
                               AND D.ID_MD =  44519  
@@ -295,16 +412,37 @@ SELECT
                               
                               
                               ) CR
-   
+        ------------------------------------------------------------------------------   
         
        
-     
+      -- INNER JOIN   CIS2.VW_CL_TARI TT  ON (TT.CODUL=D.COL3)
+      
+--            INNER JOIN  (
+--        SELECT
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER,
+--                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
+--                FROM
+--                  VW_CLS_CLASS_ITEM CI
+--                WHERE
+--                  CI.CLASS_CODE IN ('TARI_ISO') 
+--    
+--                GROUP BY
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER
+--           ) 
+--           
+--           TT ON  (TT.ITEM_CODE=D.COL33)
 
 
 INNER JOIN  CIS2.VW_CLS_CLASS_ITEM TT  ON (TT.CLASS_CODE IN ('TARI_ISO') AND TT.ITEM_CODE=D.COL33)
         
    WHERE 
-  (D.PERIOADA =:pPERIOADA-1) AND 
+  (D.PERIOADA =:pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -401,10 +539,34 @@ FROM CIS2.DATA_ALL D
         INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS
         INNER JOIN CIS2.VW_CL_CUATM C ON R.CUATM = C.CODUL
         INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD
-       
+       -- INNER  JOIN VW_CL_CUATM CT ON R.CUATM = CT.CODUL
         INNER JOIN CIS2.VW_CL_CUATM CC ON (C.FULL_CODE LIKE '%'||CC.CODUL ||';%' )
         
+--    INNER JOIN CIS2.VW_CL_SERVICII SS ON (rtrim(SS.CODUL, '0')=D.COL1 )
+--    
+--    INNER JOIN   CIS2.VW_CL_SERVICII SSS ON (SS.FULL_CODE LIKE '%' ||SSS.CODUL||';%' )
 
+
+--INNER JOIN (
+--         
+--         SELECT
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER,
+--                  MAX(CI.ITEM_CODE_VERS) AS ITEM_CODE_VERS
+--                FROM
+--                  VW_CLS_CLASS_ITEM CI
+--                WHERE
+--                  CI.CLASS_CODE IN ('CSPM2') 
+--    
+--                GROUP BY
+--                  CI.ITEM_CODE,
+--                  CI.ITEM_PATH,
+--                  CI.NAME,
+--                  CI.SHOW_ORDER
+--                  
+--             ) CI ON (TRIM(D.COL31)=TRIM(CI.ITEM_CODE))
 
 INNER JOIN  CIS2.VW_CLS_CLASS_ITEM CI  ON (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31)=TRIM(CI.ITEM_CODE))
           INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
@@ -417,7 +579,7 @@ SELECT
  
                       
                         WHERE
-                             (D.PERIOADA =:pPERIOADA-1) AND               
+                             (D.PERIOADA =:pPERIOADA) AND               
                               D.FORM IN (101)
                               AND D.CUIIO IN (5)
                               AND D.ID_MD =  44519  
@@ -428,7 +590,7 @@ SELECT
         ------------------------------------------------------------------------------   
         
    WHERE 
-  (D.PERIOADA =:pPERIOADA-1) AND 
+  (D.PERIOADA =:pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -444,4 +606,153 @@ SELECT
   CC.DENUMIRE, 
   CII.NAME,
   CR.COL1
+
+  
+  
+)
+  
+  
+  
+  GROUP BY 
+  
+
+    CODUL,
+    FULL_CODE,
+    DENUMIRE_CUATM,
+    CUIIO,
+    DENUMIRE_CUIIO,
+    DENUMIRE,
+    ORDINE,
+    COL1,
+    COL2
+  
+  ORDER BY 
+  CODUL,
+  FULL_CODE,
+  DENUMIRE_CUATM,
+  
+  CUIIO,
+  
+  ORDINE,
+  COL1
+ 
   )
+   A
+   
+   
+   WHERE 
+   
+   NR_SECTIE  IN (
+   
+   '0000000',
+   --'0100000',
+    '0110000',
+    '0120000',
+    '0130000',
+    '0140000',
+    '0150000',
+    --'1111111'
+    '3000000',
+    '1400000',
+    '3400000',
+    '3600000',
+    '4100000',
+    '4300000',
+    '4500000',
+    '4800000',
+    '6200000',
+    '7100000',
+    '7400000',
+    '7800000',
+--2222222
+    '1000000',
+    '2500000',
+    '3100000',
+    '3800000',
+    '5300000',
+    '5500000',
+    '6000000',
+    '6400000',
+    '6700000',
+    '8000000',
+    '8300000',
+    '8900000',
+    '9200000',
+    --3333333
+    '1200000',
+    '1700000',
+    '2100000',
+    '2700000',
+    '2900000',
+    '5700000',
+    '8500000',
+    '8700000',
+    
+    '9200000',
+    '9601000',
+    '9602000',
+    '9603000'
+)
+
+
+
+
+  
+  
+
+
+--) DF
+--;
+--   
+--    BEGIN
+--
+--  FOR CR IN C
+--  
+--  LOOP
+--    INSERT INTO   USER_BANCU.TABLE_OUT
+--    
+--   -- CIS2.TABLE_OUT
+--    (
+--      PERIOADA,
+--      FORM,
+--      FORM_VERS,
+--
+--      ID_MDTABLE,
+--      COD_CUATM,
+--      NR_SECTIE,
+--      NUME_SECTIE,
+--      NR_SECTIE1,
+--      NUME_SECTIE1,
+--      NR_SECTIE2,
+--      NUME_SECTIE2,
+--      NR_ROW,
+--      ORDINE,
+--      DECIMAL_POS,
+--      NUME_ROW,
+--       
+--      COL1, COL2, COL3,  COL4,  COL5, COL6, COL7
+--    )
+--    VALUES
+--    (
+--      CR.PERIOADA,
+--      CR.FORM,
+--      CR.FORM_VERS,
+--      CR.ID_MDTABLE,
+--      CR.COD_CUATM,
+--      CR.NR_SECTIE,
+--      CR.NUME_SECTIE,
+--      CR.NR_SECTIE1,
+--      CR.NUME_SECTIE1,
+--      CR.NR_SECTIE2,
+--      CR.NUME_SECTIE2,
+--      CR.NR_ROW,
+--      CR.ORDINE,
+--      CR.DECIMAL_POS,
+--      CR.NUME_ROW,
+--       
+--      CR.COL1, CR.COL2, CR.COL3, CR.COL4, CR.COL5, CR.COL6, CR.COL7
+--    );
+--  END LOOP;
+--END;
+  
+  
