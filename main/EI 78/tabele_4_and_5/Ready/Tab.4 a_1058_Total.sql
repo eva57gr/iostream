@@ -182,7 +182,7 @@ FROM CIS2.DATA_ALL D
             SUM(D.COL1) AS COL1            
          FROM DATA_ALL D
          WHERE
-            (D.PERIOADA = :pPERIOADA-1) AND
+            (D.PERIOADA = :pPERIOADA-2) AND
             D.FORM IN (101) AND
             D.CUIIO IN (5) AND
             D.ID_MD = 44519
