@@ -1,133 +1,677 @@
-I run this SQL 
-SELECT 
-                D.CUIIO, 
-                D.FORM DEN_SHORT
-                
-                
-                        FROM CIS2.VW_DATA_ALL D
-                        
-                        WHERE 
-                        
-                        D.ANUL = 2022
-                        
-                        AND D.CUIIO IN (
-                        41349476,
-41000696,
-40866092,
-40220770,
-41169047,
-40774533,
-41419515,
-40065952,
-20283170,
-41290889,
-41101569,
-41286379,
-40669115,
-37787130
-                        )
-                        
-                        GROUP BY 
-                            D.CUIIO,
-                            D.FORM 
-                
-                
-                ORDER BY 
-                D.CUIIO
-                
-
-                I get this 
-
-20283170	8
-37787130	3
-37787130	8
-37787130	16
-37787130	71
-40065952	8
-40220770	8
-40774533	8
-40866092	8
-40866092	44
-41000696	3
-41290889	3
-41290889	8
-41349476	44
-41419515	3
-41419515	8
-
-
-I need them not to be grouped by DEN_SHORT but to be displayed in DEN_SHORT separated by commas
-
-I have this result
-
-20283170	8
-37787130	3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,8,16,16,16,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71
-40065952	8
-40220770	8,8,8,8,8,8,8,8,8,8
-40774533	8
-40866092	8,8,8,8,8,8,8,8,44,44,44,44,44,44,44,44
-41000696	3
-41290889	3,8,8,8,8,8,8,8,8,8,8,8
-41349476	44,44,44,44,44,44,44,44,44,44,44,44,44,44
-41419515	3,8
-
-
-
 I have this SQL 
+SELECT 
+    D.PERIOADA,
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                          (D.PERIOADA = :pPERIOADA) AND        
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA) AND 
+  (D.FORM = 44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+D.PERIOADA,
+  D.CUIIO,
+  CR.COL1
+  
+  ORDER BY
+  D.CUIIO
+  
+When 
+D.PERIOADA = 1056 
+
+Now I want to obtain the sum  for COL1 and COL2, that is, not to group by PERIODA.
+
+Acum eu doresc sa obtin suma la COL1  si COL2, adica sa nu grupez dupa PERIOADA. 
+
+
+Dar dupa cum am mentionat  
+COL1 se formeaza din SUM(D.COL4) 
+COL2 se formeaza din SUM(D.COL4) / CR.COL1
+
+
+
+Wrong -- 19206	3376	176.331273492874
+
+Bine. Va explica care este formula 
+
+PENTRU PERIOADA 1056 
+COL1 se formeaza din SUM(D.COL4)  adica = 1688 
+PERIOADA 1056  COL1 = 1688
+COL2 = SUM(D.COL4) / CR.COL1 adica  1688 / 18.8453 = 89.57140507 
+
+Analogic facem PENTRU PERIOADA 1057 
+COL1 se formeaza din SUM(D.COL4)  adica 9806 
+PERIOADA 1056  COL1 = 1688
+COL2 = SUM(D.COL4) / CR.COL1 adica  9806 / 19.456 = 504.009046052632
+
+Acum mie imi trebuie suma rezultatelor din PERIOADA 1056 + 1057 , adica COL1 din toate perioadele si COL2. 
+
+COL1 = COL1_1056 + COL1_1057 = 1688 + 9806 = 11494
+COL2 = COL2_1056 + COL2_1057 = 89.57140507 + 504.009046052632 = 593.580451124453
+
+Interogarea corecta care afiseaza rezultatul corect este 
 
 SELECT 
-                D.CUIIO,
-                LISTAGG(MF.FORM, ',') WITHIN GROUP (ORDER BY MF.FORM) AS DEN_FORM,
-                LISTAGG(MF.DEN_SHORT, ',') WITHIN GROUP (ORDER BY MF.DEN_SHORT) AS DEN_SHORT
+D.CUIIO,
+SUM(D.COL1) AS COL1,
+SUM(D.COL2) AS COL2
 
-                 
-                
-                
-                        FROM CIS2.VW_DATA_ALL D
+FROM
+(
+SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM (
+   SELECT 
+        19206  AS CUIIO,
+        1057 PERIOADA,
+        9806 COL4
+    
+    FROM DUAL
+    
+    UNION ALL 
+    
+    SELECT 
+        19206  AS CUIIO,
+        1056 PERIOADA,
+        1688 COL4
+       FROM DUAL 
+        
+        ) D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
                         
-                         INNER JOIN CIS2.MD_FORM MF ON  MF.FORM = D.FORM AND MF.FORM_VERS = D.FORM_VERS
+                  FROM (
+                  SELECT 
+        44519  AS ID_MD,
+        1057 PERIOADA,
+        19.456 COL1
+    
+    FROM DUAL
+    
+    UNION ALL 
+    
+    SELECT 
+        44519  AS ID_MD,
+        1056 PERIOADA,
+        18.8453 COL1
+    
+    FROM DUAL
+                  ) D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA) AND  
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA) AND 
+ 
+ 
+  
+  
+  D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  
+  UNION 
+  
+  SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
                         
-                        WHERE 
-                        
-                        D.ANUL = 2022
-                        
-                        AND D.CUIIO IN (
-                        41349476,
-41000696,
-40866092,
-40220770,
-41169047,
-40774533,
-41419515,
-40065952,
-20283170,
-41290889,
-41101569,
-41286379,
-40669115,
-37787130
-                        )
-                        
-                        GROUP BY 
-                         D.CUIIO 
-              
-                
-                
-                ORDER BY 
-                D.CUIIO
-                
+                  FROM (
+                  SELECT 
+        44519  AS ID_MD,
+        1057 PERIOADA,
+        19.456 COL1
+    
+    FROM DUAL
+    
+    UNION ALL 
+    
+    SELECT 
+        44519  AS ID_MD,
+        1056 PERIOADA,
+        18.8453 COL1
+    
+    FROM DUAL
+                  ) D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA-1) AND 
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA-1) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  ORDER BY
+  CUIIO
+  
+  ) D 
+  
+ GROUP BY
+ 
+ D.CUIIO 
+ 
+ -- Aici  :pPERIOADA = 1057
 
 
-                I have this result 
-20283170	8	2-INV (anual)
-37787130	3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,8,16,16,16,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71	1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,1-TIC,2-INV (anual),FORPRO,FORPRO,FORPRO,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3,M3
-40065952	8	2-INV (anual)
-40220770	8,8,8,8,8,8,8,8,8,8	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual)
-40774533	8	2-INV (anual)
-40866092	8,8,8,8,8,8,8,8,44,44,44,44,44,44,44,44	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8
-41000696	3	M3
-41290889	3,8,8,8,8,8,8,8,8,8,8,8	2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),2-INV (anual),M3
-41349476	44,44,44,44,44,44,44,44,44,44,44,44,44,44	EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8,EI 7 EI  8
-41419515	3,8	2-INV (anual),M3
+ Modificati aceasta interogare sa fie mai optima fiindca este mare. 
+  
 
-If they are repeated, they should be deleted, not one more.
+  
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I have 
+
+PERIOADA	CUIIO	COL1	COL2	         COL3
+1056	        19206	1688	89.57140507	18.8453
+
+When 
+
+D.PERIOADA = 1057 
+
+I have 
+PERIOADA	CUIIO	COL1	COL2	                 COL3
+1057	        19206	9806	504.009046052632	19.456
+
+
+This is formula 
+
+When PERIOADA in (1056,1057 )
+
+1688 + 9806 =  11494 = COL1
+
+89.57140507 + 504.009046052632 = 593.580451124453
+
+and this is SQL CORRECT 
+
+SELECT 
+D.CUIIO,
+SUM(D.COL1) AS COL1,
+SUM(D.COL2) AS COL2
+
+FROM
+(
+SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA) AND  
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  
+  UNION 
+  
+  SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA-1) AND 
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA-1) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  ORDER BY
+  CUIIO
+  
+  ) D 
+  
+ GROUP BY
+ D.CUIIO 
+ 
+  
+  
+
+  
+  
+ 
+
+
+
+
+
+
+
+Now,  I need of the sum COL1 and COL2 when 
+D.PERIOADA IN (1057,1056)
+
+
+I wrote SQL
+
+SELECT 
+D.CUIIO,
+SUM(D.COL1) AS COL1,
+SUM(D.COL2) AS COL2
+
+FROM
+(
+SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA) AND  
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  
+  UNION 
+  
+  SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA-1) AND 
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA-1) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  ORDER BY
+  CUIIO
+  
+  ) D 
+  
+ GROUP BY
+ D.CUIIO 
+ 
+  
+Show this 
+
+CUIIO	COL1	COL2
+19206	11494	593.5804511
+
+
+It is correct
+
+But SQL last  it is big.  Modify SQL last not use  union  
+  
+  
+ 
+
+
+
+
+I put :pPERIOADA  = 1057 
+
+SELECT 
+    D.CUIIO,
+    SUM(D.COL1) AS COL1,
+    SUM(D.COL2) AS COL2
+FROM
+(
+    SELECT 
+        D.CUIIO,
+        SUM(CASE WHEN D.PERIOADA = :pPERIOADA THEN D.COL4 ELSE 0 END) AS COL1,
+        SUM(CASE WHEN D.PERIOADA = :pPERIOADA THEN D.COL4 / CR.COL1 ELSE 0 END) AS COL2
+    FROM CIS2.DATA_ALL D
+    CROSS JOIN (
+        SELECT
+            D.PERIOADA,
+            SUM(D.COL1) AS COL1
+        FROM DATA_ALL D
+        WHERE
+            D.PERIOADA IN (:pPERIOADA, :pPERIOADA - 1) AND
+            D.ID_MD = 44519
+        GROUP BY 
+            D.PERIOADA
+    ) CR
+    WHERE 
+        (D.PERIOADA IN (:pPERIOADA, :pPERIOADA - 1)) AND
+        (D.FORM = 44) AND
+        D.FORM IN (44) AND
+        D.CUIIO = 19206
+    GROUP BY 
+        D.CUIIO,
+        CR.COL1
+) D
+GROUP BY
+    D.CUIIO;
+
+    I get 19206	19612	1024.35098807531
+
+    But correct it is 
+
+    19206	11494	593.580451124453
+
+
+
+    This is correct SQL 
+
+
+SELECT 
+D.CUIIO,
+SUM(D.COL1) AS COL1,
+SUM(D.COL2) AS COL2
+
+FROM
+(
+SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA) AND  
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  
+  UNION 
+  
+  SELECT 
+ 
+    D.CUIIO,
+    SUM(D.COL4) COL1,
+    SUM(D.COL4) / CR.COL1 AS COL2,
+    CR.COL1 AS COL3 
+FROM CIS2.DATA_ALL D 
+        
+        CROSS JOIN (
+        SELECT
+           D.PERIOADA,
+            SUM(D.COL1) AS COL1
+                        
+                  FROM DATA_ALL D
+                        WHERE
+                        (D.PERIOADA = :pPERIOADA-1) AND 
+                            
+                           D.ID_MD  = 44519 
+                           
+                           
+                           GROUP BY 
+                           D.PERIOADA
+                           
+                         
+  ) CR
+        ----------------------------------------------------------------------------   
+        
+   WHERE 
+
+  (D.PERIOADA = :pPERIOADA-1) AND 
+  (D.FORM =44) AND
+ 
+  D.FORM IN (44) 
+  
+  AND D.CUIIO = 19206
+ 
+  GROUP BY 
+
+  D.CUIIO,
+  CR.COL1
+  
+  ORDER BY
+  CUIIO
+  
+  ) D 
+  
+ GROUP BY
+ D.CUIIO 
+ 
+  I get 
+  
+CUIIO	COL1	COL2
+19206	11494	593.5804511
+
+
+
+  
+  
+ 

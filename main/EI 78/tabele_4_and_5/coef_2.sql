@@ -1,0 +1,9 @@
+    SELECT
+         SUM(CASE WHEN D.PERIOADA IN (:pPERIOADA)  THEN  D.COL1 ELSE 0 END ) AS COL1,
+         SUM(CASE WHEN D.PERIOADA IN (:pPERIOADA-1)  THEN  D.COL1 ELSE 0 END ) AS COL2              
+         FROM DATA_ALL D
+         WHERE
+            (D.PERIOADA IN (:pPERIOADA,:pPERIOADA-1)) AND
+            D.FORM IN (101) AND
+            D.CUIIO IN (5) AND
+            D.ID_MD = 44519

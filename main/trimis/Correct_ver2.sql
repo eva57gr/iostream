@@ -1,10 +1,3 @@
-In this query
-COL1 is formed from SUM(D.COL4) 
-COL2 is formed from SUM(D.COL4) / CR.COL1
-
-and it is grouped PERIOADA AND 
-
-
 SELECT
 D.PERIOADA, 
 D.CUIIO,
