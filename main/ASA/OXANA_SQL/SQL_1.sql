@@ -1,30 +1,18 @@
-SELECT       
-               DISTINCT 
-               D.ANUL,
-               D.CUIIO,
-               D.COL33,
-             
-               D.RIND,
-               SUM(D.COL9) AS COL1,
-               SUM(D.COL10) AS COL2
-           FROM  CIS2.VW_DATA_ALL_COEF D 
-                 
-           
-                                 
-           
+SELECT      
+  DISTINCT 
+      D.CUIIO,
+      SUM(CASE WHEN  D.CAPITOL = 1124   THEN NVAL(D.COL1) ELSE 0 END ) AS RIND_150
+       FROM  CIS2.VW_DATA_ALL D 
           WHERE 
            D.FORM = 64
            AND D.PERIOADA = 2011 
-           AND   D.CAPITOL = 1128                   
+                            
                    
            GROUP BY 
-                         
-             D.ANUL,
-               D.CUIIO,
-               D.COL33,
-             
-               D.RIND
- ORDER BY 
- 
-    D.CUIIO,
-    D.RIND
+                D.CUIIO
+           HAVING 
+           SUM(CASE WHEN  D.CAPITOL = 1180   THEN NVAL(D.COL1) ELSE 0 END ) > 0   
+             ORDER BY 
+               
+               SUM(CASE WHEN  D.CAPITOL = 1124   THEN NVAL(D.COL1) ELSE 0 END )
+    

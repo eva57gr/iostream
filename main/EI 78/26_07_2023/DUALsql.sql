@@ -1,12 +1,5 @@
-In this query
-COL1 is formed from SUM(D.COL4) 
-COL2 is formed from SUM(D.COL4) / CR.COL1
-
-and it is grouped PERIOADA AND 
-
 
 SELECT
-D.PERIOADA, 
 D.CUIIO,
 SUM(D.COL1) AS COL1,
 SUM(D.COL2) AS COL2
@@ -155,8 +148,6 @@ D.PERIOADA,
   ) D 
   
  GROUP BY
- D.PERIOADA,
- D.CUIIO 
-
-
-       (SUM(D.COL4) / CR.COL1) - (SUM(CASE WHEN D.PERIOADA = 1056 THEN 1688 ELSE 9806 END) / 
+ D.CUIIO
+ 
+ -- How is each column formed in this question and what is the final result 
