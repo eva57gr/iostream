@@ -1,7 +1,7 @@
 SELECT 
 
      L.CUIIO,
-     NVAL(L.COL1)||' <> '||NVAL(R.COL2)||' <> '||NVAL(R.COL1) 
+    'ASA RIND 150 - [' ||NVAL(L.COL1)||' ] <>   RSF1 ['||NVAL(R.COL2)||' ] <> RSFpPrescurtat ['||NVAL(R.COL1) ||']' 
      
      AS REZULTAT
 FROM
