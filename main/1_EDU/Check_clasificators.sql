@@ -1,0 +1,12 @@
+
+ SELECT *   
+ 
+ 
+ FROM USER_BANCU.VW_KATALOG_1_EDU_22
+ 
+ WHERE 
+ 
+  --NTII IS NULL  
+  
+ 
+ TIP_LOCAL IS NULL 
