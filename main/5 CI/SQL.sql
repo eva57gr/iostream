@@ -1,0 +1,29 @@
+select 
+distinct CUIIO,
+user_name,
+MAX(DATA_REG)  DATA_REG
+
+
+from CIS2.VW_DATA_ALL 
+
+where 
+
+FORM = 19
+
+AND 
+
+PERIOADA = 1057 
+--AND DATA_REG > TO_DATE('08/1/2023 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
+
+
+GROUP by
+CUIIO,
+user_name
+
+HAVING 
+
+max(DATA_REG) > TO_DATE('07/31/2023 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
+ORDER by 
+
+DATA_REG desc
+
