@@ -591,7 +591,7 @@ SELECT
    
    WHERE 
    
-   NR_SECTIE  IN (
+   A.NR_SECTIE  IN (
    
    '0000000',
    --'0100000',
