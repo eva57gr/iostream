@@ -1,5 +1,6 @@
 DECLARE
    CURSOR C IS
+   
       SELECT
          DISTINCT  
             D.CUIIO NR_ROW,
