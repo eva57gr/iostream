@@ -1,0 +1,40 @@
+SELECT 
+ 
+  'Daca este - Chestionar cu date - sunt date in raport si invers'  
+  
+  
+  AS REZULTAT
+  
+  
+  
+
+FROM
+  VW_DATA_ALL D
+
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.CUIIO=:CUIIO                ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (:CAPITOL = :CAPITOL           OR  :CAPITOL <> :CAPITOL) AND
+  (:CAPITOL_VERS = :CAPITOL_VERS OR  :CAPITOL_VERS <>  :CAPITOL_VERS) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (26) 
+  
+ 
+ 
+HAVING 
+
+(SUM(CASE WHEN D.CAPITOL = 1201 AND D.RIND IN ('1') THEN NVAL(D.COL1) ELSE 0 END)  = 1
+AND 
+SUM(CASE WHEN D.CAPITOL <> 1201  THEN NVAL(D.COL1) + NVAL(D.COL2) + NVAL(D.COL3) + NVAL(D.COL4) ELSE 0 END) = 0 ) 
+
+OR 
+
+(SUM(CASE WHEN D.CAPITOL = 1201 AND D.RIND IN ('1') THEN NVAL(D.COL1) ELSE 0 END)  = 0
+AND 
+SUM(CASE WHEN D.CAPITOL <> 1201  THEN NVAL(D.COL1) + NVAL(D.COL2) + NVAL(D.COL3) + NVAL(D.COL4) ELSE 0 END) > 0 ) 
+
+
