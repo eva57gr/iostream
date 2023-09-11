@@ -6,7 +6,7 @@ FROM
     SELECT
       D.CUIIO
     FROM
-      CIS2.VW_DATA_ALL_FR_TEMP D
+      CIS2.VW_DATA_ALL_FR D
     WHERE
       (D.PERIOADA=:PERIOADA          ) AND
       (D.CUIIO=:CUIIO                ) AND
