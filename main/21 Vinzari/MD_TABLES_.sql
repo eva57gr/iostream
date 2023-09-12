@@ -4,26 +4,13 @@ FROM CIS2.MD_TABLES
 
 WHERE 
 
-
-
-FORM = 26
---
-AND 
+FORM = 26 AND 
 
 (
 
--- I'm doing it right ? 
--- It starts with -- Tab.1 
--- In Oracle
+--TRIM(DEN_SHORT) LIKE  'Tab.1%'
+--SUBSTR(TRIM(DEN_SHORT), 1, 5) = 'Tab.1'
 
-
-TRIM(DEN_SHORT) LIKE  'Tab.1%'
-
-
-
---OR 
---DEN_SHORT LIKE  'Tab.5%'
-
-
+REGEXP_LIKE(TRIM(DEN_SHORT), '^Tab\.1')
 
 )
