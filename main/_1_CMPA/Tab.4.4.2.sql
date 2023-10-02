@@ -51,6 +51,18 @@ FROM
    FROM
   CIS2.VW_DATA_ALL_GC  D
   INNER JOIN CIS2.MD_RIND RR ON D.ID_MD = RR.ID_MD AND D.CAPITOL IN ('1113')  
+  
+-------------------------------------------------------------------------------------
+
+
+  INNER JOIN CIS2.REG_UNIT_GC RU
+                ON  D.UNIT_CODE = RU.UNIT_CODE
+                AND D.UNIT_CODE_VERS = RU.UNIT_CODE_VERS
+                AND D.NR_GOSP = RU.NR_GOSP
+                AND D.NR_MAPS = RU.NR_MAPS
+                
+                INNER  JOIN VW_CL_CUATM CT ON RU.CUATM = CT.CODUL 
+------------------------------------------------------------------------------------
     
 WHERE
   (D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA)  AND 
@@ -106,6 +118,21 @@ FROM
   CIS2.VW_DATA_ALL_GC  D
   INNER JOIN CIS2.MD_RIND RR ON D.ID_MD = RR.ID_MD AND D.CAPITOL IN ('1113')  
     
+  
+  ----------------------------------------------------------------------------------------------
+  
+  INNER JOIN CIS2.REG_UNIT_GC RU
+                ON  D.UNIT_CODE = RU.UNIT_CODE
+                AND D.UNIT_CODE_VERS = RU.UNIT_CODE_VERS
+                AND D.NR_GOSP = RU.NR_GOSP
+                AND D.NR_MAPS = RU.NR_MAPS
+                
+                INNER  JOIN VW_CL_CUATM CT ON RU.CUATM = CT.CODUL 
+  
+  -----------------------------------------------------------------------------------------------
+  
+  
+  
 WHERE
   (D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA)  AND   
   (D.FORM =:pFORM) AND
@@ -151,6 +178,18 @@ FROM
   CIS2.VW_DATA_ALL_GC  D
   INNER JOIN CIS2.MD_RIND RR ON D.ID_MD = RR.ID_MD AND D.CAPITOL IN ('1113')  
     
+  
+  ---------------------------------------------------------------------------------------
+  
+  INNER JOIN CIS2.REG_UNIT_GC RU
+                ON  D.UNIT_CODE = RU.UNIT_CODE
+                AND D.UNIT_CODE_VERS = RU.UNIT_CODE_VERS
+                AND D.NR_GOSP = RU.NR_GOSP
+                AND D.NR_MAPS = RU.NR_MAPS
+                
+                INNER  JOIN VW_CL_CUATM CT ON RU.CUATM = CT.CODUL 
+  
+  ----------------------------------------------------------------------------------------
 WHERE
  (D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA)  AND   
   (D.FORM =:pFORM) AND
