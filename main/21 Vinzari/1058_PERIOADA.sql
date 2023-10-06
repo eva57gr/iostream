@@ -1,15 +1,17 @@
+SELECT 
+                DISTINCT D.CUIIO,
+                MAX(D.DATA_REG)  DATA_REG
 
 
-
-                SELECT *
-
-
-                FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT
+                FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
 
                 WHERE    
-                FORM IN  (26)
+                D.FORM IN  (7)
 
-AND PERIOADA = 1058
+AND D.PERIOADA = 464
+AND ID_SCHEMA = 1
+GROUP BY 
+D.CUIIO
 
 ORDER BY 
 DATA_REG DESC
