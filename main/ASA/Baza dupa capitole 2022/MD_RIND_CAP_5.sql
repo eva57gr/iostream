@@ -1,0 +1,29 @@
+SELECT 
+
+D.RIND,
+SUM(D.COL8)  COL1,
+SUM(D.COL9)  COL2,
+SUM(D.COL10)  COL10
+
+
+FROM   
+
+    CIS2.VW_DATA_ALL D    
+    
+                    INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS  
+WHERE
+  D.FORM IN (64)             AND 
+     
+  D.PERIOADA =:pPERIOADA AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'   AND
+  D.CAPITOL IN (1128) 
+ -- AND D.CUIIO = 135094
+  
+  
+  GROUP BY 
+  D.RIND 
+  
+  ORDER BY 
+  D.RIND
+  
+  
