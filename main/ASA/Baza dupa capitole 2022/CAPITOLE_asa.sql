@@ -1,0 +1,19 @@
+SELECT 
+    R.CAPITOL,
+    R.CAPITOL_VERS
+
+FROM CIS2.MD_RIND R
+
+    WHERE 
+    R.FORM = 64  
+    
+    
+    GROUP BY 
+    R.CAPITOL,
+    R.CAPITOL_VERS
+    
+    
+    ORDER BY
+    
+    R.CAPITOL,
+    R.CAPITOL_VERS
