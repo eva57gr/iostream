@@ -16,14 +16,18 @@ WHERE
      
   D.PERIOADA =:pPERIOADA AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'   AND
-  D.CAPITOL IN (1128) 
+  D.CAPITOL IN (1124) 
+  
+  
  -- AND D.CUIIO = 135094
   
   
   GROUP BY 
-  D.RIND 
+  D.RIND
+ 
   
   ORDER BY 
   D.RIND
+
   
   
