@@ -1,6 +1,5 @@
 SELECT 
 
-
 COUNT (D.CUIIO) AS CNT 
 
 FROM 
@@ -27,11 +26,11 @@ FROM
                 
                 WHERE 
                 
-                D.PERIOADA IN (456,457,458,459,460,461,1056,1057)
+                D.PERIOADA IN (456,457,458,459,460,461,1056,1057,2011)
                 
-                AND FORM IN (5,2,3,4,6,1)
+                AND FORM IN (5,2,3,4,6,1,10)
                 
-                AND D.CUIIO = 135094
+             --   AND D.CUIIO = 135094
 
                         
                 
@@ -60,4 +59,4 @@ FROM
                  D.PERIOADA,
                  D.DATA_REG
                  
-                 ) D
+                  ) D
