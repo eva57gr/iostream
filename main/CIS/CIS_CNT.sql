@@ -28,7 +28,10 @@ FROM
                 
                 D.PERIOADA IN (456,457,458,459,460,461,1056,1057,2011)
                 
-                AND FORM IN (5,2,3,4,6,1,10)
+
+             --   AND FORM IN (5,2,3,4,6,1,7,10)
+                
+               AND FORM  NOT IN (90,100)
                 
              --   AND D.CUIIO = 135094
 
