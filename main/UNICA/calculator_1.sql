@@ -1,6 +1,6 @@
 DECLARE
   numerator NUMBER := 10;
-  denominator NUMBER := 0;
+  denominator NUMBER := 10;
   result NUMBER;
 BEGIN
   IF denominator = 0 THEN
