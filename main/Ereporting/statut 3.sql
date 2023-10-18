@@ -5,9 +5,7 @@
             FC.CUIIO_VERS --INTO vCUIIO, vCUIIO_VERS
           FROM
             RENIM R
-            INNER JOIN FORM_CUIIO FC ON (R.CUIIO=FC.CUIIO AND R.CUIIO_VERS=FC.CUIIO_VERS 
-            
-            --AND R.ID_SCHEMA=FC.ID_SCHEMA
+            INNER JOIN FORM_CUIIO FC ON (R.CUIIO=FC.CUIIO AND R.CUIIO_VERS=FC.CUIIO_VERS  AND R.ID_SCHEMA=FC.ID_SCHEMA
             
             )
             INNER JOIN (
@@ -17,9 +15,7 @@
                 MAX(R.CUIIO_VERS) AS CUIIO_VERS
               FROM
                 RENIM R
-                INNER JOIN FORM_CUIIO FC ON (R.CUIIO=FC.CUIIO AND R.CUIIO_VERS=FC.CUIIO_VERS 
-                
-                --AND R.ID_SCHEMA=FC.ID_SCHEMA
+                INNER JOIN FORM_CUIIO FC ON (R.CUIIO=FC.CUIIO AND R.CUIIO_VERS=FC.CUIIO_VERS  AND R.ID_SCHEMA=FC.ID_SCHEMA
                 )
               WHERE
                 R.CUIIO_VERS <= :vPERIOADA AND
@@ -31,8 +27,13 @@
             FC.STATUT <> '3' AND
             FC.CUIIO IN (:vCUIIO) 
             
---            AND
---            FC.ID_SCHEMA=vID_SCHEMA;
+            AND
+            FC.ID_SCHEMA=vID_SCHEMA;
+            
+            
+            
+            
+            
 --        EXCEPTION
 --          WHEN NO_DATA_FOUND THEN
 --            UPDATE F_XML_FORMS SET STATUS=3, PROCESSING_MESSAGE = 'Intreprinderea dumneavoastra nu a nimerit in esantion.' WHERE FORMID IN (vFROMID);
