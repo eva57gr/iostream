@@ -1,0 +1,3 @@
+1. We add the unit to the catalog with the version - 1052. FORM CUIIO - 13706	1052	6	1004	1
+2. In table FORM_CUIIO there is only one row with this FORM CUIIO - 13706	1052	6	1004	1 - Only one.  
+3. 
