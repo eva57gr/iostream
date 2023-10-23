@@ -1,49 +1,50 @@
-insert into renim 
- (
- 
-           CUIIO,
-           CUIIO_VERS,
-           DENUMIRE,
-           EDIT_USER,
-           STATUT,
-           CUATM,
-           CFP,
-           CFOJ,
-           COCM,
-           CAEM,
-           BUGET,
-           TIP,
-           PROD,
-           FOR_CUB,
-           GENMUZEE,
-           TIPMUZEE,
-           TIP_LOCAL,
-           TIP_INST,
-           CAEM2,
-           N85_NTL,
-           N85_NTIIP,
-           N85_NDIIP,
-           N85_NPDS,
-           N85_NRIIP,
-           N85_NSIIP,
-           GENMUZEE2,
-           NFI,
-           NTII,
-           NPDS,
-           ORGANE,
-           TIP_INV,
-           RENIM_PERS,
-           ORGANE_COND,
-           GEN_INSTITUTIE,
-           IDNO
- 
- 
- )
+--insert into renim 
+-- (
+-- 
+--           CUIIO,
+--           CUIIO_VERS,
+--           DENUMIRE,
+--           EDIT_USER,
+--           STATUT,
+--           CUATM,
+--           CFP,
+--           CFOJ,
+--           COCM,
+--           CAEM,
+--           BUGET,
+--           TIP,
+--           PROD,
+--           FOR_CUB,
+--           GENMUZEE,
+--           TIPMUZEE,
+--           TIP_LOCAL,
+--           TIP_INST,
+--           CAEM2,
+--           N85_NTL,
+--           N85_NTIIP,
+--           N85_NDIIP,
+--           N85_NPDS,
+--           N85_NRIIP,
+--           N85_NSIIP,
+--           GENMUZEE2,
+--           NFI,
+--           NTII,
+--           NPDS,
+--           ORGANE,
+--           TIP_INV,
+--           RENIM_PERS,
+--           ORGANE_COND,
+--           GEN_INSTITUTIE,
+--           IDNO
+-- 
+-- 
+-- )
 
 
 SELECT     
            R.CUIIO, 
-           1058 CUIIO_VERS,
+           
+           R.CUIIO_VERS,
            R.DENUMIRE,
            R.EDIT_USER,
            R.STATUT,
@@ -84,21 +85,16 @@ SELECT
       
  
  R.CUIIO IN (
- 41154442,
-41318895,
-41124530,
-41232857,
-38576627,
-41173296,
-41047781,
-40872046,
-29908610,
-30172617,
-41154413,
-40842080,
-41191510,
-40803465,
-40910114 )
+
+
+478463,
+3135522,
+40432732,
+40607858,
+40899648,
+41076819
+
+)
 
 
 AND R.CUIIO_VERS <> 1058
