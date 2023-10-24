@@ -22,7 +22,7 @@
                     D.RIND,
                     SUM(D.COL1) AS COL1,
                     SUM(D.COL2) AS COL2,
-                    SUM(D.COL3) AS COL4,
+                    SUM(D.COL3) AS COL3,
                     SUM(D.COL4) AS COL4
                
                
