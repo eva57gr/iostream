@@ -572,7 +572,7 @@ SELECT
       CS.DENUMIRE AS NUME_ROW,
       CS.CODUL AS CS_CUATM
     FROM
-      VW_CL_CUATM CS
+      CIS.VW_CL_CUATM CS
     WHERE
       CS.CODUL 
       IN(
