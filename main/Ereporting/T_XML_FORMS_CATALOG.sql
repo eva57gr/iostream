@@ -39,7 +39,7 @@
 --
 -- 
 -- )
---
+
 
 
 
@@ -81,55 +81,27 @@ SELECT
  IDNO
 
 
-                    FROM  USER_BANCU.VW_MAX_RENIM_CIS2
+                    FROM -- USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
-                        --  USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                          USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                   
                   
-                  CUIIO IN (
-                    
-                   7038201,
-7038365,
-7037839,
-7037963,
-7038218,
-7037686,
-7038661,
-7030429,
-7030553,
-7031742,
-7031819,
-7030889,
-7030843,
-7030851,
-7030872,
-7031558,
-7031162,
-7031328,
-7031593,
-7031647,
-7029998,
-7029998,
-7036194,
-7036372,
-7036231,
-7038615
+                   
+                
+                  
+                  
+CUIIO IN 
+(
+38829273,
+40495264
 
-
-
-        
-        ) 
-        
-        AND 
+)
+--        AND 
         
         
-        CUIIO_VERS  <>  2012 
+--        CUIIO_VERS  <>  1057 
          
          
-
-ORDER BY 
-
-CUIIO
