@@ -42,12 +42,12 @@ AND
 
 --I'm looking for between 23 and 24. Did I write the code correctly in SQL for Oracle?
 
-DATA_REG >= TO_DATE('10/24/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+DATA_REG >= TO_DATE('10/25/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
 
 AND 
 
-DATA_REG < TO_DATE('10/25/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+DATA_REG < TO_DATE('10/26/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
 
 
