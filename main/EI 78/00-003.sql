@@ -1,0 +1,26 @@
+SELECT
+  
+      '  CUIIO: '||DD.CUIIO||' '   AS REZULTAT
+    
+    FROM USER_EREPORTING.VW_DATA_ALL_FOR_VALIDATE DD
+    
+    WHERE 
+   (DD.PERIOADA=:PERIOADA        ) AND
+   (DD.CUIIO=:CUIIO              OR :CUIIO = -1) AND
+   (:CUIIO=:CUIIO               OR :CUIIO = -1) AND
+   (:CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+   (:FORM = :FORM               OR :FORM = -1) AND
+   (:FORM_VERS=:FORM_VERS       OR :FORM_VERS = -1) AND
+   (:CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+   (:CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+   (:ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+   DD.FORM IN  (44)
+    
+   GROUP BY
+   DD.CUIIO 
+
+    
+
+ORDER BY
+DD.CUIIO
