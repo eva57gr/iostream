@@ -23,14 +23,33 @@ SELECT
           
           WHERE
 
-STATUS  =  '5' AND 
+STATUS  =  '2' AND 
 
 
-DATA_REG >= TO_DATE('11/01/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+DATA_REG >= TO_DATE('10/23/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
--- 
---  FORM_TYPE = 'ei-78'
----- AND 
+ 
+--  AND FORM_TYPE = '5-ci-23'
+  
+--  AND CUIIO IS NULL 
+  
+AND CUIIO IN (
+             
+             
+40857302,
+04502916,
+40988406,
+40922502,
+41194861,
+40727309,
+40517799,
+38704258,
+40986904,
+40801431
+
+
+             )
+ --AND 
   
 --
 ----AND 
