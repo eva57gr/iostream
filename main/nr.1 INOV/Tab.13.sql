@@ -48,6 +48,8 @@ SELECT
   COL6
   
   FROM (
+  
+  
   SELECT 
   NR_ROW,  
   NUME_ROW,
