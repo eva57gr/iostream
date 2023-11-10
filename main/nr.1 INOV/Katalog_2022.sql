@@ -1,4 +1,3 @@
- 
 SELECT 
 
   D.CUIIO,

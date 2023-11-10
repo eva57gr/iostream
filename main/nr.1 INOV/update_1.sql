@@ -1,3 +1,6 @@
+
+--1. Frisrt - First I must update this table 
+
 DECLARE -- ====================================================================
 
   CURSOR C IS
