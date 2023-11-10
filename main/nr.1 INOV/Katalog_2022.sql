@@ -33,7 +33,7 @@ SELECT
   D.FORM_VERS = :pFORM_VERS     AND   
   D.FORM= :pFORM       
   
---  AND D.CAPITOL||'.'||D.RIND IN ('1041.2.1.1','1041.2.1.2') AND D.COL1=1  
+  AND D.CAPITOL||'.'||D.RIND IN ('1041.2.1.1','1041.2.1.2') AND D.COL1=1  
 
  
    
