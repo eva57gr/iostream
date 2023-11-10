@@ -45,3 +45,6 @@ GROUP BY
   HAVING 
   SUM(NVAL(COL3))  > 0 
   
+  
+  ORDER BY 
+  CUIIO DESC 
