@@ -1,4 +1,3 @@
- 
 SELECT 
 
   D.CUIIO,
@@ -7,9 +6,9 @@ SELECT
   R.CAEM2,
   CP.CAPITOL, 
   CP.DEN_SHORT,
-  C.CODUL,
-  C.FULL_CODE,
-  D.RIND,
+--  C.CODUL,
+--  C.FULL_CODE,
+--  D.RIND,
   SUM(D.COL1) AS COL1,
   SUM(D.COL2) AS COL2,
   SUM(D.COL3) AS COL3,
@@ -31,9 +30,14 @@ SELECT
 
   D.PERIOADA IN (:pPERIOADA) AND 
   D.FORM_VERS = :pFORM_VERS     AND   
-  D.FORM= :pFORM       
+  D.FORM = :pFORM       
   
+  
+  -- In CIS2. la 1 INOV pentru anul 2022 sunt 196 de intreprinderri inovatoare 
+  --conditia intreprinderilor inovatore este  
   AND D.CAPITOL||'.'||D.RIND IN ('1041.2.1.1','1041.2.1.2') AND D.COL1=1  
+
+
 
  
    
@@ -45,16 +49,16 @@ GROUP BY
   R.CUATM,
   R.CAEM2,
   CP.CAPITOL, 
-  CP.DEN_SHORT,
-  C.CODUL,
-  C.FULL_CODE,
-  D.RIND
+  CP.DEN_SHORT
+--  C.CODUL,
+--  C.FULL_CODE
+ -- D.RIND
   
   ORDER BY 
-  C.FULL_CODE,
-  D.CUIIO,
-  CP.CAPITOL,
-  D.RIND
+--  C.FULL_CODE,
+  D.CUIIO
+--  CP.CAPITOL
+  --D.RIND
   
 
   
