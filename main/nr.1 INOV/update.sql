@@ -1,14 +1,14 @@
-            
-
-                INSERT INTO CIS2.X_BAZA_SONDAJ
-                (
-                
-                CUIIO,
-                PERS_IT,
-                CIF_IT,
-                ANUL    
-                
-                )
+--            
+--
+--                INSERT INTO CIS2.X_BAZA_SONDAJ
+--                (
+--                
+--                CUIIO,
+--                PERS_IT,
+--                CIF_IT,
+--                ANUL    
+--                
+--                )
                 
             
             

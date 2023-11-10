@@ -1,17 +1,17 @@
-CREATE TABLE USER_BANCU.X_BAZA_SONDAJ_2022
+CREATE TABLE USER_BANCU.X_BAZA_SONDAJ_2016
 ( 
   caem2       VARCHAR2(1024 BYTE),
-  denumire    VARCHAR2(1024 BYTE),
+--  denumire    VARCHAR2(1024 BYTE),
   CUIIO       NUMBER,
-  idno        VARCHAR2(1024 BYTE),
-  raion       VARCHAR2(1024 BYTE),
-  cfoj        VARCHAR2(1024 BYTE),
-  cfp         VARCHAR2(1024 BYTE),
-  PERS        NUMBER,
-  ca          NUMBER,
-  adresa      VARCHAR2(1024 BYTE),
-  telefon     VARCHAR2(1024 BYTE),
-  ANUL     NUMBER
+--  idno        VARCHAR2(1024 BYTE),
+--  raion       VARCHAR2(1024 BYTE),
+--  cfoj        VARCHAR2(1024 BYTE),
+--  cfp         VARCHAR2(1024 BYTE),
+  PERS_IT          NUMBER,
+  CIF_FIN          NUMBER,
+  PERS_FIN         NUMBER,
+  CIF_IT         NUMBER
+ 
 )
 TABLESPACE TBS_DTI_USERS
 PCTFREE    10
