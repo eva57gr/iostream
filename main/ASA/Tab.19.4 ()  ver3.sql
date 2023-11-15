@@ -1,9 +1,46 @@
+INSERT INTO CIS2.TABLE_OUT 
+(
+  PERIOADA,
+  FORM,
+  FORM_VERS,
+  ID_MDTABLE,
+  COD_CUATM,
+  NR_SECTIE,
+  NUME_SECTIE,
+  NR_SECTIE1,
+  NUME_SECTIE1,
+  NR_SECTIE2,
+  NUME_SECTIE2,
+  NR_ROW,
+  ORDINE,
+  DECIMAL_POS,
+  NUME_ROW,  
+  COL1, COL2, COL3,COL4,COL5
+)
+
+
 SELECT 
-CODUL||'  '||DENUMIRE  DENUMIRE,
+:pPERIOADA AS PERIOADA,
+  :pFORM AS FORM,
+  :pFORM_VERS AS FORM_VERS,
+  :pID_MDTABLE AS ID_MDTABLE,
+  :pCOD_CUATM AS COD_CUATM,
+  
+  '0' AS NR_SECTIE,
+  '0' AS NUME_SECTIE,
+  '0' AS NR_SECTIE1,
+  '0' AS NUME_SECTIE1,
+  '0' AS NR_SECTIE2,
+  '0' AS NUME_SECTIE2,
+  CODUL_NEMOD||'~'|| ROWNUM AS NR_ROW,
+  ROWNUM AS ORDINE,
+ '00111' AS DECIMAL_POS,
+CODUL||'  '||DENUMIRE  NUME_ROW,
 COL1,
 COL2,
 COL3,
-COL4
+COL4,
+COL5
  
 FROM  
 (
@@ -11,7 +48,7 @@ FROM
 SELECT 
 CC.FULL_CODE,
 CC.DENUMIRE,
---CC.CODUL,
+CC.CODUL CODUL_NEMOD,
 
 CASE  WHEN SUBSTR(CC.CODUL, -4) = '0000' THEN SUBSTR(CC.CODUL, 1, 1)
     ELSE CC.CODUL END CODUL, 
@@ -163,190 +200,42 @@ HAVING
  
   INNER JOIN CIS2.VW_CL_CAEM2 C ON SUBSTR( C.CODUL,2,4)  = CASE WHEN DD.CAEM2_ACTUALIZAT IS NULL THEN DD.CAEM2 ELSE DD.CAEM2_ACTUALIZAT END
   RIGHT JOIN  (
-  SELECT CC.*
+  
+  
+  SELECT 
+CODUL, 
+DENUMIRE,
+SUBSTR(CC.CODUL,1,3) AS CODUL_MODIF,
+FULL_CODE
 
 FROM CIS2.VW_CL_CAEM2 CC
 
 WHERE 
 
-(CC.CODUL LIKE 'B05%' 
-  OR 
-  CC.CODUL LIKE 'B06%'
-  OR 
-  CC.CODUL LIKE 'B07%'
-  OR 
-  CC.CODUL LIKE 'B08%'
-   OR 
-  CC.CODUL LIKE 'B09%'
-  
-  OR 
-  CC.CODUL LIKE 'B0000%'
-  
-  
-  
-  OR 
-  
-  
-              (CC.CODUL LIKE 'C%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              
-              OR 
-              
-              (CC.CODUL LIKE 'D%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              OR 
-              
-              (CC.CODUL LIKE 'D%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              
-              OR 
-              
-              (CC.CODUL LIKE 'E%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              
-              
-               OR 
-              
-              (CC.CODUL LIKE 'F%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              
-              
-               OR 
-              
-              (CC.CODUL LIKE 'G%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-              
-              
-              OR 
-              
-              (CC.CODUL LIKE 'H%'  
-              
-              AND 
-              
-              CC.CODUL LIKE '%00')
-  ) 
-  
-  AND 
-  
-  (CC.CODUL LIKE '%00' 
-  
-  --OR CC.CODUL LIKE '%B0000'
-  
-  )   
-  
-  AND CC.PRIM IN (0)
+(SUBSTR(CC.CODUL,1,3) IN ('B05','B06','B07','B08','B09',
+'C10','C11','C12','C13','C14','C15','C16','C17','C18','C19','C20','C21','C22','C23','C24','C25','C26','C27','C28','C29','C30','C31','C32','C33',
+'D35',
+'E36','E37','E38','E39',
+'F41','F42','F43',
+'G46','G47','G48',
+'H50','H51','H52','H53',
+'I55','I56',
+'J58','J59','J60','J61','J62','J63',
+'M69','M70','M71','M72','M73','M74','M75',
+'N77','N78','N79','N80','N81','N82',
+'S94','S95','S96') 
+
+AND CC.CODUL LIKE '%00')
+
+OR  CC.CODUL IN  ('B0000','C0000','D0000','E0000','F0000','G0000','H0000','I0000','J0000','L0000','M0000','N0000','S0000')
+ 
+
+
   ) CC ON  (C.FULL_CODE LIKE '%'||CC.CODUL||';%') 
   
-  
---  WHERE 
---  
---  (CC.CODUL LIKE 'B05%' 
---  OR 
---  CC.CODUL LIKE 'B06%'
---  OR 
---  CC.CODUL LIKE 'B07%'
---  OR 
---  CC.CODUL LIKE 'B08%'
---   OR 
---  CC.CODUL LIKE 'B09%'
---  
---  OR 
---  CC.CODUL LIKE 'B0000%'
---  
---  
---  
---  OR 
---  
---  
---              (CC.CODUL LIKE 'C%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              
---              OR 
---              
---              (CC.CODUL LIKE 'D%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              OR 
---              
---              (CC.CODUL LIKE 'D%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              
---              OR 
---              
---              (CC.CODUL LIKE 'E%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              
---              
---               OR 
---              
---              (CC.CODUL LIKE 'F%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              
---              
---               OR 
---              
---              (CC.CODUL LIKE 'G%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---              
---              
---              OR 
---              
---              (CC.CODUL LIKE 'H%'  
---              
---              AND 
---              
---              CC.CODUL LIKE '%00')
---  ) 
---  
---  AND 
---  
---  (CC.CODUL LIKE '%00' 
---  
---  --OR CC.CODUL LIKE '%B0000'
---  
---  )   
---  
---  AND CC.PRIM IN (0)
-  
-  
-  
-  
-     GROUP BY
+   
+   
+   GROUP BY
    CC.FULL_CODE,
     CC.DENUMIRE,
    CC.CODUL
@@ -358,3 +247,6 @@ WHERE
    
    
    )
+   
+   
+  
