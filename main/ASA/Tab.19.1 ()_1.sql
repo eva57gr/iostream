@@ -1,4 +1,44 @@
 SELECT 
+    NR_ROW ,         
+    NUME_ROW,  
+    DENUMIRE AS NUME_SECTIE,
+    CODUL AS NR_SECTIE, --NR_ROW,    
+    ORDINE,
+    COL1
+    --, COL2, COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11
+   
+   FROM(
+
+SELECT 
+   RR.NR_ROW,
+   RR.NUME_ROW,
+   CC.FULL_CODE,
+  -- CC.DENUMIRE,
+   CASE WHEN  CC.CODUL like '%00' THEN CC.DENUMIRE END AS DENUMIRE,   
+   CASE WHEN  Substr(CC.CODUL,1,3)||'00' IS NOT NULL THEN Substr(CC.CODUL,1,3)||'0000' END AS CODUL, 
+ --  CC.CODUL,
+   CC.FULL_CODE AS ORDINE,
+   
+  
+ ROUND(SUM ( CASE WHEN  C.FULL_CODE LIKE '%'||CC.CODUL||';%' THEN DECODE(RR.NR_ROW, 
+         '01', (DD.COL0),
+         '02', '100',
+         '03',(DD.COL1),
+         '04', '100',
+         '05',(DD.COL2),
+         '06', '100' ,
+         '07',(DD.COL3),
+         '08','100' ,
+         '09',(DD.COL4),
+         '10', '100' ) END),1)AS COL1
+         
+
+ 
+
+    FROM 
+  (
+-------------------------------------------------------------------------------
+SELECT 
  
  DISTINCT D.CUIIO, 
  MAX( CASE WHEN  D.RIND IN ('8') AND D.CAPITOL IN (1129) THEN D.COL31 END )  AS CAEM2_ACTUALIZAT,
@@ -29,16 +69,16 @@ SELECT
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1125) AND D.RIND IN ('294') THEN CIS2.NVAL(D.COL1) END))+
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('180') THEN CIS2.NVAL(D.COL1) END))   AS COL4,
  
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  D.COL1 ELSE 0 END))  AS CD,
+ CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  D.COL1 ELSE 0 END))  AS CD
  
- (SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
- FROM
-   CIS2.DATA_ALL DD
- WHERE
-   DD.PERIOADA IN (D.PERIOADA) AND
-   DD.FORM=D.FORM AND
-   DD.ID_MD IN (69986) AND
-   DD.CUIIO IN (D.CUIIO)) AS PERS
+-- (SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
+-- FROM
+--   CIS2.DATA_ALL DD
+-- WHERE
+--   DD.PERIOADA IN (D.PERIOADA) AND
+--   DD.FORM=D.FORM AND
+--   DD.ID_MD IN (69986) AND
+--   DD.CUIIO IN (D.CUIIO)) AS PERS
  
 FROM   
     CIS2.VW_DATA_ALL_COEF D       
@@ -55,3 +95,45 @@ WHERE
 HAVING
 --  
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  D.COL1 ELSE 0 END)) >0
+ )DD
+
+-------------------------------------------------------------------------------
+
+ INNER JOIN CIS2.VW_CL_CAEM2 C ON SUBSTR( C.CODUL,2,4)  = CASE WHEN DD.CAEM2_ACTUALIZAT IS NULL THEN DD.CAEM2 ELSE DD.CAEM2_ACTUALIZAT END
+ INNER JOIN CIS2.VW_CL_CAEM2 CC ON  (C.FULL_CODE LIKE '%'||CC.CODUL||';%') 
+ 
+  CROSS JOIN
+  ( 
+    SELECT 'Nr. de intreprinderi pe economie'  AS NUME_ROW, '01' AS NR_ROW, 'Col0' AS COL FROM DUAL UNION     
+    SELECT 'Structura (%)'                     AS NUME_ROW, '02' AS NR_ROW, 'Col0' AS COL FROM DUAL UNION
+    SELECT 'Numarul mediu de salariati'        AS NUME_ROW, '03' AS NR_ROW, 'Col1' AS COL FROM DUAL UNION 
+    SELECT 'Structura (%)'                     AS NUME_ROW, '04' AS NR_ROW, 'Col1' AS COL FROM DUAL UNION 
+    SELECT 'Venituri din vinzarie'             AS NUME_ROW, '05' AS NR_ROW, 'Col2' AS COL FROM DUAL UNION 
+    SELECT 'Structura (%)'                     AS NUME_ROW, '06' AS NR_ROW, 'Col2' AS COL FROM DUAL UNION   
+    SELECT 'Valoarea productiei'               AS NUME_ROW, '07' AS NR_ROW, 'Col3' AS COL FROM DUAL UNION 
+    SELECT 'Structura (%)'                     AS NUME_ROW, '08' AS NR_ROW, 'Col3' AS COL FROM DUAL UNION 
+    SELECT 'Valoarea adaugata bruta la costul factorilor'   AS NUME_ROW, '09' AS NR_ROW, 'Col4' AS COL FROM DUAL UNION   
+    SELECT 'Structura (%)'                     AS NUME_ROW, '10' AS NR_ROW, 'Col4' AS COL FROM DUAL     
+
+  ) RR 
+
+         
+ WHERE 
+  (DD.FORM=:pFORM) AND
+  (DD.FORM_VERS=:pFORM_VERS) AND
+  (:pID_MDTABLE=:pID_MDTABLE) AND
+  (DD.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%') AND   
+  DD.PERIOADA IN (:pPERIOADA) 
+
+ 
+   GROUP BY
+   CC.FULL_CODE,
+    CC.DENUMIRE,
+   CC.CODUL,
+
+    RR.NR_ROW,       
+    RR.NUME_ROW
+    
+    ORDER BY 
+
+    CC.CODUL,RR.NR_ROW)
