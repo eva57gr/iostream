@@ -28,7 +28,7 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CUATM IN ('8121000','8702000')
+               R.CUATM IN ('8721000','8702000')
                
                
                

@@ -83,4 +83,4 @@ SELECT
                     FROM USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     WHERE 
-                    CUATM  IN  ('8121000')
+                    CUATM   IN  ('8721000')
