@@ -85,9 +85,8 @@ WHERE
   D.FORM_VERS = :pFORM_VERS     AND    
   (:pID_MDTABLE=:pID_MDTABLE) AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
-  D.FORM IN (33)                 AND 
-  D.CAPITOL IN (381)
-  AND D.CFOJ IS NOT NULL
+  D.FORM IN (29,33)                 AND 
+  D.CAPITOL IN (381,375)
   
 GROUP BY 
   RE.CUIIO
@@ -142,6 +141,6 @@ WHERE
   D.FORM_VERS = :pFORM_VERS     AND    
   (:pID_MDTABLE=:pID_MDTABLE) AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
-  D.FORM IN (33)                 AND 
-  D.CAPITOL IN (381)
+  D.FORM IN (29,33)                 AND 
+  D.CAPITOL IN (381,375)
   AND D.CFOJ IS NOT NULL )
