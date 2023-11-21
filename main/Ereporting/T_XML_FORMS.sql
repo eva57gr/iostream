@@ -22,14 +22,15 @@ SELECT
           
           
           WHERE
-
-STATUS  =  '5' AND 
-
-
-DATA_REG >= TO_DATE('10/23/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+          1=1
+--
+--STATUS  =  '5' AND 
+--
+--
+AND DATA_REG >= TO_DATE('11/20/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
  
-  AND FORM_TYPE = 'MUNCA2_22'
+  AND FORM_TYPE = '29_agr'
   
 --  AND CUIIO IS NULL 
   
