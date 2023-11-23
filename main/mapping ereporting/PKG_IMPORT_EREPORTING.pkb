@@ -1235,8 +1235,11 @@ PROCEDURE IMPORT_EREPORTING_TRIMESTRIAL AS
                 ;
             END IF;
             
-            IF CR.FORM IN (45) AND ((vCURRENT_MONTH IN (7) AND vCURRENT_DAY <= 6) OR 
-                                    (vCURRENT_MONTH IN (10) AND vCURRENT_DAY <= 6) OR (vCURRENT_MONTH IN (12) AND vCURRENT_DAY <= 24)
+            IF CR.FORM IN (45) AND ((vCURRENT_MONTH IN (7) AND vCURRENT_DAY <= 6) 
+            OR 
+                                    (vCURRENT_MONTH IN (10) AND vCURRENT_DAY <= 6) 
+                                    
+                                    OR (vCURRENT_MONTH IN (12) AND vCURRENT_DAY <= 24)
                                     )  THEN -- 29-AGR
             
                 -- 0. Sterge rapoartele daca exista in CIS2.DATA_ALL
