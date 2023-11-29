@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_23
 (
     CUIIO,
     CUIIO_VERS,
@@ -37,7 +37,7 @@ CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22
 )
 AS
     SELECT R.CUIIO,
-           R.CUIIO_VERS,
+           2012 CUIIO_VERS,
            R.DENUMIRE,
            R.EDIT_USER,
            R.STATUT,
@@ -77,7 +77,7 @@ AS
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (45) AND CUIIO_VERS <= 1055
+                                  WHERE FORM IN (45) AND CUIIO_VERS <= 1059
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
