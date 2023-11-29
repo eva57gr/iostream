@@ -4,7 +4,7 @@
           R.CUIIO R_CUIIO
           
                 
-  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_22 D RIGHT   JOIN (
+  FROM USER_BANCU.VW_KATALOG_29_AGRO_TRIM_4_23 D RIGHT   JOIN (
      SELECT     R.CUIIO,
            R.CUIIO_VERS
           

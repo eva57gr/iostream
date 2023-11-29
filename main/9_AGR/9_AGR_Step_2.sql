@@ -9,5 +9,8 @@
                     AND D.FORM  IN (:pFORM)
                 
 
+--AND D.CUIIO I
+
+
 ORDER BY 
 D.DATA_REG DESC
