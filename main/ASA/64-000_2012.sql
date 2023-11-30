@@ -1,0 +1,45 @@
+SELECT 
+ ' '||MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)  
+  
+  ||'  Nu ati completat toate cimpurile corect'
+    AS REZULTAT 
+FROM VW_DATA_ALL D
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.CUIIO=:CUIIO                ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1)
+  
+  
+  HAVING 
+  
+   (LENGTH(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)) <> 9  
+   OR
+   LENGTH(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)) IS NULL) 
+   
+   OR 
+   SUBSTR(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END),1,1)  <> '0' 
+     
+   
+   
+   
+   
+  --AND
+  
+--  D.CAPITOL IN (1129) AND
+--  D.RIND IN('3')
+--
+--GROUP BY 
+--D.COL31  
+  
+--  HAVING 
+--  
+--  LENGTH(D.COL31) <> 9
+--  
+--  OR 
+--  
+--  SUBSTR(D.COL31,1,1) <> '0'
