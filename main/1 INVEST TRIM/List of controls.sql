@@ -27,7 +27,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 8
+         AND A.FORM  = :pFORM
                
          GROUP BY 
           A.CONTROL
@@ -40,9 +40,9 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 8
+         AND B.FORM  = :pFORM
          AND B.STATUT <> '3'
-         AND B.FORM_VERS = 2000
+--         AND B.FORM_VERS = 2000
                
          
          
