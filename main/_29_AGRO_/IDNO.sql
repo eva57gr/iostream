@@ -1,6 +1,6 @@
 CREATE TABLE USER_BANCU.CIS2_R_29
 (
-  CUIIO           NUMBER                        ,
+  CUIIO           NUMBER,
 --  CUIIO_VERS      NUMBER                        ,
 --  DENUMIRE        VARCHAR2(255 BYTE),
 --  EDIT_USER       NUMBER                        NOT NULL,
