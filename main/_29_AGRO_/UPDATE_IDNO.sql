@@ -1,5 +1,5 @@
 UPDATE CIS2.RENIM
-    SET IDNO = '1023604008194'
+    SET IDNO = '1023611003801'
 
 
 
@@ -8,4 +8,8 @@ UPDATE CIS2.RENIM
 --                        FROM CIS2.RENIM 
 --                        
                         WHERE 
-                        CUIIO = 40674369
+                        CUIIO = 41173793
+
+                        AND 
+                        CUIIO = 41173793
+
