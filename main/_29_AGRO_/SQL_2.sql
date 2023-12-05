@@ -2,7 +2,10 @@
 SELECT     L.CUIIO
            
           
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -14,7 +17,13 @@ SELECT     L.CUIIO
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC   RIGHT JOIN (
+             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             
+             
+             
+             
+             
+             ) FC   RIGHT JOIN (
              
              
              SELECT
@@ -23,14 +32,14 @@ SELECT     L.CUIIO
                 FROM CIS2.VW_DATA_ALL D 
                 
                 WHERE 
-                D.PERIOADA = 2011
-                AND D.FORM = 16
+                D.PERIOADA = :pPERIOADA
+                AND D.FORM =  :pFORM
              
             )  L ON L.CUIIO = FC.CUIIO 
                     
             
           WHERE 
-          FC.CUIIO IS  NULL 
+          FC.CUIIO IS   NULL 
                
                
                
