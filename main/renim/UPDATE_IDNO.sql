@@ -1,13 +1,13 @@
---UPDATE RENIM 
---         SET IDNO = '1023601000050'
---               
+UPDATE RENIM 
+         SET IDNO = '1023604008792'
+               
          
-         SELECT *
-         
-                FROM CIS2.RENIM 
+--         SELECT *
+--         
+--                FROM CIS2.RENIM 
                
                WHERE 
                
-               CUIIO = 40040475
+               CUIIO = 41267086;
                     
                     

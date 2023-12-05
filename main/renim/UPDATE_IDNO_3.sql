@@ -4,22 +4,17 @@ DECLARE -- ====================================================================
         
         
   
-     SELECT  CUIIO, 
-                    
-                            IDNO
+  
+     SELECT 
+          CUIIO,
+          CUIIO_VERS,  
+          DENUMIRE,
+          CUATM,
+          CFP,
+          CFOJ
                             
-                            FROM USER_BANCU.CIS2_R_29
+                            FROM  USER_BANCU.CIS2_RENIM_1_TUR
                             
-                            
---                            WHERE 
---                            
---                            CUIIO_VERS = 2011
---                    
---                            AND IDNO IS NOT  NULL   
---                            
-----                            AND CUIIO = 40420077
-        
-        
 
           
           ;
@@ -30,19 +25,19 @@ BEGIN -- ======================================================================
     UPDATE CIS2.RENIM SET 
       
 --    --    CAEM2 = CR.CAEM2,
---        DENUMIRE = CR.DENUMIRE,
---        CUATM = CR.CUATM,
---        CFP = CR.CFP,
---        CFOJ = CR.CFOJ
-        IDNO = CR.IDNO
+         DENUMIRE = CR.DENUMIRE,
+        CUATM = CR.CUATM,
+         CFP = CR.CFP,
+        CFOJ = CR.CFOJ
+--        IDNO = CR.IDNO
  --     
   --  ETAPA_PROD = CR.ETAPA_PROD
     
     
     WHERE 
       CUIIO  = CR.CUIIO 
---      AND
---      CUIIO_VERS = CR.CUIIO_VERS 
+      AND
+      CUIIO_VERS = CR.CUIIO_VERS 
       
       
       

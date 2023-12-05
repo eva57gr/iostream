@@ -11,9 +11,9 @@
 
 SELECT 
         L.CUIIO,
-        1056 CUIIO_VERS,
-        44 FORM,
-        1004    FORM_VERS,
+        2012 CUIIO_VERS,
+        4 FORM,
+        2000    FORM_VERS,
         '1' STATUT
         
         FROM 
@@ -45,11 +45,11 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1056
+                                  WHERE FORM IN (4) AND CUIIO_VERS <= 2012
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (44) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (4) AND FC.STATUT <> '3'
              
              
              
@@ -57,18 +57,18 @@ SELECT     R.CUIIO,
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
-               RIGHT  JOIN (
+               LEFT  JOIN (
                
                SELECT CUIIO
                
-        FROM USER_BANCU.ADD_EI_78_23
+        FROM USER_BANCU.CIS2_RENIM_1_TUR
         
         
                ) L ON L.CUIIO = R.CUIIO
                
                
                WHERE 
-               R.CUIIO IS    NULL  
+               R.CUIIO IS  NOT   NULL  
                ) L  
               
                

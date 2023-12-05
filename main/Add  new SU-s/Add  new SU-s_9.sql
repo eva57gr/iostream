@@ -37,8 +37,9 @@ SELECT
     ETAPA_PROD,
     RENIM_PERS,
     CAEM2
-                FROM --USER_BANCU.VW_MAX_RENIM_299_CIS
-                USER_BANCU.VW_MAX_RENIM_TRIM_CIS
+                FROM USER_BANCU.CIS2_RENIM_1_TUR
+
+              --  USER_BANCU.VW_MAX_RENIM_TRIM_CIS
                 
                 
                     WHERE 
@@ -46,13 +47,13 @@ SELECT
                     CUIIO IN (
                     
                     
---                     SELECT 
--- 
---        L.CUIIO
---       
---   
---        FROM USER_BANCU.ADD_NEW_SU L    
+                     SELECT 
+ 
+        L.CUIIO
+       
+   
+        FROM USER_BANCU.ADD_NEW_SU L    
                     )
                     
                     
-                    AND CUIIO_VERS <>   1054
+                  --  AND CUIIO_VERS <>   1054

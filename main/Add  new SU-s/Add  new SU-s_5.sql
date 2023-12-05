@@ -29,7 +29,7 @@
       --  L.IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM USER_BANCU.LIV_2 L
+        FROM  USER_BANCU.CIS2_RENIM_1_TUR L
         
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
