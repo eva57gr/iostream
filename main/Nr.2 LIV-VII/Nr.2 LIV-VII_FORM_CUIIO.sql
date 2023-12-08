@@ -1,10 +1,10 @@
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
+INSERT INTO CIS2.FORM_CUIIO R (
+        CUIIO,
+        CUIIO_VERS,
+        FORM,
+        FORM_VERS,
+        STATUT 
+)
 
 
 
@@ -16,26 +16,36 @@ SELECT
         1800    FORM_VERS,
         '1' STATUT
         
-        FROM USER_BANCU.LIV_2 L
+        FROM 
+            --USER_BANCU.LIV_2 L
+            RENIM  L
         
         
         WHERE 
         
-        L.CUIIO NOT IN (
-        
-       108016,
-37757703,
-37787986,
-38176090,
-38994121,
-40273083,
-40502036,
-40530771,
-40547748,
-41216962,
-41478222
-
-
-        )
+       L.CUIIO IN (
+411097,
+37745574,
+38277661,
+38617341,
+38628310,
+38636025,
+38958473,
+38988304,
+40575905,
+40577991,
+40579984,
+40606149,
+40750337,
+41033342,
+41267133,
+41365268,
+41453736,
+41536528,
+3729611392,
+3775803992,
+4048491864,
+4100179664
+        )  AND  L.CUIIO_VERS IN (1827)
 
 
