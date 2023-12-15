@@ -1,51 +1,51 @@
- INSERT INTO CIS2.RENIM (
- 
- 
- CUIIO,
-    CUIIO_VERS,
-    DENUMIRE,
-    EDIT_USER,
-    STATUT,
-    CUATM,
-    CFP,
-    CFOJ,
-    COCM,
-    CAEM,
-    BUGET,
-    TIP,
-    PROD,
-    FOR_CUB,
-    GENMUZEE,
-    TIPMUZEE,
-    TIP_LOCAL,
-    TIP_INST,
-    CAEM2,
-    N85_NTL,
-    N85_NTIIP,
-    N85_NDIIP,
-    N85_NPDS,
-    N85_NRIIP,
-    N85_NSIIP,
-    GENMUZEE2,
-    NFI,
-    NTII,
-    NPDS,
-    ORGANE,
-    TIP_INV,
-    RENIM_PERS,
-    ORGANE_COND,
-    GEN_INSTITUTIE,
-    IDNO
-
- 
- )
+-- INSERT INTO CIS2.RENIM (
+-- 
+-- 
+-- CUIIO,
+--    CUIIO_VERS,
+--    DENUMIRE,
+--    EDIT_USER,
+--    STATUT,
+--    CUATM,
+--    CFP,
+--    CFOJ,
+--    COCM,
+--    CAEM,
+--    BUGET,
+--    TIP,
+--    PROD,
+--    FOR_CUB,
+--    GENMUZEE,
+--    TIPMUZEE,
+--    TIP_LOCAL,
+--    TIP_INST,
+--    CAEM2,
+--    N85_NTL,
+--    N85_NTIIP,
+--    N85_NDIIP,
+--    N85_NPDS,
+--    N85_NRIIP,
+--    N85_NSIIP,
+--    GENMUZEE2,
+--    NFI,
+--    NTII,
+--    NPDS,
+--    ORGANE,
+--    TIP_INV,
+--    RENIM_PERS,
+--    ORGANE_COND,
+--    GEN_INSTITUTIE,
+--    IDNO
+--
+-- 
+-- )
 
 
 
 
 SELECT 
  CUIIO,
- 1827 CUIIO_VERS,
+ CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -90,26 +90,22 @@ SELECT
                   
                   
                   CUIIO IN (
-                 6808000,
-38465233,
-40106694,
-40507915,
-40715849,
-40900788,
-41234796,
-41558518,
-3818338080,
-4106724680
+                 30798302,
+34110306,
+34393304,
+34472657,
+40063252,
+40079141,
+40670959,   
+41123751,
+41233319,
+41451861,
+293739810,
+3758340453,
+4078655910
 
 
-
-
-
-
-
-
-        
-        ) 
+) 
         
         AND 
         
