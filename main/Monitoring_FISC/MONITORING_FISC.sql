@@ -8,19 +8,19 @@ DISTINCT D.CUIIO,
             WHERE 
             1=1
             
-             AND D.DATA_REG > TO_DATE('07/28/2023 00:01:00', 'MM/DD/YYYY HH24:MI:SS')
+             AND D.DATA_REG > TO_DATE('12/19/2023 00:01:00', 'MM/DD/YYYY HH24:MI:SS')
             
---            D.FORM IN (:pFORM)
---            AND D.PERIOADA IN (:pPERIOADA)
+           and  D.FORM IN (:pFORM)
+            AND D.PERIOADA IN (:pPERIOADA)
             
             GROUP BY
             D.FORM, 
             D.CUIIO
      
             
-           HAVING 
-           
-           MAX(D.DATA_REG) > TO_DATE('07/28/2023 00:01:00', 'MM/DD/YYYY HH24:MI:SS')
+--           HAVING 
+--           
+--           MAX(D.DATA_REG) > TO_DATE('07/28/2023 00:01:00', 'MM/DD/YYYY HH24:MI:SS')
             
             ORDER BY
             MAX(D.DATA_REG) DESC
