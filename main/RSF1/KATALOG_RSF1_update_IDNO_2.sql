@@ -1,0 +1,23 @@
+
+--LOG_DATA_REG is SATA
+-- I need to find the row with the maximum date in Oracle
+
+  SELECT
+   CUIIO,
+   USER_CHANGE,
+   MAX(LOG_DATA_REG)  LOG_DATA_REG
+       
+  
+  FROM CIS2.RENIM_LOG
+  WHERE 
+CUIIO IN (
+77014
+)
+
+GROUP BY
+CUIIO,
+USER_CHANGE
+
+ORDER BY
+CUIIO,
+LOG_DATA_REG
