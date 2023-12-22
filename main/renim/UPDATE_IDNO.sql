@@ -1,5 +1,5 @@
 UPDATE RENIM 
-         SET IDNO = '1003600033376'
+         SET IDNO = '1023605005732'
                
          
 --         SELECT *
@@ -8,6 +8,6 @@ UPDATE RENIM
                
                WHERE 
                
-               CUIIO = 4005233767;
+               CUIIO = 40967522;
                     
                     
