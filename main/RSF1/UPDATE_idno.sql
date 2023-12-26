@@ -1,22 +1,20 @@
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
 
 
-
-SELECT 
-          R.CUIIO,
-          R.CUIIO_VERS,
---           57 FORM,
---           2009 FORM_VERS,
---           '1' STATUT 
-
-           R.IDNO
---           
+            SELECT 
+            
+                DISTINCT CUIIO,
+                IDNO
+                
+                    FROM RENIM 
+                    
+                    
+                    WHERE 
+                    
+                    CUIIO IN (
+                    SELECT 
+          R.CUIIO
+          
+           
            
       FROM (SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
@@ -43,7 +41,8 @@ SELECT
                
                WHERE
                1=1
-              -- and   R.cuiio_vers =    2012 
+               --90334
+               and   R.cuiio_vers =    2010 
                
                
                AND     R.IDNO IS  NULL 
@@ -51,3 +50,17 @@ SELECT
 
 
 --Pentru  perioada - 2012 sa pun in form_cuiio CUIIO_VERS - 2012 pentr rsf1, 2, 3, Prescurtat Da. ? Ca acum nu mai 4287  sunt cu cuiio_VERS = 2012
+
+                    
+                    )
+                    
+                    
+                    AND IDNO IS NOT NULL 
+                    
+                    
+                    GROUP BY
+                    CUIIO,
+                    IDNO
+                    
+                    ORDER BY
+                    CUIIO 

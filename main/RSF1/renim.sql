@@ -1,22 +1,7 @@
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
-
-
-
 SELECT 
-          R.CUIIO,
-          R.CUIIO_VERS,
---           57 FORM,
---           2009 FORM_VERS,
---           '1' STATUT 
-
-           R.IDNO
---           
+          R.CUIIO
+          
+           
            
       FROM (SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
@@ -43,7 +28,8 @@ SELECT
                
                WHERE
                1=1
-              -- and   R.cuiio_vers =    2012 
+               --90334
+               and   R.cuiio_vers =    2010 
                
                
                AND     R.IDNO IS  NULL 
