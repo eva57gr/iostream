@@ -1,17 +1,17 @@
---
---INSERT INTO CIS2.RENIM R (
---        CUIIO,
---        CUIIO_VERS,
---        DENUMIRE,
---        EDIT_USER,
---        STATUT,
---        CUATM,
---        CFP,
---        CFOJ,
---        CAEM2,
---        IDNO
---)
---
+
+INSERT INTO CIS2.RENIM R (
+        CUIIO,
+        CUIIO_VERS,
+        DENUMIRE,
+        EDIT_USER,
+        STATUT,
+        CUATM,
+        CFP,
+        CFOJ,
+        CAEM2,
+        IDNO
+)
+
 
 
  SELECT 
@@ -34,7 +34,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO  IS   NOT     NULL 
+                        C.CUIIO  IS        NULL 
                         
                         
                         ORDER BY 

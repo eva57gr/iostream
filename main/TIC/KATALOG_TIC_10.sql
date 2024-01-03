@@ -11,7 +11,10 @@
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (71) AND FC.STATUT <> '3'
+             WHERE 
+             FC.FORM IN (71) 
+             AND FC.STATUT <> '3'
+             AND FC.FORM_VERS = 2011
              
              
         

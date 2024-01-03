@@ -1,43 +1,18 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
 
 
-
-
-SELECT 
-        L.CUIIO,
-        2012 CUIIO_VERS,
-        71 FORM,
-        2011    FORM_VERS,
-        '1' STATUT
-        
-        FROM 
-
-
-(
-
-
-SELECT   
-
-
-  
-         R.CUIIO  R_CUIIO,       
-         L.CUIIO  CUIIO
-         
-         FROM (
-
-SELECT     R.CUIIO,
-           R.CUIIO_VERS
+SELECT    
+                   R.CUIIO,
+                   R.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT,
+                   R.IDNO
           
       FROM (
       
+      SELECT 
       
-      SELECT FC.CUIIO,
+                   FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -55,23 +30,19 @@ SELECT     R.CUIIO,
              AND FC.FORM_VERS = 2011
              
              
-             
-             
              ) FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
-               
-               RIGHT  JOIN (
-               
-               SELECT CUIIO
-               
-        FROM USER_BANCU.ADD_NEW_SU_TIC
-               ) L ON L.CUIIO = R.CUIIO
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                
                WHERE 
-               R.CUIIO IS  NULL  
-               ) L  
+               R.IDNO IS NULL  
+               
+              
+
+
+
+
               
                
                
