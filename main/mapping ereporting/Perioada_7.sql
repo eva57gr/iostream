@@ -1,0 +1,8 @@
+SELECT
+          P.PERIOADA 
+          --INTO vPERIOADA
+        FROM
+          MD_PERIOADA P
+        WHERE
+          P.TIP_PERIOADA IN (:vTIP_PERIOADA) AND
+          P.ANUL IN (SELECT TO_NUMBER(EXTRACT(XMLTYPE(XML), '/dec/DataSet/Header/YEAR/text()')) FROM F_XML_FORMS WHERE FORMID IN (20584567));
