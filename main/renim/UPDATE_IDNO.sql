@@ -1,5 +1,5 @@
-UPDATE RENIM 
-         SET IDNO = '1023605005732'
+UPDATE CIS.RENIM 
+         SET DENUMIRE = TRIM('Directia Regionala NORD  al Politiei de Frontiera')
                
          
 --         SELECT *
@@ -8,6 +8,6 @@ UPDATE RENIM
                
                WHERE 
                
-               CUIIO = 40967522;
+               CUIIO = 40715571;
                     
                     
