@@ -4,7 +4,8 @@
              CUATM,
 --             FULL_CODE,
              CAEM2,
-             CAEM_CALCULAT
+             CAEM_CALCULAT,
+             CAEM_2 AS CAP_4_CAEM_2
 
 FROM
 (
@@ -15,7 +16,8 @@ SELECT  DISTINCT
              R.CUATM,
              C.FULL_CODE,
              R.CAEM2,
-             MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM_CALCULAT
+             MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN ('8') THEN D.COL31 ELSE NULL  END) AS CAEM_CALCULAT,
+             MAX(CASE WHEN D.CAPITOL IN (1127) AND D.RIND NOT IN ('400','-')   THEN D.COL31 ELSE NULL  END) AS CAEM_2
              
              
            
@@ -27,7 +29,7 @@ SELECT  DISTINCT
                     WHERE 
                     D.FORM IN (64)
                     AND D.PERIOADA IN (2011)
-                   -- AND D.CUIIO = 68179 
+              --     AND D.CUIIO = 37827906 
 
                     GROUP BY 
                            D.CUIIO,  
