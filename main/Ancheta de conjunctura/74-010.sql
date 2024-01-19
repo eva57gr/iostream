@@ -1,0 +1,29 @@
+SELECT
+  'Daca este randul 9  atunci este unul din randurile 9' 
+  AS REZULTAT
+
+FROM
+VW_DATA_ALL  D                                  
+WHERE
+  (D.PERIOADA=:PERIOADA) AND
+  (D.CUIIO=:CUIIO) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               OR :FORM = -1) AND
+  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
+  (:CAPITOL=:CAPITOL            OR :CAPITOL <> :CAPITOL) AND
+  (:CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  D.FORM = 74
+  AND D.CAPITOL IN (1197)
+  
+  
+HAVING
+
+SUM(CASE WHEN D.CAPITOL=1197 AND D.RIND IN ('9') THEN D.COL1 ELSE 0 END) = 1 
+
+AND 
+
+SUM(CASE WHEN D.CAPITOL=1197 AND D.RIND IN ('9.01','9.02','9.03','9.04','9.05','9.06','9.07','9.08') THEN NVAL(D.COL1) ELSE 0 END) = 0 
+
+
+
