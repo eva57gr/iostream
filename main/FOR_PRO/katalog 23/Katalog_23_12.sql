@@ -12,7 +12,7 @@ INSERT INTO CIS2.FORM_CUIIO R (
 SELECT 
        L.CUIIO,
         2012 CUIIO_VERS,
-        3 FORM,
+        12 FORM,
         2000    FORM_VERS,
         '1' STATUT
         
@@ -60,7 +60,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM USER_BANCU.FOR_M3 L
+        FROM USER_BANCU.CC L
              ) R ON R.CUIIO = FC.CUIIO
              
              

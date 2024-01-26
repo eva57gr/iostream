@@ -44,7 +44,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.FOR_M3 L
+        FROM  USER_BANCU.CC L
              ) R ON R.CUIIO = FC.CUIIO
              
              
@@ -64,7 +64,7 @@ SELECT
         ) 
   
 
- AND FORM = 3 
+ AND FORM = 12 
 --  
 --  
   AND CUIIO_VERS = 2012
