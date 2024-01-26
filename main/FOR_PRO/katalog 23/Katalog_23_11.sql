@@ -1,7 +1,7 @@
- UPDATE CIS2.FORM_CUIIO
---SELECT * 
-    SET STATUT = '3'     
---    from CIS2.FORM_CUIIO 
+ --UPDATE CIS2.FORM_CUIIO
+SELECT * 
+--   SET STATUT = '3'     
+    from CIS2.FORM_CUIIO 
     
     WHERE 
 
@@ -44,7 +44,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.FOR_PRO_2 L
+        FROM  USER_BANCU.FOR_M3 L
              ) R ON R.CUIIO = FC.CUIIO
              
              
@@ -64,7 +64,7 @@ SELECT
         ) 
   
 
- AND FORM = 16 
+ AND FORM = 3 
 --  
 --  
   AND CUIIO_VERS = 2012

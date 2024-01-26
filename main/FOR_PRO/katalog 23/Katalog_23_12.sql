@@ -12,7 +12,7 @@ INSERT INTO CIS2.FORM_CUIIO R (
 SELECT 
        L.CUIIO,
         2012 CUIIO_VERS,
-        16 FORM,
+        3 FORM,
         2000    FORM_VERS,
         '1' STATUT
         
@@ -44,6 +44,8 @@ SELECT
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             
+             
              ) FC RIGHT  JOIN 
              
              (
@@ -58,7 +60,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.FOR_PRO_2 L
+        FROM USER_BANCU.FOR_M3 L
              ) R ON R.CUIIO = FC.CUIIO
              
              
