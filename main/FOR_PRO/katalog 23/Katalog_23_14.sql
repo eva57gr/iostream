@@ -16,12 +16,12 @@ DECLARE -- ====================================================================
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.FOR_PRO_2 L
+        FROM  USER_BANCU.FOR_M3 L
         
         
 --        WHERE 
 --        
---            L.CUIIO = 4130138667
+--            L.CUIIO = 40605658
           
           ;
 

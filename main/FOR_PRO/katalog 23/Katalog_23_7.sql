@@ -12,7 +12,7 @@
 --        
 --        
 --)
-
+--
 
 
  SELECT 
@@ -31,34 +31,34 @@
       --  L.IDNO
         FROM  -- USER_BANCU.CIS2_RENIM_1_TUR L
         
-                CIS.RENIM  L
+                USER_BANCU.FOR_M3  L
         
         
---                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
---                                                  AND C.CUIIO_VERS  =  L.CUIIO_VERS  
+                        LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
+                                                  AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
+                        C.CUIIO IS NULL 
                         
-                        
-                        CUIIO  IN (
-41605732,
-41605749,
-41605755,
-38898937,
-41602751,
-40715513,
-40715559,
-40715542,
-40715571,
-40425940,
-40685634,
-37700229,
-41605560
-
-
-
-)
-
-
-
- AND CUIIO_VERS IN (2012)
+--                        CUIIO  IN (
+--41605732,
+--41605749,
+--41605755,
+--38898937,
+--41602751,
+--40715513,
+--40715559,
+--40715542,
+--40715571,
+--40425940,
+--40685634,
+--37700229,
+--41605560
+--
+--
+--
+--)
+--
+--
+--
+-- AND CUIIO_VERS IN (2012)
