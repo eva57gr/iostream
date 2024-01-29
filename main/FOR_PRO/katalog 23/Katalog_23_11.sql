@@ -1,7 +1,7 @@
- --UPDATE CIS2.FORM_CUIIO
+--UPDATE CIS.FORM_CUIIO
 SELECT * 
 --   SET STATUT = '3'     
-    from CIS2.FORM_CUIIO 
+    from CIS.FORM_CUIIO 
     
     WHERE 
 
@@ -22,9 +22,9 @@ SELECT
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
+              FROM CIS.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
+                                   FROM CIS.FORM_CUIIO
                                   WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -44,7 +44,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.CC L
+        FROM  USER_BANCU.INVEST_2_TRIM L
              ) R ON R.CUIIO = FC.CUIIO
              
              
@@ -59,16 +59,16 @@ SELECT
         AND 
         
         (
-        CUIIO_VERS  =  2012 
+        CUIIO_VERS  =  1060 
          
         ) 
   
 
- AND FORM = 12 
+ AND FORM = 6 
 --  
 --  
-  AND CUIIO_VERS = 2012
-    AND FORM_VERS = 2000 
+  AND CUIIO_VERS = 1060
+    AND FORM_VERS = 1004 
   AND STATUT = '1' 
                
                
