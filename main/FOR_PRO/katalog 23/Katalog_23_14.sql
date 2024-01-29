@@ -16,7 +16,7 @@ DECLARE -- ====================================================================
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.INVEST_2_TRIM L
+        FROM  USER_BANCU.M3 L
         
         
 --        WHERE 
@@ -28,14 +28,14 @@ DECLARE -- ====================================================================
 BEGIN -- ======================================================================
   FOR CR IN C
   LOOP
-    UPDATE CIS.RENIM SET 
+    UPDATE CIS2.RENIM SET 
       
         CAEM2 = CR.CAEM2,
         DENUMIRE = CR.DENUMIRE,
         CUATM = CR.CUATM,
-        CFP = CR.CFP
+        CFP = CR.CFP,
      --   TIP = CR.TIP,
-       -- BUGET = CR.BUGET
+        BUGET = CR.BUGET
       --  CFOJ = CR.CFOJ
        -- IDNO = CR.IDNO
  --     

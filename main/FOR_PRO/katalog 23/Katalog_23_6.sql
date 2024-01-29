@@ -14,7 +14,7 @@
 
 
  SELECT FC.CUIIO,
-                   1060 CUIIO_VERS,
+                   FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
@@ -27,9 +27,9 @@
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
+                                   FROM CIS2.FORM_CUIIO
                                   WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -39,5 +39,5 @@
              
              
              
-             WHERE 
-             FC.CUIIO_VERS  =   :pPERIOADA
+--             WHERE 
+--             FC.CUIIO_VERS  <>   :pPERIOADA
