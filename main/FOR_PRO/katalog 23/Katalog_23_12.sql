@@ -1,19 +1,19 @@
---INSERT INTO CIS.FORM_CUIIO R (
+--INSERT INTO CIS2.FORM_CUIIO R (
 --        CUIIO,
 --        CUIIO_VERS,
 --        FORM,
 --        FORM_VERS,
 --        STATUT 
 --)
---
---
---
+
+
+
 
 SELECT 
        L.CUIIO,
-        1060 CUIIO_VERS,
-        6 FORM,
-        1004    FORM_VERS,
+        2012 CUIIO_VERS,
+        42 FORM,
+        2000    FORM_VERS,
         '1' STATUT
         
         FROM 
@@ -36,9 +36,9 @@ SELECT
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
+                                   FROM CIS2.FORM_CUIIO
                                   WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -60,7 +60,7 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM USER_BANCU.INVEST_2_TRIM L
+        FROM USER_BANCU.M3 L
              ) R ON R.CUIIO = FC.CUIIO
              
              

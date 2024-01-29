@@ -9,4 +9,4 @@ SELECT
         L.CAEM2,
         L.TIP ,
         L.BUGET
-        FROM  USER_BANCU.INVEST_2_TRIM L
+        FROM  USER_BANCU.M3 L
