@@ -11,11 +11,16 @@
 --  )
 
 
-
+--ID_USER IN  (
+--
+--80,
+--1621
+--
+--)
 
 
 SELECT
-  1612 ID_USER,
+  1621 ID_USER,
   L.CUATM,
   L.FORM,
   L.FORM_VERS,
@@ -42,7 +47,7 @@ FROM
 
         WHERE
 
-        ID_USER IN (63)
+        ID_USER IN (80)
 
 
 
@@ -65,7 +70,7 @@ FROM
 
         WHERE
 
-        ID_USER IN (1612)
+        ID_USER IN (1621)
 
         ) R ON R.FORM = L.FORM
 
