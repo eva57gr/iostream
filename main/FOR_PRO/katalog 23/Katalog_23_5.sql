@@ -9,14 +9,14 @@ SELECT
         L.CAEM2,
         L.TIP,
         L.BUGET
-        FROM  USER_BANCU.M3 L
+        FROM  USER_BANCU.TIC_23 L
         
                     
-                   -- LEFT JOIN CIS2.VW_CL_CUATM C  ON C.CODUL =  L.CUATM  
+                    LEFT JOIN CIS2.VW_CL_CUATM C  ON C.CODUL =  L.CUATM  
                      --LEFT JOIN CIS2.VW_CL_CAEM2  C  ON C.CODUL =  L.CAEM2  
-                        LEFT JOIN CIS2.VW_CL_CFP  C  ON C.CODUL =  L.CFP  
-                    
+                      --  LEFT JOIN CIS2.VW_CL_CFP  C  ON C.CODUL =  L.CFP  
+                   -- 
                     
                     WHERE 
                     
-                    C.CODUL IS NOT  null 
+                    C.CODUL IS null 

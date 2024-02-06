@@ -89,6 +89,6 @@ GROUP BY
   L.CAPITOL_ACCES,
   ROWNUM
 
-      HAVING
-
-      ROWNUM <=10
+--      HAVING
+--
+--      ROWNUM <=10

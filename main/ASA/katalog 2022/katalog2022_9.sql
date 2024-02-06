@@ -2,39 +2,32 @@ DECLARE -- ====================================================================
 
   CURSOR C IS
         
-        
- SELECT 
+  SELECT 
  
-        L.CUIIO,
-        L.CUIIO_VERS,
-        L.DENUMIRE,
-        L.CUATM,
-        L.CFP,
-        L.CFOJ,
-        L.CAEM2,
-        L.IDNO,
-        L.ADDRESS1
-        FROM USER_BANCU.ADD_NEW_1_INOV_2022 L
+  L.CUIIO,
+  L.CUIIO_VERS,
+  L.DENUMIRE,
+  L.CUATM,
+  L.CFP,
+  L.CFOJ,
+  L.COCM,
+  L.CAEM2,
+  L.CAEM,
+  L.IDNO,
+  L.PERS,
+  L.ETAPA_PROD 
+        FROM USER_BANCU.PROD_2023 L   
         
         
---        WHERE 
---        
---            L.CUIIO = 4130138667
-          
-          ;
+        ;
 
 BEGIN -- ======================================================================
   FOR CR IN C
   LOOP
-    UPDATE CIS2.RENIM SET 
+    UPDATE CIS.RENIM SET 
       
-       CAEM2 = CR.CAEM2,
-       DENUMIRE = CR.DENUMIRE,
-       CUATM = CR.CUATM,
-       CFP = CR.CFP,
-       CFOJ = CR.CFOJ,
-      IDNO = CR.IDNO,
-      ADDRESS1 = CR.ADDRESS1
+       ETAPA_PROD = CR.ETAPA_PROD
+
       
     WHERE 
       CUIIO  = CR.CUIIO 
