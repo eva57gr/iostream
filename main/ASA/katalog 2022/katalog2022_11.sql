@@ -1,0 +1,19 @@
+
+ 
+ SELECT 
+ 
+  L.CUIIO,
+  L.CUIIO_VERS,
+  L.DENUMIRE,
+  L.CUATM,
+  L.CFP,
+  L.CFOJ,
+  L.COCM,
+  L.CAEM2,
+  L.CAEM,
+  L.IDNO,
+  L.PERS,
+  L.ETAPA_PROD 
+        FROM USER_BANCU.PROD_2023 L
+       
+

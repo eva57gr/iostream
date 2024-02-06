@@ -31,14 +31,14 @@
       --  L.IDNO
         FROM  -- USER_BANCU.CIS2_RENIM_1_TUR L
         
-                USER_BANCU.M3  L
+                USER_BANCU.ASA  L
         
         
                         LEFT JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE 
-                        C.CUIIO IS  NOT NULL 
+                        C.CUIIO IS  NOT  NULL 
                         
 --                        CUIIO  IN (
 --41605732,

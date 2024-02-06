@@ -12,11 +12,12 @@ DECLARE -- ====================================================================
         L.DENUMIRE,
         L.CUATM,
         L.CFP,
-      --  L.CFOJ,
+        L.CFOJ,
         L.CAEM2,
-        L.TIP ,
-        L.BUGET
-        FROM  USER_BANCU.FOR_M3 L
+       -- L.TIP ,
+    --    L.BUGET,
+        L.IDNO
+        FROM  USER_BANCU.ASA L
         
         
 --        WHERE 
@@ -34,10 +35,10 @@ BEGIN -- ======================================================================
         DENUMIRE = CR.DENUMIRE,
         CUATM = CR.CUATM,
         CFP = CR.CFP,
-        TIP = CR.TIP,
-        BUGET = CR.BUGET
-      --  CFOJ = CR.CFOJ
-       -- IDNO = CR.IDNO
+        --TIP = CR.TIP,
+        --BUGET = CR.BUGET
+        CFOJ = CR.CFOJ,
+        IDNO = CR.IDNO
  --     
   --  ETAPA_PROD = CR.ETAPA_PROD
     
