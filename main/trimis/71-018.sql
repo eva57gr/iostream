@@ -1,6 +1,6 @@
 SELECT DISTINCT
   'Nu satisface conditia' AS REZULTAT
-  
+
 
 FROM
 VW_DATA_ALL  D                                  
@@ -15,40 +15,18 @@ WHERE
   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
  
   D.FORM = 71
-  AND D.CAPITOL IN (1186)
+  AND D.CAPITOL IN (1187)
+
+
 
 HAVING
  
-(SUM(CASE WHEN D.RIND IN ('633') THEN NVAL(D.COL1) ELSE 0 END) <> 100 
-
-AND 
-
-SUM(CASE WHEN D.RIND IN ('631','632') THEN NVAL(D.COL1) ELSE 0 END) <> 100)
+SUM(CASE WHEN D.RIND IN ('750') THEN NVAL(D.COL1) ELSE 0 END) > 0 
 
 
-AND  
-
+ AND 
  
-(SUM(CASE WHEN D.RIND IN ('633') THEN NVAL(D.COL1) ELSE 0 END) <> 0
-
-AND 
-
-SUM(CASE WHEN D.RIND IN ('631','632') THEN NVAL(D.COL1) ELSE 0 END) <> 0)
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
+ SUM(CASE WHEN D.RIND IN ('761','762','763','764','765','766','767','768') THEN NVAL(D.COL1) +  NVAL(D.COL2) ELSE 0 END) <> 8
   
 
   
