@@ -75,8 +75,8 @@ SELECT
  
  
  
-FROM
-  CIS2.VW_DATA_ALL D
+--FROM
+--  CIS2.VW_DATA_ALL D
 
 
 
