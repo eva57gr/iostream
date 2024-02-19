@@ -1,0 +1,95 @@
+--INSERT INTO USER_EREPORTING.RENIM_EXTRA
+--(
+--  CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  CAEM2,
+--  ID_SCHEMA   
+--)
+SELECT  
+  L.CUIIO,
+  L.CUIIO_VERS,
+  L.DENUMIRE,
+  L.CUATM,
+  L.CFP,
+  L.CFOJ,
+  L.CAEM2,
+  4 ID_SCHEMA   
+
+
+                   FROM (
+                   
+                   SELECT * 
+                    
+                   FROM CIS2.RENIM 
+                   
+                   WHERE
+                   
+                   CUIIO IN (
+              19347,
+229694,
+237765,
+820950,
+820967,
+3001224,
+4771183,
+15812620,
+15864663,
+20153214,
+20171301,
+20180211,
+20207513,
+20260430,
+20261889,
+20398447,
+20453560,
+37636782,
+38176919,
+38403692,
+38420495,
+38473646,
+38924155,
+39056880,
+40001110,
+40013975,
+40173584,
+40184346,
+40232134,
+40312057,
+40317095,
+40341933,
+40369784,
+40540574,
+40554748,
+40581308,
+40582515,
+40667346,
+40746732,
+40755688,
+40786714,
+40794783,
+40818791,
+40916482,
+40979413,
+41065804,
+41127445,
+41129303,
+41387597,
+41518967,
+41574747
+
+--             
+    )         
+
+
+
+AND CUIIO_VERS = 2012
+                   )  L
+
+                    LEFT JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS 
+                    
+                    WHERE
+                    R.CUIIO IS NULL 

@@ -55,7 +55,11 @@ SELECT
              
              ) FC
            INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
+               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) 
+               
+               
+               
+               ) R 
                
                LEFT   JOIN (
                
