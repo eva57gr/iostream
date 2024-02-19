@@ -1,0 +1,100 @@
+INSERT INTO TABLE_OUT 
+(
+  PERIOADA,
+  FORM,
+  FORM_VERS,
+  ID_MDTABLE,
+  COD_CUATM,
+  NR_SECTIE,
+  NUME_SECTIE,
+  NR_SECTIE1,
+  NUME_SECTIE1,
+  NR_SECTIE2,
+  NUME_SECTIE2,
+  NR_ROW,
+  ORDINE,
+  DECIMAL_POS,
+  NUME_ROW,
+  
+  COL1, COL2
+)
+
+SELECT
+  :pPERIOADA,
+  :pFORM,
+  :pFORM_VERS,
+  :pID_MDTABLE,
+  :pCOD_CUATM,
+   R.CODUL  AS NR_SECTIE,
+  '0' AS NUME_SECTIE,
+  '0' AS NR_SECTIE1,
+  '0' AS NUME_SECTIE1,
+  '0' AS NR_SECTIE2,
+  '0' AS NUME_SECTIE2,
+  R.NR_ROW ||'~'||ROWNUM  NR_ROW,
+  R.ORDINE AS ORDINE,
+  '11' AS DECIMAL_POS,
+  R.CODUL AS NUME_ROW,
+  D.COL1 AS COL1,
+  D.COL2 AS COL2  
+    
+FROM
+    (
+    SELECT 
+      R1.CODUL,
+      R1.NR_ROW,    
+      SUM(D1.COL1) AS COL1,
+      SUM(D1.COL2) AS COL2
+
+    FROM
+         VW_DATA_ALL_COEF D1
+      --  CIS.VW_DATA_ALL  D1
+     
+        INNER JOIN CIS.VW_CL_CAEM2 V ON (D1.CAEM2 = V.CODUL)
+        INNER JOIN
+        (
+        
+      SELECT
+DENUMIRE CODUL,
+RIND  AS NR_ROW,
+ORDINE
+FROM CIS.MD_RIND_OUT
+
+WHERE
+ID_MDTABLE = 2310
+        ) R1 ON (V.FULL_CODE LIKE '%'||R1.CODUL||'%' AND D1.RIND = R1.NR_ROW)
+
+        WHERE
+            D1.FORM IN (1)           AND 
+              
+            D1.CAPITOL IN (1,2) AND
+            D1.FORM_VERS = :pFORM_VERS  AND 
+            D1.PERIOADA IN (:pPERIOADA) AND             
+            D1.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' 
+--             AND D1.CUIIO = 297922
+                
+        GROUP BY
+            R1.CODUL,
+            R1.NR_ROW
+            
+        ) D 
+            
+        RIGHT JOIN 
+        (
+        
+        
+SELECT
+DENUMIRE CODUL,
+RIND  AS NR_ROW,
+ORDINE
+FROM CIS.MD_RIND_OUT
+
+WHERE
+ID_MDTABLE = 2310
+
+
+        ) R ON (R.CODUL = D.CODUL AND R.NR_ROW = D.NR_ROW )
+        
+GROUP BY ROWNUM, R.NR_ROW, R.ORDINE, R.CODUL, D.COL1, D.COL2
+
+

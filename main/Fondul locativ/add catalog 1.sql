@@ -1,28 +1,28 @@
-INSERT INTO RENIM 
-(
-
-
-CUIIO,
-    CUIIO_VERS,
-    DENUMIRE,
-    EDIT_USER,
-    STATUT,
-    CUATM,
-    CFP,
-    CFOJ,
-    CAEM,
-    COCM,
-    LANG,
-    SPEC,
-    TIP_INV,
-    TIP_INV_DEG,
-    TIP_LOCAL,
-    CUATM4,
-    CFP1,
-    AP_BUGET,
-    CAEM2
-)
- 
+--INSERT INTO RENIM 
+--(
+--
+--
+--CUIIO,
+--    CUIIO_VERS,
+--    DENUMIRE,
+--    EDIT_USER,
+--    STATUT,
+--    CUATM,
+--    CFP,
+--    CFOJ,
+--    CAEM,
+--    COCM,
+--    LANG,
+--    SPEC,
+--    TIP_INV,
+--    TIP_INV_DEG,
+--    TIP_LOCAL,
+--    CUATM4,
+--    CFP1,
+--    AP_BUGET,
+--    CAEM2
+--)
+-- 
 SELECT 
     
     CUIIO,
