@@ -20,7 +20,7 @@ SELECT
   4 ID_SCHEMA   
 
 
-                   FROM USER_BANCU.KAT_1_RE  L
+                   FROM USER_BANCU.KAT_6_IT  L
 
                     LEFT JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS 
                     
