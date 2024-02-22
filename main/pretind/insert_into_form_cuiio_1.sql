@@ -1,6 +1,3 @@
-
-
-
 INSERT INTO USER_EREPORTING.FORM_CUIIO_EXTRA (
 CUIIO,
 CUIIO_VERS,
@@ -12,23 +9,17 @@ FORM_VERS,
 )
    
 SELECT
-R.CUIIO, 
-R.CUIIO_VERS,
-114 FORM,
+FC.CUIIO, 
+2012 CUIIO_VERS,
+113 FORM,
 2000  FORM_VERS,
 '1' STATUT,
-4 ID_SCHEMA 
+ 4 ID_SCHEMA 
 
+   
+   FROM 
 
-
---R.CUIIO, 
---R.CUIIO_VERS
-
-
-
-FROM 
 (
-
 SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
@@ -44,34 +35,10 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (:pFORM)  AND FC.STATUT <> '3' 
              
-             
-             
-             
-             ) L 
-             
-             
-             RIGHT JOIN (
-
-
-SELECT
-  D.CUIIO,
-  D.CUIIO_VERS,
-  D.DENUMIRE,
-  D.CUATM,
-  -- CUATM_4,
-  --L.CODUL7 CUATM,  
-  D.CFP,
-  D.CFOJ,
-  D.COCM,
-  D.CAEM2,
-  D.CAEM,
-  D.IDNO    
-
-FROM USER_BANCU.KAT_6_IT D
-
-
-             ) R ON R.CUIIO = L.CUIIO 
+             ) FC
              
              
              WHERE 
-             L.CUIIO IS   NULL 
+             FC.CUIIO_VERS <>  2012
+              
+             

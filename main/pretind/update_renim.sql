@@ -1,8 +1,8 @@
        
-        UPDATE  USER_BANCU.KAT_1_RE
+        UPDATE  USER_BANCU.GAZ
         SET
          CUATM = CASE WHEN (LENGTH(CUATM) = 6 AND (SUBSTR(CUATM,1,1) = 1  OR SUBSTR(CUATM,1,1) = 3 )) THEN '0'||CUATM ELSE CUATM END,
-         CUIIO_VERS = 468
+         CUIIO_VERS = 2012
          
         --CUATM = '0'||REPLACE(CUATM,'O','0')
 --        ,
@@ -23,7 +23,7 @@
 --     --   L.CFOJ,
 --        L.CAEM2
 --      --  L.IDNO
-        FROM USER_BANCU.KAT_1_RE L
+        FROM USER_BANCU.GAZ L
         
         WHERE 
         1=1
