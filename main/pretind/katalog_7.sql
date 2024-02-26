@@ -20,9 +20,19 @@ SELECT
   4 ID_SCHEMA   
 
 
-                   FROM USER_BANCU.KAT_6_IT  L
+                   FROM USER_BANCU.BE  L
 
                     LEFT JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS 
                     
                     WHERE
-                    R.CUIIO IS NULL 
+                    R.CUIIO IS NULL ;
+                    
+                    
+                    
+                    
+--                    
+--                    SELECT  
+--                      L.CUIIO
+--  
+--
+--                   FROM USER_BANCU.BE L 

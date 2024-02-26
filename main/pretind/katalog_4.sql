@@ -1,51 +1,51 @@
--- INSERT INTO CIS2.RENIM (
--- 
--- 
--- CUIIO,
---    CUIIO_VERS,
---    DENUMIRE,
---    EDIT_USER,
---    STATUT,
---    CUATM,
---    CFP,
---    CFOJ,
---    COCM,
---    CAEM,
---    BUGET,
---    TIP,
---    PROD,
---    FOR_CUB,
---    GENMUZEE,
---    TIPMUZEE,
---    TIP_LOCAL,
---    TIP_INST,
---    CAEM2,
---    N85_NTL,
---    N85_NTIIP,
---    N85_NDIIP,
---    N85_NPDS,
---    N85_NRIIP,
---    N85_NSIIP,
---    GENMUZEE2,
---    NFI,
---    NTII,
---    NPDS,
---    ORGANE,
---    TIP_INV,
---    RENIM_PERS,
---    ORGANE_COND,
---    GEN_INSTITUTIE,
---    IDNO
---
--- 
--- )
---
---
+ INSERT INTO CIS2.RENIM (
+ 
+ 
+ CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    EDIT_USER,
+    STATUT,
+    CUATM,
+    CFP,
+    CFOJ,
+    COCM,
+    CAEM,
+    BUGET,
+    TIP,
+    PROD,
+    FOR_CUB,
+    GENMUZEE,
+    TIPMUZEE,
+    TIP_LOCAL,
+    TIP_INST,
+    CAEM2,
+    N85_NTL,
+    N85_NTIIP,
+    N85_NDIIP,
+    N85_NPDS,
+    N85_NRIIP,
+    N85_NSIIP,
+    GENMUZEE2,
+    NFI,
+    NTII,
+    NPDS,
+    ORGANE,
+    TIP_INV,
+    RENIM_PERS,
+    ORGANE_COND,
+    GEN_INSTITUTIE,
+    IDNO
 
+ 
+ )
+
+
+--
 
 SELECT 
     CUIIO,
-    CUIIO_VERS,
+    2012 CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -87,58 +87,11 @@ SELECT
                     WHERE 
                     
                     CUIIO IN (
-              19347,
-229694,
-237765,
-820950,
-820967,
-3001224,
-4771183,
-15812620,
-15864663,
-20153214,
-20171301,
-20180211,
-20207513,
-20260430,
-20261889,
-20398447,
-20453560,
-37636782,
-38176919,
-38403692,
-38420495,
-38473646,
-38924155,
-39056880,
-40001110,
-40013975,
-40173584,
-40184346,
-40232134,
-40312057,
-40317095,
-40341933,
-40369784,
-40540574,
-40554748,
-40581308,
-40582515,
-40667346,
-40746732,
-40755688,
-40786714,
-40794783,
-40818791,
-40916482,
-40979413,
-41065804,
-41127445,
-41129303,
-41387597,
-41518967,
-41574747
+                  SELECT  
+                      L.CUIIO
+  
 
+                   FROM USER_BANCU.BE L 
 --             
     )         
 
