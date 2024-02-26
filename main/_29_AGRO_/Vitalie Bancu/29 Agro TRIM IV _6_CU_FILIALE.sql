@@ -1,0 +1,104 @@
+--SELECT
+--D.CUIIO,
+--
+--R.IDNO,
+--R.DENUMIRE,
+--R.CUATM,
+--D.RIND,
+--D.COL1
+--
+--FROM
+--
+--(
+
+
+SELECT
+--D.NEW_CUIIO CUIIO,
+--D.RIND,
+SUM(D.COL1) AS COL1
+FROM
+(
+
+SELECT
+D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+CASE
+WHEN
+SUBSTR(TO_CHAR(D.CUIIO), -2) = SUBSTR(TO_CHAR(D.CUATM), 1,2) THEN
+SUBSTR(TO_CHAR(D.CUIIO), 1, LENGTH(TO_CHAR(D.CUIIO)) - 2)
+
+WHEN
+SUBSTR(TO_CHAR(D.CUIIO), -4) = SUBSTR(TO_CHAR(D.CUATM), 1,4)
+AND  LENGTH(D.CUIIO) = 12
+ THEN
+SUBSTR(TO_CHAR(D.CUIIO), 1, LENGTH(TO_CHAR(D.CUIIO)) - 4) ELSE TO_CHAR(D.CUIIO)  END  AS NEW_CUIIO,
+D.RIND,
+SUM(D.COL1) AS COL1
+
+FROM CIS2.VW_DATA_ALL D
+        INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
+
+WHERE
+  D.PERIOADA IN (:pPERIOADA) AND
+  D.FORM_VERS = :pFORM_VERS     AND
+  (:pID_MDTABLE=:pID_MDTABLE) AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
+  D.FORM IN (45)
+  AND D.RIND IN ('1440')
+
+  -- AND D.CUIIO  LIKE '%'||41070998||'%' 
+
+ ---  AND D.CUIIO = 4114834143
+--  AND D.CUIIO = 410709989601
+
+--AND D.NEW_CUIIO  = 41070998
+
+
+GROUP BY
+D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+D.RIND
+
+
+HAVING 
+(SUBSTR(TO_CHAR(D.CUIIO), -4) = SUBSTR(TO_CHAR(D.CUATM), 1,4)
+AND  LENGTH(D.CUIIO) = 12)
+
+OR
+
+(SUBSTR(TO_CHAR(D.CUIIO), -2) = SUBSTR(TO_CHAR(D.CUATM), 1,2))
+
+
+) D
+
+--GROUP BY
+--D.NEW_CUIIO,
+--D.RIND
+
+
+
+
+
+
+
+
+--            WHERE 
+--            
+--            D.CUIIO IN (
+--                   SELECT 
+--                    L.CUIIO
+--                  
+--                  
+--                FROM USER_BANCU.VW_KATALOG_29_AGRO_1059 L   
+--                                                LEFT JOIN  USER_BANCU.TRIM_4_29_AGRO R ON R.CUIIO = L.CUIIO 
+----                                                
+--                                                WHERE 
+--                                                R.CUIIO IS NOT NULL 
+--            )
+
+--
+
+--HAVING
+--R.DENUMIRE IS NULL  
