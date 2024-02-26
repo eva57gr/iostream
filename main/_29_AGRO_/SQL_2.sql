@@ -1,8 +1,8 @@
-
-SELECT     L.CUIIO
-           
-          
-      FROM (
+--
+--SELECT     L.CUIIO
+--           
+--          
+--      FROM (
       
       
       SELECT FC.CUIIO,
@@ -22,24 +22,24 @@ SELECT     L.CUIIO
              
              
              
-             
-             ) FC   RIGHT JOIN (
-             
-             
-             SELECT
-              DISTINCT  D.CUIIO 
-             
-                FROM CIS2.VW_DATA_ALL D 
-                
-                WHERE 
-                D.PERIOADA = :pPERIOADA
-                AND D.FORM =  :pFORM
-             
-            )  L ON L.CUIIO = FC.CUIIO 
-                    
-            
-          WHERE 
-          FC.CUIIO IS   NULL 
+--             
+--             ) FC   RIGHT JOIN (
+--             
+--             
+--             SELECT
+--              DISTINCT  D.CUIIO 
+--             
+--                FROM CIS2.VW_DATA_ALL D 
+--                
+--                WHERE 
+--                D.PERIOADA = :pPERIOADA
+--                AND D.FORM =  :pFORM
+--             
+--            )  L ON L.CUIIO = FC.CUIIO 
+--                    
+--            
+--          WHERE 
+--          FC.CUIIO IS   NULL 
                
                
                

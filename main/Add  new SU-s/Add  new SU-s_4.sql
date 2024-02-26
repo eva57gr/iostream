@@ -97,7 +97,9 @@ SELECT
 SELECT     R.CUIIO
           
           
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -109,7 +111,12 @@ SELECT     R.CUIIO
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (33) AND FC.STATUT <> '3') FC
+             WHERE FC.FORM IN (33) AND FC.STATUT <> '3'
+             
+             
+             
+             
+             ) FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) 
 
