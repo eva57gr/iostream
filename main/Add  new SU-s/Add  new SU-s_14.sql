@@ -27,7 +27,7 @@
 
 SELECT 
     CUIIO,
-    2011 CUIIO_VERS,
+    CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -44,7 +44,8 @@ SELECT
     RENIM_PERS,
     CAEM2
 
-                    FROM USER_BANCU.VW_MAX_RENIM_CIS       
+                    FROM --USER_BANCU.VW_MAX_RENIM_CIS   
+                    VW_MAX_RENIM_TRIM_CIS    
                     
     
                   
@@ -70,9 +71,9 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
+              FROM CIS.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
+                                   FROM CIS.FORM_CUIIO
                                   WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -88,11 +89,11 @@ SELECT     R.CUIIO,
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                
-               WHERE 
-               
-               R.CUIIO_VERS <>   2011
+--               WHERE 
+--               
+--               R.CUIIO_VERS <>   1060
                 ) L
         
         ) 
         
-        AND CUIIO_VERS <>   2011
+        AND CUIIO_VERS =   1060

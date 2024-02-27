@@ -54,5 +54,10 @@ FROM USER_BANCU.PRETIND_2024 D
                         WHERE 
                         
                         C.CODUL IS  NOT  NULL 
+                                        ;
+                                        
+                                        
+                                        
+                                        
                                         
                                 
