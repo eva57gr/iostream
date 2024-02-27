@@ -1,14 +1,25 @@
+-- INSERT INTO CIS.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
+--
 
-SELECT 
-                   FC.CUIIO
---                   FC.CUIIO_VERS,
---                   FC.FORM,
---                   FC.FORM_VERS,
---                   FC.STATUT
-                   
-                   FROM 
 
-(      
+ SELECT 
+ 
+        FC.CUIIO,
+        1060 CUIIO_VERS,
+        1  FORM,
+        1004    FORM_VERS,  
+        '1' STATUT
+
+
+
+              FROM 
+      (
       SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
@@ -21,23 +32,12 @@ SELECT
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3' 
+             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3' )  FC
              
              
              
-             
-             
-             ) FC LEFT JOIN (
-             
-             SELECT 
-             CUIIO
-             FROM USER_BANCU.C5
-             ) R ON R.CUIIO = FC.CUIIO 
-              
              WHERE 
-              R.CUIIO  IS   NULL 
+             FC.CUIIO_VERS = 1060
              
              
              
-             -- 10023
-             -- 9832

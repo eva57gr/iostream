@@ -1,5 +1,5 @@
- SELECT *
-        FROM USER_BANCU.PROD_2023
+ SELECT CUIIO
+        FROM USER_BANCU.C5
         
         
         ORDER BY 

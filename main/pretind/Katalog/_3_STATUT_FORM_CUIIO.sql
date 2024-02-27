@@ -1,6 +1,3 @@
-
-
-
 --INSERT INTO USER_EREPORTING.FORM_CUIIO_EXTRA (
 --CUIIO,
 --CUIIO_VERS,
@@ -10,10 +7,10 @@
 -- ID_SCHEMA 
 --
 --)
---   
+   
 SELECT
-R.CUIIO, 
-R.CUIIO_VERS,
+L.CUIIO, 
+L.CUIIO_VERS,
 112 FORM,
 2000  FORM_VERS,
 '1' STATUT,
@@ -50,7 +47,7 @@ SELECT FC.CUIIO,
              ) L 
              
              
-             RIGHT JOIN (
+             LEFT JOIN (
 
 
 SELECT
@@ -74,4 +71,4 @@ FROM USER_BANCU.BE D
              
              
              WHERE 
-             L.CUIIO IS   NULL 
+             R.CUIIO IS   NULL 

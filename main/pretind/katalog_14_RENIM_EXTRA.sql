@@ -1,17 +1,17 @@
-INSERT INTO USER_EREPORTING.RENIM_EXTRA
-(
-  CUIIO,
-  CUIIO_VERS,
-  DENUMIRE,
-  CUATM,
-  CFP,
-  CFOJ,
-  CAEM2,
-  ID_SCHEMA   
-)
+--INSERT INTO USER_EREPORTING.RENIM_EXTRA
+--(
+--  CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  CAEM2,
+--  ID_SCHEMA   
+--)
 SELECT  
   L.CUIIO,
-  468 CUIIO_VERS,
+  2012 CUIIO_VERS,
   L.DENUMIRE,
   L.CUATM,
   L.CFP,
@@ -34,11 +34,12 @@ SELECT
                    WHERE 
                    
                    L.CUIIO IN (
-                   SELECT
-L.CUIIO 
+                   
+SELECT FC.CUIIO
+              FROM 
 
-FROM 
-(SELECT FC.CUIIO,
+(
+SELECT FC.CUIIO, 
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -51,20 +52,17 @@ FROM
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (:pFORM)  AND FC.STATUT <> '3' ) L LEFT JOIN (
-             SELECT 
-CUIIO
-
-FROM USER_BANCU.KAT_1_RE
-             ) R ON R.CUIIO = L.CUIIO 
+             WHERE FC.FORM IN (:pFORM)  AND FC.STATUT <> '3' ) FC
+             
              
              
              WHERE 
-             R.CUIIO IS NULL 
+             
+             FC.CUIIO_VERS <> 2012
                    )
                    
                    
-                   AND L.CUIIO_VERS = 456 
+                   AND L.CUIIO_VERS <>   2012 
                    
                    
 --                   USER_BANCU.KAT_1_RE  L

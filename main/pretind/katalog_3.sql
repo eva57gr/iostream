@@ -1,20 +1,20 @@
 
 
 
- SELECT 
-  D.CUIIO,
-  D.CUIIO_VERS,
-  D.DENUMIRE,
-  D.CUATM,  
-  D.CFP,
-  D.CFOJ,
-  D.COCM,
-  D.CAEM2,
-  D.CAEM,
-  D.IDNO
- FROM
- 
- (
+-- SELECT 
+--  D.CUIIO,
+--  D.CUIIO_VERS,
+--  D.DENUMIRE,
+--  D.CUATM,  
+--  D.CFP,
+--  D.CFOJ,
+--  D.COCM,
+--  D.CAEM2,
+--  D.CAEM,
+--  D.IDNO
+-- FROM
+-- 
+-- (
  SELECT
   D.CUIIO,
   D.CUIIO_VERS,
@@ -28,16 +28,16 @@
   D.CAEM,
   D.IDNO    
 
-FROM USER_BANCU.PRETIND_2024 D
+FROM USER_BANCU.BE D
 
-                                
-                                
-                                INNER JOIN CIS2.CL_CUATM74 L ON D.CUATM = L.CODUL4 
-                                 LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
-                                
-                                
-                                
-                                ) D
+--                                
+--                                
+--                                INNER JOIN CIS2.CL_CUATM74 L ON D.CUATM = L.CODUL4 
+--                                 LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
+--                                
+--                                
+--                                
+--                                ) D
                                 
                            
 

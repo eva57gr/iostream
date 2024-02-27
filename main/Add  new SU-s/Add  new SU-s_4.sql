@@ -39,13 +39,13 @@
 --
 -- 
 -- )
-
+--
 
 
 
 SELECT 
  CUIIO,
- CUIIO_VERS,
+ 2012 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -91,42 +91,59 @@ SELECT
                     WHERE 
                   
                   
-                  CUIIO  IN (
+
                     
                    
-SELECT     R.CUIIO
-          
-          
-      FROM (
-      
-      SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
-                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (33) AND CUIIO_VERS <= 1059
-                               GROUP BY CUIIO) BB
-                       ON (    BB.CUIIO = FC.CUIIO
-                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (33) AND FC.STATUT <> '3'
-             
-             
-             
-             
-             ) FC
-           INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) 
+CUIIO IN (
+7005182,
+7010964,
+7012006,
+7012029,
+7012041,
+7012070,
+7012348,
+7012354,
+7012383,
+7012495,
+7012503,
+7012615,
+7012621,
+7012650,
+7012748,
+7012779,
+7012785,
+7012845,
+7012868,
+7012928,
+7012934,
+7012940,
+7019729,
+7019758,
+7019770,
+7019787,
+7019830,
+7019882,
+7019965,
+7020075,
+7020342,
+7020365,
+7020371,
+7020388,
+7020715,
+7020804,
+7021169
+
+
+
+)
 
         
-        ) 
         
---        AND 
---        
---        
---        CUIIO_VERS  <>      2012 
+        
+        AND 
+        
+        
+        CUIIO_VERS  <>      2012 
 ----         
          
 
