@@ -8,3 +8,7 @@
 --          CUATM  = '0'||CUATM
         ;
         
+        
+        
+        SELECT *    
+        FROM USER_BANCU.KAT_116

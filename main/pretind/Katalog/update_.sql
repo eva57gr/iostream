@@ -20,7 +20,7 @@ SELECT CUIIO,
        ROWNUM
  
  HAVING 
- ROWNUM < 4000
+ ROWNUM < 2 
                             
 
           
