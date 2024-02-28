@@ -33,7 +33,9 @@ SELECT
                    FC.FORM_VERS,
                    FC.STATUT
           
-      FROM (SELECT 
+      FROM (
+      
+      SELECT 
       
                    FC.CUIIO,
                    FC.CUIIO_VERS,
