@@ -24,7 +24,7 @@ SELECT FC.CUIIO,
              WHERE FC.FORM IN (:pFORM)  AND FC.STATUT <> '3' ) FC
              
              
---             
+             
 --             WHERE 
 --             
---             FC.CUIIO_VERS <> 2012
+--             FC.CUIIO_VERS <>  2012
