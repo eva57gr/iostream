@@ -1,5 +1,5 @@
- UPDATE    USER_BANCU.REG_UNIT_GC3
-             SET UNIT_CODE_VERS = 1056;
+ UPDATE    USER_BANCU.REG_UNIT_GC3_2024
+             SET UNIT_CODE_VERS = 1060;
              
              
              SELECT *

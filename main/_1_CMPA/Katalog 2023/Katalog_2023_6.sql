@@ -1,4 +1,4 @@
-
+--
 --
 --INSERT INTO CIS2.REG_UNIT_GC
 --
@@ -26,7 +26,7 @@
 ----------------------------------------------------
 SELECT 
   UNIT_CODE,
-  1056 UNIT_CODE_VERS,
+  1060 UNIT_CODE_VERS,
   NR_GOSP,
   NR_MAPS,         
   SURNAME,         
@@ -49,8 +49,8 @@ SELECT
     
      SELECT UNIT_CODE
              
-                FROM USER_BANCU.REG_UNIT_GC3
+                FROM USER_BANCU.REG_UNIT_GC3_2024
     
     )
     
-    AND UNIT_CODE_VERS <>   1056
+    AND UNIT_CODE_VERS <>   1060
