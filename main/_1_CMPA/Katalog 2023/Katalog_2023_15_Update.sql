@@ -16,7 +16,7 @@ DECLARE -- ====================================================================
                D.ENVIRONMENT,
                D.CSID,
                D.EDIT_USER
-          FROM USER_BANCU.REG_UNIT_GC3  D
+          FROM USER_BANCU.REG_UNIT_GC3_2024  D
                LEFT JOIN CIS2.REG_UNIT_GC RN
                    ON     D.UNIT_CODE = RN.UNIT_CODE
                       AND D.UNIT_CODE_VERS = RN.UNIT_CODE_VERS

@@ -12,8 +12,8 @@
 --)
 --   
 SELECT
-R.CUIIO, 
-R.CUIIO_VERS
+R.CUIIO
+--R.CUIIO_VERS
 --112 FORM,
 --2000  FORM_VERS,
 --'1' STATUT,
@@ -67,11 +67,11 @@ SELECT
   D.CAEM,
   D.IDNO    
 
-FROM USER_BANCU.BE D
+FROM USER_BANCU.KAT_116 D
 
 
              ) R ON R.CUIIO = L.CUIIO 
              
              
              WHERE 
-             L.CUIIO IS   NULL 
+             L.CUIIO IS   NOT NULL 
