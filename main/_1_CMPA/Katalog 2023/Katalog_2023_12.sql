@@ -1,6 +1,6 @@
--- SELECT * 
+--SELECT * 
 --      
---      FROM CIS2.FORM_REG_UNIT_GC  FC
+    --  FROM CIS2.FORM_REG_UNIT_GC  FC
       
       
       UPDATE CIS2.FORM_REG_UNIT_GC  FC
@@ -10,6 +10,8 @@ SET  FC.STATUT = '3'
      WHERE 
      
      FC.UNIT_CODE  IN  (
+     
+     
      
      SELECT 
 FC.UNIT_CODE 
@@ -36,7 +38,7 @@ FC.STATUT
        NR_GOSP,
        NR_MAPS
                        FROM CIS2.FORM_REG_UNIT_GC
-                      WHERE FORM IN (62) AND UNIT_CODE_VERS <= :pPERIOADA
+                      WHERE FORM IN (:pFORM) AND UNIT_CODE_VERS <= :pPERIOADA
                       
                       
                    GROUP BY 
@@ -55,7 +57,7 @@ FC.STATUT
                AND BB.NR_MAPS = FC.NR_MAPS
                
                )
- WHERE FC.FORM IN (62) AND FC.STATUT <> '3'
+ WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
  
  
  
@@ -63,7 +65,7 @@ FC.STATUT
  
  ) FC 
  
-                                              LEFT JOIN  USER_BANCU.REG_UNIT_GC_C2 D  ON FC.UNIT_CODE = D.UNIT_CODE  
+                                              LEFT JOIN  USER_BANCU.REG_UNIT_GC3_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
                                               
                                               
                                               WHERE 
@@ -77,7 +79,7 @@ FC.STATUT
      
      )
      
-     AND FC.UNIT_CODE_VERS  = 1056
-     AND FC.FORM = 62
-     AND FC.UNIT_CODE_VERS = 1056
-     AND FC.STATUT = '1' 
+       AND FC.UNIT_CODE_VERS  = 1060
+       AND FC.FORM = 58
+       AND FC.FORM_VERS = 1004
+       AND FC.STATUT = '1' 

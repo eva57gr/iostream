@@ -20,13 +20,13 @@
 --  CSID,            
 --  EDIT_USER 
 --)
-
+--
 
 
 ----------------------------------------------------
 SELECT 
   UNIT_CODE,
-  1060 UNIT_CODE_VERS,
+  UNIT_CODE_VERS,
   NR_GOSP,
   NR_MAPS,         
   SURNAME,         
@@ -53,4 +53,4 @@ SELECT
     
     )
     
-    AND UNIT_CODE_VERS <>   1060
+    AND UNIT_CODE_VERS =   1060

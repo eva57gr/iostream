@@ -1,50 +1,28 @@
-INSERT INTO CIS2.REG_UNIT_GC
+-- INSERT INTO CIS2.FORM_REG_UNIT_GC
+--
+--(
+--UNIT_CODE, 
+--UNIT_CODE_VERS,
+--NR_GOSP,
+--NR_MAPS,
+--FORM,
+--FORM_VERS,
+--STATUT
+--            
+--)
 
-(
-
-UNIT_CODE,
-  UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
-)
 
 SELECT 
-  UNIT_CODE,
-  1060 UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
+D.UNIT_CODE, 
+D.UNIT_CODE_VERS,
+D.NR_GOSP,
+D.NR_MAPS,
+58 FORM,
+1004 FORM_VERS,
+'1' STATUT
+            
+        
 
-    FROM USER_BANCU.REG_UNIT_GC_MAX
-
-      WHERE 
-      
-      UNIT_CODE  IN (
-      
-      
-      SELECT 
-FC.UNIT_CODE
 FROM 
 (
 SELECT 
@@ -85,21 +63,29 @@ FC.STATUT
                AND BB.NR_MAPS = FC.NR_MAPS
                
                )
- WHERE FC.FORM IN (:pFORM) 
- 
-AND FC.STATUT <> '3'
-
---  AND FC.UNIT_CODE_VERS <>  1060
- 
- ) FC   
- 
- 
- )
- 
- 
- AND UNIT_CODE_VERS <>   1060
+ WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
  
  
  
- ORDER BY
- UNIT_CODE_VERS
+ 
+ 
+ ) FC 
+ 
+                                              RIGHT JOIN  USER_BANCU.REG_UNIT_GC3_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
+                                              
+                                              
+                                              WHERE 
+                                              
+                                              FC.UNIT_CODE IS  NULL 
+ 
+ 
+-- WHERE 
+-- FC.UNIT_CODE_VERS = 1048
+     
+     
+--     )
+     
+--     AND FC.UNIT_CODE_VERS  = 1056
+--     AND FC.FORM = 62
+--     AND FC.UNIT_CODE_VERS = 1056
+--     AND FC.STATUT = '1' 
