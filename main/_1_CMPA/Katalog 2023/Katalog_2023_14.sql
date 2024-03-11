@@ -23,7 +23,7 @@ D.NR_MAPS,
             
            
             
-            FROM USER_BANCU.REG_UNIT_GC D
+            FROM USER_BANCU.REG_UNIT_3_CMPA_2024 D
             
                             LEFT JOIN CIS2.REG_UNIT_GC RN
                         ON     D.UNIT_CODE = RN.UNIT_CODE
@@ -34,4 +34,4 @@ D.NR_MAPS,
                   
                   WHERE 
                   
-                  RN.UNIT_CODE IS NOT  NULL
+                  RN.UNIT_CODE IS   NULL

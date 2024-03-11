@@ -46,7 +46,7 @@ FC.STATUT
  
  AND FC.STATUT <> '3'
  
- --AND FC.UNIT_CODE_VERS  <>   1056
+ AND FC.UNIT_CODE_VERS  =  1060
  
  
  
