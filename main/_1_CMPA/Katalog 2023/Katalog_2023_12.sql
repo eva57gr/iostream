@@ -1,11 +1,11 @@
 --SELECT * 
 --      
-    --  FROM CIS2.FORM_REG_UNIT_GC  FC
+   --   FROM CIS2.FORM_REG_UNIT_GC  FC
       
       
       UPDATE CIS2.FORM_REG_UNIT_GC  FC
 
-SET  FC.STATUT = '3' 
+ SET  FC.STATUT = '3' 
 --      
      WHERE 
      
@@ -70,7 +70,7 @@ FC.STATUT
                                               
                                               WHERE 
                                               
-                                              D.UNIT_CODE IS  NULL 
+                                              D.UNIT_CODE IS   NULL 
  
  
 -- WHERE 
@@ -80,6 +80,6 @@ FC.STATUT
      )
      
        AND FC.UNIT_CODE_VERS  = 1060
-       AND FC.FORM = 58
+       AND FC.FORM = 61
        AND FC.FORM_VERS = 1004
        AND FC.STATUT = '1' 
