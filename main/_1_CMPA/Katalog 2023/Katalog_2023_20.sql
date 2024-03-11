@@ -1,27 +1,19 @@
--- INSERT INTO CIS2.FORM_REG_UNIT_GC
+SELECT * 
+      
+      FROM CIS2.FORM_REG_UNIT_GC  FC
+      
+--      UPDATE CIS2.FORM_REG_UNIT_GC  FC
 --
---(
---UNIT_CODE, 
---UNIT_CODE_VERS,
---NR_GOSP,
---NR_MAPS,
---FORM,
---FORM_VERS,
---STATUT
---            
---)
-
-
-SELECT 
-D.UNIT_CODE, 
-D.UNIT_CODE_VERS,
-D.NR_GOSP,
-D.NR_MAPS,
-58 FORM,
-1004 FORM_VERS,
-'1' STATUT
-            
-        
+-- SET  FC.STATUT = '1' 
+----      
+     WHERE 
+     
+     FC.UNIT_CODE  IN  (
+     
+     
+     
+     SELECT 
+D.UNIT_CODE
 
 FROM 
 (
@@ -65,7 +57,7 @@ FC.STATUT
                )
  WHERE FC.FORM IN (:pFORM) 
  
- AND FC.STATUT <> '3'
+ --AND FC.STATUT <> '3'
  
  
  
@@ -78,16 +70,11 @@ FC.STATUT
                                               
                                               WHERE 
                                               
-                                              FC.UNIT_CODE IS  NULL 
- 
- 
--- WHERE 
--- FC.UNIT_CODE_VERS = 1048
+                                              FC.UNIT_CODE IS  NOT NULL 
      
+     )
      
---     )
-     
---     AND FC.UNIT_CODE_VERS  = 1060
---     AND FC.FORM = 61
---
---     AND FC.STATUT = '1' 
+       AND FC.UNIT_CODE_VERS  = 1060
+       AND FC.FORM = 58
+       AND FC.FORM_VERS = 1004
+       AND FC.STATUT = '3' 

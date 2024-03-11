@@ -1,6 +1,8 @@
 /* Formatted on 3/2/2023 11:19:15 AM (QP5 v5.326) */
 DECLARE -- ====================================================================
     CURSOR C IS
+        
+        
         SELECT D.UNIT_CODE,
                D.UNIT_CODE_VERS,
                D.NR_GOSP,
@@ -16,7 +18,7 @@ DECLARE -- ====================================================================
                D.ENVIRONMENT,
                D.CSID,
                D.EDIT_USER
-          FROM USER_BANCU.REG_UNIT_GC3_2024  D
+          FROM USER_BANCU.REG_UNIT_2_CMPA_2024  D
                LEFT JOIN CIS2.REG_UNIT_GC RN
                    ON     D.UNIT_CODE = RN.UNIT_CODE
                       AND D.UNIT_CODE_VERS = RN.UNIT_CODE_VERS
