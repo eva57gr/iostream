@@ -1,4 +1,4 @@
-CREATE TABLE USER_BANCU.REG_UNIT_GC3
+CREATE TABLE USER_BANCU.REG_UNIT_2_CMPA_2024
 (
   UNIT_CODE       NUMBER                        ,
   UNIT_CODE_VERS  NUMBER                        ,
