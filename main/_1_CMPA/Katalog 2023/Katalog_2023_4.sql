@@ -1,4 +1,4 @@
- UPDATE    USER_BANCU.REG_UNIT_2_CMPA_2024
+ UPDATE    USER_BANCU.REG_UNIT_3_CMPA_2024
               SET UNIT_CODE_VERS = 1060,
              
              
@@ -13,4 +13,4 @@
                  
                               SELECT *
              
-                FROM USER_BANCU.REG_UNIT_2_CMPA_2024;
+                FROM USER_BANCU.REG_UNIT_3_CMPA_2024;

@@ -17,7 +17,7 @@ D.UNIT_CODE,
 D.UNIT_CODE_VERS,
 D.NR_GOSP,
 D.NR_MAPS,
-58 FORM,
+62 FORM,
 1004 FORM_VERS,
 '1' STATUT
             
@@ -73,7 +73,7 @@ FC.STATUT
  
  ) FC 
  
-                                              RIGHT JOIN  USER_BANCU.REG_UNIT_2_CMPA_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
+                                              RIGHT JOIN  USER_BANCU.REG_UNIT_3_CMPA_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
                                               
                                               
                                               WHERE 

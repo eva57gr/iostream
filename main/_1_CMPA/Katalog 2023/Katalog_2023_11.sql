@@ -1,27 +1,27 @@
-INSERT INTO CIS2.REG_UNIT_GC
-
-(
-
-UNIT_CODE,
-  UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
-)
-
+--INSERT INTO CIS2.REG_UNIT_GC
+--
+--(
+--
+--UNIT_CODE,
+--  UNIT_CODE_VERS,
+--  NR_GOSP,
+--  NR_MAPS,         
+--  SURNAME,         
+--  NAME,            
+--  PATRONIMIC,      
+--  CUATM,           
+--  ADDRESS_1,       
+--  ADDRESS_2,       
+--  ADDRESS_3,       
+--  ADDRESS_4,       
+--  ENVIRONMENT,     
+--  CSID,            
+--  EDIT_USER 
+--)
+--
 SELECT 
   UNIT_CODE,
-  1060 UNIT_CODE_VERS,
+   UNIT_CODE_VERS,
   NR_GOSP,
   NR_MAPS,         
   SURNAME,         
@@ -99,7 +99,19 @@ AND FC.STATUT <> '3'
  
  AND UNIT_CODE_VERS <>   1060
  
+ and 
  
+ UNIT_CODE NOT in (
+ 
+419336,
+493336,
+469201,
+288112,
+60407,
+792311 
+
+
+)
  
  ORDER BY
  UNIT_CODE_VERS

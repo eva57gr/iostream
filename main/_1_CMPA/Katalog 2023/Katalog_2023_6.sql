@@ -1,32 +1,32 @@
-
-
-INSERT INTO CIS2.REG_UNIT_GC
-
-(
-
-UNIT_CODE,
-  UNIT_CODE_VERS,
-  NR_GOSP,
-  NR_MAPS,         
-  SURNAME,         
-  NAME,            
-  PATRONIMIC,      
-  CUATM,           
-  ADDRESS_1,       
-  ADDRESS_2,       
-  ADDRESS_3,       
-  ADDRESS_4,       
-  ENVIRONMENT,     
-  CSID,            
-  EDIT_USER 
-)
-
+--
+--
+--INSERT INTO CIS2.REG_UNIT_GC
+--
+--(
+--
+--UNIT_CODE,
+--  UNIT_CODE_VERS,
+--  NR_GOSP,
+--  NR_MAPS,         
+--  SURNAME,         
+--  NAME,            
+--  PATRONIMIC,      
+--  CUATM,           
+--  ADDRESS_1,       
+--  ADDRESS_2,       
+--  ADDRESS_3,       
+--  ADDRESS_4,       
+--  ENVIRONMENT,     
+--  CSID,            
+--  EDIT_USER 
+--)
+--
 
 
 ----------------------------------------------------
 SELECT 
   UNIT_CODE,
-  1060 UNIT_CODE_VERS,
+  UNIT_CODE_VERS,
   NR_GOSP,
   NR_MAPS,         
   SURNAME,         
@@ -49,8 +49,12 @@ SELECT
     
      SELECT UNIT_CODE
              
-                FROM USER_BANCU.REG_UNIT_2_CMPA_2024
+                FROM USER_BANCU.REG_UNIT_3_CMPA_2024
     
     )
     
     AND UNIT_CODE_VERS <>    1060
+    
+    
+    ORDER BY 
+    UNIT_CODE_VERS 

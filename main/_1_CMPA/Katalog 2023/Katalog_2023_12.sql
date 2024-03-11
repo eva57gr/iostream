@@ -1,6 +1,6 @@
 --SELECT * 
 --      
-   --   FROM CIS2.FORM_REG_UNIT_GC  FC
+  -- FROM CIS2.FORM_REG_UNIT_GC  FC
       
       
       UPDATE CIS2.FORM_REG_UNIT_GC  FC
@@ -19,6 +19,8 @@ FC.UNIT_CODE
     
 FROM 
 (
+
+
 SELECT 
 FC.UNIT_CODE, 
 FC.UNIT_CODE_VERS,
@@ -65,7 +67,7 @@ FC.STATUT
  
  ) FC 
  
-                                              LEFT JOIN  USER_BANCU.REG_UNIT_GC3_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
+                                              LEFT JOIN  USER_BANCU.REG_UNIT_3_CMPA_2024 D  ON FC.UNIT_CODE = D.UNIT_CODE  
                                               
                                               
                                               WHERE 
@@ -80,6 +82,6 @@ FC.STATUT
      )
      
        AND FC.UNIT_CODE_VERS  = 1060
-       AND FC.FORM = 61
+       AND FC.FORM = 62
        AND FC.FORM_VERS = 1004
        AND FC.STATUT = '1' 
