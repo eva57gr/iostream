@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+
+
+SELECT 
+COUNT (DISTINCT D.CUIIO) AS CNT 
+
+    FROM M53.VW_DATA_ALL D
+    
+    WHERE 
+    D.PERIOADA = 313
+    
+    AND D.FORM = 40 
+    
