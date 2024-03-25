@@ -1,27 +1,27 @@
-
-DECLARE
-  CURSOR C IS
-SELECT 
-    DF.PERIOADA,
-    DF.FORM,
-    DF.FORM_VERS,
-    DF.ID_MDTABLE,
-    DF.COD_CUATM,
-    DF.NR_SECTIE,
-    DF.NUME_SECTIE,
-    DF.NR_SECTIE1,
-    DF.NUME_SECTIE1,
-    DF.NR_SECTIE2,
-    DF.NUME_SECTIE2,
-    DF.NR_ROW NR_ROW,
-    DF.ORDINE,
-    DF.DECIMAL_POS,
-    DF.NUME_ROW,
-    DF.COL1,
-    DF.COL2,
-    DF.COL3,
-    DF.COL4
-    FROM (
+--
+--DECLARE
+--  CURSOR C IS
+--SELECT 
+--    DF.PERIOADA,
+--    DF.FORM,
+--    DF.FORM_VERS,
+--    DF.ID_MDTABLE,
+--    DF.COD_CUATM,
+--    DF.NR_SECTIE,
+--    DF.NUME_SECTIE,
+--    DF.NR_SECTIE1,
+--    DF.NUME_SECTIE1,
+--    DF.NR_SECTIE2,
+--    DF.NUME_SECTIE2,
+--    DF.NR_ROW NR_ROW,
+--    DF.ORDINE,
+--    DF.DECIMAL_POS,
+--    DF.NUME_ROW,
+--    DF.COL1,
+--    DF.COL2,
+--    DF.COL3,
+--    DF.COL4
+--    FROM (
 
 
 SELECT
