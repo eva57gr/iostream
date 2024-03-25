@@ -1,6 +1,6 @@
 
 
-
+s
 
                     SELECT  CUIIO, 
                     
