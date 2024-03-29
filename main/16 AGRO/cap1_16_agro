@@ -199,7 +199,159 @@ function f1_cap1_16_agro() {
 
 
 
+    var R280_C1 = $("#36_383_78151_280_1");
+    var R280_C2 = $("#36_383_78151_280_2");
+    var R280_C3 = $("#36_383_78151_280_3");
+    var R280_C4 = $("#36_383_78151_280_4");
+    var R280_C5 = $("#36_383_78151_280_5");
 
+    var R281_C1 = $("#36_383_78152_281_1");
+    var R281_C2 = $("#36_383_78152_281_2");
+    var R281_C3 = $("#36_383_78152_281_3");
+    var R281_C4 = $("#36_383_78152_281_4");
+    var R281_C5 = $("#36_383_78152_281_5");
+
+
+    var R282_C1 = $("#36_383_78143_282_1");
+    var R282_C2 = $("#36_383_78143_282_2");
+  
+    var R282_C5 = $("#36_383_78143_282_5");
+
+    var R283_C1 = $("#36_383_78153_283_1");
+    var R283_C2 = $("#36_383_78153_283_2");
+    var R283_C3 = $("#36_383_78153_283_3");
+    var R283_C4 = $("#36_383_78153_283_4");
+    var R283_C5 = $("#36_383_78153_283_5");
+
+    var R284_C1 = $("#36_383_78146_284_1");
+  
+    var R284_C3 = $("#36_383_78146_284_3");
+    var R284_C4 = $("#36_383_78146_284_4");
+    var R284_C5 = $("#36_383_78146_284_5");
+
+    var R285_C1 = $("#36_383_78144_285_1");
+    var R285_C2 = $("#36_383_78144_285_2");
+    var R285_C3 = $("#36_383_78144_285_3");
+    var R285_C4 = $("#36_383_78144_285_4");
+    var R285_C5 = $("#36_383_78144_285_5");
+
+    var R286_C1 = $("#36_383_78130_286_1");
+    var R286_C2 = $("#36_383_78130_286_2");
+    var R286_C3 = $("#36_383_78130_286_3");
+    var R286_C4 = $("#36_383_78130_286_4");
+    var R286_C5 = $("#36_383_78130_286_5");
+
+    var R287_C1 = $("#36_383_78147_287_1");
+
+
+    var R290_C1 = $("#36_383_78148_290_1");
+    var R290_C2 = $("#36_383_78148_290_2");
+    var R290_C3 = $("#36_383_78148_290_3");
+    var R290_C4 = $("#36_383_78148_290_4");
+    var R290_C5 = $("#36_383_78148_290_5");
+
+
+    R280_C1.prop("readonly", true);
+    R280_C2.prop("readonly", true);
+    R280_C3.prop("readonly", true);
+    R280_C4.prop("readonly", true);
+    R280_C5.prop("readonly", true);
+
+
+    var values_280_c1 = [
+        parseInt(R281_C1.val()) || 0, 
+        parseInt(R282_C1.val()) || 0,
+        parseInt(R283_C1.val()) || 0,
+        parseInt(R284_C1.val()) || 0,
+        parseInt(R285_C1.val()) || 0,
+        parseInt(R286_C1.val()) || 0,
+        parseInt(R287_C1.val()) || 0,
+        parseInt(R290_C1.val()) || 0
+      
+    ];
+
+
+    var sum_280_c1 = values_280_c1.reduce((acc, curr) => acc + curr, 0);
+
+
+    R280_C1.val(sum_280_c1 === 0 ? "" : sum_280_c1);
+
+
+
+    var values_280_c2 = [
+        parseInt(R281_C2.val()) || 0,
+        parseInt(R282_C2.val()) || 0,
+        parseInt(R283_C2.val()) || 0,
+      //  parseInt(R284_C2.val()) || 0,
+        parseInt(R285_C2.val()) || 0,
+        parseInt(R286_C2.val()) || 0,
+        //parseInt(R287_C2.val()) || 0,
+        parseInt(R290_C2.val()) || 0
+
+    ];
+
+
+    var sum_280_c2 = values_280_c2.reduce((acc, curr) => acc + curr, 0);
+
+
+    R280_C2.val(sum_280_c2 === 0 ? "" : sum_280_c2);
+
+
+    var values_280_c3 = [
+        parseInt(R281_C3.val()) || 0,
+      //  parseInt(R282_C3.val()) || 0,
+        parseInt(R283_C3.val()) || 0,
+        parseInt(R284_C3.val()) || 0,
+        parseInt(R285_C3.val()) || 0,
+        parseInt(R286_C3.val()) || 0,
+        //parseInt(R287_C3.val()) || 0,
+        parseInt(R290_C3.val()) || 0
+
+    ];
+
+
+    var sum_280_c3 = values_280_c3.reduce((acc, curr) => acc + curr, 0);
+
+
+    R280_C3.val(sum_280_c3 === 0 ? "" : sum_280_c3);
+
+
+    var values_280_c4 = [
+        parseInt(R281_C4.val()) || 0,
+    //    parseInt(R282_C4.val()) || 0,
+        parseInt(R283_C4.val()) || 0,
+        parseInt(R284_C4.val()) || 0,
+        parseInt(R285_C4.val()) || 0,
+        parseInt(R286_C4.val()) || 0,
+     //   parseInt(R287_C4.val()) || 0,
+        parseInt(R290_C4.val()) || 0
+
+    ];
+
+
+    var sum_280_c4 = values_280_c4.reduce((acc, curr) => acc + curr, 0);
+
+
+    R280_C4.val(sum_280_c4 === 0 ? "" : sum_280_c4);
+
+
+    var values_280_c5 = [
+        parseInt(R281_C5.val()) || 0,
+        parseInt(R282_C5.val()) || 0,
+        parseInt(R283_C5.val()) || 0,
+        parseInt(R284_C5.val()) || 0,
+        parseInt(R285_C5.val()) || 0,
+        parseInt(R286_C5.val()) || 0,
+       // parseInt(R287_C5.val()) || 0,
+        parseInt(R290_C5.val()) || 0
+
+    ];
+
+
+    var sum_280_c5 = values_280_c5.reduce((acc, curr) => acc + curr, 0);
+
+
+    R280_C5.val(sum_280_c5 === 0 ? "" : sum_280_c5);
 
 }
 
