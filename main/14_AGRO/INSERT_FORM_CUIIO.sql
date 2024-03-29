@@ -1,13 +1,13 @@
-            INSERT INTO CIS2.FORM_CUIIO (
-            
-                   CUIIO,
-                   CUIIO_VERS,
-                   FORM,
-                   FORM_VERS,
-                   STATUT
-            
-            )
-      
+--            INSERT INTO CIS2.FORM_CUIIO (
+--            
+--                   CUIIO,
+--                   CUIIO_VERS,
+--                   FORM,
+--                   FORM_VERS,
+--                   STATUT
+--            
+--            )
+--      
                 
                 
                 
@@ -38,8 +38,8 @@
                    
              
 
-HAVING 
-FC.CUIIO_VERS <> 2012
+--HAVING 
+--FC.CUIIO_VERS <> 2012
 
              ORDER BY
              FC.CUIIO_VERS 
