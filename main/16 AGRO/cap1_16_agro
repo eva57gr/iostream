@@ -353,5 +353,16 @@ function f1_cap1_16_agro() {
 
     R280_C5.val(sum_280_c5 === 0 ? "" : sum_280_c5);
 
+    var R1000_C1 = $("#36_383_78151_280_1");
+    var R1000_C2 = $("#36_383_78151_280_2");
+    var R1000_C3 = $("#36_383_78151_280_3");
+    var R1000_C4 = $("#36_383_78151_280_4");
+    var R1000_C5 = $("#36_383_78151_280_5");
+
+    R1000_C1.prop("readonly", true);
+    R1000_C2.prop("readonly", true);
+    R1000_C3.prop("readonly", true);
+    R1000_C4.prop("readonly", true);
+    R1000_C5.prop("readonly", true);
 }
 
