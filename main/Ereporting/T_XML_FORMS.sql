@@ -22,15 +22,20 @@ SELECT
           
           
           WHERE
-          1=1
+          1=1 AND 
 --
-AND STATUS  =  '5' AND 
+--AND STATUS  =  '5' AND 
 --
 --
- DATA_REG >= TO_DATE('11/20/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+ DATA_REG >= TO_DATE('03/01/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
 -- AND CUIIO = 13706
-  AND FORM_TYPE = '29_agr'
+  AND 
+  (
+  FORM_TYPE = '16_agr_23'
+  OR 
+  FORM_TYPE = '1-ac' 
+  ) 
   
   
   
@@ -48,46 +53,7 @@ AND STATUS  =  '5' AND
   SEND_ATTEMPTS,
   PROCESSING_MESSAGE
   
---  HAVING 
---  PROCESSING_MESSAGE <>   'OK'
-  
---  AND CUIIO IS NULL 
-  
---AND CUIIO IN (
---             
---             
---41290033,
---40088826,
---38344392,
---40419223,
---5913113,
---38997088,
---41093812,
---41140285,
---41541647,
---40942077,
---41236536,
---40688288,
---38368961,
---41399468,
---40986904,
---40112878,
---37786225,
---40180166,
---40920621,
---41127563,
---03399706,
---37261089,
---15811247,
---41317720,
---37452501,
---40814050
---
---
---             )
- 
- 
--- AND PROCESSING_MESSAGE = 'OK'
+
 
 
  ORDER BY 
