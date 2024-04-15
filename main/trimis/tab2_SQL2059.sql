@@ -1,5 +1,5 @@
-DECLARE
-  CURSOR UPD_TABLE_OUT_AC IS
+--DECLARE
+--  CURSOR UPD_TABLE_OUT_AC IS
     SELECT
       T.NR_ROW,
       T.COL1 AS COL1,
@@ -22,20 +22,23 @@ DECLARE
       T.FORM = :pFORM         AND
       T.ID_MDTABLE=(CASE WHEN :pPERIOADA>1059 THEN 12877 ELSE 6364 END)  AND      
       T.PERIOADA =(:pPERIOADA-4) AND
-      T.NR_ROW IN ('05','06','07','08');
-BEGIN
-    FOR C IN UPD_TABLE_OUT_AC LOOP
-        UPDATE CIS2.TABLE_OUT 
-        SET
-            COL3 = ROUND(COL1/CIS2.NOZERO(C.COL1)*100,1),
-            COL4 = ROUND(COL2/CIS2.NOZERO(C.COL2)*100,1)
-        WHERE 
-          NR_ROW = C.NR_ROW    AND
-          COD_CUATM IN (:pCOD_CUATM)   AND
-          PERIOADA IN (:pPERIOADA)     AND 
-          ID_MDTABLE=:pID_MDTABLE AND 
-          FORM IN (:pFORM)             AND
-          FORM_VERS IN (:pFORM_VERS)AND
-          NR_ROW IN ('01','02','03','05','06','07','08','09');  
-    END LOOP;  
-END;
+      T.NR_ROW IN ('05','06','07','08')
+      
+      
+--      ;
+--BEGIN
+--    FOR C IN UPD_TABLE_OUT_AC LOOP
+--        UPDATE CIS2.TABLE_OUT 
+--        SET
+--            COL3 = ROUND(COL1/CIS2.NOZERO(C.COL1)*100,1),
+--            COL4 = ROUND(COL2/CIS2.NOZERO(C.COL2)*100,1)
+--        WHERE 
+--          NR_ROW = C.NR_ROW    AND
+--          COD_CUATM IN (:pCOD_CUATM)   AND
+--          PERIOADA IN (:pPERIOADA)     AND 
+--          ID_MDTABLE=:pID_MDTABLE AND 
+--          FORM IN (:pFORM)             AND
+--          FORM_VERS IN (:pFORM_VERS)AND
+--          NR_ROW IN ('01','02','03','05','06','07','08','09');  
+--    END LOOP;  
+--END;
