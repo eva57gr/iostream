@@ -1,5 +1,6 @@
  SELECT
-    '01' AS RIND,
+    D.PERIOADA,
+    '00' AS RIND,
     'Autorizatiile de construire eliberate pentru toate cladirile - total( r.02+r.06)' AS DENUMIRE,
     0 AS ORDINE,
     SUM(D.COL1) AS COL1,
@@ -12,3 +13,7 @@
     D.RIND IN('02', '06')
     AND D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA
     AND (CIS2.D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%')
+    
+    
+    GROUP BY 
+    D.PERIOADA

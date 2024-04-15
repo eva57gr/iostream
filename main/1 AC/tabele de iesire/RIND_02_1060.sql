@@ -1,6 +1,6 @@
 SELECT
-    '02' AS RIND,
-    'Autoriza?ii de construire eliberate pentru cladiri reziden?iale - total (r.03+r.04+r.05)' AS DENUMIRE,
+    '01' AS RIND,
+    'Autorizatii de construire eliberate pentru cladiri rezidentiale - total (r.03+r.04+r.05)' AS DENUMIRE,
     1 AS ORDINE,
     SUM(D.COL1) AS COL1,
     SUM(D.COL2) AS COL2
