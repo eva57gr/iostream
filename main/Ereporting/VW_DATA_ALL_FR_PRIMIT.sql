@@ -14,13 +14,13 @@ MAX(D.DATA_REG)  DATA_REG
   -- CIS2.VW_DATA_ALL D
     WHERE 
     
---    D.PERIOADA IN (:pPERIOADA)
---    
---    AND D.FORM IN(:pFORM)
+    D.PERIOADA IN (:pPERIOADA)
+    
+    AND D.FORM IN(:pFORM)
     
     
-     --AND 
-     D.DATA_REG >= TO_DATE('04/05/2024 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
+     AND 
+     D.DATA_REG >= TO_DATE('04/15/2024 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
     
 
 
