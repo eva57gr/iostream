@@ -8,7 +8,7 @@ DECLARE
     WHERE
       T.COD_CUATM IN (:pCOD_CUATM)  AND
       T.FORM = :pFORM         AND
-      T.ID_MDTABLE = 12877   AND      
+      T.ID_MDTABLE = 12877   AND      ---12878
       T.PERIOADA =(:pPERIOADA-4) AND
       T.NR_ROW IN ('01');
 BEGIN
