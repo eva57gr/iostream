@@ -32,8 +32,8 @@ SELECT
 -- AND CUIIO = 13706
   AND 
   (
-  FORM_TYPE = '16_agr_23'
-  OR 
+--  FORM_TYPE = '16_agr_23'
+--  OR 
   FORM_TYPE = '1-ac' 
   ) 
   
