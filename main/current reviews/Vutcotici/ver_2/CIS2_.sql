@@ -254,7 +254,7 @@ COL19,
 COL20,
 COL21,
 COL22
- s
+ 
  
 FROM
 (
