@@ -40,7 +40,7 @@ DECLARE
       T.FORM = :pFORM         AND
       T.ID_MDTABLE = 12877   AND      
       T.PERIOADA =(:pPERIOADA-4) AND
-      T.NR_ROW IN ('08')
+      T.NR_ROW IN ('09')
       
       
                   UNION 
