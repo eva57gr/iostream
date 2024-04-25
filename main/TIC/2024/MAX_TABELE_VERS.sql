@@ -1,0 +1,13 @@
+
+SELECT 
+L.ID_MDTABLE,
+L.TABELE, L.TABELE_VERS
+  FROM CIS2.MD_TABLES  L
+       INNER JOIN (  SELECT TABELE, MAX (TABELE_VERS) TABELE_VERS
+                       FROM CIS2.MD_TABLES
+                   GROUP BY TABELE) R
+           ON L.TABELE = R.TABELE AND L.TABELE_VERS = R.TABELE_VERS
+           
+           WHERE 
+           L.FORM = 71
+           AND L.FORM_VERS  = 2011
