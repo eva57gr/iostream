@@ -30,7 +30,7 @@ SELECT
     FROM CIS2.MD_TABLES D 
     
     WHERE 
-    D.FORM = 44
+    D.FORM = 43
     
     
     GROUP BY 

@@ -1,0 +1,24 @@
+CREATE TABLE USER_BANCU.CTIF_16_AGRO
+(
+  Nr          NUMBER,
+  IDNO        NUMBER,
+  DENUMIRE    VARCHAR2(1024 BYTE),
+  TD          VARCHAR2(1024 BYTE),
+  CUIIO NUMBER
+  
+)
+TABLESPACE TBS_DTI_USERS
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE;
