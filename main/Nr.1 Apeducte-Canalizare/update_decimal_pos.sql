@@ -1,0 +1,21 @@
+UPDATE MD_RIND 
+
+SET DECIMAL_POS = '33333333'
+ 
+--SELECT  *
+--
+--FROM MD_RIND 
+
+
+WHERE 
+
+FORM = 47
+
+
+AND capitol = 1038 AND capitol_vers=2010
+
+
+--ORDER BY 
+--ORDINE
+
+
