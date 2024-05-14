@@ -27,14 +27,14 @@ SELECT
 --AND STATUS  =  '5' AND 
 --
 --
- DATA_REG >= TO_DATE('03/01/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+-- DATA_REG >= TO_DATE('03/01/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
 -- AND CUIIO = 13706
-  AND 
+  --AND 
   (
 --  FORM_TYPE = '16_agr_23'
 --  OR 
-  FORM_TYPE = '1-ac' 
+  FORM_TYPE = '3_agr' 
   ) 
   
   
