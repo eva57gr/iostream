@@ -1,0 +1,54 @@
+--INSERT INTO CIS2.MD_TABLES (
+--
+--  ID_MDTABLE,
+--  TABELE,
+--  TABELE_VERS,
+--  FORM,
+--  FORM_VERS,
+--  DENUMIRE,
+--  DEN_SHORT,
+--  NIVELRAIONAL,
+--  ORDINE,
+--  DATA_REG,
+--  STATUT,
+--  HTML_HEADER,
+--  SQL_TEXT,
+--  SQL_TEXT1,
+--  LANDSCAPE,
+--  COL_NUM,
+--  FOOTNOTE,
+--  UM,
+--  CREATING   
+--
+--
+--)
+--
+
+
+  SELECT  
+  ID_MDTABLE,
+  TABELE,
+  2012 TABELE_VERS,
+  FORM,
+  FORM_VERS,
+  DENUMIRE,
+  DEN_SHORT,
+  NIVELRAIONAL,
+  ORDINE,
+  DATA_REG,
+  '3' STATUT,
+  HTML_HEADER,
+  SQL_TEXT,
+  SQL_TEXT1,
+  LANDSCAPE,
+  COL_NUM,
+  FOOTNOTE,
+  UM,
+  CREATING   
+  
+  FROM CIS2.MD_TABLES
+  
+  
+        WHERE
+        
+           ( ORDINE >= 24 AND FORM  = 36) 
