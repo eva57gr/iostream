@@ -1,0 +1,5 @@
+
+
+
+SELECT *
+FROM CIS2.VW_CL_TARI

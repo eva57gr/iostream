@@ -1,0 +1,11 @@
+ 
+ SELECT *
+ 
+ from VW_CLS_CLASS_ITEM TT
+ 
+ WHERE
+ CLASS_CODE IN ('TARI_ISO') 
+ 
+ 
+ ORDER BY
+ SHOW_ORDER
