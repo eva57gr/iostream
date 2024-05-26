@@ -22,9 +22,9 @@ SELECT
           
           
           WHERE
-          1=1 AND 
+          1=1  
 --
---AND STATUS  =  '5' AND 
+AND STATUS  =  '5' AND 
 --
 --
 -- DATA_REG >= TO_DATE('03/01/2023 00:00:', 'MM/DD/YYYY HH24:MI:SS')
@@ -34,7 +34,7 @@ SELECT
   (
 --  FORM_TYPE = '16_agr_23'
 --  OR 
-  FORM_TYPE = '3_agr' 
+  FORM_TYPE = '4_agr' 
   ) 
   
   
