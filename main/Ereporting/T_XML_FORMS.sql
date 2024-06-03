@@ -34,24 +34,24 @@ AND STATUS  =  '5' AND
   (
 --  FORM_TYPE = '16_agr_23'
 --  OR 
-  FORM_TYPE = '4_agr' 
+  FORM_TYPE = '29_agr' 
   ) 
   
   
   
-  GROUP BY
-   FORMID,
---  XML,
-  STATUS,
-  FORM_TYPE,
-  DATA_REG,
-  CHECK_CONFIRM,
-  MESAJ,
-  CUIIO,
+--  GROUP BY
+--   FORMID,
+----  XML,
+--  STATUS,
+--  FORM_TYPE,
+--  DATA_REG,
+--  CHECK_CONFIRM,
+--  MESAJ,
+--  CUIIO,
 --    LENGTH(CUIIO) STR_CUIIO,
-  SEND_REQUEST,
-  SEND_ATTEMPTS,
-  PROCESSING_MESSAGE
+--  SEND_REQUEST,
+--  SEND_ATTEMPTS,
+--  PROCESSING_MESSAGE
   
 
 
