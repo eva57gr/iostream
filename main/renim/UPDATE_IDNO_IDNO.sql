@@ -1,4 +1,4 @@
-UPDATE CIS.RENIM 
+UPDATE CIS2.RENIM 
          SET IDNO = TRIM('1024606008944')
                
          
