@@ -1,12 +1,30 @@
 SELECT 
- -- 'Ati selectat '||SUM(R.CNUM)||' cauza(e)' 
-  'Nu ati completat toate cimpurile'
+ CASE 
+ WHEN LENGTH(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)) <> 9
+ 
+ 
+ THEN 
+ 
+ ' '||MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)  
   
-  AS REZULTAT 
-FROM
-(
+  ||'  Numarul de telefon nu are 9 catactere'
+  
+ 
+WHEN 
 
-SELECT COUNT(D.COL31) AS CNUM
+SUBSTR(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END),1,1)  <> '0' 
+
+THEN 
+
+
+ 'Numarul de telefon trebuie sa inceapa cu zero'
+
+ ELSE   ' '||MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)  
+  
+  ||'  Nu ati completat toate cimpurile corect'
+  
+  END 
+    AS REZULTAT 
 FROM VW_DATA_ALL D
 WHERE
   (D.PERIOADA=:PERIOADA          ) AND
@@ -16,16 +34,19 @@ WHERE
   (D.FORM_VERS=:FORM_VERS ) AND
   (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
   (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
-  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1)
   
-  D.CAPITOL IN (1129) AND
-  D.RIND IN('3')
-
-UNION
-SELECT 0 AS CNUM
-FROM DUAL
-
-) R
-
-HAVING
-  SUM(R.CNUM)<>1
+  --60606685
+  HAVING 
+  
+   (LENGTH(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)) <> 9  
+   OR
+   LENGTH(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END)) IS NULL) 
+   
+   OR 
+   SUBSTR(MAX(CASE WHEN D.CAPITOL IN (1129) AND D.RIND IN('3') THEN D.COL31 ELSE NULL END),1,1)  <> '0' 
+     
+   
+   
+   
+   
