@@ -45,7 +45,7 @@
 
 SELECT 
  CUIIO,
- 1061 CUIIO_VERS,
+ 2013 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -81,12 +81,12 @@ SELECT
  IDNO
 
 
-                    FROM  -- USER_BANCU.VW_RENIM_2012_CIS2
+                    FROM   --USER_BANCU.VW_RENIM_2012_CIS2
                      
                              USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
-                       --   USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                  --     USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                   
@@ -94,18 +94,28 @@ SELECT
 
                     
                    
+
+
 CUIIO IN (
-
- SELECT CUIIO
-        FROM USER_BANCU.AGRO_4
-
+40410179,
+40688466,
+41007623,
+41139388,
+41227916,
+41416735,
+41503486,
+3895856227,
+4105962027,
+4106936327
 )
+
+
 
         
         AND 
         
         
-        CUIIO_VERS  <>   1061 
+        CUIIO_VERS  <>  2013 
          
          
 
