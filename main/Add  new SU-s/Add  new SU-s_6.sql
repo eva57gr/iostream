@@ -1,72 +1,44 @@
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
---
+INSERT INTO CIS2.FORM_CUIIO R (
+        CUIIO,
+        CUIIO_VERS,
+        FORM,
+        FORM_VERS,
+        STATUT 
+)
+
 
 
 
 SELECT 
         L.CUIIO,
         L.CUIIO_VERS,
-        73 FORM,
-        2000    FORM_VERS,
+        57 FORM,
+        2009    FORM_VERS,
         '1' STATUT
         
-        FROM 
+        FROM  CIS2.RENIM L
+        
+        WHERE
+        
+        L.CUIIO IN (
+        
+         SELECT CUIIO
+        FROM USER_BANCU.RSF_1
+        )
+        
+        AND CUIIO_VERS IN (2012)        
+
+        AND CUIIO NOT IN (
+        40618678,
+40994602,
+41069015,
+41154241,
+41582899,
+41642696,
+41678978,
+41695132,
+41700241,
+41707154
+        )
 
 
-(
-
-SELECT     R.CUIIO,
-           R.CUIIO_VERS
-          
-      FROM (
-      SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
-                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
-                               GROUP BY CUIIO) BB
-                       ON (    BB.CUIIO = FC.CUIIO
-                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             
-             
-             ) FC
-           INNER JOIN CIS2.RENIM R
-               ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
-               
-               
-               WHERE 
-               1=1
-               
---               R.CUIIO NOT IN (
---               4495837,
---41061048
---
---               )
---               
-
-
- ) L
- 
- WHERE 
- 
--- L.CUIIO_VERS <> 2011
--- 
--- AND 
--- 
- 
- L.CUIIO NOT IN  (
- 4495837,
-41061048
-
- )
