@@ -1,7 +1,7 @@
 
 
 
-        update CIS2.RENIM 
+        update -- CIS2.RENIM 
         
         SET 
           IDNO = '1024607001687'
