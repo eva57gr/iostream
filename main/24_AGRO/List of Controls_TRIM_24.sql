@@ -52,9 +52,9 @@ SELECT
           B.CONTROL ) L
           
           
---          WHERE 
---          1=1
---          AND  L.FORMULA LIKE '%Cap.2%'
-          
+          WHERE 
+          1=1
+         -- AND  L.FORMULA LIKE '%Cap.2%'
+        --  AND CONTROL IN ('33-002','33-023')
           
           

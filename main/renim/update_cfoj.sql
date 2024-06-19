@@ -9,7 +9,7 @@ DECLARE -- ====================================================================
     CUIIO,
     CUIIO_VERS,
     CFOJ
-        FROM USER_BANCU.AGRO_4
+        FROM USER_BANCU.RSF_1
         
                             
 
