@@ -1,15 +1,16 @@
  SELECT *
-        FROM USER_BANCU.AGRO_4;
+        FROM USER_BANCU.RSF_1;
         
 --        
 --        ORDER BY 
 --        CUATM DESC  -- 41042980 -   44-0022
         ;
        
-        UPDATE USER_BANCU.AGRO_4
+        UPDATE USER_BANCU.RSF_1
         SET
 --         CUATM = CASE WHEN (LENGTH(CUATM) = 6 AND (SUBSTR(CUATM,1,1) = 1  OR SUBSTR(CUATM,1,1) = 3 )) THEN '0'||CUATM ELSE CUATM END
-         CUIIO_VERS = 2012
+         CUIIO_VERS = 2012;
+        -- CFOJ = '420'
         --CUATM = '0'||REPLACE(CUATM,'O','0')
 --        ,
 --          CUATM  = '0'||CUATM
@@ -34,11 +35,13 @@
         CUIIO,
         COUNT (CUIIO ) AS CNT
         
-        FROM USER_BANCU.ADD_NEW_SU
+        FROM USER_BANCU.RSF_1
         
         GROUP BY 
         CUIIO
         
+        HAVING 
+        COUNT (CUIIO ) > 1 
         ORDER BY 
         
         COUNT (CUIIO )

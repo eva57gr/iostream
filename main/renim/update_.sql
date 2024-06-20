@@ -1,6 +1,7 @@
 DECLARE -- ====================================================================
 
   CURSOR C IS
+
 SELECT
   D.CUIIO,
   D.CUIIO_VERS,
@@ -10,7 +11,11 @@ SELECT
   D.CFOJ,
   D.CAEM2,
   D.IDNO
-  FROM USER_BANCU.RSF_1 D 
+  FROM AGR_4_CFOJ D
+  
+  
+  ORDER BY 
+  D.CFOJ
   
   ;        
   
@@ -19,12 +24,12 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
-      DENUMIRE = CR.DENUMIRE,
-      CUATM = CR.CUATM,
-      CFP = CR.CFP,
-      CFOJ = CR.CFOJ,
-      CAEM2 = CR.CAEM2,
-      IDNO = CR.IDNO
+--      DENUMIRE = CR.DENUMIRE,
+--      CUATM = CR.CUATM,
+--      CFP = CR.CFP,
+      CFOJ = CR.CFOJ
+--      CAEM2 = CR.CAEM2,
+--      IDNO = CR.IDNO
       
 
     WHERE 

@@ -7,17 +7,17 @@
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.EI_78_CUATM L
+        FROM  USER_BANCU.RSF_1 L
         
         
-                       LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
+                     --  LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
                         
                        -- LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
                         
-                   --    LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP 
+                        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP 
                         WHERE 
                         
-                        C.CODUL IS   NOT NULL 
+                        C.CODUL IS    NULL 
 
 
 
