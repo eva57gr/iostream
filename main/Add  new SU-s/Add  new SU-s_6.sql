@@ -1,10 +1,10 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
 
 
 
@@ -12,8 +12,8 @@ INSERT INTO CIS2.FORM_CUIIO R (
 SELECT 
         L.CUIIO,
         L.CUIIO_VERS,
-        57 FORM,
-        2009    FORM_VERS,
+        63 FORM,
+        2000    FORM_VERS,
         '1' STATUT
         
         FROM  CIS2.RENIM L
