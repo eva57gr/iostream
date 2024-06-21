@@ -8,9 +8,9 @@ DECLARE -- ====================================================================
  SELECT 
  CUIIO,
  CUIIO_VERS,
- CUATM
+ CFOJ
  
-        FROM USER_BANCU.EI_78_CUATM    
+        FROM USER_BANCU.AGR_4_CFOJ    
                             
 
           
@@ -21,11 +21,11 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
---    --    CAEM2 = CR.CAEM2,
+        --  CAEM2 = CR.CAEM2
 --         DENUMIRE = CR.DENUMIRE,
-       CUATM = CR.CUATM
+       --CUATM = CR.CUATM
 --         CFP = CR.CFP,
---        CFOJ = CR.CFOJ
+         CFOJ = CR.CFOJ
     --     IDNO = CR.IDNO
  --     
   --  ETAPA_PROD = CR.ETAPA_PROD
