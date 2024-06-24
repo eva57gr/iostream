@@ -86,7 +86,7 @@ SELECT
                           USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
-                      --    USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+            --             USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                   
@@ -95,10 +95,17 @@ SELECT
                     
                    
 CUIIO IN (
-41340400,
-4049128448,
-41173238,
-41390898
+4124618731,
+40591838,
+2021240231,
+4001147931,
+450416331,
+4107920331,
+38605459,
+38926579,
+3708371331,
+40715387,
+4072675831
 
 )
 
