@@ -3,9 +3,8 @@ SELECT
                    FC.NAME,
                    R.CUATM,
                    CASE WHEN R.COL1 = 0 THEN NULL ELSE R.COL1 END AS COL1,
-                   CASE WHEN R.COL2 = 0 THEN NULL ELSE R.COL2 END AS COL2,
-                   CASE WHEN R.COL3 = 0 THEN NULL ELSE R.COL3 END AS COL3,
-                   CASE WHEN R.COL4 = 0 THEN NULL ELSE R.COL4 END AS COL4
+                   CASE WHEN R.COL2 = 0 THEN NULL ELSE R.COL2 END AS COL2
+                 
                       
 
                    FROM
@@ -23,7 +22,7 @@ SELECT FC.UNIT_CODE,
                    
                    SELECT UNIT_CODE, MAX (UNIT_CODE_VERS) UNIT_CODE_VERS
                                    FROM CIS2.FORM_REG_UNIT_GC
-                                  WHERE FORM IN (:pFORM_1) AND UNIT_CODE_VERS <= :pPERIOADA_1
+                                  WHERE FORM IN (:pFORM) AND UNIT_CODE_VERS <= :pPERIOADA
                                GROUP BY UNIT_CODE
                                
                                
@@ -36,7 +35,7 @@ SELECT FC.UNIT_CODE,
                            AND RR.UNIT_CODE_VERS = BB.UNIT_CODE_VERS
                            
              WHERE 
-             FC.FORM IN (:pFORM_1) AND FC.STATUT <> '3' 
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3' 
              
              
              
@@ -46,10 +45,8 @@ SELECT FC.UNIT_CODE,
              SELECT 
          D.UNIT_CODE,
          D.CUATM,
-         SUM(CASE WHEN D.CAPITOL IN (1110) AND D.RIND = '005' THEN D.COL3 ELSE NULL  END) AS COL1,
-         SUM(CASE WHEN D.CAPITOL IN (1110) AND D.RIND = '006' THEN D.COL3 ELSE NULL  END) AS COL2,
-         SUM(CASE WHEN D.CAPITOL IN (1110) AND D.RIND = '007' THEN D.COL3 ELSE NULL  END) AS COL3,
-         SUM(CASE WHEN D.CAPITOL IN (1110) AND D.RIND IN ('005','006','007') THEN D.COL3 ELSE NULL  END) AS COL4
+         SUM(CASE WHEN D.CAPITOL IN (1115) AND D.RIND = '6000' THEN D.COL1 ELSE NULL  END) AS COL1,
+         SUM(CASE WHEN D.CAPITOL IN (1116) AND D.RIND = '6200' THEN D.COL1 ELSE NULL  END) AS COL2
          
          
          
@@ -65,9 +62,9 @@ FROM
   ----
   -----
 WHERE
-  (D.PERIOADA IN (:pPERIOADA_1))  AND   
-   D.FORM IN (:pFORM_1) 
-
+  (D.PERIOADA IN (:pPERIOADA))  AND   
+   D.FORM IN (:pFORM) 
+   -- AND D.UNIT_CODE =822223
   
 
   
