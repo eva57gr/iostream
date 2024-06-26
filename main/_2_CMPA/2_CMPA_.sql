@@ -1,0 +1,132 @@
+--[Error] Execution (1: 1): ORA-00918: column ambiguously defined
+
+
+SELECT 
+                   DISTINCT FC.UNIT_CODE,
+                   FC.NAME,
+                   R.CUATM,
+                    CASE WHEN R.RIND_011_COL2 = 0 THEN NULL ELSE R.RIND_011_COL2 END AS RIND_011_COL2,
+    CASE WHEN R.RIND_041_COL2 = 0 THEN NULL ELSE R.RIND_041_COL2 END AS RIND_041_COL2,
+    CASE WHEN R.RIND_031_COL2 = 0 THEN NULL ELSE R.RIND_031_COL2 END AS RIND_031_COL2,
+    CASE WHEN R.RIND_030_COL2 = 0 THEN NULL ELSE R.RIND_030_COL2 END AS RIND_030_COL2,
+    CASE WHEN R.RIND_032_COL2 = 0 THEN NULL ELSE R.RIND_032_COL2 END AS RIND_032_COL2,
+    CASE WHEN R.RIND_110_COL2 = 0 THEN NULL ELSE R.RIND_110_COL2 END AS RIND_110_COL2,
+    CASE WHEN R.RIND_061_COL2 = 0 THEN NULL ELSE R.RIND_061_COL2 END AS RIND_061_COL2,
+    CASE WHEN R.RIND_062_COL2 = 0 THEN NULL ELSE R.RIND_062_COL2 END AS RIND_062_COL2,
+    CASE WHEN R.RIND_201_COL2 = 0 THEN NULL ELSE R.RIND_201_COL2 END AS RIND_201_COL2,
+    CASE WHEN R.RIND_115_COL2 = 0 THEN NULL ELSE R.RIND_115_COL2 END AS RIND_115_COL2,
+    CASE WHEN R.RIND_010_COL2 = 0 THEN NULL ELSE R.RIND_010_COL2 END AS RIND_010_COL2,
+    CASE WHEN R.RIND_020_COL2 = 0 THEN NULL ELSE R.RIND_020_COL2 END AS RIND_020_COL2,
+    CASE WHEN R.RIND_035_COL2 = 0 THEN NULL ELSE R.RIND_035_COL2 END AS RIND_035_COL2,
+    CASE WHEN R.RIND_065_COL2 = 0 THEN NULL ELSE R.RIND_065_COL2 END AS RIND_065_COL2,
+    CASE WHEN R.RIND_100_COL2 = 0 THEN NULL ELSE R.RIND_100_COL2 END AS RIND_100_COL2
+                  
+
+                   FROM
+
+(
+
+               SELECT 
+                 DISTINCT 
+                 
+                   FC.UNIT_CODE,
+                   FC.UNIT_CODE_VERS,
+
+                   MAX(RR.NAME) NAME
+
+              FROM
+              (  
+
+             SELECT 
+                   FC.UNIT_CODE,
+                   FC.UNIT_CODE_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+
+              FROM CIS2.FORM_REG_UNIT_GC  FC
+                   INNER JOIN (  
+                   
+                   SELECT UNIT_CODE, MAX (UNIT_CODE_VERS) UNIT_CODE_VERS
+                                   FROM CIS2.FORM_REG_UNIT_GC
+                                  WHERE FORM IN (:pFORM_2) AND UNIT_CODE_VERS <= :pPERIOADA_2
+                               GROUP BY UNIT_CODE
+                               
+                               
+                               ) BB
+                       ON (    BB.UNIT_CODE = FC.UNIT_CODE
+                           AND BB.UNIT_CODE_VERS = FC.UNIT_CODE_VERS)
+                         
+
+                           
+             WHERE 
+             FC.FORM IN (:pFORM_2) AND FC.STATUT <> '3' 
+             
+             
+             ORDER BY
+             FC.UNIT_CODE_VERS
+             
+             
+             
+             ) FC
+             
+              LEFT JOIN  CIS2.REG_UNIT_GC RR 
+                               ON RR.UNIT_CODE = FC.UNIT_CODE
+                           AND RR.UNIT_CODE_VERS = FC.UNIT_CODE_VERS
+                           
+                           
+                           GROUP BY
+                                              FC.UNIT_CODE,
+                                              FC.UNIT_CODE_VERS
+
+             
+             
+             
+             ) FC LEFT JOIN (
+             
+             
+             SELECT 
+         D.UNIT_CODE,
+         D.CUATM,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '011' THEN D.COL2 ELSE NULL  END) AS RIND_011_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '041' THEN D.COL2 ELSE NULL  END) AS RIND_041_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '031' THEN D.COL2 ELSE NULL  END) AS RIND_031_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '030' THEN D.COL2 ELSE NULL  END) AS RIND_030_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '032' THEN D.COL2 ELSE NULL  END) AS RIND_032_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '110' THEN D.COL2 ELSE NULL  END) AS RIND_110_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '061' THEN D.COL2 ELSE NULL  END) AS RIND_061_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '062' THEN D.COL2 ELSE NULL  END) AS RIND_062_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '200' THEN D.COL2 ELSE NULL  END) AS RIND_200_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '201' THEN D.COL2 ELSE NULL  END) AS RIND_201_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '115' THEN D.COL2 ELSE NULL  END) AS RIND_115_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '010' THEN D.COL2 ELSE NULL  END) AS RIND_010_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '020' THEN D.COL2 ELSE NULL  END) AS RIND_020_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '035' THEN D.COL2 ELSE NULL  END) AS RIND_035_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '065' THEN D.COL2 ELSE NULL  END) AS RIND_065_COL2,
+         SUM(CASE WHEN D.CAPITOL IN (417) AND D.RIND = '100' THEN D.COL2 ELSE NULL  END) AS RIND_100_COL2
+         
+         
+ FROM
+  CIS2.VW_DATA_ALL_GC  D
+  
+  
+  
+  ----
+  -----
+WHERE
+  (D.PERIOADA IN (:pPERIOADA_2))  AND   
+   D.FORM IN (:pFORM_2) 
+
+  
+
+  
+  GROUP BY 
+         D.UNIT_CODE,
+         D.CUATM
+
+             
+             ) R ON R.UNIT_CODE = FC.UNIT_CODE
+             
+             
+--             WHERE 
+--             R.UNIT_CODE IS NULL  
