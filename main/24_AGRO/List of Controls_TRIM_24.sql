@@ -1,7 +1,7 @@
 ﻿SELECT 
       L.CONTROL,
       L.FORMULA,
-      L.SQL_TEXT,
+   --   L.SQL_TEXT,
       L.PRIORITATEA,
       L.STATUT
       
