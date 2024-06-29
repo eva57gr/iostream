@@ -1,18 +1,3 @@
-SELECT CUIIO 
-
-FROM RENIM 
-
-WHERE
-
-CUIIO IN 
-
-(
-SELECT 
-                   R.CUIIO
-
-FROM
-
-(
 SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
@@ -27,18 +12,3 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (45) AND FC.STATUT <> '3'
-             
-             ) FC RIGHT  JOIN (
-
-             SELECT CUIIO
-FROM USER_BANCU.VW_4_AGRO_1061
-
-
-             ) R ON R.CUIIO = FC.CUIIO 
-             
-             WHERE 
-             FC.CUIIO IS   NULL 
-)
-
-AND 
-CUIIO_VERS  IN (1061)
