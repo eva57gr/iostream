@@ -1,9 +1,4 @@
-
-
-
-
-
-        SELECT ID_USER
+SELECT DISTINCT ID_USER
             
 
 
@@ -11,6 +6,6 @@
         
         WHERE 
         
-        FORM IN (1)
+        FORM IN (57,59,63,66)
 
 AND CUATM   LIKE '01%'
