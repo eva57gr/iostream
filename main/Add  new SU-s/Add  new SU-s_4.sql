@@ -45,7 +45,7 @@
 
 SELECT 
  CUIIO,
- 2013 CUIIO_VERS,
+ 1061CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -83,10 +83,10 @@ SELECT
 
                     FROM  -- USER_BANCU.VW_RENIM_2012_CIS2
                      
-                          USER_BANCU.VW_MAX_RENIM_CIS2
+                       --   USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
-            --             USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                            USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                   
@@ -95,20 +95,16 @@ SELECT
                     
                    
 CUIIO IN (
-41519272,
-40268284,
-40006656,
-41330703,
-3956392,
-40811719
-
+SELECT CUIIO
+               FROM USER_BANCU.TRIM_2_24_AGRO
+             
 )
 
-        
-        AND 
-        
-        
-        CUIIO_VERS  <>  2013 
+--        
+--        AND 
+--        
+--        
+--        CUIIO_VERS  <>  1061 
          
          
 

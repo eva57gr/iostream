@@ -29,7 +29,7 @@
         TRIM(L.IDNO)  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.RSF_1 L
+        FROM   USER_BANCU.TRIM_2_24_AGRO L
         
              --   CIS.RENIM  L
         
@@ -39,7 +39,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO IS   NOT NULL
+                        C.CUIIO IS   NOT  NULL
                         
 --                        CUIIO  IN (
 --41605732,
@@ -68,21 +68,21 @@
 
 ;
 
- SELECT 
- 
-        TRIM(L.CUIIO) CUIIO ,
-        TRIM(L.CUIIO_VERS) CUIIO_VERS,
-        TRIM(L.DENUMIRE)  DENUMIRE,
-        1   EDIT_USER,
-        '1' STATUT,
-        TRIM(L.CUATM) CUATM,
-        TRIM(L.CFP) CFP,
-        TRIM(L.CFOJ) CFOJ,
-        TRIM(L.CAEM2)  CAEM2,
-        TRIM(L.IDNO)  IDNO
-
-FROM CIS2.RENIM L
-
-WHERE 
-
-L.CUIIO NOT IN ()
+-- SELECT 
+-- 
+--        TRIM(L.CUIIO) CUIIO ,
+--        TRIM(L.CUIIO_VERS) CUIIO_VERS,
+--        TRIM(L.DENUMIRE)  DENUMIRE,
+--        1   EDIT_USER,
+--        '1' STATUT,
+--        TRIM(L.CUATM) CUATM,
+--        TRIM(L.CFP) CFP,
+--        TRIM(L.CFOJ) CFOJ,
+--        TRIM(L.CAEM2)  CAEM2,
+--        TRIM(L.IDNO)  IDNO
+--
+--FROM CIS2.RENIM L
+--
+--WHERE 
+--
+--L.CUIIO NOT IN ()

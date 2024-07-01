@@ -58,7 +58,7 @@ FROM USER_BANCU.VW_4_AGRO_1061
              ) R ON R.CUIIO = FC.CUIIO 
              
              WHERE 
-             R.CUIIO IS   NULL 
+             R.CUIIO IS NOT   NULL 
              
 
              
