@@ -74,7 +74,9 @@
     ORGANE_COND,
     GEN_INSTITUTIE,
     IDNO
-            FROM USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+            FROM 
+            
+             USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
             
             
             WHERE 
