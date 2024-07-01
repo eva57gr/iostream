@@ -167,8 +167,8 @@ WHERE
          D.CUATM
 
              
-             ) R ON R.UNIT_CODE = FC.UNIT_CODE
+             ) R ON R.UNIT_CODE = FC.UNIT_CODE ) 
              
-             ) R ON R.UNIT_CODE = L.UNIT_CODE 
+            
              
              
