@@ -6,7 +6,7 @@ this.ChangeCheckbox_1201 = function (itemId) {
     var isChecked = document.getElementById(itemId).checked;
     //$.messager.alert("Warning", itemId, "warning");
     // I changed here
-
+{
     if (itemId == "26_1201_77315_1_1" && isChecked == true) {
         document.getElementById("26_1201_77316_2_1").checked = false;
         document.getElementById("26_1201_77317_3_1").checked = false;
@@ -68,5 +68,9 @@ this.ChangeCheckbox_1201 = function (itemId) {
         document.getElementById("26_1201_77319_5_1").checked = false;
         document.getElementById("26_1201_77320_6_1").checked = false;
     }
+
+}
+
+
 
 }
