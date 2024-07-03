@@ -68,7 +68,7 @@ SELECT
  )
  
  
- AND UNIT_CODE_VERS <>   1060
+-- AND UNIT_CODE_VERS <>   1060
  
  
  ORDER BY
