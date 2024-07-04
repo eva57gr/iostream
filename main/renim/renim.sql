@@ -3,6 +3,7 @@
                     FROM CIS2.RENIM
                     
                     WHERE 
-                    DENUMIRE LIKE '%BEURER%'
+                    --DENUMIRE LIKE '%Biroul%'
+                    CUIIO LIKE '41005328%'
                     -----------------------------------
                     
