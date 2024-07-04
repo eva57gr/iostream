@@ -95,8 +95,9 @@ SELECT
                     
                    
 CUIIO IN (
-SELECT CUIIO
-               FROM USER_BANCU.TRIM_2_24_AGRO
+41558079
+
+
              
 )
 
