@@ -102,11 +102,11 @@ CUIIO IN (
              
 )
 
---        
---        AND 
---        
---        
---        CUIIO_VERS  <>  1061 
+        
+        AND 
+        
+        
+        CUIIO_VERS  <>  1061 
          
          
 
