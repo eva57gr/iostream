@@ -17,7 +17,7 @@
                     D.FORM IN (33)
                     AND D.PERIOADA IN (1061) AND 
                     --DENUMIRE LIKE '%Biroul%'
-                    D.CUIIO LIKE '41005328%'
+                    D.CUIIO LIKE '13706%'
                     -----------------------------------
                     
                     
