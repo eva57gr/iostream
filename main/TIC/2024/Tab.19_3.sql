@@ -1,0 +1,91 @@
+SELECT
+--DISTINCT 
+--D.CUIIO,
+
+SUM(CASE WHEN D.CAPITOL = 1206 AND D.RIND IN ('900') THEN D.COL1 ELSE 0 END ) AS COL1,
+SUM(DD.COL2) AS COL2
+
+    FROM
+      CIS2.VW_DATA_ALL D     
+                   
+                   INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS  
+                   
+                   INNER JOIN (
+                   SELECT
+DISTINCT 
+D.CUIIO,
+D.CUIIO_VERS,
+COUNT(DISTINCT CASE WHEN D.CAPITOL = 1195 AND D.RIND IN ('1') AND  NVAL(D.COL1) = 1 THEN D.CUIIO ELSE 0 END ) AS COL2
+  FROM
+      CIS2.VW_DATA_ALL D     
+                   
+       WHERE  
+       D.PERIOADA IN (:pPERIOADA) AND
+       D.FORM = :pFORM AND
+       D.FORM_VERS = :pFORM_VERS  AND  
+      (:pID_MDTABLE=:pID_MDTABLE) AND
+       D.FORM = 71 AND
+       D.CAPITOL IN (1195) 
+       --AND
+--       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'
+  
+
+      
+
+   --   AND D.CUIIO = 227548
+GROUP BY  
+
+D.CUIIO,
+D.CUIIO_VERS
+
+                   ) DD ON D.CUIIO = DD.CUIIO AND D.CUIIO_VERS = DD.CUIIO_VERS 
+       
+    WHERE  
+       D.PERIOADA IN (:pPERIOADA) AND
+       D.FORM = :pFORM AND
+       D.FORM_VERS = :pFORM_VERS  AND  
+      (:pID_MDTABLE=:pID_MDTABLE) AND
+       D.FORM = 71 AND
+--       D.CAPITOL IN (1206) AND
+       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'
+  
+    --  AND CC.PRGS IN ('2')
+      
+      AND D.CAPITOL IN  (1206) AND D.RIND IN ('900')
+    --  AND D.CUIIO = 227548
+--GROUP BY  
+--
+--D.CUIIO
+
+
+
+--CC.CODUL,
+--CC.DENUMIRE,
+--CC.FULL_CODE
+
+
+--HAVING 
+--
+--SUM(CASE WHEN D.CAPITOL = 1195 AND D.RIND IN ('1') THEN NVAL(D.COL1) ELSE 0 END ) = 1 -- 13784
+
+--AND 
+--
+--SUM(CASE WHEN D.CAPITOL = 1206 AND D.RIND IN ('900') THEN NVAL(D.COL1) ELSE 0 END ) > 0 --14039
+
+
+
+--ORDER BY  
+--CC.FULL_CODE
+
+
+--)
+--
+--
+--GROUP BY
+--CODUL,
+--FULL_CODE,
+--DENUMIRE
+--
+--ORDER BY
+--FULL_CODE
+----)
