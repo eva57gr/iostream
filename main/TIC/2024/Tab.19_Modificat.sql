@@ -20,7 +20,7 @@ INSERT INTO CIS2.TABLE_OUT
   COL3
 )
 
-
+----------------------------
 
 SELECT 
   :pPERIOADA AS PERIOADA,
