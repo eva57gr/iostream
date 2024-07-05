@@ -1,27 +1,26 @@
-----INSERT INTO CIS2.TABLE_OUT 
-----(
-----  PERIOADA,
-----  FORM,
-----  FORM_VERS,
-----  ID_MDTABLE,
-----  COD_CUATM,
-----  NR_SECTIE,
-----  NUME_SECTIE,
-----  NR_SECTIE1,
-----  NUME_SECTIE1,
-----  NR_SECTIE2,
-----  NUME_SECTIE2,
-----  NR_ROW,
-----  ORDINE,
-----  DECIMAL_POS,
-----  NUME_ROW,   
-----  COL1,
-----  COL2,
-----  COL3
-----)
---
---
---
+INSERT INTO CIS2.TABLE_OUT 
+(
+  PERIOADA,
+  FORM,
+  FORM_VERS,
+  ID_MDTABLE,
+  COD_CUATM,
+  NR_SECTIE,
+  NUME_SECTIE,
+  NR_SECTIE1,
+  NUME_SECTIE1,
+  NR_SECTIE2,
+  NUME_SECTIE2,
+  NR_ROW,
+  ORDINE,
+  DECIMAL_POS,
+  NUME_ROW,   
+  COL1,
+  COL2,
+  COL3
+)
+
+
 
 SELECT 
   :pPERIOADA AS PERIOADA,
@@ -40,7 +39,7 @@ SELECT
    ROWNUM  AS ORDINE,
   '002' AS DECIMAL_POS,
    NUME_ROW,
-   FULL_CODE,
+
    COL1,
    COL2,
    COL3
