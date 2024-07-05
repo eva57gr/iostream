@@ -1,0 +1,61 @@
+SELECT
+L.CUIIO,
+L.CUIIO_VERS,
+L.CUATM,
+SUM(L.COL1) COL1
+FROM 
+
+(
+SELECT
+D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+COUNT(DISTINCT CASE WHEN D.CAPITOL = 1195 AND D.RIND IN ('1') AND  NVAL(D.COL1) = 1 THEN D.CUIIO ELSE 0 END ) AS COL1
+
+    FROM
+      CIS2.VW_DATA_ALL D     
+                   
+            
+       WHERE  
+       D.PERIOADA IN (:pPERIOADA) AND
+       D.FORM = :pFORM AND
+       D.FORM_VERS = :pFORM_VERS  AND  
+
+       D.FORM = 71 AND
+       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'
+       AND D.CAPITOL = 1195 AND D.RIND IN ('1') AND  NVAL(D.COL1) = 1
+
+        GROUP BY 
+        D.CUIIO,
+        D.CUATM,
+        D.CUIIO_VERS ) L LEFT JOIN (
+        
+        SELECT
+D.CUIIO,
+D.CUIIO_VERS,
+D.CUATM,
+COUNT(DISTINCT CASE WHEN D.CAPITOL = 1195 AND D.RIND IN ('1') AND  NVAL(D.COL1) = 1 THEN D.CUIIO ELSE 0 END ) AS COL1
+
+    FROM
+      CIS2.VW_DATA_ALL D     
+                   
+            
+       WHERE  
+       D.PERIOADA IN (:pPERIOADA) AND
+       D.FORM = :pFORM AND
+       D.FORM_VERS = :pFORM_VERS  AND  
+
+       D.FORM = 71 AND
+       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'
+       AND D.CAPITOL = 1195 AND D.RIND IN ('1') AND  NVAL(D.COL1) = 1
+
+        GROUP BY 
+        D.CUIIO,
+        D.CUATM,
+        D.CUIIO_VERS
+        ) R  ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS
+        
+       GROUP BY
+       L.CUIIO,
+       L.CUIIO_VERS,
+       L.CUATM
