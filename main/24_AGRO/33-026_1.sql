@@ -8,7 +8,7 @@ CUIIO,
 FROM USER_EREPORTING.VW_DATA_ALL
 WHERE
 FORM IN  64
-
+-----------------------------------------------------
 AND PERIOADA = 2012
 
 AND   DATA_REG >= TO_DATE('06/28/2024 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
