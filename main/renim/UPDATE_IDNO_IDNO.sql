@@ -9,5 +9,7 @@ UPDATE CIS2.RENIM
                WHERE 
                
                CUIIO = 41267229;
+               
+               --------------------------
                     
                     
