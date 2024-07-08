@@ -1,5 +1,5 @@
 SELECT 
- 
+ --------------------------
 CUIIO, 
  
  MAX(DATA_REG) AS DATA_REG 
