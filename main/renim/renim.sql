@@ -4,7 +4,12 @@
                     
                     WHERE 
                     --DENUMIRE LIKE '%Biroul%'
-                    CUIIO LIKE '41005328%'
+                    CUIIO LIKE '40565505%'
+                    AND CUIIO_VERS = 1061
+                    
+                    ORDER BY
+                    CUIIO,
+                    CUIIO_VERS
                     -----------------------------------
                     ;
                     
@@ -17,7 +22,7 @@
                     D.FORM IN (33)
                     AND D.PERIOADA IN (1061) AND 
                     --DENUMIRE LIKE '%Biroul%'
-                    D.CUIIO LIKE '13706%'
+                    D.CUIIO LIKE '40565505%'
                     -----------------------------------
                     
                     
