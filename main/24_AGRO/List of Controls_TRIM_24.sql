@@ -54,7 +54,7 @@ SELECT
           
           WHERE 
           1=1
-         -- AND  L.FORMULA LIKE '%Cap.2%'
-         AND CONTROL LIKE '33%'
+--         -- AND  L.FORMULA LIKE '%Cap.2%'
+--         AND CONTROL LIKE '33%'
           
           
