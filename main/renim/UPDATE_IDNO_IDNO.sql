@@ -1,5 +1,5 @@
 UPDATE CIS2.RENIM 
-         SET IDNO = TRIM('1024606008944')
+         SET IDNO = TRIM('1024607004482')
                
          
 --         SELECT *
@@ -8,6 +8,6 @@ UPDATE CIS2.RENIM
                
                WHERE 
                
-               CUIIO = 37994298;
+               CUIIO = 41478682;
                     
                     
