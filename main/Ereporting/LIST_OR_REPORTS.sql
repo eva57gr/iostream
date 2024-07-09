@@ -9,3 +9,4 @@ FROM USER_EREPORTING.F_XML_FORMS
 WHERE
 
 FORM_TYPE LIKE  '%4%'
+---------------------------------------------
