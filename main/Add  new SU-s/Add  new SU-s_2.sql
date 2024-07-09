@@ -16,7 +16,7 @@
 --          CUATM  = '0'||CUATM
         ;
         
-        
+        -----------------------------------------------------
              SELECT CUIIO
                FROM USER_BANCU.TRIM_2_24_AGRO
                
