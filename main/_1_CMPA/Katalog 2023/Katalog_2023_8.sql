@@ -13,3 +13,6 @@ WHERE ROWID NOT IN
   FROM USER_BANCU.REG_UNIT_GC3_2024
   GROUP BY UNIT_CODE, UNIT_CODE_VERS, NR_GOSP, NR_MAPS
 )
+
+---------------------------------------------------
+
