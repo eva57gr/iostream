@@ -1,5 +1,5 @@
  SELECT *
-        FROM USER_BANCU.TRIM_2_24_AGRO;
+        FROM  USER_BANCU.AGRO_24_CTIF;
         
 --        
 --        ORDER BY 
