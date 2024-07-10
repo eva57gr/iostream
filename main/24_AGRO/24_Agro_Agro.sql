@@ -3,7 +3,9 @@
 
         -----------------------------------------------------
              SELECT L.CUIIO
-               
+--             ,
+--                    R.CUATM    
+--               
                FROM USER_BANCU.AGRO_24_CTIF L  
                
                           LEFT JOIN (
