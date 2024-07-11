@@ -1,5 +1,5 @@
 ﻿SELECT 
-         'TRIM_3'  TRIM,
+         'TRIM_2'  TRIM,
          D.UNIT_CODE,
          D.CUATM,
          CASE 
@@ -39,7 +39,7 @@ FROM
   
 
 WHERE
-  (D.PERIOADA IN (1058))  AND   
+  (D.PERIOADA IN (1061))  AND   
  -- (D.PERIOADA IN (1055))  AND   
 --  (D.FORM =:pFORM) AND
 --  (D.FORM_VERS =:pFORM_VERS) AND 
