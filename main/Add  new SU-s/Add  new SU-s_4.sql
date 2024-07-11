@@ -95,7 +95,7 @@ SELECT
                     
                    
 CUIIO IN (
-41534433
+
 
 
 
