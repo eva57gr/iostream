@@ -1,5 +1,8 @@
 ﻿SELECT 
-         CASE WHEN TO_CHAR(D.PERIOADA) = '1060'  THEN 'TRM I 2024'  
+         CASE 
+              WHEN TO_CHAR(D.PERIOADA) = '1061'  THEN 'TRM II 2024'
+              WHEN TO_CHAR(D.PERIOADA) = '1060'  THEN 'TRM I 2024'
+                
               WHEN TO_CHAR(D.PERIOADA) = '1057'  THEN 'TRM II 2023' 
               WHEN TO_CHAR(D.PERIOADA) = '1058'  THEN 'TRM III 2023'
               WHEN TO_CHAR(D.PERIOADA) = '1059'  THEN 'TRM IV 2023'
