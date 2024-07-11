@@ -1,16 +1,16 @@
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
 
 SELECT
   D.CUIIO,
   D.CUIIO_VERS,
-  5 FORM,
-  1004 FORM_VERS,
+  4 FORM,
+  2000 FORM_VERS,
   '1' STATUT
 
   FROM USER_BANCU.AUTO_65 D
