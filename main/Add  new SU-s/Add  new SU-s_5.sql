@@ -29,7 +29,7 @@
         TRIM(L.IDNO)  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.TRIM_2_24_AGRO L
+        FROM   USER_BANCU.AUTO_65 L
         
              --   CIS.RENIM  L
         
@@ -39,7 +39,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO IS   NOT  NULL
+                        C.CUIIO  is   NULL
                         
 --                        CUIIO  IN (
 --41605732,
