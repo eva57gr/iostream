@@ -67,7 +67,10 @@ SELECT
       
        FROM    
              CIS2.VW_DATA_ALL D    
-               INNER JOIN CIS2.MD_RIND R ON (R.RIND = D.RIND AND R.CAPITOL=D.CAPITOL AND R.CAPITOL_VERS=D.CAPITOL_VERS AND R.RIND_VERS=D.RIND_VERS)       
+               INNER JOIN CIS2.MD_RIND R ON (
+               --R.RIND = D.RIND AND R.CAPITOL=D.CAPITOL AND R.CAPITOL_VERS=D.CAPITOL_VERS AND R.RIND_VERS=D.RIND_VERS
+               R.ID_MD = D.ID_MD
+               )       
                ------------------------------------------------------------------------------------------------------------------------------------
                INNER JOIN CIS2.RENIM RN ON (RN.CUIIO=D.CUIIO AND RN.CUIIO_VERS=D.CUIIO_VERS)                             
                INNER JOIN CIS2.CL_N85_NTIIP NT ON (RN.N85_NTIIP=NT.CODUL)
