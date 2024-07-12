@@ -1,42 +1,40 @@
---tab.12.1
---Repartizarea copiilor din institutiile de invatamint prescolar dupa limba de studii. Total pe republica 
-INSERT INTO TABLE_OUT
-(   
-    PERIOADA,
-    FORM,
-    FORM_VERS,
-    ID_MDTABLE,
-    COD_CUATM,
-    NR_SECTIE,
-    NUME_SECTIE,
-    NR_SECTIE1,
-    NUME_SECTIE1,
-    NR_SECTIE2,
-    NUME_SECTIE2,
-    NR_ROW,
-    ORDINE,
-    DECIMAL_POS,
-    NUME_ROW,
-    COL1,
-    COL2,
-    COL3,
-    COL4,
-    COL5,
-    COL6
-   )
+--INSERT INTO TABLE_OUT
+--(   
+--    PERIOADA,
+--    FORM,
+--    FORM_VERS,
+--    ID_MDTABLE,
+--    COD_CUATM,
+--    NR_SECTIE,
+--    NUME_SECTIE,
+--    NR_SECTIE1,
+--    NUME_SECTIE1,
+--    NR_SECTIE2,
+--    NUME_SECTIE2,
+--    NR_ROW,
+--    ORDINE,
+--    DECIMAL_POS,
+--    NUME_ROW,
+--    COL1,
+--    COL2,
+--    COL3,
+--    COL4,
+--    COL5,
+--    COL6
+--   )
 
     SELECT   
-    :pPERIOADA AS PERIOADA,
-    :pFORM AS FORM,
-    :pFORM_VERS AS FORM_VERS,
-    :pID_MDTABLE AS ID_MDTABLE,
-    :pCOD_CUATM AS COD_CUATM,
-    '0' AS NR_SECTIE,
-    '0' AS NUME_SECTIE,
-    '0' AS NR_SECTIE1,
-    '0' AS NUME_SECTIE1,
-    '0' AS NR_SECTIE2,
-    '0' AS NUME_SECTIE2,
+--    :pPERIOADA AS PERIOADA,
+--    :pFORM AS FORM,
+--    :pFORM_VERS AS FORM_VERS,
+--    :pID_MDTABLE AS ID_MDTABLE,
+--    :pCOD_CUATM AS COD_CUATM,
+--    '0' AS NR_SECTIE,
+--    '0' AS NUME_SECTIE,
+--    '0' AS NR_SECTIE1,
+--    '0' AS NUME_SECTIE1,
+--    '0' AS NR_SECTIE2,
+--    '0' AS NUME_SECTIE2,
 
 
      DC.NR_ROW,
@@ -59,7 +57,7 @@ INSERT INTO TABLE_OUT
     '000000' AS DECIMAL_POS,
      CD.NUME_ROW AS NUME_ROW,
      
-     ROUND(COUNT (DISTINCT CASE WHEN VC.FUlL_CODE LIKE '%'||CD.CUATM||';%'   AND  D.CAPITOL IN (1002)   THEN D.CUIIO  ELSE NULL END),1)  AS COL1,
+     ROUND(COUNT (DISTINCT CASE WHEN VC.FUlL_CODE LIKE '%'||CD.CUATM||';%'   AND  D.CAPITOL IN (1002)    THEN D.CUIIO  ELSE NULL END),1)  AS COL1,
      
      COUNT( DISTINCT CASE WHEN VC.FUlL_CODE LIKE '%'||CD.CUATM||';%' AND  D.CAPITOL IN (1001) AND D.RIND IN ('010') AND  CIS2.NVAL(D.COL5) <> 0  
      AND  D.CAPITOL IN (1001) AND D.RIND IN ('010') AND  CIS2.NVAL(D.COL6) = 0  AND  D.CAPITOL IN (1001) AND D.RIND IN ('010') AND  CIS2.NVAL(D.COL7) = 0
