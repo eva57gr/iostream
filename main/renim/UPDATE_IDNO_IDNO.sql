@@ -1,14 +1,14 @@
-UPDATE CIS2.RENIM 
-         SET IDNO = TRIM('1024606005286')
+UPDATE idno 
+         SET CUIIO_VERS = 2012;
                
          
 --         SELECT *
 --         
 --                FROM CIS2.RENIM 
                
-               WHERE 
-               
-               CUIIO = 41267229;
+--               WHERE 
+--               
+--               CUIIO = 41267229;
                
                --------------------------
                     
