@@ -11,7 +11,7 @@ SELECT
   D.CFOJ,
   D.CAEM2,
   D.IDNO
-  FROM USER_BANCU.AUTO_65 D
+  FROM USER_BANCU.IDNO D
   
   ;        
   
@@ -20,7 +20,7 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
-      DENUMIRE = CR.DENUMIRE,
+    --  DENUMIRE = CR.DENUMIRE,
    --   CUATM = CR.CUATM
 --      CFP = CR.CFP,
     --  CFOJ = CR.CFOJ
@@ -30,8 +30,8 @@ BEGIN -- ======================================================================
 
     WHERE 
       CUIIO  = CR.CUIIO 
-      AND
-      CUIIO_VERS = CR.CUIIO_VERS 
+--      AND
+--      CUIIO_VERS = CR.CUIIO_VERS 
       
       
       
