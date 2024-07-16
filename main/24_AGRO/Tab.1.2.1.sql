@@ -133,7 +133,7 @@ WHERE
  -- D.CAPITOL IN (380) AND
   --D.RIND IN ('140','160','200')  
   AND D.CFOJ IS NOT NULL
-  
+  -----------------------------------
 GROUP BY 
   R.NR_ROW,
   R.NUME_ROW,
