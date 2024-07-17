@@ -31,9 +31,9 @@ BEGIN -- ======================================================================
       
     --   CAEM2 = CR.CAEM2,
      --  DENUMIRE = CR.DENUMIRE,
-   --    CUATM = CR.CUATM,
-       CFP = CR.CFP
-      -- CFOJ = CR.CFOJ,
+       CUATM = CR.CUATM
+   --    CFP = CR.CFP
+     --  CFOJ = CR.CFOJ
       -- BUGET = CR.BUGET,
      --  TIP = CR.TIP
  --     IDNO = CR.IDNO
