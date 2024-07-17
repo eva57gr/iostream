@@ -15,7 +15,7 @@ DECLARE -- ====================================================================
         L.BUGET,
         L.TIP
      --   L.IDNO
-        FROM USER_BANCU.ADD_NEW_SU_M3 L
+        FROM USER_BANCU.ADD_NEW_SU_M3_CFP L
         
         
 --        WHERE 
@@ -29,13 +29,13 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
-       CAEM2 = CR.CAEM2,
-       DENUMIRE = CR.DENUMIRE,
+    --   CAEM2 = CR.CAEM2,
+     --  DENUMIRE = CR.DENUMIRE,
    --    CUATM = CR.CUATM,
-       CFP = CR.CFP,
-       CFOJ = CR.CFOJ,
-       BUGET = CR.BUGET,
-       TIP = CR.TIP
+       CFP = CR.CFP
+      -- CFOJ = CR.CFOJ,
+      -- BUGET = CR.BUGET,
+     --  TIP = CR.TIP
  --     IDNO = CR.IDNO
       
     WHERE 
