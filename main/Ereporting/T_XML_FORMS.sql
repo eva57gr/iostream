@@ -27,17 +27,17 @@ SELECT
 --AND STATUS  =  '5' AND 
 --
 --
-AND  DATA_REG >= TO_DATE('01/06/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('07/17/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
 -- 41255321
 --)
-  AND 
-  
-  FORM_TYPE = '1-ac'
+--  AND 
+--  
+--  FORM_TYPE = '1-ac'
 ----  OR 
---  AND  FORM_TYPE = '4_agr' 
+ AND  FORM_TYPE IN  ('ei-78','65-auto-22') 
    
   
   
