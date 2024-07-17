@@ -15,7 +15,7 @@ DECLARE -- ====================================================================
         L.BUGET,
         L.TIP
      --   L.IDNO
-        FROM USER_BANCU.ADD_NEW_SU_M3_CFP L
+        FROM USER_BANCU.RSF_CFP L
         
         
 --        WHERE 
