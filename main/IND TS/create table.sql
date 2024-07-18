@@ -1,0 +1,6 @@
+
+
+        CREATE TABLE CIS_CL_PRODMOLD2
+        AS 
+        SELECT *
+        FROM CIS.CL_PRODMOLD2;
