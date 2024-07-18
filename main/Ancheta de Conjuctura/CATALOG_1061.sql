@@ -1,6 +1,7 @@
 SELECT     R.CUIIO,
            R.CUIIO_VERS,
-           R.CFP
+           R.CFP,
+           R.CAEM2
           
       FROM (SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
@@ -19,12 +20,12 @@ SELECT     R.CUIIO,
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
                
-               
-               WHERE 
-               R.CUIIO IN (
-                SELECT CUIIO
-        FROM USER_BANCU.ADD_NEW_SU_M3_CFP
-               
-)
-               
-AND             R.CUIIO_VERS =    2012
+         WHERE
+         --R.CAEM2 IS NULL
+         
+         R.CUIIO IN (
+40304810,
+40878818,
+40908583
+         )  
+         
