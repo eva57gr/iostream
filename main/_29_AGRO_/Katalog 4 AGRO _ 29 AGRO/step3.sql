@@ -1,11 +1,11 @@
-SELECT *
-    
-    FROM USER_BANCU.VW_4_AGRO_1057
-    
-    ;
+--SELECT *
+--    
+--    FROM USER_BANCU.VW_4_AGRO_1057
+--    
+--    ;
 
 
-CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_4_AGRO_1057
+CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_4_AGRO_1061
 (
     CUIIO,
     CUIIO_VERS,
@@ -44,7 +44,7 @@ CREATE OR REPLACE FORCE VIEW USER_BANCU.VW_4_AGRO_1057
 )
 AS
     SELECT R.CUIIO,
-           1057 CUIIO_VERS,
+           2012 CUIIO_VERS,
            R.DENUMIRE,
            R.EDIT_USER,
            R.STATUT,
@@ -87,11 +87,11 @@ AS
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (43) AND CUIIO_VERS <= 2012
+                                  WHERE FORM IN (45) AND CUIIO_VERS <= 1061
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (43) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (45) AND FC.STATUT <> '3'
              
              
              
