@@ -2,35 +2,34 @@ DECLARE -- ====================================================================
 
 CURSOR C IS
 
-  SELECT 
-                  C.CUIIO,
-                  C.CUIIO_VERS,
-                  C.DENUMIRE,
-                  C.CUATM,
-                  C.CFP,
-                  C.CFOJ, 
-                  C.CAEM2,
-                  C.IDNO        
-  
-  FROM USER_BANCU.VW_4_AGRO_1061  C
+ SELECT *
+           
+        FROM USER_BANCU.PRODMOLD
+        WHERE
+        TIP IS  NOT NULL
+        
+        
+        
+
          
 ;
 
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.RENIM SET
+UPDATE CIS.RENIM SET
 --DENUMIRE = CR.DENUMIRE,
 --CUATM = CR.CUATM,
 --CFP = CR.CFP,
-CFOJ = CR.CFOJ
---CAEM2 = CR.CAEM2,
+--CFOJ = CR.CFOJ
+--CAEM2 = CR.CAEM2
 --IDNO = CR.IDNO
+ETAPA_PROD = CR.TIP
 
 WHERE
 CUIIO = CR.CUIIO AND 
 CUIIO_VERS = CR.CUIIO_VERS
-AND CUIIO_VERS = 2012
+--AND CUIIO_VERS = 2012
 ;
 END LOOP;
 END;

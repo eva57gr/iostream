@@ -1,7 +1,8 @@
  SELECT *
+           
         FROM USER_BANCU.PRODMOLD
-        WHERE
-        TIP IS  NULL
+--        WHERE
+--        TIP IS  NULL
         
         ;
         
