@@ -1,54 +1,54 @@
-INSERT INTO TABLE_OUT 
-(
-  PERIOADA,
-  FORM,
-  FORM_VERS,
-  ID_MDTABLE,
-  COD_CUATM,
-  NR_SECTIE,
-  NUME_SECTIE,
-  NR_SECTIE1,
-  NUME_SECTIE1,
-  NR_SECTIE2,
-  NUME_SECTIE2,
-  NR_ROW,
-  ORDINE,
-  DECIMAL_POS,
-  NUME_ROW,
-  
-  COL1, COL2, COL3, COL4,  COL5
-)
+--INSERT INTO TABLE_OUT 
+--(
+--  PERIOADA,
+--  FORM,
+--  FORM_VERS,
+--  ID_MDTABLE,
+--  COD_CUATM,
+--  NR_SECTIE,
+--  NUME_SECTIE,
+--  NR_SECTIE1,
+--  NUME_SECTIE1,
+--  NR_SECTIE2,
+--  NUME_SECTIE2,
+--  NR_ROW,
+--  ORDINE,
+--  DECIMAL_POS,
+--  NUME_ROW,
+--  
+--  COL1, COL2, COL3, COL4,  COL5
+--)
 
 
 
 
 
-SELECT DISTINCT                                                                     
-  :pPERIOADA AS PERIOADA,                                                    
-  :pFORM AS FORM,                                                            
-  :pFORM_VERS AS FORM_VERS,                                                  
-  :pID_MDTABLE AS ID_MDTABLE,                                                
-  :pCOD_CUATM AS COD_CUATM,                                                  
-  '0' AS NR_SECTIE,                                                         
-  '0' AS NUME_SECTIE,                                                        
-  '0' AS NR_SECTIE1,
-  '0' AS NUME_SECTIE1,
-  '0' AS NR_SECTIE2,
-  '0' AS NUME_SECTIE2,
-   NR_ROW,  
-   ORDINE,
-   DECIMAL_POS,
-   NUME_ROW,
-   COL1,
-   COL2,
-   COL3,
-   COL4,
-   COL5
-  
-   
-
-   FROM
-(
+--SELECT                                                                      
+----  :pPERIOADA AS PERIOADA,                                                    
+----  :pFORM AS FORM,                                                            
+----  :pFORM_VERS AS FORM_VERS,                                                  
+----  :pID_MDTABLE AS ID_MDTABLE,                                                
+----  :pCOD_CUATM AS COD_CUATM,                                                  
+----  '0' AS NR_SECTIE,                                                         
+----  '0' AS NUME_SECTIE,                                                        
+----  '0' AS NR_SECTIE1,
+----  '0' AS NUME_SECTIE1,
+----  '0' AS NR_SECTIE2,
+----  '0' AS NUME_SECTIE2,
+--   NR_ROW,  
+--   ORDINE,
+--   DECIMAL_POS,
+--   NUME_ROW,
+--   COL1,
+--   COL2,
+--   COL3,
+--   COL4,
+--   COL5
+--  
+--   
+--
+--   FROM
+--(
 SELECT DISTINCT                                                                     
 --  :pPERIOADA AS PERIOADA,                                                    
 --  :pFORM AS FORM,                                                            
@@ -149,6 +149,9 @@ GROUP BY
   
   
   ORDER BY
-  C.FULL_CODE )
+  C.FULL_CODE 
+  
+  
+  --)
   
   
