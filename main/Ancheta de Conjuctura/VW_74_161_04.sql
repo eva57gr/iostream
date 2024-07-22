@@ -4,7 +4,19 @@
     SELECT 
     L.CUIIO    
     
-        FROM USER_BANCU.VW_74_161 L
+        FROM (
+                SELECT 
+        
+        DISTINCT D.CUIIO 
+        
+        FROM CIS2.VW_DATA_ALL D
+        
+        WHERE 
+        D.FORM = 74 AND 
+        D.CAPITOL IN (1197) AND
+        D.PERIOADA = 1061
+        
+        ) L
                 LEFT JOIN (
                 SELECT 
   PERS_IT,
@@ -18,9 +30,11 @@
         WHERE 
         ANUL = 2024
         
-        AND 
+--        AND 
+--        
+--        (CIF_IT IS NOT NULL  AND CIF_IT <> 0 ) 
         
-        (CIF_IT IS NOT NULL  AND CIF_IT <> 0 ) 
+        
                 ) R ON R.CUIIO = L.CUIIO
                 
                 

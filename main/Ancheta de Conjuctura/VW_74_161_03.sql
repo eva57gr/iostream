@@ -35,7 +35,8 @@ SELECT
         FROM CIS2.VW_DATA_ALL D
         
         WHERE 
-        D.FORM = 74
-        AND D.PERIOADA = 1061
+        D.FORM = 74 AND 
+        D.CAPITOL IN (1197) AND
+        D.PERIOADA = 1061
         
         

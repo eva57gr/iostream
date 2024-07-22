@@ -9,7 +9,9 @@ SELECT
   
   
 FROM
-(SELECT
+(
+
+SELECT
   D.ANUL,
   D.CUIIO,
   D.CUATM,
