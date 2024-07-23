@@ -36,7 +36,7 @@
 --    IDNO
 --         )
 --         
-         
+--         
          SELECT
          
     CUIIO,
@@ -86,11 +86,11 @@
 (
 SELECT CUIIO
     
-    FROM USER_BANCU.VW_4_AGRO_1061
+    FROM USER_BANCU.RENIM_1061
 )
 
 AND 
 CUIIO_VERS   NOT IN (1061)
---            
-            ORDER BY 
-            CUIIO_VERS
+----            
+--            ORDER BY 
+--            CUIIO_VERS
