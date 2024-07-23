@@ -18,9 +18,9 @@
         WHERE 
         ANUL = 2024
         
-        AND 
-        
-        (CIF_IT IS NOT NULL  AND CIF_IT <> 0 ) 
+--        AND 
+--        
+--        (CIF_IT IS NOT NULL  AND CIF_IT <> 0 ) 
                 ) R ON R.CUIIO = L.CUIIO
                 
                 
