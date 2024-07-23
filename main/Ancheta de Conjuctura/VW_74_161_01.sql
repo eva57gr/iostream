@@ -6,6 +6,8 @@
     
         FROM USER_BANCU.VW_74_161 L
                 LEFT JOIN (
+                
+                
                 SELECT 
   PERS_IT,
   CIF_IT,
@@ -20,7 +22,11 @@
         
         AND 
         
-        (CIF_IT IS NOT NULL  AND CIF_IT <> 0 ) 
+        PERS_IT  IS NULL  
+        
+        --AND CIF_IT <> 0 ) 
+        
+        
                 ) R ON R.CUIIO = L.CUIIO
                 
                 
