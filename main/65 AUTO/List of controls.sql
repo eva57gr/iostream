@@ -1,4 +1,4 @@
-﻿SELECT 
+SELECT 
       L.CONTROL,
       L.FORMULA,
     --  L.SQL_TEXT,
