@@ -1,4 +1,4 @@
-﻿--         INSERT INTO RENIM (
+--         INSERT INTO RENIM (
 --           CUIIO,
 --           CUIIO_VERS,
 --           DENUMIRE,
@@ -18,7 +18,7 @@
 --           CAEM2
 --         )
 --         
---         
+         
          SELECT
          
 --    CUIIO,
@@ -58,7 +58,7 @@
 --    IDNO
 
            R.CUIIO,
-           1061 CUIIO_VERS,
+           473 CUIIO_VERS,
            R.DENUMIRE,
            R.EDIT_USER,
            R.STATUT,
@@ -76,7 +76,7 @@
            R.CAEM2
             FROM 
             
-             USER_BANCU.VW_MAX_RENIM_TRIM_CIS R
+             USER_BANCU.VW_MAX_RENIM_CIS_1004 R
             
             
             WHERE 
@@ -90,8 +90,8 @@ SELECT CUIIO
 )
 
 
---AND 
---CUIIO_VERS   NOT IN (1061)
+AND 
+CUIIO_VERS   NOT IN (473)
 ----            
 --            ORDER BY 
 --            CUIIO_VERS
