@@ -12,7 +12,7 @@
          SUM(CASE WHEN D.PERIOADA IN (:pPERIOADA-1) THEN  D.COL1 ELSE NULL END) AS COL1_2020,
         SUM(CASE WHEN D.PERIOADA IN (:pPERIOADA-1) THEN  D.COL2 ELSE NULL END) AS COL2_2020
         
-  -------------------------------------      
+  -------------------------------------   -------------------------------------------   
                 FROM CIS2.VW_DATA_ALL D 
                 
                     WHERE 
