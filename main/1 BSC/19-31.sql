@@ -1,6 +1,5 @@
-SELECT  
-D.CUIIO, 
-'Rind.'||D.RIND||'- nu exista asa cod in clasificatorul tarilor = ['||CIS2.NVAL(D.COL1)||']'
+SELECT   
+ D.RIND
 
    
  AS REZULTAT
@@ -11,7 +10,7 @@ FROM
 
 WHERE
   (CIS2.D.PERIOADA=:PERIOADA          ) AND
- -- (CIS2.D.CUIIO=:CUIIO                ) AND
+  (CIS2.D.CUIIO=:CUIIO                ) AND
   (CIS2.D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (CIS2.D.FORM = :FORM               ) AND
   (CIS2.D.FORM_VERS=:FORM_VERS ) AND
@@ -20,8 +19,9 @@ WHERE
   (CIS2.D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
   
   CIS2.D.FORM IN (19)  AND
-  CIS2.D.CAPITOL IN (1017) AND 
-  D.COL1 NOT IN 
+  CIS2.D.CAPITOL IN (1017) 
+  
+  AND  D.RIND NOT IN 
   (
   SELECT 
     CODUL
@@ -32,5 +32,4 @@ WHERE
 
 GROUP BY 
   D.RIND, 
-  D.COL1,
-  D.CUIIO
+  D.COL1
