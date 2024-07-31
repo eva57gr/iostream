@@ -69,7 +69,7 @@ SELECT
                GROUP BY 
               C.CODUL,
               C.FULL_CODE
--- End   1     
+-- End   1     ----------------------------------------------------
 -- Start 2 
               UNION 
 
