@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 44
+         AND A.FORM  = 19
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 44
+         AND B.FORM  = 19
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
