@@ -79,7 +79,9 @@
              USER_BANCU.VW_MAX_RENIM_CIS_1004 R
             
             
-            WHERE 
+            WHERE
+            
+            -------------------------------------------------------------
             
            R.CUIIO IN 
 
