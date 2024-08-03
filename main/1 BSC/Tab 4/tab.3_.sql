@@ -1,22 +1,22 @@
-INSERT INTO TABLE_OUT
-(   
-    PERIOADA,
-    FORM,
-    FORM_VERS,
-    ID_MDTABLE,
-    COD_CUATM,
-    NR_SECTIE,
-    NUME_SECTIE,
-    NR_SECTIE1,
-    NUME_SECTIE1,
-    NR_SECTIE2,
-    NUME_SECTIE2,
-    NR_ROW,
-    ORDINE,
-    DECIMAL_POS,
-    NUME_ROW,
-    COL1, COL2
-)
+--INSERT INTO TABLE_OUT
+--(   
+--    PERIOADA,
+--    FORM,
+--    FORM_VERS,
+--    ID_MDTABLE,
+--    COD_CUATM,
+--    NR_SECTIE,
+--    NUME_SECTIE,
+--    NR_SECTIE1,
+--    NUME_SECTIE1,
+--    NR_SECTIE2,
+--    NUME_SECTIE2,
+--    NR_ROW,
+--    ORDINE,
+--    DECIMAL_POS,
+--    NUME_ROW,
+--    COL1, COL2
+--)
 
 
 
@@ -675,9 +675,9 @@ GROUP BY
 --  B.CUATM IS NULL
   
 ) FF
---ORDER BY
- -- FF.FULL_CODE,
- -- FF.ORDINE
+ORDER BY
+  FF.FULL_CODE,
+  FF.ORDINE
   
   
   

@@ -20,9 +20,9 @@ BEGIN
   
    --1 TUR FORM = 44  AND PERIOADA = 1050
    
-    ---=--------------------------------------------------------------------------------
+    ---=------------------------------------
      
-     CIS2.PRC_STATUT_TRIMIS(:pPER9IOADA,:pFORM);
+     CIS2.PRC_STATUT_TRIMIS(:pPER9IdOADA,:pFORM);
   
 --  5
 --6

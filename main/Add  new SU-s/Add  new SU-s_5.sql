@@ -29,7 +29,7 @@
         TRIM(L.IDNO)  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.AUTO_65 L
+        FROM   USER_BANCU.RENIM_1061 L
         
              --   CIS.RENIM  L
         
