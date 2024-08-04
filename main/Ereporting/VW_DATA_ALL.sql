@@ -10,7 +10,7 @@ WHERE
 
 D.FORM IN (:pFORM)
 AND D.PERIOADA IN (:pPERIOADA)
-
+-------------------------------------------------------------
 
 AND D.CUIIO IN (
 40563090,
