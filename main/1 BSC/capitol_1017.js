@@ -12,17 +12,16 @@ $(function () {
     });
 });
 
-//It is js code. But don't work.
+//It is js code. But don't work -- R036_C1
 function f_Capitol_1017() {
-    var R000_C1 = $("#19_1017_11849_000_1");
+    var R000_C1 = $("#19_1017_11849_000_1"); // 
     var R498_C1 = $("#19_1017_11860_498_1");
     var R999_C1 = $("#19_1017_11861_999_1");
     var R008_C1 = $("#19_1017_12341_008_1");
     var R682_C1 = $("#19_1017_12474_682_1");
-    
-    // Trebuie sa fie asa
-    // Prima autosuma   - R000_C1 = R999_C1 + R498_C1 
-    // A doua autosuma  - R999_C1 = R008_C1 + R682_C1
+    var R036_C1 = $("#19_1017_12340_036_1");  // Thsi row is dinamic
+    //R036_C1
+    //This row is dynamic when the row is created, this id is assigned - but it is not calculated.Static rows are calculated but not dynamically
 
     //--------------readOnly input -----------------------
 
@@ -31,15 +30,15 @@ function f_Capitol_1017() {
     var values_R999_C1 = [
 
         parseInt(R008_C1.val()) || 0,
-        parseInt(R682_C1.val()) || 0
+        parseInt(R682_C1.val()) || 0,
+        parseInt(R036_C1.val()) || 0
 
     ];
 
-    // Calculate the sum of all values
-    var sum = values_R999_C1.reduce((acc, curr) => acc + curr, 0);
+         var sum_R999_C1 = values_R999_C1.reduce((acc, curr) => acc + curr, 0);
 
-    // Set the value of R200_C1 to the calculated sum or an empty string if any input field is empty
-    R999_C1.val(sum === 0 ? "" : sum);
+         R999_C1.val(sum_R999_C1 === 0 ? "" : sum_R999_C1);
+
 
     var values_R000_C1 = [
 
@@ -48,11 +47,10 @@ function f_Capitol_1017() {
 
     ];
 
-    // Calculate the sum of all values
-    var sum = values_R000_C1.reduce((acc, curr) => acc + curr, 0);
+    
+         var sum_R000_C1 = values_R000_C1.reduce((acc, curr) => acc + curr, 0);
 
-    // Set the value of R200_C1 to the calculated sum or an empty string if any input field is empty
-    R000_C1.val(sum === 0 ? "" : sum);
+         R000_C1.val(sum_R000_C1 === 0 ? "" : sum_R000_C1);
 
 
 
