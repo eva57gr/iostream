@@ -1,5 +1,6 @@
-var from = "";
 
+//This is my file 
+var from = "";
 $(document).ready(function () {
     form = $("#formDenShort").val();
     f_Capitol_1017();
@@ -12,17 +13,30 @@ $(function () {
     });
 });
 
-//It is js code. But don't work -- R036_C1
+//
+
+//Modify - here is an algorithm for calculating the sum of integers in dynamic and static rows.
+//With dynamic lines, if we create the first line and enter a value, the calculation is done quickly, if we create another one, the result does not appear immediately
 function f_Capitol_1017() {
-    var R000_C1 = $("#19_1017_11849_000_1"); // 
+
+    var R000_C1 = 0;
+    var R498_C1 = 0;
+    var R999_C1 = 0;
+    var R008_C1 = 0;
+    var R682_C1 = 0;
+    var R036_C1 = 0;
+    var R148_C1 = 0;
+
+    var R000_C1 = $("#19_1017_11849_000_1"); 
     var R498_C1 = $("#19_1017_11860_498_1");
     var R999_C1 = $("#19_1017_11861_999_1");
     var R008_C1 = $("#19_1017_12341_008_1");
     var R682_C1 = $("#19_1017_12474_682_1");
-    var R036_C1 = $("#19_1017_12340_036_1");  // Thsi row is dinamic
-    //R036_C1
-    //This row is dynamic when the row is created, this id is assigned - but it is not calculated.Static rows are calculated but not dynamically
+    var R036_C1 = $("#19_1017_12340_036_1");  // Dinamic row
+    var R148_C1 = $("#19_1017_78472_148_1");  // Dinamic row  
 
+
+    
     //--------------readOnly input -----------------------
 
     R000_C1.prop("readonly", true);
@@ -31,11 +45,13 @@ function f_Capitol_1017() {
 
         parseInt(R008_C1.val()) || 0,
         parseInt(R682_C1.val()) || 0,
-        parseInt(R036_C1.val()) || 0
+        parseInt(R036_C1.val()) || 0,
+        parseInt(R148_C1.val()) || 0
 
     ];
 
-         var sum_R999_C1 = values_R999_C1.reduce((acc, curr) => acc + curr, 0);
+         var sum_R999_C1= 0; 
+         sum_R999_C1 = values_R999_C1.reduce((acc, curr) => acc + curr, 0);
 
          R999_C1.val(sum_R999_C1 === 0 ? "" : sum_R999_C1);
 
@@ -48,7 +64,8 @@ function f_Capitol_1017() {
     ];
 
     
-         var sum_R000_C1 = values_R000_C1.reduce((acc, curr) => acc + curr, 0);
+         var sum_R000_C1 = 0; 
+         sum_R000_C1  = values_R000_C1.reduce((acc, curr) => acc + curr, 0);
 
          R000_C1.val(sum_R000_C1 === 0 ? "" : sum_R000_C1);
 
