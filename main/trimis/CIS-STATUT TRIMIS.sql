@@ -22,7 +22,7 @@ BEGIN
    
     ---=------------------------------------
      ------------------------
-     CIS.PRC_STATUT_TRIMIS(:pPER9IdOADA,:pFORM);
+     CIS2.PRC_STATUT_TRIMIS(:pPERIOADA,:pFORM);
   
 --  5
 --6
