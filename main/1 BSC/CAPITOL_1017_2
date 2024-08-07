@@ -19,14 +19,15 @@ $(document).ready(function () {
     });
 });
 
+//Utilizeaza acest algoritm - precedentul este gresit - este complicat - 
 function f_Capitol_1017() {
     var R000_C1 = $("#19_1017_11849_000_1");
     var R498_C1 = $("#19_1017_11860_498_1");
     var R999_C1 = $("#19_1017_11861_999_1");
     var R008_C1 = $("#19_1017_12341_008_1");
     var R682_C1 = $("#19_1017_12474_682_1");
-    var R036_C1 = $("#19_1017_12340_036_1");  // Dynamic row
-    var R148_C1 = $("#19_1017_78472_148_1");  // Dynamic row  
+    var R036_C1 = $("#19_1017_12340_036_1");  
+    var R148_C1 = $("#19_1017_78472_148_1");    
 
     // Make specific fields read-only
     R000_C1.prop("readonly", true);
