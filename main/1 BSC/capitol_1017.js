@@ -1,4 +1,3 @@
-
 //This is my file 
 var from = "";
 $(document).ready(function () {
@@ -15,8 +14,6 @@ $(function () {
 
 //
 
-//Modify - here is an algorithm for calculating the sum of integers in dynamic and static rows.
-//With dynamic lines, if we create the first line and enter a value, the calculation is done quickly, if we create another one, the result does not appear immediately
 function f_Capitol_1017() {
 
     var R000_C1 = 0;

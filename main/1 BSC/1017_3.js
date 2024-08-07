@@ -35,9 +35,9 @@ function f_Capitol_1017() {
     var R999_C1 = $("#19_1017_11861_999_1");
     var R008_C1 = $("#19_1017_12341_008_1");
     var R682_C1 = $("#19_1017_12474_682_1");
-    var R036_C1 = $("#19_1017_12340_036_1");  // Dynamic row
-    var R148_C1 = $("#19_1017_78472_148_1");  // Dynamic row
-    var R449_C1 = $("#19_1017_12318_499_1");  // Dynamic row  
+    var R036_C1 = $("#19_1017_12340_036_1");  
+    var R148_C1 = $("#19_1017_78472_148_1");  
+    var R449_C1 = $("#19_1017_12318_499_1");   
 
     //create the variables and assign id next
 
@@ -52,8 +52,7 @@ function f_Capitol_1017() {
         parseInt(R036_C1.val()) || 0,
         parseInt(R148_C1.val()) || 0,
         parseInt(R449_C1.val()) || 0
-        //dd the variables for the sum all except for
-        // R498_C1 and  R999_C1
+        
 
     ];
 
