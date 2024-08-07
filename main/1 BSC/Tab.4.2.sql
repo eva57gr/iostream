@@ -5,6 +5,7 @@ SELECT
   :pID_MDTABLE AS ID_MDTABLE,
   :pCOD_CUATM AS COD_CUATM,
          -----------------------------------------------
+         -------------------------------------------------
   '0' AS NR_SECTIE,
   '0' AS NUME_SECTIE,
   '0' AS NR_SECTIE1,

@@ -1,6 +1,6 @@
 SELECT DISTINCT ID_USER
             
-
+-----------------------------------------
 
         FROM CIS2.SYS_USER_ACCES
         
