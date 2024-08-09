@@ -1,0 +1,19 @@
+UPDATE CIS2.MD_TABLES
+SET SQL_TEXT = REPLACE(
+                  SQL_TEXT,
+                   'SUM(CASE WHEN INSTR(NR_ROW, ''~'') > 1 THEN SUBSTR(NR_ROW, 1, INSTR(NR_ROW, ''~'') - 1) ELSE ''0'' END) ||''~''||ORDINE NR_ROW',
+                  'SUM(CASE WHEN INSTR(NR_ROW, ''~'') > 1 THEN SUBSTR(NR_ROW, 1, INSTR(NR_ROW, ''~'') - 1) ELSE  NULL END) ||''~''||ORDINE NR_ROW'
+              )
+WHERE FORM = 26
+AND TABELE_VERS = 1053
+
+AND 
+
+(
+DEN_SHORT LIKE '%Cumulativ%' 
+OR 
+DEN_SHORT LIKE '%cumulativ%'
+)
+--AND SQL_TEXT LIKE '%REGEXP_SUBSTR(NR_ROW%'
+
+AND ID_MDTABLE = 12930;
