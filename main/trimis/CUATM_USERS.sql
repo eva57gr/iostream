@@ -2,12 +2,12 @@ SELECT DISTINCT ID_USER
             
 -----------------------------------------
 
-        FROM CIS2.SYS_USER_ACCES
+        FROM CIS.SYS_USER_ACCES
         
         WHERE 
         
-        FORM IN (57,59,63,66)
+        FORM IN (5)
 
-AND CUATM   LIKE '01%'
+AND CUATM   NOT LIKE '01%'
 
 --------------------------------------------------------

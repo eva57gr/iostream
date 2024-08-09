@@ -41,7 +41,7 @@ SELECT
 SUM(CASE
         WHEN INSTR(NR_ROW, '~') > 1 THEN SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '~') - 1)
         ELSE '0'  -- Replace '0' with NULL if you prefer NULL instead of 0
-    END )NR_ROW,
+    END ) ||'~'||ORDINE NR_ROW,
     
     
     

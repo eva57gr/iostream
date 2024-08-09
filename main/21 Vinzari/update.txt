@@ -1,0 +1,109 @@
+--Oracle
+-- This table 
+
+
+CREATE TABLE CIS2.MD_TABLES
+(
+  ID_MDTABLE    NUMBER                          NOT NULL,
+  TABELE        VARCHAR2(10 BYTE)               NOT NULL,
+  TABELE_VERS   NUMBER                          NOT NULL,
+  FORM          NUMBER                          NOT NULL,
+  FORM_VERS     NUMBER                          NOT NULL,
+  DENUMIRE      VARCHAR2(500 BYTE),
+  DEN_SHORT     VARCHAR2(255 BYTE),
+  NIVELRAIONAL  VARCHAR2(1 BYTE)                NOT NULL,
+  ORDINE        NUMBER,
+  DATA_REG      DATE,
+  STATUT        VARCHAR2(1 BYTE),
+  HTML_HEADER   CLOB,
+  SQL_TEXT      CLOB,
+  SQL_TEXT1     CLOB,
+  LANDSCAPE     VARCHAR2(1 BYTE),
+  COL_NUM       NUMBER,
+  FOOTNOTE      VARCHAR2(255 BYTE),
+  UM            VARCHAR2(255 BYTE),
+  CREATING      VARCHAR2(1 BYTE)
+);
+
+
+SELECT 
+    ID_MDTABLE,
+    DEN_SHORT,
+    SQL_TEXT, 
+    ORDINE
+
+FROM CIS2.MD_TABLES
+
+    WHERE 
+    FORM = 26
+    AND TABELE_VERS = 1053;
+
+
+-- In column I have text like:
+SELECT
+SUM(REGEXP_SUBSTR(NR_ROW, '\d+'))||'~'||ORDINE NR_ROW,
+ORDINE,
+  '02002' AS DECIMAL_POS,
+NUME_ROW,
+SUM(COL1) AS COL1,
+SUM(COL2) AS COL2,
+SUM(COL3) AS COL3,
+SUM(COL4) AS COL4,
+SUM(COL5) AS COL5
+      
+      FROM TABLE_OUT         
+        WHERE 
+          COD_CUATM IN (:pCOD_CUATM)   AND
+          --PERIOADA IN (1060,1061)     AND 
+          PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA AND 
+          ID_MDTABLE IN (12433) AND
+          FORM IN (:pFORM)             AND
+          FORM_VERS IN (:pFORM_VERS)     
+          
+          
+          GROUP BY
+          ORDINE,
+          NUME_ROW
+--          NR_ROW
+          
+          ORDER BY
+          ORDINE
+
+
+          --I need to change this substring  'SUM(REGEXP_SUBSTR(NR_ROW, '\d+'))||'~'||ORDINE NR_ROW' to 
+          -- this  'SUM(CASE WHEN INSTR(NR_ROW, '~') > 1 THEN SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '~') - 1) ELSE '0'  END ) ||'~'||ORDINE NR_ROW',
+--So that in the end it will be like this
+
+SELECT
+SUM(CASE WHEN INSTR(NR_ROW, '~') > 1 THEN SUBSTR(NR_ROW, 1, INSTR(NR_ROW, '~') - 1) ELSE '0'  END ) ||'~'||ORDINE NR_ROW,
+ORDINE,
+  '02002' AS DECIMAL_POS,
+NUME_ROW,
+SUM(COL1) AS COL1,
+SUM(COL2) AS COL2,
+SUM(COL3) AS COL3,
+SUM(COL4) AS COL4,
+SUM(COL5) AS COL5
+      
+      FROM TABLE_OUT         
+        WHERE 
+          COD_CUATM IN (:pCOD_CUATM)   AND
+          --PERIOADA IN (1060,1061)     AND 
+          PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA AND 
+          ID_MDTABLE IN (12433) AND
+          FORM IN (:pFORM)             AND
+          FORM_VERS IN (:pFORM_VERS)     
+          
+          
+          GROUP BY
+          ORDINE,
+          NUME_ROW
+--          NR_ROW
+          
+          ORDER BY
+          ORDINE
+
+
+
+
+--There are many rows in which it must be changed. An update must be created

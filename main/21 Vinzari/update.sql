@@ -1,0 +1,14 @@
+
+
+
+SELECT 
+    ID_MDTABLE,
+    DEN_SHORT,
+    SQL_TEXT, 
+    ORDINE
+
+FROM CIS2.MD_TABLES
+
+    WHERE 
+    FORM = 26
+    AND TABELE_VERS = 1053
