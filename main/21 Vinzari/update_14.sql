@@ -1,3 +1,4 @@
+--This don't work
 SELECT 
     ID_MDTABLE,
     DEN_SHORT,
