@@ -1,4 +1,29 @@
+--Oracle
+-- This table 
 
+
+CREATE TABLE CIS2.MD_TABLES
+(
+  ID_MDTABLE    NUMBER                          NOT NULL,
+  TABELE        VARCHAR2(10 BYTE)               NOT NULL,
+  TABELE_VERS   NUMBER                          NOT NULL,
+  FORM          NUMBER                          NOT NULL,
+  FORM_VERS     NUMBER                          NOT NULL,
+  DENUMIRE      VARCHAR2(500 BYTE),
+  DEN_SHORT     VARCHAR2(255 BYTE),
+  NIVELRAIONAL  VARCHAR2(1 BYTE)                NOT NULL,
+  ORDINE        NUMBER,
+  DATA_REG      DATE,
+  STATUT        VARCHAR2(1 BYTE),
+  HTML_HEADER   CLOB,
+  SQL_TEXT      CLOB,
+  SQL_TEXT1     CLOB,
+  LANDSCAPE     VARCHAR2(1 BYTE),
+  COL_NUM       NUMBER,
+  FOOTNOTE      VARCHAR2(255 BYTE),
+  UM            VARCHAR2(255 BYTE),
+  CREATING      VARCHAR2(1 BYTE)
+);
 
 
 SELECT 
