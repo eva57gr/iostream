@@ -18,6 +18,7 @@ $(document).ready(function () {
     });
 });
 
+//Change this function to be for column 10.
 function f_Capitol_1128() {
     var R500_C8 = $("#64_1128_59030_500_8");
 
