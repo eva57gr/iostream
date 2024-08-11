@@ -187,7 +187,7 @@ function f_Capitol_1128_col10_m2() {
     R500_C10.val(sum_R500_C10 === 0 ? "" : sum_R500_C10.toFixed(1));
 }
 
-
+// Modify getMDID   
 // Complete mapping for MDID based on rowID
 function getMDID(rowID) {
     var mdidMapping = {
