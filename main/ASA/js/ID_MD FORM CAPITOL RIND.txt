@@ -1,0 +1,8 @@
+In the final file is the logic of the lines with columns 8
+Now add the same logic but for column 10. 
+The rows  are the same and the id is the same, the only difference in the id is that for column 8 it ends with 8 but for column 10 
+it will end with 10.
+And add the same logic but for column 9.
+The only difference is that column 9 is an integer.
+There must already be 3 logics in the final file.
+One for column 8 and another for column 9 and another for column 10.
