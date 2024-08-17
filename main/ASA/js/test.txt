@@ -1,0 +1,6 @@
+05-059	Cap. III, Rind.001 =Rind.002+ Rind.999 Col1
+05-060	Cap. III, Rind.001 =Rind.002+ Rind.999 Col2
+05-061	Cap. III, Rind.002 =Rind (051+031+112+398+417+643+762+795+804+860), pe Col1
+05-062	Cap. III, Rind.002 =Rind (051+031+112+398+417+643+762+795+804+860), pe Col2
+05-063	Cap. III, Rind.999 =Sum(Coduri Alte Tari), pe Col1
+05-064	Cap. III, Rind.999 =Sum(Coduri Alte Tari), pe Col2
