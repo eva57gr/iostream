@@ -4,7 +4,7 @@ function sumCap1035_Rind0000000() {
     //Add all in rowIDs
     var rowIDs = [
         
-        { id: "50511", rind: "0100000" },
+        { id: "50511", rind: "0100000" }, //47_1035_50511_0100000_1
         { id: "50274", rind: "0101000" },
         { id: "51370", rind: "0110000" },
         { id: "51371", rind: "0111000" },
@@ -1745,40 +1745,98 @@ function sumCap1035_Rind0000000() {
     var sumCol7 = 0.000;
     var sumCol8 = 0.000;
     var sumCol9 = 0.000;
+    var sumCol10 = 0.000;
+    var sumCol11 = 0.000;
+    var sumCol12 = 0.000;
+
+    
+
 
     // Calculate the sums
     rowIDs.forEach(function (row) {
-        var col1Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_1").val()) || 0.000;
+        var col1Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_1").val()) || 0.000;
         sumCol1 += col1Val;
-        var col2Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_2").val()) || 0.000;
+
+        var col2Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_2").val()) || 0.000;
         sumCol2 += col2Val;
-        var col3Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_3").val()) || 0.000;
+
+        var col3Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_3").val()) || 0.000;
         sumCol3 += col3Val;
-        var col4Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_4").val()) || 0.000;
-        sumCol4 += col4Val;
-        var col5Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_5").val()) || 0.000;
+
+        var col5Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_5").val()) || 0.000;
         sumCol5 += col5Val;
-        var col6Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_6").val()) || 0.000;
+
+        var col6Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_6").val()) || 0.000;
         sumCol6 += col6Val;
-        var col7Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_7").val()) || 0.000;
+
+        var col7Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_7").val()) || 0.000;
         sumCol7 += col7Val;
-        var col8Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_8").val()) || 0.000;
-        sumCol8 += col8Val;
-        var col9Val = parseFloat($("#47_1034_" + row.id + "_" + row.rind + "_9").val()) || 0.000;
+
+        // Calculate column 4 as the sum of columns 5, 6, and 7
+        var col4Val = col5Val + col6Val + col7Val;
+
+        // If col4Val is 0.0, set it to an empty string, otherwise format it to 3 decimal places
+        if (col4Val === 0.0) {
+            $("#47_1035_" + row.id + "_" + row.rind + "_4").val('');
+        } else {
+            $("#47_1035_" + row.id + "_" + row.rind + "_4").val(col4Val.toFixed(3));
+        }
+
+        // Make column 4 read-only
+        $("#47_1035_" + row.id + "_" + row.rind + "_4").prop("readonly", true);
+
+        // Accumulate the sum for column 4
+        sumCol4 += col4Val;
+
+
+       
+        var col10Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_10").val()) || 0.000;
+        sumCol10 += col10Val;
+
+
+        var col11Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_11").val()) || 0.000;
+        sumCol11 += col11Val;
+
+        var col12Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_12").val()) || 0.000;
+        sumCol12 += col12Val;
+
+        var col9Val = parseFloat($("#47_1035_" + row.id + "_" + row.rind + "_9").val()) || 0.000;
         sumCol9 += col9Val;
+
+
+
+        
+        var col8Val = col9Val + col10Val + col11Val;
+
+        // If col4Val is 0.0, set it to an empty string, otherwise format it to 3 decimal places
+        if (col8Val === 0.0) {
+            $("#47_1035_" + row.id + "_" + row.rind + "_8").val('');
+        } else {
+            $("#47_1035_" + row.id + "_" + row.rind + "_8").val(col8Val.toFixed(3));
+        }
+
+        // Make column 8 read-only
+        $("#47_1035_" + row.id + "_" + row.rind + "_8").prop("readonly", true);
+
+        // Accumulate the sum for column 4
+        sumCol8 += col8Val;
 
     });
 
+    
     // Apply rounding and set the values
-    var rind0000000Col1 = $("#47_1034_70282_0000000_1");
-    var rind0000000Col2 = $("#47_1034_70282_0000000_2");
-    var rind0000000Col3 = $("#47_1034_70282_0000000_3");
-    var rind0000000Col4 = $("#47_1034_70282_0000000_4");
-    var rind0000000Col5 = $("#47_1034_70282_0000000_5");
-    var rind0000000Col6 = $("#47_1034_70282_0000000_6");
-    var rind0000000Col7 = $("#47_1034_70282_0000000_7");
-    var rind0000000Col8 = $("#47_1034_70282_0000000_8");
-    var rind0000000Col9 = $("#47_1034_70282_0000000_9");
+    var rind0000000Col1 = $("#47_1035_51173_0000000_1");
+    var rind0000000Col2 = $("#47_1035_51173_0000000_2");
+    var rind0000000Col3 = $("#47_1035_51173_0000000_3");
+    var rind0000000Col4 = $("#47_1035_51173_0000000_4");
+    var rind0000000Col5 = $("#47_1035_51173_0000000_5");
+    var rind0000000Col6 = $("#47_1035_51173_0000000_6");
+    var rind0000000Col7 = $("#47_1035_51173_0000000_7");
+    var rind0000000Col8 = $("#47_1035_51173_0000000_8");
+    var rind0000000Col9 = $("#47_1035_51173_0000000_9");
+    var rind0000000Col10 = $("#47_1035_51173_0000000_10");
+    var rind0000000Col11 = $("#47_1035_51173_0000000_11");
+    var rind0000000Col12 = $("#47_1035_51173_0000000_12");
     
 
     rind0000000Col1.val(sumCol1 !== 0 ? sumCol1.toFixed(3) : ""); // Assign empty string if sum is 0
@@ -1790,6 +1848,9 @@ function sumCap1035_Rind0000000() {
     rind0000000Col7.val(sumCol7 !== 0 ? sumCol7.toFixed(3) : ""); // Assign empty string if sum is 0
     rind0000000Col8.val(sumCol8 !== 0 ? sumCol8.toFixed(3) : ""); // Assign empty string if sum is 0
     rind0000000Col9.val(sumCol9 !== 0 ? sumCol9.toFixed(3) : ""); // Assign empty string if sum is 0
+    rind0000000Col10.val(sumCol10 !== 0 ? sumCol10.toFixed(3) : ""); // Assign empty string if sum is 0
+    rind0000000Col11.val(sumCol11 !== 0 ? sumCol11.toFixed(3) : ""); // Assign empty string if sum is 0
+    rind0000000Col12.val(sumCol12 !== 0 ? sumCol12.toFixed(3) : ""); // Assign empty string if sum is 0
 
 
 
@@ -1803,15 +1864,17 @@ function sumCap1035_Rind0000000() {
     rind0000000Col7.prop("readonly", true);
     rind0000000Col8.prop("readonly", true);
     rind0000000Col9.prop("readonly", true);
+    rind0000000Col10.prop("readonly", true);
+    rind0000000Col11.prop("readonly", true);
+    rind0000000Col12.prop("readonly", true);
     
 }
-
 
 
 // Update the main function to include the new logic
 function f_Capitol_1035() {
     // Execute the custom functions
-    sumCap1034_Rind0000000();
+    sumCap1035_Rind0000000();
     
  }
 
