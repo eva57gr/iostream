@@ -1,11 +1,4 @@
-DECLARE -- ====================================================================
 
-  CURSOR C IS
-        
-        
-  
-  
-  
 
 
 SELECT 
@@ -40,39 +33,11 @@ SELECT
                
                WHERE
                1=1
-              -- and   R.cuiio_vers =    2012 
+   
                
                
                AND     R.IDNO IS NOT   NULL 
                
 
 
-;
-
-BEGIN -- ======================================================================
-  FOR CR IN C
-  LOOP
-    UPDATE CIS2.RENIM SET 
-      
---    --    CAEM2 = CR.CAEM2,
---         DENUMIRE = CR.DENUMIRE,
---        CUATM = CR.CUATM,
---         CFP = CR.CFP,
---        CFOJ = CR.CFOJ
-         IDNO = CR.IDNO
- --     
-  --  ETAPA_PROD = CR.ETAPA_PROD
-    
-    
-    WHERE 
-      CUIIO  = CR.CUIIO 
---      AND
---      CUIIO_VERS = CR.CUIIO_VERS 
-      
-      
-      
-    ;
-  END LOOP;
-END; -- =======================================================================
-
-
+--Pentru  perioada - 2012 sa pun in form_cuiio CUIIO_VERS - 2012 pentr rsf1, 2, 3, Prescurtat Da. ? Ca acum nu mai 4287  sunt cu cuiio_VERS = 2012
