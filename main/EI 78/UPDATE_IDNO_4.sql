@@ -3,26 +3,41 @@ DECLARE -- ====================================================================
   CURSOR C IS
         
         
-     SELECT 
-    L.CUIIO,
-    L.CUIIO_VERS,
-    L.IDNO,
-    TRIM(R.IDNO) R_IDNO
-    
-        FROM USER_BANCU.ADD_NEW_SU L    
-        
-                                LEFT JOIN CIS2.RENIM R ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS
-                                
-                                WHERE 
-                                R.CUIIO IS NOT NULL 
-                                
-                                
-                                 
-                                
-                                 
-          
-          ;
+     
+SELECT
+      R.CUIIO,
+      R.CUIIO_VERS,
+      R.IDNO 
 
+            FROM CIS2.RENIM R INNER JOIN (
+            
+            
+SELECT
+      R.CUIIO,
+      MAX(R.CUIIO_VERS) AS  CUIIO_VERS,
+      R.IDNO 
+
+            FROM CIS2.RENIM R 
+        
+
+       GROUP BY
+       R.CUIIO,
+       R.IDNO
+       
+       HAVING 
+       R.IDNO IS NOT NULL 
+   
+            ) RR ON RR.CUIIO = R.CUIIO AND RR.CUIIO_VERS = R.CUIIO_VERS 
+        
+
+       GROUP BY
+       R.CUIIO,
+       R.IDNO,
+       R.CUIIO_VERS;
+       
+       
+       
+          
 BEGIN -- ======================================================================
   FOR CR IN C
   LOOP
@@ -35,8 +50,10 @@ BEGIN -- ======================================================================
       IDNO = CR.IDNO
       
     WHERE 
-      CUIIO  = CR.CUIIO AND
-      CUIIO_VERS = CR.CUIIO_VERS 
+      CUIIO  = CR.CUIIO 
+      
+--      AND
+--      CUIIO_VERS = CR.CUIIO_VERS 
       
       
       
