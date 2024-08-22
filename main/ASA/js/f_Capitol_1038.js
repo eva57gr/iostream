@@ -2354,3 +2354,6 @@ $(document).ready(function () {
     $("input:not([type='button']):not([readonly]):not([disabled])").on("change", f_Capitol_1038);
     $(document).on("change", "input:not([type='button']):not([readonly]):not([disabled])", f_Capitol_1038);
 });
+
+
+//(Rînd.080) (Col.2,3,4,5) = ∑(Col.2,3,4,5) (Rînd.010,020,030,040,050,060,070)
