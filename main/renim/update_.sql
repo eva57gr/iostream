@@ -11,7 +11,7 @@ SELECT
   D.CFOJ,
   D.CAEM2,
   D.IDNO
-  FROM TRIM_2_24_AGRO D
+  FROM IDNO D
   
   
   ORDER BY 
@@ -24,9 +24,9 @@ BEGIN -- ======================================================================
   LOOP
     UPDATE CIS2.RENIM SET 
       
-      DENUMIRE = CR.DENUMIRE,
-      CUATM = CR.CUATM
---      CFP = CR.CFP,
+    --  DENUMIRE = CR.DENUMIRE,
+     -- CUATM = CR.CUATM
+        CFP = CR.CFP
     --  CFOJ = CR.CFOJ
 --      CAEM2 = CR.CAEM2,
 --      IDNO = CR.IDNO
