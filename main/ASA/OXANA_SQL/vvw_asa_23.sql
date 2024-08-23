@@ -1,0 +1,45 @@
+SELECT
+    L.CUIIO,
+    L.CUATM,
+    L.FULL_CODE,
+    L.CAEM2,
+    R.CAEM2 CAEM2_5C, 
+    L.CAP_SR_1,
+    L.CAP_SR_2,
+    L.CAP_SR_3,
+    L.CAP_SR_4,
+    L.CAP_SR_5,
+    L.CAP_SR_6,
+    L.CAP_SR_7,
+    L.RIND_400_COL2,
+    L.RIND_150_COL1,
+    R.RIND_0100,
+    L.RIND_160,
+    R.RIND_0180,
+    L.RIND_200,
+    R.RIND_0190,
+    L.RIND_210,
+    R.RIND_2000,
+    L.RIND_220,
+    R.RIND_3000,
+    L.RIND_240,
+    R.RIND_5000,
+    L.RIND_260,
+    R.RIND_7000,
+    L.RIND_270,
+    R.RIND_8000,
+    L.RIND_280,
+    R.RIND_9000,
+    L.RIND_290,
+    R.RIND_1000,
+    L.RIND_296,
+    R.RIND_1010,
+    L.RIND_320_COL1,
+    R.CAP_1_R_2000_1
+            FROM VVW_KATALOG_ASA_2023  L LEFT jOIN VVW_KATALOG_5_C_2023 R on R.CUIIO = L.CUIIO
+            
+            
+            
+            order BY
+            L.FULL_CODE,
+            L.cuiio
