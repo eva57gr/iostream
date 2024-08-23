@@ -1,20 +1,6 @@
-DECLARE -- ====================================================================
-
-  CURSOR C IS
-        
-
-SELECT 
-          R.CUIIO,
-          R.CUIIO_VERS,
-          l.CAEM2,
-          R.IDNO
-
-           
-           
-      FROM
 
 
-(
+
 SELECT 
           R.CUIIO,
           R.CUIIO_VERS,
@@ -60,43 +46,5 @@ SELECT
 --          R.IDNO
           
           from IDNO R
-               )  )  r LEFT jOIN (
-               
-               SELECT 
-          R.CUIIO,
-          R.CUIIO_VERS,
-          R.CAEM2,
-          R.IDNO
-          
-          from IDNO R
-               )  l ON l.CUIIO = r.CUIIO 
+               ) 
 
-         
-     
-;
-       
-       
-       
-          
-BEGIN -- ======================================================================
-  FOR CR IN C
-  LOOP
-    UPDATE CIS2.RENIM SET 
-       CAEM2 = CR.CAEM2
---      DENUMIRE = CR.DENUMIRE,
---      CUATM = CR.CUATM,
---      CFP = CR.CFP,
---      CFOJ = CR.CFOJ,
-   --   IDNO = CR.IDNO
-      
-    WHERE 
-      CUIIO  = CR.CUIIO 
-      
-      AND
-      CUIIO_VERS = CR.CUIIO_VERS 
-      
-      
-      
-    ;
-  END LOOP;
-END; -- =======================================================================

@@ -12,6 +12,7 @@ SELECT
     L.CAP_SR_6,
     L.CAP_SR_7,
     L.RIND_400_COL2,
+    M.M3_00_T_COL2,
     L.RIND_150_COL1,
     R.RIND_0100,
     L.RIND_160,
@@ -36,7 +37,9 @@ SELECT
     R.RIND_1010,
     L.RIND_320_COL1,
     R.CAP_1_R_2000_1
-            FROM VVW_KATALOG_ASA_2023  L LEFT jOIN VVW_KATALOG_5_C_2023 R on R.CUIIO = L.CUIIO
+            FROM VVW_KATALOG_ASA_2023  L 
+            LEFT jOIN VVW_KATALOG_5_C_2023 R on R.CUIIO = L.CUIIO
+            LEFT jOIN VVW_KATALOG_M3_2023 M on M.CUIIO = L.CUIIO
             
             
             
