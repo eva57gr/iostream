@@ -72,7 +72,7 @@ ID_MDTABLE = 2310
             D1.PERIOADA IN (:pPERIOADA) 
             -- AND             
        --     D1.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' 
---             AND D1.CUIIO = 297922
+             AND D1.CUIIO = 297922
                 
         GROUP BY
             R1.CODUL,
