@@ -102,38 +102,7 @@ SELECT
             LEFT jOIN VVW_KATALOG_M3_2023 M on M.CUIIO = L.CUIIO
             LEFT jOIN VVW_KATALOG_PRODMOLD_2023 p on P.CUIIO = L.CUIIO
             
-            LEFT jOIN  VVW_KATALOG_RSF_23 rr oN RR.CUIIO = L.CUIIO;
-            
-            
-            
-            
-            
---            where
---            L.cuiio = 40347541
---            
---            
-            
-            SELECT *
-            from VVW_KATALOG_5_C_2023;
-            
-            
-            
-            
-            
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
+            LEFT jOIN  VVW_KATALOG_RSF_23 rr oN RR.CUIIO = L.CUIIO
             
             order BY
             L.FULL_CODE,
