@@ -4,14 +4,18 @@ CREATE OR REPLACE FORCE VIEW  VW_KATALOG_ASA_2023
           CUIIO,
           CUIIO_VERS,
           IDNO,
-          FULL_CODE
+          CUATM,
+          FULL_CODE,
+          CAEM2
  )
 AS 
 SELECT 
           R.CUIIO,
           R.CUIIO_VERS,
           R.IDNO,
-          C.FULL_CODE
+          C.CODUL CUATM,
+          C.FULL_CODE,
+          R.CAEM2
 
            
            
