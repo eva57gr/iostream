@@ -1,23 +1,23 @@
-INSERT INTO TABLE_OUT 
-(
-  PERIOADA,
-  FORM,
-  FORM_VERS,
-  ID_MDTABLE,
-  COD_CUATM,
-  NR_SECTIE,
-  NUME_SECTIE,
-  NR_SECTIE1,
-  NUME_SECTIE1,
-  NR_SECTIE2,
-  NUME_SECTIE2,
-  NR_ROW,
-  ORDINE,
-  DECIMAL_POS,
-  NUME_ROW,
-  
-  COL1, COL2
-)
+--INSERT INTO TABLE_OUT 
+--(
+--  PERIOADA,
+--  FORM,
+--  FORM_VERS,
+--  ID_MDTABLE,
+--  COD_CUATM,
+--  NR_SECTIE,
+--  NUME_SECTIE,
+--  NR_SECTIE1,
+--  NUME_SECTIE1,
+--  NR_SECTIE2,
+--  NUME_SECTIE2,
+--  NR_ROW,
+--  ORDINE,
+--  DECIMAL_POS,
+--  NUME_ROW,
+--  
+--  COL1, COL2
+--)
 
 SELECT
   :pPERIOADA,
@@ -48,7 +48,7 @@ FROM
 
     FROM
          VW_DATA_ALL_COEF D1
-       -- CIS.VW_DATA_ALL  D1
+      --  CIS.VW_DATA_ALL  D1
      
         INNER JOIN CIS.VW_CL_CAEM2 V ON (D1.CAEM2 = V.CODUL)
         INNER JOIN
@@ -69,9 +69,10 @@ ID_MDTABLE = 2310
               
             D1.CAPITOL IN (1,2) AND
             D1.FORM_VERS = :pFORM_VERS  AND 
-            D1.PERIOADA IN (:pPERIOADA) AND             
-            --D1.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND 
-            D1.CUIIO = 1129894 
+            D1.PERIOADA IN (:pPERIOADA) 
+            -- AND             
+       --     D1.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' 
+--             AND D1.CUIIO = 297922
                 
         GROUP BY
             R1.CODUL,
@@ -92,25 +93,9 @@ FROM CIS.MD_RIND_OUT
 WHERE
 ID_MDTABLE = 2310
 
-group by 
-
-DENUMIRE,
-RIND,
-ORDINE
-
-
-
-HAVING 
-DENUMIRE IN ('00000')
-
-
-
-
 
         ) R ON (R.CODUL = D.CODUL AND R.NR_ROW = D.NR_ROW )
         
 GROUP BY ROWNUM, R.NR_ROW, R.ORDINE, R.CODUL, D.COL1, D.COL2
 
---HAVING 
---R.CODUL IN ('00000')
-ORDER BY R.ORDINE
+
