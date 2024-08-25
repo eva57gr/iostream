@@ -12,8 +12,14 @@ group by
 DENUMIRE,
 RIND,
 ORDINE
-
-
-
 HAVING 
 DENUMIRE IN ('00000')
+or 
+DENUMIRE LIKE '%0000' 
+
+
+
+
+order by 
+
+ordine
