@@ -1,6 +1,15 @@
+SELECT 
+          R.CUIIO,
+          R.CUIIO_VERS,
+          R.CAEM2,
+          R.IDNO
+
+           
+           
+      FROM
 
 
-
+(
 SELECT 
           R.CUIIO,
           R.CUIIO_VERS,
@@ -46,5 +55,15 @@ SELECT
 --          R.IDNO
           
           from IDNO R
-               ) 
+               )  )  r 
 
+--LEFT jOIN (
+--               
+--               SELECT 
+--          R.CUIIO,
+--          R.CUIIO_VERS,
+--          R.CAEM2,
+--          R.IDNO
+--          
+--          from IDNO R
+--               )  l ON l.CUIIO = r.CUIIO 
