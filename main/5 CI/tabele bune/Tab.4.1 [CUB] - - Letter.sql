@@ -1,23 +1,23 @@
-INSERT INTO TABLE_OUT 
-(
-  PERIOADA,
-  FORM,
-  FORM_VERS,
-  ID_MDTABLE,
-  COD_CUATM,
-  NR_SECTIE,
-  NUME_SECTIE,
-  NR_SECTIE1,
-  NUME_SECTIE1,
-  NR_SECTIE2,
-  NUME_SECTIE2,
-  NR_ROW,
-  ORDINE,
-  DECIMAL_POS,
-  NUME_ROW,
-  
-  COL1, COL2
-)
+--INSERT INTO TABLE_OUT 
+--(
+--  PERIOADA,
+--  FORM,
+--  FORM_VERS,
+--  ID_MDTABLE,
+--  COD_CUATM,
+--  NR_SECTIE,
+--  NUME_SECTIE,
+--  NR_SECTIE1,
+--  NUME_SECTIE1,
+--  NR_SECTIE2,
+--  NUME_SECTIE2,
+--  NR_ROW,
+--  ORDINE,
+--  DECIMAL_POS,
+--  NUME_ROW,
+--  
+--  COL1, COL2
+--)
 
 SELECT
   :pPERIOADA,
@@ -62,16 +62,28 @@ FROM CIS.MD_RIND_OUT
 
 WHERE
 ID_MDTABLE = 2310
-        ) R1 ON (V.FULL_CODE LIKE '%'||R1.CODUL||'%' AND D1.RIND = R1.NR_ROW)
+
+group by 
+
+DENUMIRE,
+RIND,
+ORDINE
+HAVING 
+DENUMIRE IN ('00000')
+or 
+DENUMIRE LIKE '%0000' 
+
+        ) R1 ON (V.FULL_CODE LIKE '%'||R1.CODUL||';%' AND D1.RIND = R1.NR_ROW)
 
         WHERE
             D1.FORM IN (1)           AND 
               
             D1.CAPITOL IN (1,2) AND
             D1.FORM_VERS = :pFORM_VERS  AND 
-            D1.PERIOADA IN (:pPERIOADA) AND             
+            D1.PERIOADA IN (:pPERIOADA) 
+            --AND             
             --D1.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND 
-            D1.CUIIO = 1129894 
+            --D1.CUIIO = 1129894 
                 
         GROUP BY
             R1.CODUL,
@@ -92,19 +104,16 @@ FROM CIS.MD_RIND_OUT
 WHERE
 ID_MDTABLE = 2310
 
-group by 
+group by -- 120759751.6 	
+--120759751.6 	
 
 DENUMIRE,
 RIND,
 ORDINE
-
-
-
 HAVING 
 DENUMIRE IN ('00000')
-
-
-
+or 
+DENUMIRE LIKE '%0000' 
 
 
         ) R ON (R.CODUL = D.CODUL AND R.NR_ROW = D.NR_ROW )
