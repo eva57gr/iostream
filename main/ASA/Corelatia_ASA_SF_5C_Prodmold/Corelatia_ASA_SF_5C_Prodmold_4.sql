@@ -27,7 +27,8 @@ CREATE OR REPLACE FORCE VIEW  VVW_KATALOG_ASA_2023
     RIND_280,
     RIND_290,
     RIND_296,
-    RIND_320_COL1
+    RIND_320_COL1,
+    RIND_320_COL2
  
  )
 AS 
@@ -61,7 +62,8 @@ AS
     R.RIND_280,
     R.RIND_290,
     R.RIND_296,
-    R.RIND_320_COL1
+    R.RIND_320_COL1,
+    R.RIND_320_COL2
 
           
            
