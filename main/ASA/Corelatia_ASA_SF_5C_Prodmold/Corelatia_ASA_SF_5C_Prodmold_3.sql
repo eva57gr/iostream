@@ -27,7 +27,8 @@ CREATE OR REPLACE FORCE VIEW  VW_KATALOG_ASA_2023_F
     RIND_280,
     RIND_290,
     RIND_296,
-    RIND_320_COL1
+    RIND_320_COL1,
+    RIND_320_COL2
  
  )
 AS 
@@ -62,7 +63,8 @@ AS
     R.RIND_280,
     R.RIND_290,
     R.RIND_296,
-    R.RIND_320_COL1
+    R.RIND_320_COL1,
+    R.RIND_320_COL2
 
           
            
