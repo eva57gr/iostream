@@ -1,4 +1,40 @@
-CREATE OR REPLACE FORCE VIEW  VW_KATALOG_ASA_2023_F
+--CREATE OR REPLACE FORCE VIEW  VW_KATALOG_ASA_2023_F
+--(
+--
+--    CUIIO, -- 15481 - 15481 
+--    CUIIO_VERS,
+--    IDNO,
+--    CUATM,
+--    FULL_CODE, 
+--    CAEM2,
+--    caem_calc,
+--    CAP_SR_1,
+--    CAP_SR_2,
+--    CAP_SR_3,
+--    CAP_SR_4,
+--    CAP_SR_5,
+--    CAP_SR_6,
+--    CAP_SR_7,
+--    RIND_400_COL2,
+--    RIND_150_COL1,
+--    RIND_160,
+--    RIND_200,
+--    RIND_210,
+--    RIND_220,
+--    RIND_240,
+--    RIND_260,
+--    RIND_270,
+--    RIND_280,
+--    RIND_290,
+--    RIND_296,
+--    RIND_320_COL1,
+--    RIND_320_COL2
+-- 
+-- )
+--AS 
+
+
+INSERT INTO  USER_BANCU.ASA_2023
 (
 
     CUIIO, -- 15481 - 15481 
@@ -31,10 +67,6 @@ CREATE OR REPLACE FORCE VIEW  VW_KATALOG_ASA_2023_F
     RIND_320_COL2
  
  )
-AS 
-
-
-
 
   SELECT 
     L.CUIIO, -- 15481 - 15481 

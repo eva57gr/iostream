@@ -45,6 +45,7 @@
 --    RIND_296,
 --    RIND_1010,
 --    RIND_320_COL1,
+--    RIND_320_COL2,
 --    CAP_1_R_2000_1
 -- 
 -- )
@@ -96,6 +97,7 @@ SELECT
     L.RIND_296,
     R.RIND_1010,
     L.RIND_320_COL1,
+    L.RIND_320_COL2,
     R.CAP_1_R_2000_1
             FROM ASA_2023  L 
             LEFT jOIN VVW_KATALOG_5_C_2023 R on R.CUIIO = L.CUIIO  --15539 
