@@ -48,10 +48,12 @@ FROM
   (:pID_MDTABLE=:pID_MDTABLE) AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%')
 --  INNER JOIN RENIM RE ON (D.CUIIO=RE.CUIIO AND D.CUIIO_VERS=RE.CUIIO_VERS) 
+----------------------------------------------------------------------------------------
 WHERE
 --  D.PERIOADA IN (:pPERIOADA) AND 
 --  D.FORM_VERS = :pFORM_VERS     AND    
 --  (:pID_MDTABLE=:pID_MDTABLE) AND
+---------------------------------------------------------------------------------------
 --  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   MR.FORM IN (36)                 AND 
   MR.CAPITOL IN (383) 
