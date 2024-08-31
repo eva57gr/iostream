@@ -1736,6 +1736,9 @@ function sumCap1035_Rind0000000() {
     ];
 
 
+    // Analyze this example and apply
+    //Here is sample corect for col4Val = col5Val + col6Val + col7Val
+    //and col8Val = col9Val + col10Val + col11Val
     var sumCol1 = 0.000;
     var sumCol2 = 0.000;
     var sumCol3 = 0.000;
