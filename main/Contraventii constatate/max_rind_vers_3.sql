@@ -1,4 +1,8 @@
 
+--Salut Vasilie. Am gasit cum se poate adaugat autosuma sau diferite calcule la randurile dinamice. 
+
+--Si ID si RIND nu le adaugam manual in fisierul js. 
+--Le luam din md_rind prin interogare si le exportam si pe urma le inseram in fisierul js. 
 --- { id: "18406", rind: "0000001" }
 
 SELECT 
