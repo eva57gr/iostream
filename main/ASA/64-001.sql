@@ -20,7 +20,7 @@ SUM(CASE  WHEN  D.CAPITOL IN (1124)  AND D.RIND IN ('150') THEN  NVAL(D.COL1) EL
 
 WHERE
   (D.PERIOADA=:PERIOADA        ) AND
-  (D.CUIIO=:CUIIO                ) AND
+--  (D.CUIIO=:CUIIO                ) AND
   (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (D.FORM = :FORM               ) AND
   (D.FORM_VERS=:FORM_VERS       ) AND
@@ -51,7 +51,7 @@ ROUND(SUM(CASE WHEN   D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('57.1092.010') THE
 
 WHERE
   (D.PERIOADA=:PERIOADA ) AND
-    (D.CUIIO=:CUIIO                ) AND
+--    (D.CUIIO=:CUIIO                ) AND
   (:CUIIO_VERS=:CUIIO_VERS      OR :CUIIO_VERS <> CUIIO_VERS) AND
   (:FORM = :FORM                OR :FORM <> :FORM) AND
   (:FORM_VERS=:FORM_VERS        OR :FORM_VERS <>:FORM_VERS) AND
@@ -78,14 +78,21 @@ R.COL1,
 R.COL2
 
 
-
+--In having daca cel putin doua varibile sunt egale sa nu afiseze 
+--altfel sa afiseze 
 HAVING
 
 
-NVAL(L.COL1) <> NVAL(R.COL1) + NVAL(R.COL2) 
 
 
- 
+(CASE WHEN  NVAL(L.COL1) <> NVAL(R.COL2) THEN 1 ELSE 0 END)
+
++ 
+
+(CASE WHEN  NVAL(L.COL1) <> NVAL(R.COL1)  THEN 1 ELSE 0 END) = 1
+OR 
+
+ ( NVAL(R.COL1) > 0 AND NVAL(R.COL2) > 0)
  
  
 
