@@ -17,7 +17,7 @@ SELECT
       B.PRIORITATEA,
       B.STATUT
       
-      
+      --------------------------------------------------------------------
         
         FROM CIS2.MD_CONTROL B  INNER JOIN (
         SELECT 
