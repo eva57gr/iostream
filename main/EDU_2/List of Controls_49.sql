@@ -30,7 +30,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 64
+         AND A.FORM  = 27
                
          GROUP BY 
           A.CONTROL
@@ -43,7 +43,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 64
+         AND B.FORM  = 27
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
@@ -52,10 +52,12 @@ SELECT
          ORDER BY 
           B.CONTROL ) L
           
-          
+    ---------------------------------------------------------------------------------------------------      
           WHERE 
           1=1
-          AND  L.FORMULA LIKE '%RSF%'
+          AND  
+          
+          L.FORMULA NOT LIKE '%Tab. 1.1%'
 --
 --    AND
 --    L.CONTROL NOT IN ('54-002','54-004','54-007','54-008','54-013','54-020', '54-014','54-017','54-015','54-001','54-010', '54-005','54-006'
