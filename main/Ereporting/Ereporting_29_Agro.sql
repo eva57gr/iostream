@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+FORM IN  (45)
+
+AND PERIOADA = 1062
+
+
+AND CUIIO IN (
+
+274936378,
+2749363   
+)
