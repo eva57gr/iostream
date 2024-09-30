@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-            SELECT 
+SELECT 
                 D.CUIIO,
                 R.DENUMIRE,
                 D.CUATM,
