@@ -26,4 +26,4 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CFOJ IS NULL
+               R.CUIIO_VERS <>  1061
