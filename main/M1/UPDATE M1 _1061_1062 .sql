@@ -4,7 +4,7 @@ DECLARE -- ====================================================================
 
 SELECT     
 R.CUIIO,
-1061 CUIIO_VERS,
+1062 CUIIO_VERS,
 R.CUATM,
 R.CFP,
 R.CAEM2,
@@ -53,7 +53,7 @@ BEGIN -- ======================================================================
         BUGET = CR.BUGET,
         TIP = CR.TIP,
     --  CFOJ = CR.CFOJ
-       CAEM2 = CR.CAEM2,
+       CAEM2 = CR.CAEM2
 --      IDNO = CR.IDNO
       
 
