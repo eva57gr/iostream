@@ -1,12 +1,10 @@
 SELECT 
-                D.CUIIO,
+                DISTINCT  D.CUIIO,
                 R.DENUMIRE,
                 D.CUATM,
                 D.RIND,
-                SUM(D.COL1) AS COL1,
-                SUM(D.COL2) AS COL2,
-                SUM(D.COL3) AS COL3,
-                SUM(D.COL4) AS COL4
+                SUM(D.COL1) AS COL1
+              
 
                 FROM CIS2.VW_DATA_ALL D 
                 
@@ -16,12 +14,13 @@ SELECT
                 
                 D.PERIOADA IN (:pPERIOADA)
             
-                AND D.CUATM LIKE '85%'
+               -- AND D.CUATM LIKE '85%'
                 AND D.FORM IN (:pFORM)
                 
                 AND D.CAPITOL = 399
                 
-                AND D.RIND IN ('1117','1218')
+                AND D.RIND IN ('1630')
+                AND D.CFOJ IN ('684','685')
                 
                 
                 GROUP BY 
@@ -31,6 +30,8 @@ SELECT
                 D.RIND,
                 D.CUATM
                 
+                HAVING 
+                SUM(D.COL1) between 10 and 70 
+                
                 ORDER BY
-                D.CUIIO, 
-                D.RIND
+                SUM(D.COL1) ASC
