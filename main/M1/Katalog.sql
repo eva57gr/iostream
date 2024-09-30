@@ -26,4 +26,5 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CFOJ IS NULL
+               1=1
+               --AND R.CFOJ IS NULL

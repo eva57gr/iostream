@@ -31,7 +31,8 @@ SELECT
                 D.CUATM
                 
                 HAVING 
-                SUM(D.COL1) between 10 and 70 
+                SUM(D.COL1) >= 70 
+                --between 10 and 70 
                 
                 ORDER BY
                 SUM(D.COL1) ASC
