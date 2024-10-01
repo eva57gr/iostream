@@ -1,8 +1,8 @@
-      SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
+      SELECT       L.CUIIO
+--                   FC.CUIIO_VERS,
+--                   FC.FORM,
+--                   FC.FORM_VERS,
+--                   FC.STATUT
               FROM (
       
       SELECT FC.CUIIO,
@@ -17,7 +17,7 @@
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (:pFROM) AND FC.STATUT <> '3' ) FC LEFT JOIN (
+             WHERE FC.FORM IN (:pFROM) AND FC.STATUT <> '3' ) FC RIGHT JOIN (
              
              
              SELECT 
@@ -29,7 +29,7 @@ from RENIM_NEW
              
              WHERE 
              
-             L.CUIIO IS NULL
+             FC.CUIIO IS NULL
              
          
              
