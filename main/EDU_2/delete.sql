@@ -27,7 +27,7 @@ and
 (ordine >= 1.1 and ordine < 3 )
 
 --
-AND ROWNUM <= 3
+AND ROWNUM <= 40
 
 
 
