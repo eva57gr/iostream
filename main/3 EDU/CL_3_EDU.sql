@@ -1,0 +1,23 @@
+
+CREATE TABLE USER_BANCU.CL_3_EDU
+(
+  RIND       VARCHAR2(30 BYTE),
+  DENUMIRE   VARCHAR2(500 BYTE),
+  GROUP_SPEC VARCHAR2(30 BYTE)
+    
+)
+TABLESPACE TBS_DTI_USERS
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE;
