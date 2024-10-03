@@ -1,6 +1,6 @@
 --add the following lines to this query 410,411,412 Exactly as it is done for row 400. And give the code
 
-
+----------------------------------------------------------------------------------------------------
 SELECT 
 D.ANUL,
 D.CUIIO,
