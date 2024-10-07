@@ -1,6 +1,6 @@
 SELECT 
   R.NR_ROW,
-  D.CUIIO||'-'||R.NUME_ROW,
+  R.NUME_ROW,
   TO_NUMBER(R.NR_ROW) AS ORDINE,
 --  D.CFOJ,
 --  CCF.CODUL,
@@ -61,14 +61,12 @@ WHERE
   (:pID_MDTABLE=:pID_MDTABLE) AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   D.FORM IN (30)                 AND 
-  D.CAPITOL IN (376)   
-  AND D.CUIIO = 4496570        
+  D.CAPITOL IN (376)           
   
 GROUP BY 
   R.NR_ROW,
   R.NUME_ROW,
-  R.FULL_CODE,
-  D.CUIIO
+  R.FULL_CODE
 --  CCF.CODUL,
 --  CCF.DENUMIRE
 
