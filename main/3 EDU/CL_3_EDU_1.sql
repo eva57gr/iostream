@@ -1,11 +1,15 @@
 SELECT 
          RIND,       
          DENUMIRE,
-         GROUP_SPEC  
+         GROUP_SPEC,
+         ORDINE,
+         NIVEL  
         
         FROM USER_BANCU.CL_3_EDU
         
         
-        WHERE 
-        LENGTH(GROUP_SPEC) = 3
+--        WHERE 
+--        NIVEL IN ('4')
         
+        ORDER BY
+        ORDINE
