@@ -1,0 +1,20 @@
+SELECT 
+    D.CUIIO,
+    D.CUIIO_VERS,
+    D.RIND  RIND,
+    TO_CHAR(SUBSTR(D.RIND,2)) RIND_MOD,
+    D.ID_MD,
+    D.RIND_VERS
+
+
+  
+FROM 
+  CIS2.VW_DATA_ALL D  
+  
+WHERE
+  D.PERIOADA IN (:pPERIOADA) AND 
+  D.FORM_VERS = :pFORM_VERS     AND    
+  (:pID_MDTABLE=:pID_MDTABLE) AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
+  D.FORM IN (49)                 AND 
+  D.CAPITOL IN (1049)   
