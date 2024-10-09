@@ -1,0 +1,10 @@
+
+
+
+
+
+
+
+
+SELECT *
+FROM CL_SPEC_2EDU_24
