@@ -1,7 +1,7 @@
  INSERT INTO CIS2.RENIM (
  
  
- CUIIO,
+    CUIIO,
     CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
@@ -95,12 +95,14 @@ SELECT
                     
                    
 CUIIO IN (
-
-SELECT 
-cuiio
-from RENIM_NEW
-
-             
+40428073,
+40757144,
+41074281,
+41520065,
+41556784,
+41593130,
+41607837,
+41701134
 )
 
         
@@ -111,20 +113,7 @@ from RENIM_NEW
          
          
         
-        AND 
-        CUIIO NOT IN (
         
-            SELECT 
-                DISTINCT D.CUIIO
-            
-                FROM CIS2.VW_DATA_ALL D
-                
-                    WHERE
-                    
-                    D.FORM IN (33)
-                    AND D.PERIOADA IN (1062)
-        )
-
 ORDER BY 
 
 CUIIO
