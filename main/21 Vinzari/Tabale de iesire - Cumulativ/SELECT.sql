@@ -1,0 +1,13 @@
+SELECT * 
+FROM CIS2.MD_TABLES
+WHERE 
+FORM = 26
+AND DEN_SHORT LIKE '%mulat%'
+AND SQL_TEXT LIKE '%ROUND (SUM(COL4) / NOZERO(SUM(COL3)),2) %';
+
+
+UPDATE CIS2.MD_TABLES  -- Replace with the actual table that stores the SQL text
+SET SQL_TEXT = REPLACE(SQL_TEXT, 
+                       'ROUND (SUM(COL4) / NOZERO(SUM(COL3)),2) ', 
+                       'ROUND(NVAL(SUM(COL4)) / NOZERO(NVAL(SUM(COL3))), 2)')
+WHERE SQL_TEXT LIKE '%ROUND (SUM(COL4) / NOZERO(SUM(COL3)),2) %';
