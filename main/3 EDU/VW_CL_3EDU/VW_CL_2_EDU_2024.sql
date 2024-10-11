@@ -1,11 +1,11 @@
---CREATE OR REPLACE FORCE VIEW CIS2.VW_CL_SPEC_3EDU
---(CODUL, DENUMIRE, GRUPA, FULL_CODE)
---AS 
-SELECT S.COD_SPEC,
-            S.denumire,
-            S.GROUP_SPEC,
-            S.full_code,
-            s.ORDINE
+CREATE OR REPLACE FORCE VIEW CIS2.VW_CL_SPEC_2EDU_24
+(CODUL, DENUMIRE, GRUPA, FULL_CODE, ORDINE)
+AS 
+SELECT S.COD_SPEC CODUL,
+            S.denumire DENUMIRE,
+            S.GROUP_SPEC GRUPA,
+            S.full_code FULL_CODE,
+            s.ORDINE ORDINE
        FROM (SELECT TO_CHAR (REPLACE(S1.COD_SPEC, '.', ''),'00000000000000') AS COD_SPEC,
                     S1.denumire,
                     TO_CHAR (REPLACE(S1.GROUP_SPEC, '.', ''),'00000000000000') AS GROUP_SPEC,
