@@ -21,11 +21,11 @@ SELECT     R.CUIIO,
                
                
          WHERE
-         --R.CAEM2 IS NULL
+         R.CAEM2 IS NULL
          
-         R.CUIIO IN (
-40304810,
-40878818,
-40908583
-         )  
+--         R.CUIIO IN (
+--40304810,
+--40878818,
+--40908583
+--         )  
          
