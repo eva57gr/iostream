@@ -19,17 +19,17 @@ SELECT
       
       
         
-        FROM CIS.MD_CONTROL B  INNER JOIN (
+        FROM CIS2.MD_CONTROL B  INNER JOIN (
         SELECT 
         A.CONTROL, 
         MAX(A.CONTROL_VERS) CONTROL_VERS
         
-        FROM CIS.MD_CONTROL A
+        FROM CIS2.MD_CONTROL A
         
         
          WHERE
          1=1
-         AND A.FORM  = 1
+         AND A.FORM  = 74
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 1
+         AND B.FORM  = 74
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                

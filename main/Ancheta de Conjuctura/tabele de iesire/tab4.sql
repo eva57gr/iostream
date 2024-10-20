@@ -1,4 +1,9 @@
-SELECT DISTINCT D.CUIIO
+SELECT DISTINCT D.CUIIO,
+                D.CUATM,
+                D.CAEM2,
+                D.RIND,
+                SUM(D.COL1) AS COL1,
+                SUM(D.COL2) AS COL2
 --,
 --D.CAEM2
 
@@ -82,3 +87,17 @@ AND PERS_IT <> 0
              R.CUIIO IS NULL
       
 )
+
+
+
+
+GROUP BY
+D.CUIIO,
+                D.CUATM,
+                D.CAEM2,
+                D.RIND
+                
+                
+                ORDER BY 
+                D.CUIIO,
+                TO_NUMBER(D.RIND)

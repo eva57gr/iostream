@@ -1,5 +1,8 @@
- SELECT L.CUIIO CUIIO_AC,
-        R.CUIIO CUIIO_BZ           
+ SELECT 
+        L.CUIIO,
+        L.CUIIO CUIIO_AC,
+        R.CUIIO CUIIO_BZ,
+        R.PERS_IT           
                    FROM
       (
       SELECT FC.CUIIO,
@@ -29,7 +32,7 @@ FROM CIS2.X_BAZA_SONDAJ
 WHERE
 
 ANUL = 2024 
-AND PERS_IT <> 0
+--AND PERS_IT <> 0
              
              ) R ON R.CUIIO = L.CUIIO
              
