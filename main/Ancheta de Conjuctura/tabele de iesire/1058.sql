@@ -23,7 +23,7 @@ WHERE
 D.STATUT = '1'  AND  
 ---- 
 D.capitol= 1058 AND D.capitol_vers=2013
-and d.rind not in ('--')
+and d.rind IN ('010','020','030')
   GROUP BY
   D.ID_MD,
   D.FORM,         
@@ -41,9 +41,9 @@ D.STATUT = '1'  AND
 ---- 
 D.capitol= 1058 AND D.capitol_vers = 2013
 
-AND D.RIND NOT IN ('-')
-AND 
-(D.ORDINE > 3000 AND D.ORDINE < 3999)
+AND D.RIND  IN ('010','020','030')
+--AND 
+--(D.ORDINE > 3000 AND D.ORDINE < 3999)
 
   GROUP BY
    D.ID_MD,
