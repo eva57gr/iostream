@@ -1,0 +1,22 @@
+rind 2.1 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1 = 
+rind 2.2 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1 = 
+rind 2.3 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1 = 
+(rind 2.1 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1)  + ( rind 2.2 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1  + (rind 2.3 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1) = 
+(rind 2.1 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1)  - (rind 2.3 COL1  * 100  /  rind 2.1 COL1  + rind 2.2 COL1 + rind 2.3 COL1) = 
+
+
+rind 2.1 COL1 = 459.33
+
+rind 2.2 COL1 = 461.7
+
+rind 2.3 COL1 = 436.76
+
+Calculeaza fiecare rind 
+
+
+Calculation	Result
+rind 2.1	33.82923722
+rind 2.2	34.00378556
+rind 2.3	32.16697722
+Sum of percentages	100
+Difference (rind 2.1 - rind 2.3)	1.662259996
