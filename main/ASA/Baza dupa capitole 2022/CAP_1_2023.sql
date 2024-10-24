@@ -3,7 +3,7 @@ D.ANUL,
 D.CUIIO,
 R.IDNO,
 R.DENUMIRE,
-R.CUATM,
+R.CUATM,-------------------
 R.CFP,
 R.CFOJ,
 R.CAEM2,
