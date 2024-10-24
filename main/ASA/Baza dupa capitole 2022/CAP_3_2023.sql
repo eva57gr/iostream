@@ -2,7 +2,7 @@ SELECT
 D.ANUL,
 D.CUIIO,
 R.IDNO,
-R.DENUMIRE,
+R.DENUMIRE,----------------------------------
 R.CUATM,
 R.CFP,
 R.CFOJ,

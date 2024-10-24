@@ -4,7 +4,7 @@
 SELECT 
 D.ANUL,
 D.CUIIO,
-R.IDNO,
+R.IDNO, ----------------
 R.DENUMIRE,
 R.CUATM,
 R.CFP,
