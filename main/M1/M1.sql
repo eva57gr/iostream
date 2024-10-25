@@ -16,29 +16,40 @@ SELECT
   AS REZULTAT
 
 FROM
-  CIS2.VW_DATA_ALL_TEMP D
+  CIS2.VW_DATA_ALL D
   LEFT JOIN 
-  (SELECT D.CUIIO, 
+  (
+  
+  
+  SELECT D.CUIIO, 
     ROUND ((CIS2.NVAL(SUM(CASE WHEN D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('7.40.160')  THEN D.COL1 ELSE 0 END)))/  
     CIS2.NOZERO( SUM(CASE WHEN D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('7.40.10')  THEN D.COL1 ELSE 0 END)),3) AS COL1
   
  FROM
   CIS.VW_DATA_ALL D  
 WHERE   
-      (D.PERIOADA IN (
+      (
+      
+      D.PERIOADA IN (
+                    
                     SELECT
                       P.PERIOADA
                     FROM
-                      CIS2.VW_MD_PERIOADA P                     
+                      CIS.VW_MD_PERIOADA P                     
                     WHERE
-                      P.TRIMESTR+3 IN (:PERIOADA) 
+                      P.TRIMESTR + 4 IN (:PERIOADA) 
                       AND P.TIP_PERIOADA IN (4)
+                      
+                      
       )) AND                  
   (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND  
    FORM IN (7) AND
    CAPITOL IN (40)
   
- GROUP BY D.CUIIO) DD ON D.CUIIO=DD.CUIIO
+ GROUP BY D.CUIIO
+ 
+ 
+ ) DD ON D.CUIIO=DD.CUIIO
   
 WHERE
   (D.PERIOADA IN (:PERIOADA)         ) AND
@@ -69,5 +80,5 @@ CIS2.NOZERO(SUM(CASE WHEN D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('76.28.10') AN
 CIS2.NOZERO(SUM(CASE WHEN D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('76.28.10') AND D.PERIOADA IN (:PERIOADA)  THEN D.COL1 ELSE 0 END)))/
    
      CIS2.NOZERO(MAX(DD.COL1)),1)>120
-   
-   
+--   
+--   
