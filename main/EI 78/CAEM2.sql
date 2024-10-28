@@ -2,7 +2,8 @@
 
 SELECT     R.CUIIO,
            R.CUIIO_VERS,
-           R.CAEM2
+           R.CAEM2,
+           R.idno 
           
       FROM (
       
@@ -30,5 +31,5 @@ SELECT     R.CUIIO,
                
                where
                R.CAEM2 IS null 
-               
-               
+              or  
+               R.idno is null 
