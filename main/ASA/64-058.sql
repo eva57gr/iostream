@@ -1,93 +1,49 @@
-
---The same
 SELECT 
-
-     
-     NVAL(L.COL1)||' <> '||NVAL(R.COL2)||' <> '||NVAL(R.COL1) 
-     
-     AS REZULTAT
-FROM
-
-(
-
-SELECT
-D.CUIIO,
-SUM(CASE WHEN  D.RIND IN ('400') 
-   AND D.CAPITOL IN (1127) THEN NVAL(D.COL4) else 0 END ) AS COL1
-    FROM
- CIS2.VW_DATA_ALL D 
- --40637090
-
-WHERE
-  (D.PERIOADA=:PERIOADA       ) AND
-  (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
-  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
-  (D.FORM = :FORM               OR :FORM = -1) AND
-  (D.FORM_VERS=:FORM_VERS  OR :FORM_VERS = -1) AND
-  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
-  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
-  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
-    
-  D.FORM IN (64) 
- 
-GROUP BY 
-D.CUIIO
-
-
-
-) L LEFT JOIN (
-
-SELECT
-D.CUIIO,
-SUM(CASE WHEN   D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('63.1119.3') THEN  TO_NUMBER(NVAL(D.COL1)) ELSE 0  END ) AS COL1,
-SUM(CASE WHEN   D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('57.1091.6') THEN  TO_NUMBER(NVAL(D.COL1)) ELSE 0  END ) AS COL2
-    
-    FROM
- CIS2.VW_DATA_ALL_FR D 
- --40637090
-
-WHERE
-  (D.PERIOADA=:PERIOADA         ) AND
-   (D.CUIIO=:CUIIO               OR :CUIIO = -1) AND
-  (:CUIIO_VERS=:CUIIO_VERS      OR :CUIIO_VERS <> CUIIO_VERS) AND
-  (:FORM = :FORM                OR :FORM <> :FORM) AND
-  (:FORM_VERS=:FORM_VERS        OR :FORM_VERS <>:FORM_VERS) AND
-  (:CAPITOL=:CAPITOL            OR :CAPITOL <> :CAPITOL) AND
-  (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
-  (:ID_MD=:ID_MD                 OR :ID_MD<>:ID_MD) AND
-  
-
-   
-    D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('63.1119.3','57.1091.6')
-    
-    GROUP BY
-    D.CUIIO
-
-) R ON R.CUIIO = L.CUIIO 
-
-
-
+    NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
+FROM (
+    SELECT
+        D.CUIIO,
+        SUM(CASE WHEN D.RIND IN ('400') AND D.CAPITOL IN (1127) THEN NVAL(D.COL4) ELSE 0 END) AS COL1
+    FROM CIS2.VW_DATA_ALL D
+    WHERE
+        (D.PERIOADA = :PERIOADA) AND
+        (D.CUIIO = :CUIIO OR :CUIIO = -1) AND
+        (D.CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS = -1) AND
+        (D.FORM = :FORM OR :FORM = -1) AND
+        (D.FORM_VERS = :FORM_VERS OR :FORM_VERS = -1) AND
+        (D.CAPITOL = :CAPITOL OR :CAPITOL = -1) AND
+        (D.CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+        (D.ID_MD = :ID_MD OR :ID_MD = -1) AND
+        D.FORM IN (64)
+    GROUP BY D.CUIIO
+) L 
+LEFT JOIN (
+    SELECT
+        D.CUIIO,
+        SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1119.3') THEN TO_NUMBER(NVAL(D.COL1)) ELSE 0 END) AS COL1,
+        SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('57.1091.6') THEN TO_NUMBER(NVAL(D.COL1)) ELSE 0 END) AS COL2
+    FROM CIS2.VW_DATA_ALL_FR D
+    WHERE
+        (D.PERIOADA = :PERIOADA) AND
+        (D.CUIIO = :CUIIO OR :CUIIO = -1) AND
+        (:CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS <> CUIIO_VERS) AND
+        (:FORM = :FORM OR :FORM <> :FORM) AND
+        (:FORM_VERS = :FORM_VERS OR :FORM_VERS <> :FORM_VERS) AND
+        (:CAPITOL = :CAPITOL OR :CAPITOL <> :CAPITOL) AND
+        (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
+        (:ID_MD = :ID_MD OR :ID_MD <> :ID_MD) AND
+        D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1119.3', '57.1091.6')
+    GROUP BY D.CUIIO
+) R ON R.CUIIO = L.CUIIO
 GROUP BY
-L.COL1,
-R.COL1,
-R.COL2
- 
-
-
-
-
+    L.COL1,
+    R.COL1,
+    R.COL2
 HAVING
-
---(CASE WHEN  L.COL1 <> R.COL2 THEN 1 ELSE 0 END)
-
---+ 
-
---(CASE WHEN  L.COL1 <> R.COL1  THEN 1 ELSE 0 END) = 2
-
---NVAL(L.COL1) <> NVAL(R.COL1) + NVAL(R.COL2)
-
-CASE 
-        WHEN NVL(L.COL1, 0) = NVL(R.COL1, 0) OR NVL(L.COL1, 0) = NVL(R.COL2, 0) OR NVL(R.COL1, 0) = NVL(R.COL2, 0)
-        THEN 0 -- If two columns are equal, we filter it out (won't display)
-        ELSE 1 -- Otherwise, display the result
-    END = 1
+    -- Ensures no two columns are equal unless zero, and excludes rows where all are zero
+    NOT (
+        (NVL(L.COL1, 0) = NVL(R.COL1, 0) AND NVL(L.COL1, 0) <> 0) OR
+        (NVL(L.COL1, 0) = NVL(R.COL2, 0) AND NVL(L.COL1, 0) <> 0) OR
+        (NVL(R.COL1, 0) = NVL(R.COL2, 0) AND NVL(R.COL1, 0) <> 0)
+    )
+    AND (NVL(L.COL1, 0) <> 0 OR NVL(R.COL1, 0) <> 0 OR NVL(R.COL2, 0) <> 0);

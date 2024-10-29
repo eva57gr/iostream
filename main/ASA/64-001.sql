@@ -1,5 +1,5 @@
 SELECT 
-    L.CUIIO||' - '|| NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
+    NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
 FROM (
     SELECT
         D.CUIIO,
@@ -7,7 +7,7 @@ FROM (
     FROM CIS2.VW_DATA_ALL D
     WHERE
         (D.PERIOADA = :PERIOADA) AND
-     --   (D.CUIIO = :CUIIO) AND
+        (D.CUIIO = :CUIIO) AND
         (D.CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS = -1) AND
         (D.FORM = :FORM) AND
         (D.FORM_VERS = :FORM_VERS) AND
@@ -25,7 +25,7 @@ LEFT JOIN (
     FROM CIS2.VW_DATA_ALL_FR D
     WHERE
         (D.PERIOADA = :PERIOADA) AND
-       -- (D.CUIIO = :CUIIO) AND
+        (D.CUIIO = :CUIIO) AND
         (:CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS <> CUIIO_VERS) AND
         (:FORM = :FORM OR :FORM <> :FORM) AND
         (:FORM_VERS = :FORM_VERS OR :FORM_VERS <> :FORM_VERS) AND
@@ -47,4 +47,4 @@ HAVING
         (NVL(L.COL1, 0) = NVL(R.COL2, 0) AND NVL(L.COL1, 0) <> 0) OR
         (NVL(R.COL1, 0) = NVL(R.COL2, 0) AND NVL(R.COL1, 0) <> 0)
     )
-    AND (NVL(L.COL1, 0) <> 0 OR NVL(R.COL1, 0) <> 0 OR NVL(R.COL2, 0) <> 0);
+    AND (NVL(L.COL1, 0) <> 0 OR NVL(R.COL1, 0) <> 0 OR NVL(R.COL2, 0) <> 0)

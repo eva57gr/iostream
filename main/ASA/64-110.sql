@@ -1,9 +1,7 @@
---Cap.III [r.320c .2]= [RSF prescurtat, Anexa 1 r.060 col.5 ] sau [RSF1 complet, Anexa 1, r.290 col.5 ] 
-
 SELECT 
 
   
-     L.CUIIO ||'-'||  NVAL(L.COL1)||' <> '||NVAL(R.COL2)||' <> '||NVAL(R.COL1) 
+     NVAL(L.COL1)||' <> '||NVAL(R.COL2)||' <> '||NVAL(R.COL1) 
      
      AS REZULTAT
 FROM
@@ -83,9 +81,6 @@ R.COL2
 
 
 HAVING
-
-
---NVAL(L.COL1) <> NVAL(R.COL1) + NVAL(R.COL2) 
 
 CASE 
         WHEN NVL(L.COL1, 0) = NVL(R.COL1, 0) OR NVL(L.COL1, 0) = NVL(R.COL2, 0) OR NVL(R.COL1, 0) = NVL(R.COL2, 0)
