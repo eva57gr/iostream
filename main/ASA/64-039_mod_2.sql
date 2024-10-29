@@ -1,5 +1,5 @@
 SELECT 
-    NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
+    L.CUIIO||' - '||NVAL(L.COL1)|| '<>' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
 FROM (
     SELECT
         D.CUIIO,
