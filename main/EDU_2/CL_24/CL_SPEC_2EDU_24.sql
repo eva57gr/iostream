@@ -1,5 +1,24 @@
-  SELECT *
-        FROM USER_BANCU.CL_SPEC_2EDU_24
+
+ SELECT 
+  ROWNUM,
+  L.COD_SPEC,
+  L.DENUMIRE,
+  L.GROUP_SPEC,
+  L.STATUT,
+  L.ORDINE, 
+  L.NIVEL
+  
+  FROM
+(
+  SELECT 
+  L.COD_SPEC,
+  L.DENUMIRE,
+  L.GROUP_SPEC,
+  L.STATUT,
+  L.ORDINE, 
+  L.NIVEL  
+        FROM USER_BANCU.CL_SPEC_2EDU_24 L 
         
         ORDER BY 
         ORDINE
+) L
