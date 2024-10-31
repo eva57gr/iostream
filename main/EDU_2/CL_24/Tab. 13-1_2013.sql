@@ -1,42 +1,42 @@
---INSERT INTO TABLE_OUT
---(
---
---
---      PERIOADA,
---      FORM,
---      FORM_VERS,
---
---      ID_MDTABLE,
---      COD_CUATM,
---      NR_SECTIE,
---      NUME_SECTIE,
---      NR_SECTIE1,
---      NUME_SECTIE1,
---      NR_SECTIE2,
---      NUME_SECTIE2,
---      NR_ROW,
---      ORDINE,
---      DECIMAL_POS,
---      NUME_ROW,   
---         COL1,
---         COL2,
---         COL3,
---         COL4,
---         COL5,
---         COL6,
---         COL7,
---         COL8,
---         COL9,
---         COL10,
---         COL11,
---         COL12,
---         COL13,
---         COL14,
---         COL15
---        
---
---
---)
+INSERT INTO TABLE_OUT
+(
+
+
+      PERIOADA,
+      FORM,
+      FORM_VERS,
+
+      ID_MDTABLE,
+      COD_CUATM,
+      NR_SECTIE,
+      NUME_SECTIE,
+      NR_SECTIE1,
+      NUME_SECTIE1,
+      NR_SECTIE2,
+      NUME_SECTIE2,
+      NR_ROW,
+      ORDINE,
+      DECIMAL_POS,
+      NUME_ROW,   
+         COL1,
+         COL2,
+         COL3,
+         COL4,
+         COL5,
+         COL6,
+         COL7,
+         COL8,
+         COL9,
+         COL10,
+         COL11,
+         COL12,
+         COL13,
+         COL14,
+         COL15
+        
+
+
+)
 
 SELECT
     :pPERIOADA AS PERIOADA,
@@ -80,9 +80,9 @@ SELECT
 
    CCF.CODUL NR_ROW,
    CCF.DENUMIRE NUME_ROW,
-   CC.CODUL,
-   CC.DENUMIRE,
-   CC.FULL_CODE,
+   CC.ITEM_CODE CODUL,
+   CC.NAME DENUMIRE,
+   CC.ITEM_PATH FULL_CODE,
    SUM (CIS2.NVAL(D.COL1)) COL1,
    SUM (CIS2.NVAL(D.COL2)) COL2,
    SUM (CASE WHEN 1=1 THEN CIS2.NVAL(D.COL1)-CIS2.NVAL(D.COL2) END)  COL3,
@@ -109,12 +109,21 @@ SELECT
     D.CUIIO,
     D.CUIIO_VERS,
     D.RIND  RIND,
-    TO_CHAR(SUBSTR(D.RIND,2)) RIND_MOD,
+
+CASE 
+  WHEN TO_CHAR(SUBSTR(D.RIND, 2)) LIKE '0%' THEN LTRIM(TO_CHAR(SUBSTR(D.RIND, 2)), '0')
+  ELSE TO_CHAR(SUBSTR(D.RIND, 2))
+END AS RIND_MOD,
+
     D.ID_MD,
-    D.RIND_VERS
+    D.RIND_VERS,
+    MR.ORDINE
+    
   
 FROM 
   CIS2.VW_DATA_ALL D  
+  
+                INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD 
   
 WHERE
   D.PERIOADA IN (:pPERIOADA) AND 
@@ -142,16 +151,20 @@ WHERE
      D.RIND NOT IN ('010','020','030','035','040','050','060','070')
      
        )   
-  
+       
+       
+       
+       ORDER BY 
+       MR.ORDINE
  
   
    ) DD ON   (DD.ID_MD = D.ID_MD AND D.CUIIO = DD.CUIIO AND D.RIND = DD.RIND AND D.RIND_VERS = DD.RIND_VERS  AND D.CUIIO_VERS = DD.CUIIO_VERS)   
  
  
  
-     INNER JOIN  CIS2.VW_CLS_CLASS_ITEM C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
+     INNER JOIN  CIS2.VW_CLS_CLASS_ITEM C  ON  (C.ITEM_CODE =  DD.RIND_MOD AND  C.CLASS_CODE = 'SPEC_2EDU' ) 
      
-    INNER JOIN  CIS2.VW_CL_SPEC_2EDU   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
+     INNER JOIN  CIS2.VW_CLS_CLASS_ITEM   CC ON (C.ITEM_PATH LIKE '%'||CC.ITEM_CODE||';%'  AND  CC.CLASS_CODE = 'SPEC_2EDU'  )
     
     -- add CFP 
     
@@ -176,11 +189,11 @@ WHERE
 
   CCF.CODUL,
   CCF.DENUMIRE,
-  CC.CODUL,
-  CC.DENUMIRE,
-  CC.FULL_CODE,
-  CC.ORDINE
+  CC.ITEM_CODE,
+  CC.NAME,
+  CC.ITEM_PATH,
+  CC.SHOW_ORDER 
   
   ORDER BY 
-  CC.ORDINE
+  CC.SHOW_ORDER
   ) B
