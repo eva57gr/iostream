@@ -1,9 +1,9 @@
 SELECT
-
+   --D.CUIIO,
    CASE WHEN ltrim(TO_NUMBER(CC.codul),'0') IS NULL THEN '0' ELSE ltrim(TO_NUMBER(CC.codul),'0')  END   CODUL,
    CC.DENUMIRE,
-
-  
+ --  CC.FULL_CODE,
+   CASE WHEN ltrim(TO_NUMBER(CC.GRUPA),'0') IS NULL THEN '0' ELSE ltrim(TO_NUMBER(CC.GRUPA),'0')  END  GRUPA,
    CC.ORDINE,
    SUM (CIS2.NVAL(D.COL1)) COL1,
    SUM (CIS2.NVAL(D.COL2)) COL2,
@@ -77,33 +77,9 @@ WHERE
    ) DD ON   (DD.ID_MD = D.ID_MD AND D.CUIIO = DD.CUIIO AND D.RIND = DD.RIND AND D.RIND_VERS = DD.RIND_VERS  AND D.CUIIO_VERS = DD.CUIIO_VERS)   
  
  
-     INNER JOIN  (SELECT  
-        
-        RINDOUT CODUL,
-        DENUMIRE DENUMIRE,
-        
-        ORDINE,
-        
-         RIND FULL_CODE
-
-FROM CIS2.MD_RIND_OUT
-
-WHERE
- ID_MDTABLE = 13915) C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
+     INNER JOIN  CIS2.MD_RIND_OUT C  ON  (ltrim(TO_NUMBER(C.RINDOUT),'0') =  DD.RIND_MOD) 
      
-    INNER JOIN  (SELECT  
-        
-        RINDOUT CODUL,
-        DENUMIRE DENUMIRE,
-        
-        ORDINE,
-        
-         RIND FULL_CODE
-
-FROM CIS2.MD_RIND_OUT
-
-WHERE
- ID_MDTABLE = 13915)   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
+    INNER JOIN   CIS2.MD_RIND_OUT   CC ON (C.RIND LIKE '%'||CC.RINDOUT||';%')
 
 
 
@@ -130,7 +106,7 @@ WHERE
    CC.DENUMIRE,
    CC.FULL_CODE,
    CC.ORDINE
-   
+ 
   
   
   ORDER BY
