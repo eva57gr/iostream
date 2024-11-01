@@ -1,0 +1,7 @@
+
+
+
+
+SELECT *
+
+FROM CIS2.MD_RIND_OUT
