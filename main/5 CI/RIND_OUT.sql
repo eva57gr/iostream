@@ -1,16 +1,16 @@
---
-INSERT INTO CIS2.MD_RIND_OUT (
 
-        ID_MDTABLE,
-        RINDOUT_VERS,
-        RINDOUT,
-        DENUMIRE,
-        STATUT,
-        ORDINE,
-        DATA_REG,
-        RIND
-        
-)
+--INSERT INTO CIS2.MD_RIND_OUT (
+--
+--        ID_MDTABLE,
+--        RINDOUT_VERS,
+--        RINDOUT,
+--        DENUMIRE,
+--        STATUT,
+--        ORDINE,
+--        DATA_REG,
+--        RIND
+--        
+--)
 
 
         SELECT 
@@ -27,8 +27,8 @@ INSERT INTO CIS2.MD_RIND_OUT (
         FROM USER_BANCU.VW_CL_SPEC_2EDU_24
         
         
-        WHERE
-        CODUL IN (000000000732110)
+--        WHERE
+--        CODUL IN (000000000732110)
         
     --    ORDINE IN (192,193)
         ORDER BY 

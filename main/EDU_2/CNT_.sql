@@ -1,5 +1,15 @@
+SELECT 
 
 
+ID_MDTABLE||RINDOUT_VERS||RINDOUT||RIND AS CNT,
+COUNT (ID_MDTABLE||RINDOUT_VERS||RINDOUT||RIND) AS INDEX_ 
+
+
+FROM
+
+
+
+(
         SELECT 
         13915 ID_MDTABLE,
         2013  RINDOUT_VERS,
@@ -14,4 +24,11 @@
         FROM USER_BANCU.VW_CL_SPEC_2EDU_24
         
         ORDER BY 
-        ORDINE
+        ORDINE)
+        
+        
+        GROUP BY 
+        ID_MDTABLE||RINDOUT_VERS||RINDOUT||RIND
+        
+        HAVING 
+        COUNT (ID_MDTABLE||RINDOUT_VERS||RINDOUT||RIND) > 1
