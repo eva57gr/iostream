@@ -1,88 +1,10 @@
-----INSERT INTO TABLE_OUT
-----(
-----
-----
-----      PERIOADA,
-----      FORM,
-----      FORM_VERS,
-----
-----      ID_MDTABLE,
-----      COD_CUATM,
-----      NR_SECTIE,
-----      NUME_SECTIE,
-----      NR_SECTIE1,
-----      NUME_SECTIE1,
-----      NR_SECTIE2,
-----      NUME_SECTIE2,
-----      NR_ROW,
-----      ORDINE,
-----      DECIMAL_POS,
-----      NUME_ROW,   
-----         COL1,
-----         COL2,
-----         COL3,
-----         COL4,
-----         COL5,
-----         COL6,
-----         COL7,
-----         COL8,
-----         COL9,
-----         COL10,
-----         COL11,
-----         COL12,
-----         COL13,
-----         COL14,
-----         COL15
-----        
-----
-----
-----)
---
---SELECT
---    :pPERIOADA AS PERIOADA,
---    :pFORM AS FORM,
---    :pFORM_VERS AS FORM_VERS,
---    :pID_MDTABLE AS ID_MDTABLE,
---    :pCOD_CUATM AS COD_CUATM,
---    TO_NUMBER(NR_ROW)  AS  NR_SECTIE,
---     NR_ROW||'-'||NUME_ROW  AS NUME_SECTIE, 
---    '0' AS NR_SECTIE1,
---    '0' AS NUME_SECTIE1,
---    '0' AS NR_SECTIE2,
---    '0' AS NUME_SECTIE2, 
---    
---    B.codul||'~'||ROWNUM AS NR_ROW,
---    ROWNUM  AS ORDINE,
---   '000000000000000' AS DECIMAL_POS,
---    TRIM(B.DENUMIRE)    DENUMIRE,
---    B.COL1,
---    B.COL2,
---    B.COL3,
---    B.COL4,
---    B.COL5,
---    B.COL6,
---    B.COL7,
---    B.COL8,
---    B.COL9,
---    B.COL10,
---    B.COL11,
---    B.COL12,
---    B.COL13,
---    B.COL14,
---    B.COL15 
---
---FROM 
---
---
---(
-
-SELECT 
-
---   CCF.CODUL NR_ROW,
---   CCF.DENUMIRE NUME_ROW,
-   CC.ITEM_CODE CODUL,
-   CC.NAME DENUMIRE,
-   CC.ITEM_PATH FULL_CODE,
+SELECT
+   --D.CUIIO,
+   REPLACE(CC.CODUL,'0') CODUL, 
+   CC.DENUMIRE,
+ --  CC.FULL_CODE,
+   CC.GROUP_SPEC,
+   CC.ORDINE,
    SUM (CIS2.NVAL(D.COL1)) COL1,
    SUM (CIS2.NVAL(D.COL2)) COL2,
    SUM (CASE WHEN 1=1 THEN CIS2.NVAL(D.COL1)-CIS2.NVAL(D.COL2) END)  COL3,
@@ -109,18 +31,14 @@ SELECT
     D.CUIIO,
     D.CUIIO_VERS,
     D.RIND  RIND,
-
-CASE 
-  WHEN TO_CHAR(SUBSTR(D.RIND, 2)) LIKE '0%' THEN LTRIM(TO_CHAR(SUBSTR(D.RIND, 2)), '0')
-  ELSE TO_CHAR(SUBSTR(D.RIND, 2))
-END AS RIND_MOD,
-
+(CASE 
+  WHEN TO_CHAR(SUBSTR(D.RIND, 2)) LIKE '0%' THEN REPLACE(LTRIM(TO_CHAR(SUBSTR(D.RIND, 2)), '0'), '.', '')
+  ELSE REPLACE(TO_CHAR(SUBSTR(D.RIND, 2)), '.', '')
+END) AS RIND_MOD,
     D.ID_MD,
     D.RIND_VERS,
     MR.ORDINE
-    
-  
-FROM 
+ FROM 
   CIS2.VW_DATA_ALL D  
   
                 INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD 
@@ -152,8 +70,6 @@ WHERE
      
        )   
        
-       
-       
        ORDER BY 
        MR.ORDINE
  
@@ -161,16 +77,14 @@ WHERE
    ) DD ON   (DD.ID_MD = D.ID_MD AND D.CUIIO = DD.CUIIO AND D.RIND = DD.RIND AND D.RIND_VERS = DD.RIND_VERS  AND D.CUIIO_VERS = DD.CUIIO_VERS)   
  
  
- 
-     INNER JOIN  CIS2.VW_CLS_CLASS_ITEM C  ON  (C.ITEM_CODE =  DD.RIND_MOD AND  C.CLASS_CODE = 'SPEC_2EDU' ) 
+     INNER JOIN  USER_BANCU.VW_CL_SPEC_2EDU_24 C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
      
-     INNER JOIN  CIS2.VW_CLS_CLASS_ITEM   CC ON (C.ITEM_PATH LIKE '%'||CC.ITEM_CODE||';%'  AND  CC.CLASS_CODE = 'SPEC_2EDU'  )
+    INNER JOIN  USER_BANCU.VW_CL_SPEC_2EDU_24   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
+
+
+
+
     
-    -- add CFP 
-    
---    INNER JOIN CIS2.VW_CL_CFP CF ON (CF.CODUL = D.CFP)
---    INNER JOIN CIS2.VW_CL_CFP CCF ON (CF.FULL_CODE LIKE '%'||CCF.CODUL||';%') 
-  
  
  WHERE
   D.PERIOADA IN (:pPERIOADA) AND 
@@ -179,27 +93,28 @@ WHERE
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   D.FORM IN (49)                 AND 
   D.CAPITOL IN (1049) 
-  
- 
- 
--- AND  CCF.CODUL IN ('00','11','14')
+--  
+-- AND CC.ITEM_PARENT = '2111'
+--  AND CC.ITEM_CODE IN ('2111.102111.5')
+--AND D.CUIIO = 20197691
  
   
   GROUP BY 
 
---  CCF.CODUL,
---  CCF.DENUMIRE,
-  CC.ITEM_CODE,
-  CC.NAME,
-  CC.ITEM_PATH,
-  CC.SHOW_ORDER 
-  
-  ORDER BY 
-  CC.SHOW_ORDER
+
+   CC.CODUL, 
+   CC.DENUMIRE,
+   CC.FULL_CODE,
+   CC.ORDINE,
+   CC.GROUP_SPEC
   
   
---  ) B
---  
---  
-----  WHERE
-----  B.codul = '2111'
+  ORDER BY
+  CC.ORDINE
+  
+  
+  
+  
+  
+  
+
