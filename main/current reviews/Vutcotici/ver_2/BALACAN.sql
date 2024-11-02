@@ -13,12 +13,12 @@ R.DENUMIRE
                  --INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
            WHERE D.PERIOADA  = :pPERIOADA_LUNA   AND D.FORM IN (:pFORM)
-             AND D.ID_SCHEMA = 2
+             AND D.ID_SCHEMA = 1
              
                  
            ) D
-         INNER JOIN CIS2.RENIM  R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
+         INNER JOIN CIS.RENIM  R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
 GROUP BY 
 D.CUIIO,
-R.DENUMIRE,
-R.IDNO
+R.DENUMIRE
+
