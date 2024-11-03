@@ -1,84 +1,7 @@
---INSERT INTO TABLE_OUT
---(
---
---
---      PERIOADA,
---      FORM,
---      FORM_VERS,
---
---      ID_MDTABLE,
---      COD_CUATM,
---      NR_SECTIE,
---      NUME_SECTIE,
---      NR_SECTIE1,
---      NUME_SECTIE1,
---      NR_SECTIE2,
---      NUME_SECTIE2,
---      NR_ROW,
---      ORDINE,
---      DECIMAL_POS,
---      NUME_ROW,   
---         COL1,
---         COL2,
---         COL3,
---         COL4,
---         COL5,
---         COL6,
---         COL7,
---         COL8,
---         COL9,
---         COL10,
---         COL11,
---         COL12,
---         COL13,
---         COL14,
---         COL15
---        
---
---
---)
 
 SELECT
-    :pPERIOADA AS PERIOADA,
-    :pFORM AS FORM,
-    :pFORM_VERS AS FORM_VERS,
-    :pID_MDTABLE AS ID_MDTABLE,
-    :pCOD_CUATM AS COD_CUATM,
-    TO_NUMBER(NR_ROW)  AS  NR_SECTIE,
-     NR_ROW||'-'||NUME_ROW  AS NUME_SECTIE, 
-    '0' AS NR_SECTIE1,
-    '0' AS NUME_SECTIE1,
-    '0' AS NR_SECTIE2,
-    '0' AS NUME_SECTIE2, 
-    B.codul||'~'||ROWNUM AS NR_ROW,
-    ROWNUM  AS ORDINE,
-   '000000000000000' AS DECIMAL_POS,
-    TRIM(B.DENUMIRE)    DENUMIRE,
-    B.COL1,
-    B.COL2,
-    B.COL3,
-    B.COL4,
-    B.COL5,
-    B.COL6,
-    B.COL7,
-    B.COL8,
-    B.COL9,
-    B.COL10,
-    B.COL11,
-    B.COL12,
-    B.COL13,
-    B.COL14,
-    B.COL15 
-
-FROM 
-
-
-(
-
-
-SELECT
-   CCF.CODUL NR_ROW,
-   CCF.DENUMIRE NUME_ROW,
+--   CCF.CODUL NR_ROW,
+--   CCF.DENUMIRE NUME_ROW,
    CASE WHEN ltrim(TO_NUMBER(CC.codul),'0') IS NULL THEN '0' ELSE ltrim(TO_NUMBER(CC.codul),'0')  END   CODUL,
    CC.DENUMIRE,
 
@@ -186,8 +109,8 @@ WHERE
 
 
 
- INNER JOIN CIS2.VW_CL_CFP CF ON (CF.CODUL = D.CFP)
-    INNER JOIN CIS2.VW_CL_CFP CCF ON (CF.FULL_CODE LIKE '%'||CCF.CODUL||';%') 
+-- INNER JOIN CIS2.VW_CL_CFP CF ON (CF.CODUL = D.CFP)
+--    INNER JOIN CIS2.VW_CL_CFP CCF ON (CF.FULL_CODE LIKE '%'||CCF.CODUL||';%') 
   
     
  
@@ -198,13 +121,14 @@ WHERE
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   D.FORM IN (49)                 AND 
   D.CAPITOL IN (1049) 
- AND  CCF.CODUL IN ('00','11','14')
+
+-- AND  CCF.CODUL IN ('00','11','14')
 
   GROUP BY 
 
 
-  CCF.CODUL,
-  CCF.DENUMIRE,
+--  CCF.CODUL,
+--  CCF.DENUMIRE,
   CC.CODUL,
   CC.DENUMIRE,
   CC.FULL_CODE,
@@ -215,7 +139,7 @@ WHERE
   ORDER BY
   CC.ORDINE
   
-   ) B
+--   ) B
   
   
   
