@@ -91,7 +91,9 @@ FROM CIS2.MD_RIND_OUT
 WHERE
  ID_MDTABLE = 13915) C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
      
-    INNER JOIN  (SELECT  
+    INNER JOIN  (
+    
+    SELECT  
         
         RINDOUT CODUL,
         DENUMIRE DENUMIRE,
@@ -103,7 +105,10 @@ WHERE
 FROM CIS2.MD_RIND_OUT
 
 WHERE
- ID_MDTABLE = 13915)   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
+ ID_MDTABLE = 13915
+ 
+ 
+ )   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
 
 
 
