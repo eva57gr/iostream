@@ -111,7 +111,7 @@ WHERE
 
 AND  MR.capitol=1049 AND  MR.capitol_vers=2013
 
-
+AND D.CUIIO = 2561932
 
 
 GROUP BY
