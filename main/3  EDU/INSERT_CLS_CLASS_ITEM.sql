@@ -1,0 +1,31 @@
+--INSERT INTO   CIS2.CLS_CLASS_ITEM (
+--  CLASS_CODE,
+--  ITEM_CODE_VERS,
+--  ITEM_CODE,
+--  ITEM_PARENT,
+--  NAME,
+--  SHOW_ORDER,
+--  SYS_DATE,
+--  SYS_USER,
+--  A01,
+--  STATUS  
+--
+--)
+--  
+  
+  SELECT 
+  'SPEC_3EDU' CLASS_CODE,
+  2013 ITEM_CODE_VERS,
+  COD_SPEC ITEM_CODE,
+  GROUP_SPEC ITEM_PARENT,
+  DENUMIRE NAME,
+  ORDINE SHOW_ORDER,
+  SYSDATE SYS_DATE,
+  'USER_BANCU'SYS_USER,
+  NIVEL A01,
+  STATUT STATUS  
+  
+        FROM USER_BANCU.CL_SPEC_3EDU_24
+        
+        ORDER BY -----------------------------------------------------------------
+        ORDINE
