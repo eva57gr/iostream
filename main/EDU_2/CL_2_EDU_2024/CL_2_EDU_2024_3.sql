@@ -5,7 +5,7 @@ SELECT
         
         ORDINE,
   ------------------------------------      
-         RIND FULL_CODE
+         RIND FULL_CODE -------------------------------
 
 FROM CIS2.MD_RIND_OUT
 
