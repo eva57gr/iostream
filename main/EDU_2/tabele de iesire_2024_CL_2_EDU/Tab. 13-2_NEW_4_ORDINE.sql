@@ -1,4 +1,4 @@
-  UNION 
+
   
   
 SELECT 
@@ -81,9 +81,33 @@ WHERE
  
  
  
-     INNER JOIN  CIS2.VW_CL_SPEC_2EDU C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
+INNER JOIN  (SELECT  
+        
+        RINDOUT CODUL,
+        DENUMIRE DENUMIRE,
+        
+        ORDINE,
+        
+         RIND FULL_CODE
+
+FROM CIS2.MD_RIND_OUT
+
+WHERE
+ ID_MDTABLE = 13915) C  ON  (ltrim(TO_NUMBER(C.codul),'0') =  DD.RIND_MOD) 
      
-     INNER JOIN  CIS2.VW_CL_SPEC_2EDU   CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
+    INNER  JOIN   (SELECT  
+        
+        TRIM(RINDOUT) CODUL,
+        DENUMIRE DENUMIRE,
+        
+        ORDINE,
+        
+         RIND FULL_CODE
+
+FROM CIS2.MD_RIND_OUT
+
+WHERE
+ ID_MDTABLE = 13915)   CC ON  C.FULL_CODE LIKE '%'||CC.CODUL||';%'
     
      INNER JOIN CIS2.RENIM R ON (D.CUIIO = R.CUIIO AND D.CUIIO_VERS = R.CUIIO_VERS) 
      INNER JOIN CIS2.MD_RIND MR ON (MR.ID_MD = D.ID_MD)

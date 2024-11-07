@@ -1,42 +1,42 @@
-INSERT INTO TABLE_OUT
-(
-
-
-      PERIOADA,
-      FORM,
-      FORM_VERS,
-
-      ID_MDTABLE,
-      COD_CUATM,
-      NR_SECTIE,
-      NUME_SECTIE,
-      NR_SECTIE1,
-      NUME_SECTIE1,
-      NR_SECTIE2,
-      NUME_SECTIE2,
-      NR_ROW,
-      ORDINE,
-      DECIMAL_POS,
-      NUME_ROW,   
-         COL1,
-         COL2,
-         COL3,
-         COL4,
-         COL5,
-         COL6,
-         COL7,
-         COL8,
-         COL9,
-         COL10,
-         COL11,
-         COL12,
-         COL13,
-         COL14,
-         COL15
-        
-
-
-)
+--INSERT INTO TABLE_OUT
+--(
+--
+--
+--      PERIOADA,
+--      FORM,
+--      FORM_VERS,
+--
+--      ID_MDTABLE,
+--      COD_CUATM,
+--      NR_SECTIE,
+--      NUME_SECTIE,
+--      NR_SECTIE1,
+--      NUME_SECTIE1,
+--      NR_SECTIE2,
+--      NUME_SECTIE2,
+--      NR_ROW,
+--      ORDINE,
+--      DECIMAL_POS,
+--      NUME_ROW,   
+--         COL1,
+--         COL2,
+--         COL3,
+--         COL4,
+--         COL5,
+--         COL6,
+--         COL7,
+--         COL8,
+--         COL9,
+--         COL10,
+--         COL11,
+--         COL12,
+--         COL13,
+--         COL14,
+--         COL15
+--        
+--
+--
+--)
 
 SELECT
     :pPERIOADA AS PERIOADA,
