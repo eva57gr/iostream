@@ -24,14 +24,17 @@ SELECT
     D.CUIIO,
     D.CUIIO_VERS,
     D.RIND  RIND,
-    TO_CHAR(SUBSTR(D.RIND,2)) RIND_MOD,
+(CASE 
+  WHEN TO_CHAR(SUBSTR(D.RIND, 2)) LIKE '0%' THEN REPLACE(LTRIM(TO_CHAR(SUBSTR(D.RIND, 2)), '0'), '.', '')
+  ELSE REPLACE(TO_CHAR(SUBSTR(D.RIND, 2)), '.', '')
+END) AS RIND_MOD,
     D.ID_MD,
-    D.RIND_VERS
-
-
-  
-FROM 
+    D.RIND_VERS,
+    MR.ORDINE
+ FROM 
   CIS2.VW_DATA_ALL D  
+  
+                INNER JOIN CIS2.MD_RIND MR ON MR.ID_MD = D.ID_MD 
   
 WHERE
   D.PERIOADA IN (:pPERIOADA) AND 
@@ -40,7 +43,7 @@ WHERE
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   D.FORM IN (49)                 AND 
   D.CAPITOL IN (1049) AND     
-        
+    
   (
   
   D.RIND NOT IN 
