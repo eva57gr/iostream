@@ -1,4 +1,125 @@
+INSERT INTO TABLE_OUT
+(
+
+      PERIOADA,
+      FORM,
+      FORM_VERS,
+      ID_MDTABLE,
+      COD_CUATM,
+      NR_SECTIE,
+      NUME_SECTIE,
+      NR_SECTIE1,
+      NUME_SECTIE1,
+      NR_SECTIE2,
+      NUME_SECTIE2,
+      NR_ROW,
+      ORDINE,
+      DECIMAL_POS,
+      NUME_ROW,   
+         COL1,
+         COL2,
+         COL3,
+         COL4,
+         COL5,
+         COL6,
+         COL7,
+         COL8,
+         COL9,
+         COL10,
+         COL11,
+         COL12,
+         COL13,
+         COL14,
+         COL15
+)
+
 SELECT 
+      PERIOADA,
+      FORM,
+      FORM_VERS,
+      ID_MDTABLE,
+      COD_CUATM,
+      NR_SECTIE,
+      NUME_SECTIE,
+      NR_SECTIE1,
+      NUME_SECTIE1,
+      NR_SECTIE2,
+      NUME_SECTIE2,
+      CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END  NR_ROW, 
+      ORDINE,
+      DECIMAL_POS,
+      NUME_ROW,   
+         COL1,
+         COL2,
+         COL3,
+         COL4,
+         COL5,
+         COL6,
+         COL7,
+         COL8,
+         COL9,
+         COL10,
+         COL11,
+         COL12,
+         COL13,
+         COL14,
+         COL15
+
+    
+
+FROM 
+(
+SELECT
+    :pPERIOADA AS PERIOADA,
+    :pFORM AS FORM,
+    :pFORM_VERS AS FORM_VERS,
+    :pID_MDTABLE AS ID_MDTABLE,
+    :pCOD_CUATM AS COD_CUATM,
+     B.CUATM_FULL_CODE AS  NR_SECTIE,
+     B.CUATM_CODUL||'-'||B.CUATM_DENUMIRE  AS NUME_SECTIE,
+    '0' AS NR_SECTIE1,
+    '0' AS NUME_SECTIE1, 
+    '0' AS NR_SECTIE2,
+    '0' AS NUME_SECTIE2, 
+    (CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0' 
+      WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'
+    
+    
+    
+    ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145 AS NR_ROW,
+    ROWNUM  AS ORDINE,
+   '000000000000000' AS DECIMAL_POS,
+    TRIM(B.DENUMIRE)    NUME_ROW,
+    B.COL1,
+    B.COL2,
+    B.COL3,
+    B.COL4,
+    B.COL5,
+    B.COL6,
+    B.COL7,
+    B.COL8,
+    B.COL9,
+    B.COL10,
+    B.COL11,
+    B.COL12,
+    B.COL13,
+    B.COL14,
+    B.COL15 
+
+FROM 
+
+
+(
+        SELECT *
+    FROM 
+(
+
+
+
+  
+  
+
+  SELECT 
   '1'||CCU.FULL_CODE ORDINE,
    CCU.CODUL  CUATM_CODUL,
    CCU.DENUMIRE CUATM_DENUMIRE, 
@@ -130,3 +251,24 @@ WHERE
     order by
    CDD.FULL_CODE_ORDINE,
      CCU.FULL_CODE
+  
+  
+  
+  
+
+  
+   
+  
+  
+
+  
+  
+  )
+  
+   ORDER BY 
+   ORDINE,
+   FULL_CODE,
+   CUATM_FULL_CODE 
+   )  B
+   
+   ) 
