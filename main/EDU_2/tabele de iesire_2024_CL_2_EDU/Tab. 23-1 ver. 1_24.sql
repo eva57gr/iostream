@@ -55,6 +55,67 @@ INSERT INTO  TABLE_OUT B
     B.COL36
     )
 
+
+SELECT 
+
+      B.PERIOADA,
+      B.FORM,
+      B.FORM_VERS,
+      B.ID_MDTABLE,
+      B.COD_CUATM,
+      B.NR_SECTIE,
+      B.NUME_SECTIE,
+      B.NR_SECTIE1,
+      B.NUME_SECTIE1,
+      B.NR_SECTIE2,
+      B.NUME_SECTIE2,
+   L.ITEM_CODE||'~'||ROWNUM NR_ROW,
+      B.ORDINE,
+      B.DECIMAL_POS,
+      B.NUME_ROW,   
+        B.COL1,
+    B.COL2,
+    B.COL3,
+    B.COL4,
+    B.COL5,
+    B.COL6,
+    B.COL7,
+    B.COL8,
+    B.COL9,
+    B.COL10,
+    B.COL11,
+    B.COL12,
+    B.COL13,
+    B.COL14,
+    B.COL15,
+    B.COL16,
+    B.COL17,
+    B.COL18,
+    B.COL19,
+    B.COL20,
+    B.COL21,
+    B.COL22,
+    B.COL23,
+    B.COL24,
+    B.COL25,
+    B.COL26,
+    B.COL27,
+    B.COL28,
+    B.COL29,
+    B.COL30,
+    B.COL31,
+    B.COL32,
+    B.COL33,
+    B.COL34,
+    B.COL35,
+    B.COL36
+    
+
+FROM 
+
+
+
+(
 SELECT
     :pPERIOADA AS PERIOADA,
     :pFORM AS FORM,
@@ -67,13 +128,9 @@ SELECT
     '0' AS NUME_SECTIE1,
     '0' AS NR_SECTIE2,
     '0' AS NUME_SECTIE2, 
-    (CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0' 
-      WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'
+
+     SUBSTR(((CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0'  WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'  ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145), 1, INSTR(((CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0'  WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'  ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145), '~') - 1) AS NR_ROW,
     
-    
-    
-    ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145 AS NR_ROW,
-  
     ROWNUM  AS ORDINE,
    '000000000000000000000000000000000000' AS DECIMAL_POS,
     TRIM(B.DENUMIRE)    NUME_ROW,
@@ -263,5 +320,17 @@ WHERE
   ORDER BY 
   CC.FULL_CODE
   
-   ) B
+   ) B ) B 
+   
+    
+   LEFT JOIN (
+
+SELECT 
+C.ITEM_CODE,
+REPLACE(C.ITEM_CODE, '.', '') AS COD_SPEC,
+NAME
+FROM CIS2.VW_CLS_CLASS_ITEM C
+
+WHERE 
+C.CLASS_CODE = 'SPEC_2EDU') L ON L.COD_SPEC = B.NR_ROW
 
