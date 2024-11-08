@@ -118,10 +118,10 @@ R.CAEM2,
     
 
 FROM   
- --   CIS2.VW_DATA_ALL_COEF D    
+    CIS2.VW_DATA_ALL_COEF D    
      
      
-     CIS2.VW_DATA_ALL D   
+   --  CIS2.VW_DATA_ALL D   
     
                     INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS  
 WHERE
