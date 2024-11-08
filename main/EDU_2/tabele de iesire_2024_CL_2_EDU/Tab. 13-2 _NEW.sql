@@ -1,38 +1,76 @@
-INSERT INTO TABLE_OUT
+--
+--INSERT INTO TABLE_OUT
+--(
+--
+--      PERIOADA,
+--      FORM,
+--      FORM_VERS,
+--      ID_MDTABLE,
+--      COD_CUATM,
+--      NR_SECTIE,
+--      NUME_SECTIE,
+--      NR_SECTIE1,
+--      NUME_SECTIE1,
+--      NR_SECTIE2,
+--      NUME_SECTIE2,
+--      NR_ROW,
+--      ORDINE,
+--      DECIMAL_POS,
+--      NUME_ROW,   
+--         COL1,
+--         COL2,
+--         COL3,
+--         COL4,
+--         COL5,
+--         COL6,
+--         COL7,
+--         COL8,
+--         COL9,
+--         COL10,
+--         COL11,
+--         COL12,
+--         COL13,
+--         COL14,
+--         COL15
+--)
+
+SELECT 
+
+      B.PERIOADA,
+      B.FORM,
+      B.FORM_VERS,
+      B.ID_MDTABLE,
+      B.COD_CUATM,
+      B.NR_SECTIE,
+      B.NUME_SECTIE,
+      B.NR_SECTIE1,
+      B.NUME_SECTIE1,
+      B.NR_SECTIE2,
+      B.NUME_SECTIE2,
+      L.ITEM_CODE||'~'||ROWNUM NR_ROW,
+      B.ORDINE,
+      B.DECIMAL_POS,
+      B.NUME_ROW,   
+         B.COL1,
+         B.COL2,
+         B.COL3,
+         B.COL4,
+         B.COL5,
+         B.COL6,
+         B.COL7,
+         B.COL8,
+         B.COL9,
+         B.COL10,
+         B.COL11,
+         B.COL12,
+         B.COL13,
+         B.COL14,
+         B.COL15
+
+    
+
+FROM 
 (
-
-      PERIOADA,
-      FORM,
-      FORM_VERS,
-      ID_MDTABLE,
-      COD_CUATM,
-      NR_SECTIE,
-      NUME_SECTIE,
-      NR_SECTIE1,
-      NUME_SECTIE1,
-      NR_SECTIE2,
-      NUME_SECTIE2,
-      NR_ROW,
-      ORDINE,
-      DECIMAL_POS,
-      NUME_ROW,   
-         COL1,
-         COL2,
-         COL3,
-         COL4,
-         COL5,
-         COL6,
-         COL7,
-         COL8,
-         COL9,
-         COL10,
-         COL11,
-         COL12,
-         COL13,
-         COL14,
-         COL15
-)
-
 SELECT 
       PERIOADA,
       FORM,
@@ -45,7 +83,7 @@ SELECT
       NUME_SECTIE1,
       NR_SECTIE2,
       NUME_SECTIE2,
-      CASE WHEN  NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1'||'~'||ROWNUM ELSE NR_ROW||'~'||ROWNUM  END  NR_ROW, 
+      SUBSTR((CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END), 1, INSTR((CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END), '~') - 1) AS NR_ROW,
       ORDINE,
       DECIMAL_POS,
       NUME_ROW,   
@@ -81,15 +119,12 @@ SELECT
     '0' AS NUME_SECTIE1, 
     '0' AS NR_SECTIE2,
     '0' AS NUME_SECTIE2, 
---    (CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0' 
---      WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'
---    
---    
---    
---    ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145
---    
-
-    L.ITEM_CODE AS NR_ROW,
+    (CASE WHEN (ltrim(TO_NUMBER(B.codul),'0')) IS  NULL   THEN '0' 
+      WHEN (ltrim(TO_NUMBER(B.codul),'0')) = 1   THEN '10'
+    
+    
+    
+    ELSE (ltrim(TO_NUMBER(B.codul),'0')) END)||'~'||ROWNUM/1.145 AS NR_ROW,
     ROWNUM  AS ORDINE,
    '000000000000000' AS DECIMAL_POS,
     TRIM(B.DENUMIRE)    NUME_ROW,
@@ -142,7 +177,7 @@ FROM
      INNER JOIN CIS2.VW_CL_CUATM CCU ON (CU.FULL_CODE LIKE '%'||CCU.CODUL||';%')
      -------------------------------------------------------
 INNER JOIN (
-
+---------------------------------------------------------------------------------------------------------------------------------------------------
  
 SELECT 
     D.CUIIO,
@@ -167,27 +202,10 @@ WHERE
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   D.FORM IN (49)                 AND 
   D.CAPITOL IN (1049) AND     
-    
-  (
-  
-  D.RIND NOT IN 
-       
-       (
-       
-        SELECT 
-        CODUL
-        
-        FROM CIS2.CL_TARI_CS
-        
-       )
-        
-     AND 
-     
-     D.RIND NOT IN ('010','020','030','035','040','050','060','070')
-     
-       )   
+( D.RIND NOT IN  ( SELECT  CODUL FROM CIS2.CL_TARI_CS ) AND  D.RIND NOT IN ('010','020','030','035','040','050','060','070'))   
        
     
+---------------------------------------------------------------------------------------------------------------------------------------------------
   
   
    ) DD ON   (DD.ID_MD = D.ID_MD AND D.CUIIO = DD.CUIIO AND D.RIND = DD.RIND AND D.RIND_VERS = DD.RIND_VERS  AND D.CUIIO_VERS = DD.CUIIO_VERS)    
@@ -1049,8 +1067,9 @@ WHERE
    ORDINE,
    FULL_CODE,
    CUATM_FULL_CODE 
-   )  B  
+   )  B
    
+   ) ) B
    
    LEFT JOIN (
 
@@ -1061,8 +1080,4 @@ NAME
 FROM CIS2.VW_CLS_CLASS_ITEM C
 
 WHERE 
-C.CLASS_CODE = 'SPEC_2EDU'
-
-
-
-) L ON L.COD_SPEC = ltrim(TO_NUMBER(B.codul),'0') )
+C.CLASS_CODE = 'SPEC_2EDU') L ON L.COD_SPEC = B.NR_ROW

@@ -1,3 +1,4 @@
+
 INSERT INTO TABLE_OUT
 (
 
@@ -34,6 +35,43 @@ INSERT INTO TABLE_OUT
 )
 
 SELECT 
+
+      B.PERIOADA,
+      B.FORM,
+      B.FORM_VERS,
+      B.ID_MDTABLE,
+      B.COD_CUATM,
+      B.NR_SECTIE,
+      B.NUME_SECTIE,
+      B.NR_SECTIE1,
+      B.NUME_SECTIE1,
+      B.NR_SECTIE2,
+      B.NUME_SECTIE2,
+      L.ITEM_CODE||'~'||ROWNUM NR_ROW,
+      B.ORDINE,
+      B.DECIMAL_POS,
+      B.NUME_ROW,   
+         B.COL1,
+         B.COL2,
+         B.COL3,
+         B.COL4,
+         B.COL5,
+         B.COL6,
+         B.COL7,
+         B.COL8,
+         B.COL9,
+         B.COL10,
+         B.COL11,
+         B.COL12,
+         B.COL13,
+         B.COL14,
+         B.COL15
+
+    
+
+FROM 
+(
+SELECT 
       PERIOADA,
       FORM,
       FORM_VERS,
@@ -45,7 +83,6 @@ SELECT
       NUME_SECTIE1,
       NR_SECTIE2,
       NUME_SECTIE2,
- --     (CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END)  NR_ROW, 
       SUBSTR((CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END), 1, INSTR((CASE WHEN NUME_ROW LIKE '%..........Total pe institutii de invatamint%' THEN '1' ELSE NR_ROW END), '~') - 1) AS NR_ROW,
       ORDINE,
       DECIMAL_POS,
@@ -1049,4 +1086,15 @@ WHERE
    CUATM_FULL_CODE 
    )  B
    
-   ) 
+   ) ) B
+   
+   LEFT JOIN (
+
+SELECT 
+C.ITEM_CODE,
+REPLACE(C.ITEM_CODE, '.', '') AS COD_SPEC,
+NAME
+FROM CIS2.VW_CLS_CLASS_ITEM C
+
+WHERE 
+C.CLASS_CODE = 'SPEC_2EDU') L ON L.COD_SPEC = B.NR_ROW
