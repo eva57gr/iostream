@@ -6,7 +6,7 @@ SELECT
   '0' AS NR_SECTIE2,
   '0' AS NUME_SECTIE2,
   NR_ROW  AS NR_ROW,
-  ORDINE1,
+  ORDINE1, --------------------------
   ORDINE2,
   NULL AS ORDINE3,
   '......'||NUME_ROW AS NUME_ROW,
