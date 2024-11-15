@@ -31,7 +31,7 @@ SELECT
   '0' AS NUME_SECTIE1,
   '0' as NR_SECTIE2,
   '0' as NUME_SECTIE2,
-
+---------------------------------
   LL.ITEM_CODE NR_ROW,
   LL.ORDINE AS ORDINE,
  '00000000000000000' AS DECIMAL_POS,
