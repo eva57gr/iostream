@@ -1,3 +1,4 @@
+--Change the query if the final columns are equal to zero to be null if not to display the values
 SELECT 
 D.ANUL,
 D.CUIIO,
