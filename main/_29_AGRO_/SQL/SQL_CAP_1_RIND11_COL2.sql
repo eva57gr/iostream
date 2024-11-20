@@ -20,7 +20,12 @@ WHERE
 GROUP BY
    D.CUIIO,
    D.RIND
+
+   HAVING 
    
+   SUM(D.COL2) >= 1200 AND  SUM(D.COL2) <= 2200
+   
+      
    ORDER BY
    D.CUIIO,
    D.RIND
