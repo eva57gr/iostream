@@ -1,8 +1,7 @@
-
 SELECT
 DISTINCT 
+  D.PERIOADA,
   D.CUIIO,
-  --D.RIND,
   D.COL2 AS COL1
   
 FROM 
@@ -15,21 +14,23 @@ WHERE
  
   D.FORM IN (26)AND   
   D.CAPITOL IN (367) AND
-  --D.RIND IN ('11','12','27','29','30')
   D.RIND IN ('11')
 
+AND D.CUIIO IN (
+40758988,
+40027227,
+40984549
+)
 GROUP BY
    D.CUIIO,
-   D.COL2
+   D.COL2,
+   D.PERIOADA
    
 
    HAVING 
    
-   D.COL2 >= 1200 AND  D.COL2 <= 2200
---   
---   SUM(D.COL2) BETWEEN  1200 AND 2200
---   
---      
+  NVAL(D.COL2) >= 1200 AND  NVAL(D.COL2) <= 2200
+    
    ORDER BY
    D.CUIIO
    
