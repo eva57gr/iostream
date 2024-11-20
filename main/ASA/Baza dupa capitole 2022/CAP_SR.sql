@@ -1,0 +1,41 @@
+
+
+
+
+
+        SELECT
+    D.ANUL,
+    D.CUIIO,
+    R.IDNO,
+    R.DENUMIRE,
+    R.CUATM,
+    R.CFP,
+    R.CFOJ,
+    R.CAEM2,
+    D.RIND,
+    SUM(COL1) AS COL1
+   
+FROM
+    --CIS2.VW_DATA_ALL_COEF D 
+     CIS2.VW_DATA_ALL D
+  --Roma2024~!@#
+INNER JOIN
+    CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
+WHERE
+    D.FORM IN (64)
+    AND D.PERIOADA = :pPERIOADA
+    AND D.CUATM_FULL LIKE '%' || :pCOD_CUATM || ';%'
+    AND D.CAPITOL IN (100)
+    AND D.CUIIO = 819906
+GROUP BY
+    D.ANUL,
+    D.CUIIO,
+    R.IDNO,
+    R.DENUMIRE,
+    R.CUATM,
+    R.CFP,
+    R.CFOJ,
+    R.CAEM2,
+    D.RIND
+ORDER BY
+    D.CUIIO
