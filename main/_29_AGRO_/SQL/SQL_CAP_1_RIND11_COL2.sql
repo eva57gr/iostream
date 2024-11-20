@@ -1,0 +1,27 @@
+
+SELECT
+  D.CUIIO,
+  D.RIND,
+  SUM(D.COL2) AS COL1
+  
+FROM 
+  CIS2.VW_DATA_ALL D
+  
+WHERE
+  D.PERIOADA IN (1051) AND 
+  
+ 
+ 
+  D.FORM IN (26)AND   
+  D.CAPITOL IN (367) AND
+  --D.RIND IN ('11','12','27','29','30')
+  D.RIND IN ('11')
+
+GROUP BY
+   D.CUIIO,
+   D.RIND
+   
+   ORDER BY
+   D.CUIIO,
+   D.RIND
+   
