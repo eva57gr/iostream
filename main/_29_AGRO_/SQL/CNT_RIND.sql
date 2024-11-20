@@ -1,14 +1,15 @@
 
 SELECT
+DISTINCT 
   D.CUIIO,
-  D.RIND,
-  SUM(D.COL2) AS COL1
+  --D.RIND,
+  D.COL2 AS COL1
   
 FROM 
   CIS2.VW_DATA_ALL D
   
 WHERE
-  D.PERIOADA IN (1051) AND 
+ D.PERIOADA IN (1052,1053,1054,1055) AND
   
  
  
@@ -19,16 +20,17 @@ WHERE
 
 GROUP BY
    D.CUIIO,
-   D.RIND
+   D.COL2
+   
 
    HAVING 
    
-   --SUM(D.COL2) >= 1200 AND  SUM(D.COL2) <= 2200
-   
-   SUM(D.COL2) BETWEEN  1200 AND 2200
-   
-      
+   D.COL2 >= 1200 AND  D.COL2 <= 2200
+--   
+--   SUM(D.COL2) BETWEEN  1200 AND 2200
+--   
+--      
    ORDER BY
-   D.CUIIO,
-   D.RIND
+   D.CUIIO
+   
    
