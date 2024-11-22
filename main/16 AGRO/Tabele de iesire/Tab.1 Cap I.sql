@@ -48,15 +48,46 @@ FROM
   (:pID_MDTABLE=:pID_MDTABLE) AND
   D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%')
 --  INNER JOIN RENIM RE ON (D.CUIIO=RE.CUIIO AND D.CUIIO_VERS=RE.CUIIO_VERS) 
-----------------------------------------------------------------------------------------
 WHERE
 --  D.PERIOADA IN (:pPERIOADA) AND 
 --  D.FORM_VERS = :pFORM_VERS     AND    
 --  (:pID_MDTABLE=:pID_MDTABLE) AND
----------------------------------------------------------------------------------------
 --  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
   MR.FORM IN (36)                 AND 
   MR.CAPITOL IN (383) 
+  AND D.CUIIO IN (SELECT 
+CUIIO 
+FROM
+
+
+(
+SELECT 
+ DISTINCT  D.CUIIO,
+  D.RIND,
+ SUM(D.COL1) AS COL1
+FROM CIS2.VW_DATA_ALL D
+
+WHERE
+  D.PERIOADA IN (:pPERIOADA) AND 
+  D.FORM_VERS = :pFORM_VERS     AND    
+  (:pID_MDTABLE=:pID_MDTABLE) AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
+  D.FORM IN (36)                 AND 
+  D.CAPITOL IN (383) AND
+  D.RIND IN ('90') 
+  
+  GROUP BY 
+  D.CUIIO,
+  D.RIND
+--  
+  HAVING
+  SUM(D.COL1) <= 50000
+  
+  
+  ORDER BY
+  SUM(D.COL1) DESC )
+  
+  )
 GROUP BY
   MR.RIND,
   MR.DENUMIRE,
