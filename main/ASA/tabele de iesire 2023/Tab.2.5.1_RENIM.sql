@@ -1,3 +1,25 @@
+INSERT INTO CIS2.TABLE_OUT 
+(
+  PERIOADA,
+  FORM,
+  FORM_VERS,
+  ID_MDTABLE,
+  COD_CUATM,
+  NR_SECTIE,
+  NUME_SECTIE,
+  NR_SECTIE1,
+  NUME_SECTIE1,
+  NR_SECTIE2,
+  NUME_SECTIE2,
+  NR_ROW,
+  ORDINE,
+  DECIMAL_POS,
+  NUME_ROW,  
+ COL1, COL2, COL3,COL4,COL5,COL6,COL7,COL8,COL9,COL10,COL11, COL12, COL13, COL14, COL15, COL16, COL17, COL18, COL19,
+    COL20, COL21, COL22,COL23,COL24,COL25,COL26,COL27,COL28,COL29,COL30, COL31, COL32, COL33, COL34, COL35, COL36, COL37, COL38, COL39, COL40,
+    COL41, COL42,COL43,COL44,COL45,COL46,COL47,COL48,COL49,COL50
+)
+
 SELECT 
 :pPERIOADA AS PERIOADA,
 :pFORM AS FORM,
@@ -116,7 +138,36 @@ WHERE
 ) DD ON DR.CUIIO=DD.CUIIO AND DR.CUIIO_VERS=DD.CUIIO_VERS
 -------------------------------------------------------------------------------    
 
- INNER JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL = DR.CAEM2                  
+ INNER JOIN (SELECT
+CODUL, 
+DENUMIRE, 
+GRUPA, 
+ORDINE, 
+FULL_CODE, 
+NUM_CODE, 
+PRIM                
+                FROM  CIS2.VW_CL_CAEM2
+                
+               
+                
+                WHERE 
+                CODUL LIKE 'C%'
+                OR CODUL LIKE 'B%'
+                OR CODUL LIKE 'D%'
+                OR CODUL LIKE 'E%'
+                OR CODUL LIKE 'F%'
+                OR CODUL LIKE 'G%'
+                OR CODUL LIKE 'H%'
+                OR CODUL LIKE 'I%'
+                OR CODUL LIKE 'J%'
+                OR CODUL LIKE 'L%'
+                OR CODUL LIKE 'M%'
+                OR CODUL LIKE 'N%'
+                OR CODUL LIKE 'S%'
+             
+                
+                
+                ) C ON C.CODUL = DR.CAEM2                  
  INNER JOIN CIS2.VW_CL_CAEM2 CC ON (C.FULL_CODE LIKE '%'||CC.CODUL||';%')
  
          
