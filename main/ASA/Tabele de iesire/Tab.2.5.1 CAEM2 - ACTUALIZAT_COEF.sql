@@ -112,7 +112,7 @@ SELECT
     FROM
     
     
-    CIS2.VW_DATA_ALL DR INNER JOIN
+    CIS2.VW_DATA_ALL_COEF DR INNER JOIN
     
     (
 -------------------------------------------------------------------------------     
