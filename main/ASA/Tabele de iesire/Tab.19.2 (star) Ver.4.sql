@@ -142,15 +142,17 @@ HAVING
  
   
    and CC.CODUL LIKE 'C%'
-   AND (CC.PRIM IN ('1') OR CC.CODUL IN 'C0000')  
-   
+--   AND (
+--   CC.PRIM IN ('0') OR CC.CODUL IN 'C0000'
+--   ) AND CC.CODUL LIKE '%00'  
+--   
    
    GROUP BY
    CC.FULL_CODE,
     CC.DENUMIRE,
    CC.CODUL
    
-   
+   --------------------------------------------------------------------
    ORDER BY 
    ORDINE,
    
