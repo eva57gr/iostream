@@ -1,9 +1,4 @@
---This is Oracle SQL
---Analyze this sql code and add where indicated after the previous additions.
---Pentru ca tu sa intalegi eu am adaugat rind 120.
---rind 120 din sql primar este col5
---CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('120') THEN  CIS2.NVAL(D.COL1) END))  AS COL5 
---Lam adaugat in cros join si in sql final  
+
 SELECT 
    RR.NR_ROW,
   ROUND(SUM ( CASE WHEN  1=1 THEN DECODE(RR.NR_ROW, 
@@ -111,7 +106,8 @@ SELECT
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL2) END))  AS COL60,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL3) END))  AS COL61,
  
- 
+ --Rindurile se incep de la 100 col1 pana la randul 500 col61- Asa sa-mi adaugi 
+ --Utilizeaza nu mai decode 
  (SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
  FROM
    CIS2.DATA_ALL DD

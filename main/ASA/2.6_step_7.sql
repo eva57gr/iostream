@@ -1,32 +1,32 @@
---This is Oracle SQL
---Analyze this sql code and add where indicated after the previous additions.
---Pentru ca tu sa intalegi eu am adaugat rind 120.
---rind 120 din sql primar este col5
---CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('120') THEN  CIS2.NVAL(D.COL1) END))  AS COL5 
---Lam adaugat in cros join si in sql final  
+
 SELECT 
    RR.NR_ROW,
   ROUND(SUM ( CASE WHEN  1=1 THEN DECODE(RR.NR_ROW, 
-         '100', (DD.COL1),
-         '110', (DD.COL2),
-         '111', (DD.COL3),
-         '112', (DD.COL4),
-         '120', (DD.COL5) --here i added CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('120') THEN  CIS2.NVAL(D.COL1) END))  AS COL5
          
-         )
-       --Add next row (rind)  
+         'Rind 100 col1', (DD.COL1),
+         'Rind 110 col1', (DD.COL2),
+         'Rind 111 col1', (DD.COL3),
+         'Rind 112 col1', (DD.COL4),
+         'Rind 120 col1', (DD.COL5),
+         'Rind 121 col1', (DD.COL6),
+         'Rind 122 col1', (DD.COL7),
+         'Rind 130 col1', (DD.COL8)  
+         )END),1)     
          
-         
-         END),1)     AS COL1,
+         AS COL1,
  
  SUM( CASE WHEN (DD.PERS BETWEEN 0 AND 9 OR DD.PERS IS NULL ) THEN  (DECODE(RR.NR_ROW, 
       
        
-         '100',(DD.COL1),
-         '110',(DD.COL2),
-         '112',(DD.COL4),
-         '120',(DD.COL5) --here i added CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('120') THEN  CIS2.NVAL(D.COL1) END))  AS COL5
-       
+         'Rind 100 col1', (DD.COL1),
+         'Rind 110 col1', (DD.COL2),
+         'Rind 111 col1', (DD.COL3),
+         'Rind 112 col1', (DD.COL4),
+         'Rind 120 col1', (DD.COL5),
+         'Rind 121 col1', (DD.COL6),
+         'Rind 122 col1', (DD.COL7),
+         'Rind 130 col1', (DD.COL8) 
+        
          )) END)
        --Add next row (rind)   
          AS COL2
@@ -38,7 +38,7 @@ SELECT
   (
 -------------------------------------------------------------------------------
 SELECT 
- --From here 
+  
  DISTINCT D.CUIIO, 
    CASE WHEN MAX(CASE WHEN  D.RIND IN ('8') AND D.CAPITOL IN (1129) THEN D.COL31 END ) IS NULL THEN  MAX(SUBSTR(D.CAEM2,2,4)) 
    ELSE MAX(CASE WHEN  D.RIND IN ('8') AND D.CAPITOL IN (1129) THEN D.COL31 END )  END AS CAEM2_ACTUALIZAT,
@@ -111,7 +111,6 @@ SELECT
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL2) END))  AS COL60,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL3) END))  AS COL61,
  
- 
  (SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
  FROM
    CIS2.DATA_ALL DD
@@ -146,12 +145,17 @@ HAVING
  
   CROSS JOIN
   ( 
-     SELECT '100' AS NR_ROW, 'Col1' AS COL FROM DUAL UNION   
-     SELECT '110' AS NR_ROW, 'Col2' AS COL FROM DUAL UNION
-     SELECT '111' AS NR_ROW, 'Col3' AS COL FROM DUAL UNION 
-     SELECT '112' AS NR_ROW, 'Col4' AS COL FROM DUAL UNION 
-     SELECT '120' AS NR_ROW, 'Col5' AS COL FROM DUAL    --ere i added CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('120') THEN  CIS2.NVAL(D.COL1) END))  AS COL5
-     -- --Add next row (rind)
+     SELECT 'Rind 100 col1' AS NR_ROW, 'Col1' AS COL FROM DUAL UNION   
+     SELECT 'Rind 110 col1' AS NR_ROW, 'Col2' AS COL FROM DUAL UNION
+     SELECT 'Rind 111 col1' AS NR_ROW, 'Col3' AS COL FROM DUAL UNION 
+     SELECT 'Rind 112 col1' AS NR_ROW, 'Col4' AS COL FROM DUAL UNION 
+     SELECT 'Rind 120 col1' AS NR_ROW, 'Col5' AS COL FROM DUAL UNION
+     SELECT 'Rind 121 col1' AS NR_ROW, 'Col6' AS COL FROM DUAL UNION
+     SELECT 'Rind 122 col1' AS NR_ROW, 'Col7' AS COL FROM DUAL UNION 
+     SELECT 'Rind 130 col1' AS NR_ROW, 'Col8' AS COL FROM DUAL 
+       
+     
+     
 
   ) RR 
 
