@@ -20,7 +20,50 @@ SELECT
          'Rind 200 col1', (DD.COL15),
          'Rind 210 col1', (DD.COL16),
          'Rind 220 col1', (DD.COL17),
-         'Rind 221 col1', (DD.COL18)  
+         'Rind 221 col1', (DD.COL18),
+         'Rind 222 col1', (DD.COL19),
+         'Rind 240 col1', (DD.COL20),
+         'Rind 241 col1', (DD.COL21),
+         'Rind 242 col1', (DD.COL22),
+         'Rind 243 col1', (DD.COL23),
+         'Rind 260 col1', (DD.COL24),
+         'Rind 270 col1', (DD.COL25),
+         'Rind 280 col1', (DD.COL26),
+         'Rind 281 col1', (DD.COL27),
+         'Rind 282 col1', (DD.COL28),
+         'Rind 290 col1', (DD.COL29),
+         'Rind 291 col1', (DD.COL30),
+         'Rind 2911 col1', (DD.COL31),
+         'Rind 2912 col1', (DD.COL32),
+         'Rind 292 col1', (DD.COL33),
+         'Rind 293 col1', (DD.COL34),
+         'Rind 2931 col1', (DD.COL35),
+         'Rind 294 col1', (DD.COL36),
+         'Rind 2941 col1', (DD.COL37),
+         'Rind 2942 col1', (DD.COL38),
+         'Rind 2943 col1', (DD.COL39),
+         'Rind 2944 col1', (DD.COL40),
+         'Rind 295 col1', (DD.COL41),
+         'Rind 296 col1', (DD.COL42),
+         'Rind 2961 col1', (DD.COL43),
+         'Rind 2962 col1', (DD.COL44),
+         'Rind 297 col1', (DD.COL45),
+         'Rind 300 col1', (DD.COL46),
+         
+         'Rind 310 col1', (DD.COL47),
+         
+         'Rind 320 col1', (DD.COL48),
+         'Rind 320 col2', (DD.COL49),
+         'Rind 330 col1', (DD.COL50),
+         'Rind 330 col2', (DD.COL51),
+         'Rind 340 col1', (DD.COL54),
+         'Rind 340 col2', (DD.COL55),
+         'Rind 350 col1', (DD.COL56),
+         'Rind 350 col2', (DD.COL57),
+         'Rind 400 col1', (DD.COL58),
+         'Rind 400 col2', (DD.COL59),
+         'Rind 500 col1', (DD.COL60),
+         'Rind 500 col2', (DD.COL61)  
           --  Continue adding according to cross join and from dd. The logic is clear. As they have been added so far.
            
            
@@ -48,7 +91,49 @@ SELECT
          'Rind 200 col1', (DD.COL15),
          'Rind 210 col1', (DD.COL16),
          'Rind 220 col1', (DD.COL17),
-         'Rind 221 col1', (DD.COL18)  
+         'Rind 221 col1', (DD.COL18),
+         'Rind 222 col1', (DD.COL19),
+         'Rind 240 col1', (DD.COL20),
+         'Rind 241 col1', (DD.COL21),
+         'Rind 242 col1', (DD.COL22),
+         'Rind 243 col1', (DD.COL23),
+         'Rind 260 col1', (DD.COL24),
+         'Rind 270 col1', (DD.COL25),
+         'Rind 280 col1', (DD.COL26),
+         'Rind 281 col1', (DD.COL27),
+         'Rind 282 col1', (DD.COL28),
+         'Rind 290 col1', (DD.COL29),
+         'Rind 291 col1', (DD.COL30),
+         'Rind 2911 col1', (DD.COL31),
+         'Rind 2912 col1', (DD.COL32),
+         'Rind 292 col1', (DD.COL33),
+         'Rind 293 col1', (DD.COL34),
+         'Rind 2931 col1', (DD.COL35),
+         'Rind 294 col1', (DD.COL36),
+         'Rind 2941 col1', (DD.COL37),
+         'Rind 2942 col1', (DD.COL38),
+         'Rind 2943 col1', (DD.COL39),
+         'Rind 2944 col1', (DD.COL40),
+         'Rind 295 col1', (DD.COL41),
+         'Rind 296 col1', (DD.COL42),
+         'Rind 2961 col1', (DD.COL43),
+         'Rind 2962 col1', (DD.COL44),
+         'Rind 297 col1', (DD.COL45),
+         'Rind 300 col1', (DD.COL46),
+         'Rind 310 col1', (DD.COL47),
+         'Rind 320 col1', (DD.COL48),
+         
+         'Rind 320 col2', (DD.COL49),
+         'Rind 330 col1', (DD.COL50),
+         'Rind 330 col2', (DD.COL51),
+         'Rind 340 col1', (DD.COL54),
+         'Rind 340 col2', (DD.COL55),
+         'Rind 350 col1', (DD.COL56),
+         'Rind 350 col2', (DD.COL57),
+         'Rind 400 col1', (DD.COL58),
+         'Rind 400 col2', (DD.COL59),
+         'Rind 500 col1', (DD.COL60),
+         'Rind 500 col2', (DD.COL61)  
            
            
         
@@ -122,16 +207,14 @@ SELECT
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('320') THEN  CIS2.NVAL(D.COL2) END))  AS COL49,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('330') THEN  CIS2.NVAL(D.COL1) END))  AS COL50,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('330') THEN  CIS2.NVAL(D.COL2) END))  AS COL51,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('330') THEN  CIS2.NVAL(D.COL1) END))  AS COL52,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('330') THEN  CIS2.NVAL(D.COL2) END))  AS COL53,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('340') THEN  CIS2.NVAL(D.COL1) END))  AS COL54,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('340') THEN  CIS2.NVAL(D.COL2) END))  AS COL55,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('350') THEN  CIS2.NVAL(D.COL1) END))  AS COL56,
  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('350') THEN  CIS2.NVAL(D.COL2) END))  AS COL57,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1127) AND D.RIND IN ('400') THEN  CIS2.NVAL(D.COL1) END))  AS COL58,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1127) AND D.RIND IN ('400') THEN  CIS2.NVAL(D.COL2) END))  AS COL59,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL2) END))  AS COL60,
- CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL3) END))  AS COL61,
+ CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1127) AND D.RIND IN ('400') THEN  CIS2.NVAL(D.COL3) END))  AS COL58,
+ CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1127) AND D.RIND IN ('400') THEN  CIS2.NVAL(D.COL4) END))  AS COL59,
+ CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL8) END))  AS COL60,
+ CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (1128) AND D.RIND IN ('500') THEN  CIS2.NVAL(D.COL9) END))  AS COL61,
  
  (SELECT  CASE WHEN DD.COL4 IS NOT NULL THEN DD.COL4 ELSE 0 END 
  FROM
@@ -213,13 +296,12 @@ HAVING
      SELECT 'Rind 2962 col1' AS NR_ROW, 'Col44' AS COL FROM DUAL  UNION
      SELECT 'Rind 297 col1' AS NR_ROW, 'Col45' AS COL FROM DUAL  UNION
      SELECT 'Rind 300 col1' AS NR_ROW, 'Col46' AS COL FROM DUAL  UNION
-     SELECT 'Rind 300 col2' AS NR_ROW, 'Col47' AS COL FROM DUAL  UNION
-     SELECT 'Rind 310 col1' AS NR_ROW, 'Col48' AS COL FROM DUAL  UNION
-     SELECT 'Rind 310 col2' AS NR_ROW, 'Col49' AS COL FROM DUAL  UNION
-     SELECT 'Rind 320 col1' AS NR_ROW, 'Col50' AS COL FROM DUAL  UNION
-     SELECT 'Rind 320 col2' AS NR_ROW, 'Col51' AS COL FROM DUAL  UNION
-     SELECT 'Rind 330 col1' AS NR_ROW, 'Col52' AS COL FROM DUAL  UNION
-     SELECT 'Rind 330 col2' AS NR_ROW, 'Col53' AS COL FROM DUAL  UNION
+     SELECT 'Rind 310 col1' AS NR_ROW, 'Col47' AS COL FROM DUAL  UNION
+     SELECT 'Rind 320 col1' AS NR_ROW, 'Col48' AS COL FROM DUAL  UNION
+     SELECT 'Rind 320 col2' AS NR_ROW, 'Col49' AS COL FROM DUAL  UNION
+     
+     SELECT 'Rind 330 col1' AS NR_ROW, 'Col50' AS COL FROM DUAL  UNION
+     SELECT 'Rind 330 col2' AS NR_ROW, 'Col51' AS COL FROM DUAL  UNION
      SELECT 'Rind 340 col1' AS NR_ROW, 'Col54' AS COL FROM DUAL  UNION
      SELECT 'Rind 340 col2' AS NR_ROW, 'Col55' AS COL FROM DUAL  UNION
      SELECT 'Rind 350 col1' AS NR_ROW, 'Col56' AS COL FROM DUAL  UNION
