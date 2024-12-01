@@ -16,7 +16,12 @@ SELECT
          'Rind 151 col1', (DD.COL11),
          'Rind 160 col1', (DD.COL12),
          'Rind 170 col1', (DD.COL13),
-         'Rind 180 col1', (DD.COL14)  
+         'Rind 180 col1', (DD.COL14),
+         'Rind 200 col1', (DD.COL15),
+         'Rind 210 col1', (DD.COL16),
+         'Rind 220 col1', (DD.COL17),
+         'Rind 221 col1', (DD.COL18)  
+           
            
            
          )END),1)     
@@ -39,7 +44,12 @@ SELECT
          'Rind 151 col1', (DD.COL11),
          'Rind 160 col1', (DD.COL12),
          'Rind 170 col1', (DD.COL13),
-         'Rind 180 col1', (DD.COL14)  
+         'Rind 180 col1', (DD.COL14),
+         'Rind 200 col1', (DD.COL15),
+         'Rind 210 col1', (DD.COL16),
+         'Rind 220 col1', (DD.COL17),
+         'Rind 221 col1', (DD.COL18)  
+           
            
         
          )) END)
@@ -177,7 +187,34 @@ HAVING
      SELECT 'Rind 200 col1' AS NR_ROW, 'Col15' AS COL FROM DUAL UNION
      SELECT 'Rind 210 col1' AS NR_ROW, 'Col16' AS COL FROM DUAL UNION
      SELECT 'Rind 220 col1' AS NR_ROW, 'Col17' AS COL FROM DUAL UNION 
-     SELECT 'Rind 221 col1' AS NR_ROW, 'Col18' AS COL FROM DUAL 
+     SELECT 'Rind 221 col1' AS NR_ROW, 'Col18' AS COL FROM DUAL UNION
+     SELECT 'Rind 222 col1' AS NR_ROW, 'Col19' AS COL FROM DUAL UNION
+     SELECT 'Rind 240 col1' AS NR_ROW, 'Col20' AS COL FROM DUAL UNION
+     SELECT 'Rind 241 col1' AS NR_ROW, 'Col21' AS COL FROM DUAL UNION
+     SELECT 'Rind 242 col1' AS NR_ROW, 'Col22' AS COL FROM DUAL UNION
+     SELECT 'Rind 243 col1' AS NR_ROW, 'Col23' AS COL FROM DUAL UNION
+     SELECT 'Rind 260 col1' AS NR_ROW, 'Col24' AS COL FROM DUAL UNION
+     SELECT 'Rind 270 col1' AS NR_ROW, 'Col25' AS COL FROM DUAL UNION
+     SELECT 'Rind 280 col1' AS NR_ROW, 'Col26' AS COL FROM DUAL UNION
+     SELECT 'Rind 281 col1' AS NR_ROW, 'Col27' AS COL FROM DUAL UNION
+     SELECT 'Rind 282 col1' AS NR_ROW, 'Col28' AS COL FROM DUAL UNION
+     SELECT 'Rind 290 col1' AS NR_ROW, 'Col29' AS COL FROM DUAL UNION
+     SELECT 'Rind 291 col1' AS NR_ROW, 'Col30' AS COL FROM DUAL UNION
+     SELECT 'Rind 2911 col1' AS NR_ROW, 'Col31' AS COL FROM DUAL UNION
+     SELECT 'Rind 2912 col1' AS NR_ROW, 'Col32' AS COL FROM DUAL UNION
+     SELECT 'Rind 292 col1' AS NR_ROW, 'Col33' AS COL FROM DUAL  UNION
+     SELECT 'Rind 293 col1' AS NR_ROW, 'Col34' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2931 col1' AS NR_ROW, 'Col35' AS COL FROM DUAL  UNION
+     SELECT 'Rind 294 col1' AS NR_ROW, 'Col36' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2941 col1' AS NR_ROW, 'Col37' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2942 col1' AS NR_ROW, 'Col38' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2943 col1' AS NR_ROW, 'Col39' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2944 col1' AS NR_ROW, 'Col40' AS COL FROM DUAL  UNION
+     SELECT 'Rind 295 col1' AS NR_ROW, 'Col41' AS COL FROM DUAL  UNION
+     SELECT 'Rind 296 col1' AS NR_ROW, 'Col42' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2961 col1' AS NR_ROW, 'Col43' AS COL FROM DUAL  UNION
+     SELECT 'Rind 2962 col1' AS NR_ROW, 'Col44' AS COL FROM DUAL  UNION
+     SELECT 'Rind 297 col1' AS NR_ROW, 'Col45' AS COL FROM DUAL  UNION
      
        
   ) RR 
