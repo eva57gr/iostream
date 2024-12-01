@@ -10,7 +10,15 @@ SELECT
          'Rind 120 col1', (DD.COL5),
          'Rind 121 col1', (DD.COL6),
          'Rind 122 col1', (DD.COL7),
-         'Rind 130 col1', (DD.COL8)  
+         'Rind 130 col1', (DD.COL8),
+         'Rind 140 col1', (DD.COL9),
+         'Rind 150 col1', (DD.COL10),
+         'Rind 151 col1', (DD.COL11),
+         'Rind 160 col1', (DD.COL12),
+         'Rind 170 col1', (DD.COL13),
+         'Rind 180 col1', (DD.COL14)  
+           
+           
          )END),1)     
          
          AS COL1,
@@ -25,7 +33,14 @@ SELECT
          'Rind 120 col1', (DD.COL5),
          'Rind 121 col1', (DD.COL6),
          'Rind 122 col1', (DD.COL7),
-         'Rind 130 col1', (DD.COL8) 
+         'Rind 130 col1', (DD.COL8),
+         'Rind 140 col1', (DD.COL9),
+         'Rind 150 col1', (DD.COL10),
+         'Rind 151 col1', (DD.COL11),
+         'Rind 160 col1', (DD.COL12),
+         'Rind 170 col1', (DD.COL13),
+         'Rind 180 col1', (DD.COL14)  
+           
         
          )) END)
        --Add next row (rind)   
@@ -152,11 +167,19 @@ HAVING
      SELECT 'Rind 120 col1' AS NR_ROW, 'Col5' AS COL FROM DUAL UNION
      SELECT 'Rind 121 col1' AS NR_ROW, 'Col6' AS COL FROM DUAL UNION
      SELECT 'Rind 122 col1' AS NR_ROW, 'Col7' AS COL FROM DUAL UNION 
-     SELECT 'Rind 130 col1' AS NR_ROW, 'Col8' AS COL FROM DUAL 
+     SELECT 'Rind 130 col1' AS NR_ROW, 'Col8' AS COL FROM DUAL UNION
+     SELECT 'Rind 140 col1' AS NR_ROW, 'Col9' AS COL FROM DUAL UNION
+     SELECT 'Rind 150 col1' AS NR_ROW, 'Col10' AS COL FROM DUAL UNION
+     SELECT 'Rind 151 col1' AS NR_ROW, 'Col11' AS COL FROM DUAL UNION
+     SELECT 'Rind 160 col1' AS NR_ROW, 'Col12' AS COL FROM DUAL UNION
+     SELECT 'Rind 170 col1' AS NR_ROW, 'Col13' AS COL FROM DUAL UNION
+     SELECT 'Rind 180 col1' AS NR_ROW, 'Col14' AS COL FROM DUAL UNION
+     SELECT 'Rind 200 col1' AS NR_ROW, 'Col15' AS COL FROM DUAL UNION
+     SELECT 'Rind 210 col1' AS NR_ROW, 'Col16' AS COL FROM DUAL UNION
+     SELECT 'Rind 220 col1' AS NR_ROW, 'Col17' AS COL FROM DUAL UNION 
+     SELECT 'Rind 221 col1' AS NR_ROW, 'Col18' AS COL FROM DUAL 
+     
        
-     
-     
-
   ) RR 
 
 
