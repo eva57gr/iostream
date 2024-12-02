@@ -1,4 +1,3 @@
---Continue adding according to cross join and from dd. The logic is clear. As they have been added so far.
 SELECT 
    RR.NR_ROW,
   ROUND(SUM ( CASE WHEN  1=1 THEN DECODE(RR.NR_ROW, 
