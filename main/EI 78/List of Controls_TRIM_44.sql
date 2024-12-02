@@ -1,7 +1,7 @@
 ﻿SELECT 
       L.CONTROL,
       L.FORMULA,
-      L.SQL_TEXT,
+     -- L.SQL_TEXT,
       L.PRIORITATEA,
       L.STATUT
       
@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 64
+         AND A.FORM  = 54
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 64
+         AND B.FORM  = 54
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
