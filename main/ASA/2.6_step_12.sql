@@ -1001,7 +1001,7 @@ HAVING
  
    GROUP BY
     RR.NR_ROW       
-    
+  ---  
     
    ORDER BY 
    RR.NR_ROW
