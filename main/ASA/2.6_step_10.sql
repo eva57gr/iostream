@@ -64,8 +64,8 @@ SELECT
          'Rind 400 col2', (DD.COL59),
          'Rind 500 col1', (DD.COL60),
          'Rind 500 col2', (DD.COL61)  
-          --  Continue adding according to cross join and from dd. The logic is clear. As they have been added so far.
-           
+       
+    -----------------------------------       
            
          )END),1)     
          
