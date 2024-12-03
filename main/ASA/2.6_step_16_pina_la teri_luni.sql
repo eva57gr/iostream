@@ -22,7 +22,7 @@ SELECT
    DD.FORM=D.FORM AND
    DD.ID_MD IN (69986) AND
    DD.CUIIO IN (D.CUIIO)) AS PERS
- 
+ ----------------------------------------------------------------------------------------------
 FROM   
     CIS2.VW_DATA_ALL_COEF D       
 WHERE
