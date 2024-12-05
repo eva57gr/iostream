@@ -79,7 +79,7 @@ SELECT
            R.GEN_INSTITUTIE,
            R.IDNO
       FROM    USER_BANCU.VW_MAX_RENIM_CIS2 R
-              --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2 R
+           --   USER_BANCU.VW_MAX_RENIM_TRIM_CIS2 R
       
       WHERE
 --      
@@ -141,4 +141,4 @@ SELECT
 )
 
 
-AND R.CUIIO_VERS  <> 1063
+--AND R.CUIIO_VERS  <> 1063
