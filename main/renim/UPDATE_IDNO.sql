@@ -1,7 +1,7 @@
 UPDATE CIS2.RENIM 
          SET 
          --DENUMIRE = TRIM('Directia Regionala NORD  al Politiei de Frontiera')
-         IDNO = '1023602012328'
+         IDNO = '1024603006628'
                
 -------------------------------------         
 --         SELECT *
@@ -10,7 +10,7 @@ UPDATE CIS2.RENIM
                
                WHERE 
         ------------------------------       
-           CUIIO IN  (41559297)
+           CUIIO IN  (41583054)     
 
 ------------------------------------------------------------------------------------
 
