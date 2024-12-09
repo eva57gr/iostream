@@ -9,7 +9,7 @@ SELECT
         
         FROM
 
-( 
+( ---------------------------
 
 SELECT 
       L.CONTROL,
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 45
+         AND A.FORM  = 27
          
          AND A.CONTROL_VERS <=:pPERIOADA 
                
@@ -57,7 +57,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 45
+         AND B.FORM  = 27
          AND B.STATUT <> '3'
          
         
