@@ -24,10 +24,11 @@ SELECT
           WHERE
           1=1  
 --
---AND STATUS  =  '5' AND 
+AND STATUS  =  '5' 
+--AND 
 --
---
-AND  DATA_REG >= TO_DATE('07/17/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
+----
+--AND  DATA_REG >= TO_DATE('07/17/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
@@ -37,7 +38,7 @@ AND  DATA_REG >= TO_DATE('07/17/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
 --  
 --  FORM_TYPE = '1-ac'
 ----  OR 
- AND  FORM_TYPE IN  ('ei-78','65-auto-22') 
+AND   FORM_TYPE IN  ('29_agr24') 
    
   
   
