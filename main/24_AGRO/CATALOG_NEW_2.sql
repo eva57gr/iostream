@@ -1,5 +1,5 @@
 SELECT 
-L.CUIIO 
+DISTINCT L.CUIIO||10 COL1
 FROM
 (
 SELECT 
@@ -34,3 +34,5 @@ CUIIO) L LEFT JOIN (
 
 WHERE 
 R.CUIIO IS NULL 
+
+-----------------------------------------------------------------------------
