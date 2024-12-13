@@ -1,4 +1,4 @@
-
+----------------------------
 SELECT 
                    FC.CUIIO
 --                   FC.CUIIO_VERS,
