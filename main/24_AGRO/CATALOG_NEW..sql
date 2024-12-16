@@ -1,3 +1,4 @@
+----------------------------
 SELECT 
 CUIIO
 FROM USER_BANCU.IDNO
