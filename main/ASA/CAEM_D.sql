@@ -1,0 +1,96 @@
+SELECT 
+DD.CUIIO,
+DD.CAEM2 CAEM2_RENIM,
+DD.CAEM2_ACTUALIZAT,
+C.CODUL,
+DD.PERS,
+DD.CF
+
+FROM
+
+(
+SELECT 
+ 
+ DISTINCT D.CUIIO, 
+
+ MAX(D.CAEM2)  AS CAEM2,
+ 
+ CASE WHEN MAX(CASE WHEN  D.RIND IN ('8') AND D.CAPITOL IN (1129) THEN D.COL31 END ) IS NULL 
+ THEN    MAX(SUBSTR(D.CAEM2,2,4))  ELSE MAX(CASE WHEN  D.RIND IN ('8') AND D.CAPITOL IN (1129) THEN D.COL31 END ) END 
+ 
+ AS CAEM2_ACTUALIZAT,
+ 
+ SUM(CASE WHEN D.capitol=1127 THEN D.COL4 ELSE NULL END) AS PERS,
+  SUM(CASE WHEN D.capitol=1127 THEN D.COL3 ELSE NULL END) AS CF 
+
+ 
+FROM   
+    CIS2.VW_DATA_ALL D       
+WHERE
+  D.FORM IN (64)             AND 
+  D.FORM_VERS = :PFORM_VERS  AND      
+  D.PERIOADA =:pPERIOADA AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'   AND
+  D.CAPITOL IN (100,1123,1124,1125,1126,1127,1128,1129) 
+
+--  AND D.CUIIO IN (40996334,41058201,37386492)
+--AND D.CUIIO = 34275
+ GROUP BY D.CUIIO
+  
+ 
+-- 
+HAVING
+--  
+  CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('1','5') THEN  D.COL1 ELSE 0 END))  > 0
+AND 
+CIS2.NVAL(SUM(CASE WHEN D.CAPITOL IN (100)  AND D.RIND IN ('CD') THEN  D.COL1 ELSE 0 END)) >  0
+ 
+ ) DD 
+ 
+ INNER JOIN (
+ SELECT
+CODUL, 
+DENUMIRE, 
+GRUPA, 
+ORDINE, 
+FULL_CODE, 
+NUM_CODE, 
+PRIM                
+                FROM  CIS2.VW_CL_CAEM2
+                
+               
+                
+                WHERE 
+                CODUL LIKE 'C%'
+                OR CODUL LIKE 'B%'
+                OR CODUL LIKE 'D%'
+                OR CODUL LIKE 'E%'
+                OR CODUL LIKE 'F%'
+                OR CODUL LIKE 'G%'
+                OR CODUL LIKE 'H%'
+                OR CODUL LIKE 'I%'
+                OR CODUL LIKE 'J%'
+                OR CODUL LIKE 'L%'
+                OR CODUL LIKE 'M%'
+                OR CODUL LIKE 'N%'
+                OR CODUL LIKE 'S%'
+             
+                
+                
+                ) C ON      SUBSTR( C.CODUL,2,4) = DD.CAEM2_ACTUALIZAT             
+ WHERE 
+ 
+ DD.PERS BETWEEN 20 AND 49
+ 
+ AND 
+ 
+ C.CODUL LIKE 'D%'
+ 
+ 
+ GROUP BY 
+ DD.CUIIO,
+DD.CAEM2,
+DD.CAEM2_ACTUALIZAT,
+C.CODUL,
+DD.PERS,
+DD.CF
