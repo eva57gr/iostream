@@ -1,4 +1,4 @@
-
+-----------------------------------------------------------------------------------
 
 --In Oracle 
 --I'll exclude the last 2 digits for column CUIIO
