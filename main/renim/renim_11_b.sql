@@ -81,10 +81,10 @@ SELECT
  IDNO
 
 
-                    FROM    VW_MAX_RENIM_CIS2_2013
+                    FROM   -- VW_MAX_RENIM_CIS2_2013
                     --USER_BANCU.VW_RENIM_2012_CIS2
                      
-                        --  USER_BANCU.VW_MAX_RENIM_CIS2
+                          USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     
                         --    USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
@@ -104,11 +104,11 @@ FROM USER_BANCU.IDNO
 )
 
         
-        AND 
-        
-        
-        CUIIO_VERS  <>  2013 
-         
+--        AND 
+--        
+--        
+--        CUIIO_VERS  <>  2013 
+--         
          
 --        AND IDNO IS NOT NULL 
         
