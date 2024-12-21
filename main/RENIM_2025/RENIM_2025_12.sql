@@ -1,31 +1,17 @@
---------------------------------------------------------------------------------
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
+ UPDATE CIS2.FORM_CUIIO
+--SELECT * 
+    SET STATUT = '3'     
+  --  from CIS2.FORM_CUIIO 
+    
+    WHERE 
 
 
 
-
---SELECT 
---        L.CUIIO,
---        2012 CUIIO_VERS,
---        4 FORM,
---        2000    FORM_VERS,
---        '1' STATUT
---        
---        FROM 
---
---
---(
-
-
-SELECT   
+                  CUIIO IN (
+                    
+                   SELECT   
          R.CUIIO 
-         -- R_CUIIO,       
+         -- R_CUIIsO,       
         -- L.CUIIO  CUIIO
          
          FROM (
@@ -68,8 +54,26 @@ SELECT     R.CUIIO,
                
                WHERE 
                L.CUIIO IS    NULL  
---               ) L  
-              
+
+
+        
+        ) 
+        
+        AND 
+        
+        (
+        CUIIO_VERS  =  2014 
+         
+        ) 
+  
+
+ AND FORM = 71 
+--  
+--  
+  AND CUIIO_VERS = 2014
+    AND FORM_VERS = 2011 
+  AND STATUT = '1' 
+               
                
                
               
