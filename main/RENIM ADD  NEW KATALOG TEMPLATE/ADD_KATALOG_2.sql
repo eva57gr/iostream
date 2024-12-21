@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-            SELECT D.*
+SELECT D.*
             
                 FROM CIS2.VW_DATA_ALL D
                 
