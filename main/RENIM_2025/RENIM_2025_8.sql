@@ -29,7 +29,7 @@
         TRIM(L.IDNO)  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.RENIM_1061 L
+        FROM   USER_BANCU.RENIM_NEW L
         
              --   CIS.RENIM  L
         
@@ -39,7 +39,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO  is   NULL
+                        C.CUIIO  is  NOT  NULL
                         
 --                        
 

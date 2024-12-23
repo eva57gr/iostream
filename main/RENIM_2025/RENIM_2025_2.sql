@@ -2,6 +2,9 @@ UPDATE USER_BANCU.RENIM_NEW
 
 SET CUIIO_VERS = 2014;
 ;
+--Is SQL Oracle
+--IDNO  is field varchar 
+--Fiind duplicates IDNO 
 
 
 

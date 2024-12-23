@@ -25,9 +25,6 @@
              ) FC 
              
              
-             
-              
-             
-    --       WHERE 
+             WHERE 
           
-      --    FC.CUIIO_VERS <>  2014
+          FC.CUIIO_VERS =  2014

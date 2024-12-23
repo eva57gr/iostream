@@ -67,7 +67,7 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               L.CUIIO IS    NULL  
+               L.CUIIO IS   NOT  NULL  
 --               ) L  
               
                

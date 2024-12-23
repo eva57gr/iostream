@@ -1,0 +1,31 @@
+SELECT 
+    CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    CUATM,
+    CASE
+        WHEN SUBSTR(CUATM, 1, 1) = 'O' THEN '0' || SUBSTR(CUATM, 2)
+        ELSE CUATM
+    END AS CUATM_MODIFIED,
+    CFP,
+    CFOJ,
+    COCM,
+    CAEM2,
+    CAEM,
+    IDNO
+FROM 
+    USER_BANCU.IDNO;
+
+
+
+UPDATE USER_BANCU.IDNO
+
+set CUATM = (   CASE
+        WHEN SUBSTR(CUATM, 1, 1) = 'O' THEN '0' || SUBSTR(CUATM, 2)
+        ELSE CUATM
+    END);
+    
+    
+    UPDATE USER_BANCU.IDNO 
+    
+    SET  CUIIO_VERS =  2013;

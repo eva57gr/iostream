@@ -1,7 +1,7 @@
- UPDATE CIS2.FORM_CUIIO
---SELECT * 
-    SET STATUT = '3'     
-  --  from CIS2.FORM_CUIIO 
+ --UPDATE CIS2.FORM_CUIIO
+SELECT * 
+--    SET STATUT = '3'     
+    from CIS2.FORM_CUIIO 
     
     WHERE 
 

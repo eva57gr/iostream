@@ -110,7 +110,7 @@ FROM USER_BANCU.IDNO
 --        CUIIO_VERS  <>  2013 
 --         
          
---        AND IDNO IS NOT NULL 
+        AND IDNO  IS  NULL 
         
 ORDER BY 
 
