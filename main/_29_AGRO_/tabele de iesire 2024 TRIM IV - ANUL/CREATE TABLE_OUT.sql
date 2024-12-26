@@ -1,0 +1,8 @@
+CREATE  TABLE TABLE_OUT 
+AS
+select *
+
+ FROM CIS2.TABLE_OUT
+ 
+ WHERE 
+ 1=2
