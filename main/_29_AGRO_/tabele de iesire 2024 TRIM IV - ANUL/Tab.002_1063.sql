@@ -123,11 +123,9 @@ FROM
   ) R 
   CROSS JOIN 
   (
-SELECT '500+530+540+541+550+590+690+880+890+684' AS CFOJ, 'Intreprinderi agricole si GT (de fermier) cu terenuri agricole de 50 ha si peste' AS CFOJ_DENUMIRE, 1 AS ORDINE FROM DUAL UNION
-SELECT '500+530+540+541+550+590+690+880+890' AS CFOJ, 'Intreprinderi agricole - total' AS CFOJ_DENUMIRE, 2 AS ORDINE FROM DUAL UNION
-SELECT '684' AS CFOJ, 'Gospodariile taranesti (de fermier) cu terenuri agricole de 50 ha si peste' AS CFOJ_DENUMIRE, 3 AS ORDINE FROM DUAL UNION
-SELECT '500+530+540+541+550+590+690+880+890+684+685' AS CFOJ, 'Gospodariile taranesti (de fermier) cu terenuri agricole de 10 ha si peste' AS CFOJ_DENUMIRE, 4 AS ORDINE FROM DUAL UNION
-SELECT '684+685' AS CFOJ, 'Gospodariile taranesti (de fermier) cu terenuri agricole de 10 ha si peste' AS CFOJ_DENUMIRE, 5 AS ORDINE FROM DUAL
+SELECT '500+530+540+541+590+620+690+880+890+684+685' AS CFOJ, 'Intreprinderi agricole si GT (de fermier) cu terenuri agricole de 10 ha si peste' AS CFOJ_DENUMIRE, 1 AS ORDINE FROM DUAL UNION
+SELECT '500+530+540+541+590+620+690+880+890' AS CFOJ, '500+530+540+541+590+620+690+880+890' AS CFOJ_DENUMIRE, 2 AS ORDINE FROM DUAL UNION
+SELECT '684+685' AS CFOJ, 'Gospodariile taranesti (de fermier) cu terenuri agricole de 50 ha si peste' AS CFOJ_DENUMIRE, 3 AS ORDINE FROM DUAL 
   ) TR
 WHERE
   D.PERIOADA IN (:pPERIOADA) AND 
