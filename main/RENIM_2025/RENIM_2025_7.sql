@@ -45,7 +45,7 @@
 
 SELECT 
  CUIIO,
- CUIIO_VERS,
+ 2013 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -96,18 +96,33 @@ SELECT
                    
 CUIIO IN (
 
-SELECT 
-cuiio
-from RENIM_NEW
 
-             
-)
+40324149,
+40706170,
+40827040,
+40834784,
+40903284,
+40965538,
+41124079,
+41137366,
+41259566,
+41363186,
+41437080,
+41521521,
+41570206,
+41593288,
+41680780
+
+
+
+
+          )
 
         
-        --AND 
+        AND 
         
         
-        --CUIIO_VERS  <>  2014 
+        CUIIO_VERS  <>  2013 
          
          
 
