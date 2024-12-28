@@ -61,7 +61,7 @@ SELECT
  GENMUZEE,
  TIPMUZEE,
  TIP_LOCAL,
- TIP_INST,
+ TIP_INST,-------------------------------------------------------------
  CAEM2,
  N85_NTL,
  N85_NTIIP,
