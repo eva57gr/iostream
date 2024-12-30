@@ -16,7 +16,7 @@ SELECT
       B.SQL_TEXT,
       B.PRIORITATEA,
       B.STATUT
-      
+      ---------------------
       
         
         FROM CIS2.MD_CONTROL B  INNER JOIN (
@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 54
+         AND A.FORM  = 60
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 54
+         AND B.FORM  = 60
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
