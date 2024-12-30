@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 60
+         AND A.FORM  = 63
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 60
+         AND B.FORM  = 63
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
