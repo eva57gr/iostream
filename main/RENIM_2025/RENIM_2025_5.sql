@@ -1,4 +1,14 @@
 
+
+-------------------------------------------------------------------
+SELECT 
+    CUIIO, 
+    REPLACE(REPLACE(TRIM(CUIIO), CHR(9), ' '), '  ', ' ') AS CLEANED_CUIIO
+FROM USER_BANCU.RENIM_24
+WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
+;
+
+--All coluns of this table need procesed with trim or another metod - this is Oracle
  SELECT 
  
         L.CUIIO,
@@ -8,7 +18,7 @@
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.RENIM_NEW L
+        FROM  USER_BANCU.RENIM_24 L
         
 --        ORDER BY
 --        L.CUIIO
@@ -16,9 +26,11 @@
         
                   --    LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
 --                        
-                    --    LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
+                 --       LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
 --                        
-                        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP 
+                --        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
+                
+                        LEFT JOIN CIS2.VW_CL_CFOJ C ON C.CODUL =  L.CFOJ 
                         WHERE 
                         
                         C.CODUL IS   NULL 
