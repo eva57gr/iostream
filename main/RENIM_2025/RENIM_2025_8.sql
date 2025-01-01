@@ -1,17 +1,17 @@
---INSERT INTO CIS2.RENIM  (
---        CUIIO,
---        CUIIO_VERS,
---        DENUMIRE,
---        EDIT_USER,
---        STATUT,
---        CUATM,
---        CFP,
---        CFOJ,
---        CAEM2,
---        IDNO
---        
---        
---)
+INSERT INTO CIS2.RENIM  (
+        CUIIO,
+        CUIIO_VERS,
+        DENUMIRE,
+        EDIT_USER,
+        STATUT,
+        CUATM,
+        CFP,
+        CFOJ,
+        CAEM2,
+        IDNO
+        
+        
+)
 
 
 
@@ -29,7 +29,7 @@
         TRIM(L.IDNO)  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.RENIM_NEW L
+        FROM   USER_BANCU.RENIM_24 L
         
              --   CIS.RENIM  L
         
@@ -39,7 +39,7 @@
                         
                         WHERE 
                         
-                        C.CUIIO  is  NOT  NULL
+                        C.CUIIO  is    NULL
                         
 --                        
 
