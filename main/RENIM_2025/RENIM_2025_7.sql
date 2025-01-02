@@ -1,45 +1,45 @@
--- INSERT INTO CIS2.RENIM (
--- 
--- 
--- CUIIO,
---    CUIIO_VERS,
---    DENUMIRE,
---    EDIT_USER,
---    STATUT,
---    CUATM,
---    CFP,
---    CFOJ,
---    COCM,
---    CAEM,
---    BUGET,
---    TIP,
---    PROD,
---    FOR_CUB,
---    GENMUZEE,
---    TIPMUZEE,
---    TIP_LOCAL,
---    TIP_INST,
---    CAEM2,
---    N85_NTL,
---    N85_NTIIP,
---    N85_NDIIP,
---    N85_NPDS,
---    N85_NRIIP,
---    N85_NSIIP,
---    GENMUZEE2,
---    NFI,
---    NTII,
---    NPDS,
---    ORGANE,
---    TIP_INV,
---    RENIM_PERS,
---    ORGANE_COND,
---    GEN_INSTITUTIE,
---    IDNO
---
--- 
--- )
---
+ INSERT INTO CIS2.RENIM (
+ 
+ 
+ CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    EDIT_USER,
+    STATUT,
+    CUATM,
+    CFP,
+    CFOJ,
+    COCM,
+    CAEM,
+    BUGET,
+    TIP,
+    PROD,
+    FOR_CUB,
+    GENMUZEE,
+    TIPMUZEE,
+    TIP_LOCAL,
+    TIP_INST,
+    CAEM2,
+    N85_NTL,
+    N85_NTIIP,
+    N85_NDIIP,
+    N85_NPDS,
+    N85_NRIIP,
+    N85_NSIIP,
+    GENMUZEE2,
+    NFI,
+    NTII,
+    NPDS,
+    ORGANE,
+    TIP_INV,
+    RENIM_PERS,
+    ORGANE_COND,
+    GEN_INSTITUTIE,
+    IDNO
+
+ 
+ )
+
 
 
 
@@ -81,12 +81,12 @@ SELECT
  IDNO
 
 
-                    FROM  -- USER_BANCU.VW_RENIM_2012_CIS2
+                    FROM   USER_BANCU.VW_RENIM_2012_CIS2
                      
-                          USER_BANCU.VW_MAX_RENIM_CIS2
+                        --  USER_BANCU.VW_MAX_RENIM_CIS2
                     
-                    
-                  --          USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+         --              VW_RENIM_2013_CIS2
+                        --    USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
                     
                     WHERE 
                   
@@ -96,19 +96,95 @@ SELECT
                    
 CUIIO IN (
 
-
-SELECT 
-CUIIO 
-
-FROM RENIM_24
+38930049,
+37731856,
+38960033,
+38965355,
+40986040,
+38990382,
+40195775,
+37784099,
+2735993,
+2749084,
+40023413,
+4572710,
+40479722,
+4574465,
+40064346,
+15801941,
+40104519,
+20207306,
+38825803,
+40135827,
+38845415,
+34097306,
+40645126,
+4572704,
+4572733,
+411631,
+478405,
+478463,
+819639,
+1000545,
+1000597,
+20372896,
+2731096,
+5919713,
+40443262,
+40106808,
+38945074,
+40063111,
+40025470,
+4024589960,
+41609167,
+1535,
+56804,
+3869833,
+9777500,
+38912844,
+40779387,
+41451938,
+41476476,
+41535635,
+41558079,
+41560774,
+41560840,
+273361731,
+3898720417,
+4004873285,
+4026517471,
+4041063031,
+4075134885,
+4105837153,
+4106045110,
+4137258753,
+297713,
+2476755,
+40265174,
+41074521,
+41406286,
+41620252,
+41620275,
+1582391957,
+5692770,
+41471869,
+41010625,
+41030964,
+40722430,
+40839267,
+40558634,
+40565189,
+40874909,
+40661881,
+41040218
 
           )
 
         
-        AND 
-        
-        
-        CUIIO_VERS  <>  2013 
+--        AND 
+--        
+--        
+--        CUIIO_VERS  <>  2013 
          
          
 
