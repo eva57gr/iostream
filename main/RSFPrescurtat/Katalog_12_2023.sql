@@ -17,7 +17,9 @@ SELECT *
 --           R.IDNO
 --           
            
-      FROM (SELECT FC.CUIIO,
+      FROM (
+      
+      SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
@@ -25,7 +27,7 @@ SELECT *
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (6.3) AND 
+                                  WHERE FORM IN (63) AND 
                                   FORM_VERS = 2000 AND 
                                   CUIIO_VERS <= 2011
                                GROUP BY CUIIO) BB
@@ -36,7 +38,12 @@ SELECT *
              AND FC.STATUT <> '3'
              AND FC.FORM_VERS = 2000
              
-             ) FC
+      
+
+
+
+
+       ) FC
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS)
                
