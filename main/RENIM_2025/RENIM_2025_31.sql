@@ -9,13 +9,23 @@
 --
 
 
+SELECT * 
+
+
+ FROM CIS2.FORM_CUIIO 
+ 
+ WHERE
+ 
+ CUIIO IN (
+
+
 
 SELECT 
-        L.CUIIO,
-        2013 CUIIO_VERS,
-        27 FORM,
-        2000    FORM_VERS,
-        '1' STATUT
+        L.CUIIO
+--        2013 CUIIO_VERS,
+--        27 FORM,
+--        2000    FORM_VERS,
+--        '1' STATUT
         
         FROM 
 
@@ -24,10 +34,10 @@ SELECT
 
 
 SELECT   
-         R.CUIIO
+         R.CUIIO 
          -- R_CUIIO,       
---         L.CUIIO  CUIIO
---         
+        -- L.CUIIO  CUIIO
+         
          FROM (
 
 SELECT     R.CUIIO,
@@ -68,8 +78,10 @@ SELECT     R.CUIIO,
                
                WHERE 
                L.CUIIO IS     NULL  
-               ) L  
+               ) L )  
               
                
                
+              AND CUIIO_VERS = 2013
               
+              AND FORM = 27 
