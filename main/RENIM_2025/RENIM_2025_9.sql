@@ -20,11 +20,11 @@
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             AND FC.FORM_VERS = 2011
+             --AND FC.FORM_VERS = 2011
              
              ) FC 
              
              
              WHERE 
           
-          FC.CUIIO_VERS =  2014
+          FC.CUIIO_VERS =   2013
