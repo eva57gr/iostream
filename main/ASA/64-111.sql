@@ -1,94 +1,49 @@
---Cap.III [r.320c .2]= [RSF prescurtat, Anexa 1 r.060 col.5 ] sau [RSF1 complet, Anexa 1, r.290 col.5 ] 
-
 SELECT 
 
-     L.CUIIO,
-     NVAL(L.COL1)||' <> '||NVAL(R.COL2)||' <> '||NVAL(R.COL1) 
-     
-     AS REZULTAT
-FROM
+ 
+ D.RIND||' - CAEM2 '||D.COL37
+ 
+ AS REZULTAT,
+ 
+ TO_CHAR(MAX(CASE WHEN D.CAPITOL IN (1128) AND D.RIND NOT IN ('500','-') THEN D.COL37  ELSE NULL END)) AS CAEM2  
+  
+  FROM
 
-(
-
-
-SELECT
-D.CUIIO,
-SUM(CASE  WHEN  D.CAPITOL IN (1126)  AND D.RIND IN ('320') THEN  NVAL(D.COL1) ELSE 0 END ) AS COL1
-
-   
-    FROM
- CIS2.VW_DATA_ALL D 
-
-
+ CIS2.VW_DATA_ALL D  
+ 
 WHERE
-  (D.PERIOADA=:PERIOADA        ) AND
+  (D.PERIOADA=:PERIOADA          ) AND
   (D.CUIIO=:CUIIO                ) AND
   (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
   (D.FORM = :FORM               ) AND
-  (D.FORM_VERS=:FORM_VERS       ) AND
-  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
-  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (:CAPITOL = :CAPITOL           OR :CAPITOL <> :CAPITOL) AND
+  (:CAPITOL_VERS=:CAPITOL_VERS   OR :CAPITOL_VERS <>  :CAPITOL_VERS) AND
   (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
-  D.FORM IN (64) 
-
-   AND D.CUIIO = 40527510
+   D.FORM = 64
+   AND D.CAPITOL = 1128
+  AND D.RIND NOT IN ('500','-') 
 
 GROUP BY 
-D.CUIIO
+D.RIND,
+D.COL37
 
+HAVING
+TO_CHAR(MAX(CASE WHEN D.CAPITOL IN (1128) AND D.RIND NOT IN ('500','-') THEN D.COL37  ELSE NULL END)) 
 
+ NOT IN  (
+ SELECT 
 
-
-
-) L LEFT JOIN (
-
-SELECT
-D.CUIIO,
-ROUND(SUM(CASE WHEN   D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('63.1120.060') THEN  D.COL1 ELSE NULL END ) / 1000,1) AS COL1,
-ROUND(SUM(CASE WHEN   D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('57.1090.290') THEN  D.COL1 ELSE NULL END ) /1000,1)AS COL2
-    
-    FROM
- CIS2.VW_DATA_ALL_FR D 
-
-
-WHERE
-  (D.PERIOADA=:PERIOADA ) AND
-    (D.CUIIO=:CUIIO                ) AND
-  (:CUIIO_VERS=:CUIIO_VERS      OR :CUIIO_VERS <> CUIIO_VERS) AND
-  (:FORM = :FORM                OR :FORM <> :FORM) AND
-  (:FORM_VERS=:FORM_VERS        OR :FORM_VERS <>:FORM_VERS) AND
-  (:CAPITOL=:CAPITOL            OR :CAPITOL <> :CAPITOL) AND
-  (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
-  (:ID_MD=:ID_MD                 OR :ID_MD<>:ID_MD) AND
-  
-
-   
-    D.FORM||'.'||D.CAPITOL||'.'||D.RIND IN ('63.1120.060','57.1090.290')
-    
-     AND D.CUIIO = 40527510
-    GROUP BY
-    D.CUIIO
-
-) R ON R.CUIIO = L.CUIIO 
-
-
-
-GROUP BY
-L.CUIIO,
-L.COL1,
-
-R.COL1,
-R.COL2
-
---
---
---HAVING
---
---
---NVAL(L.COL1) <> NVAL(R.COL1) + NVAL(R.COL2) 
-
-
- 
- 
- 
-
+            SUBSTR(CODUL,2,4) AS COL3
+                
+                FROM  CIS2.VW_CL_CAEM2
+                
+                WHERE 
+                PRIM IN ('1')
+                
+                AND 
+                (
+                SUBSTR(CODUL,2,2)  IN ('47','45')
+                
+                )
+ )
