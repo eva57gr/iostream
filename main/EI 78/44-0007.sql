@@ -1,0 +1,45 @@
+SELECT DISTINCT 
+
+'Daca exista col.1  rândul.1 Export I exista Cap. SR Export Exista Cauza 1 si invers.'
+  
+  
+  AS REZULTAT
+FROM
+  CIS2.VW_DATA_ALL D 
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.CUIIO=:CUIIO                ) AND
+  (D.CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS  ) AND
+  (:CAPITOL<>:CAPITOL           OR :CAPITOL=:CAPITOL) AND
+  (D.CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (44)  AND
+  D.CAPITOL IN (405,1)
+
+ HAVING
+  
+ (
+ 
+ SUM(CASE WHEN D.CAPITOL IN (405) AND D.RIND IN('1') AND CIS2.NVAL(D.COL4) > 0   THEN 1 ELSE 0 END)   > 0 
+ 
+ AND 
+ 
+ SUM(CASE WHEN D.CAPITOL IN (1) AND  D.RIND  IN('01') THEN CIS2.NVAL(D.COL1) ELSE 0 END) = 0
+ 
+ )
+ 
+ OR
+ 
+ 
+ (
+ 
+ SUM(CASE WHEN D.CAPITOL IN (405) AND D.RIND IN('1') AND CIS2.NVAL(D.COL4) > 0  THEN 1 ELSE 0 END)   = 0 
+ 
+ AND 
+ 
+ SUM(CASE WHEN D.CAPITOL IN (1) AND  D.RIND  IN('01') THEN CIS2.NVAL(D.COL1) ELSE 0 END) > 0
+ 
+ )
