@@ -9,6 +9,6 @@ SELECT
                 
                 AND 
                 (
-                SUBSTR(CODUL,2,2)  IN ('47','45')
+                SUBSTR(CODUL,2,2)  IN ('46','45')
                 
                 )

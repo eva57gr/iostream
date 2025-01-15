@@ -14,7 +14,7 @@
 -- )
 --AS 
 SELECT     R.CUIIO,
-           R.CUIIO_VERS,
+           1063 CUIIO_VERS,
            R.DENUMIRE,
            R.CUATM,
            R.CFP,
