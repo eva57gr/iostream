@@ -1,24 +1,24 @@
---INSERT INTO CIS2.RENIM  (
---        CUIIO,
---        CUIIO_VERS,
---        DENUMIRE,
---        EDIT_USER,
---        STATUT,
---        CUATM,
---        CFP,
---        CFOJ,
---        CAEM2,
---        IDNO
---        
---        
---)
+INSERT INTO CIS2.RENIM  (
+        CUIIO,
+        CUIIO_VERS,
+        DENUMIRE,
+        EDIT_USER,
+        STATUT,
+        CUATM,
+        CFP,
+        CFOJ,
+        CAEM2,
+        IDNO
+        
+        
+)
 
 
 
  SELECT 
  
         TRIM(L.CUIIO) CUIIO ,
-        TRIM(L.CUIIO_VERS) CUIIO_VERS,
+        2013  CUIIO_VERS,
         TRIM(L.DENUMIRE)  DENUMIRE,
         1   EDIT_USER,
         '1' STATUT,
@@ -29,19 +29,25 @@
         TRIM(TRIM(L.IDNO))  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   USER_BANCU.RENIM_24_F L
+        FROM   (
+        SELECT *
+  FROM USER_BANCU.VW_MAX_RENIM_CIS2
+ WHERE CUIIO IN (SELECT CUIIO FROM IDNO)
+        ) L
         
              --   CIS.RENIM  L
         
         
                         LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
-                                                  AND C.CUIIO_VERS  =  L.CUIIO_VERS  
+                                                  AND 2013  =  L.CUIIO_VERS  
                         
-                        WHERE 
+                        WHERE
                         
-                        C.CUIIO  is    NULL
-                        
-                        AND L.CUIIO IS NOT NULL
+                        C.CUIIO IS NULL  
+--                        
+--                        C.CUIIO  is    NULL
+--                        
+                  --      AND L.CUIIO IS NOT NULL
                         
 --                        
 
