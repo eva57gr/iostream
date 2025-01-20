@@ -81,7 +81,7 @@ SELECT
  IDNO
 
 
-                    FROM   USER_BANCU.VW_RENIM_2012_CIS2
+                    FROM   --USER_BANCU.VW_RENIM_2012_CIS2
                      
                         --  USER_BANCU.VW_MAX_RENIM_CIS2
                     

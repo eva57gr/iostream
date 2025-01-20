@@ -1,14 +1,14 @@
 
-INSERT INTO CIS2.FORM_CUIIO 
-(
-
-                   CUIIO,
-                   CUIIO_VERS,
-                   FORM,
-                   FORM_VERS,
-                   STATUT
-                   
-)
+--INSERT INTO CIS2.FORM_CUIIO 
+--(
+--
+--                   CUIIO,
+--                   CUIIO_VERS,
+--                   FORM,
+--                   FORM_VERS,
+--                   STATUT
+--                   
+--)
 
 
 
@@ -50,7 +50,7 @@ INSERT INTO CIS2.FORM_CUIIO
                 FROM IDNO
             )
 
-        AND   FC.CUIIO_VERS <>    2013
+         AND   FC.CUIIO_VERS =     2013
           
           
           --------------------------------------------
