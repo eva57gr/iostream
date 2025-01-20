@@ -1,16 +1,4 @@
 SELECT 
-DISTINCT CUIIO 
-
-FROM USER_EREPORTING.VW_DATA_ALL
-WHERE 
-FORM IN  27
-
-AND PERIOADA = 2013
-
-
-AND CUIIO IN (
-
-SELECT 
   CUIIO
         
         
@@ -59,7 +47,6 @@ AND   FORM_TYPE IN  ('24_agr_24')
 
 
 
-  
-)
-
---------------------------------------------------------------------------------
+ ORDER BY 
+ 
+DATA_REG DESC 

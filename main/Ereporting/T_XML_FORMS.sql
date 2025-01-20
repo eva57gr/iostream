@@ -28,7 +28,7 @@ AND STATUS  =  '5'
 --AND 
 --
 ----
---AND  DATA_REG >= TO_DATE('07/17/2024 08:22:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('01/20/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
@@ -38,9 +38,12 @@ AND STATUS  =  '5'
 --  
 --  FORM_TYPE = '1-ac'
 ----  OR 
-AND   FORM_TYPE IN  ('29_agr24') 
-   
-  
+AND   FORM_TYPE IN  ('24_agr_24') 
+--   
+--AND CUIIO IN (
+--40583939,
+--41583965
+--)  
   
   
 --  GROUP BY
