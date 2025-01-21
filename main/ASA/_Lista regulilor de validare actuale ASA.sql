@@ -24,7 +24,7 @@ SELECT
         
         FROM CIS2.MD_CONTROL A
         
-        
+        -------------------
          WHERE
          1=1
          AND A.FORM  = 64
