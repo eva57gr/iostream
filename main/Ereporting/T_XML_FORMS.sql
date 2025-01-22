@@ -24,11 +24,11 @@ SELECT
           WHERE
           1=1  
 ----
---AND STATUS  =  '5' 
---AND 
+AND STATUS  =  '5' 
+----AND 
 --
 ----
-AND  DATA_REG >= TO_DATE('01/20/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+--AND  DATA_REG >= TO_DATE('01/21/2025 16:18:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
