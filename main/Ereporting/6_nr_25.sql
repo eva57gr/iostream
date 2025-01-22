@@ -1,0 +1,9 @@
+SELECT 
+ FORMID
+ FROM  USER_EREPORTING.F_XML_FORMS
+      WHERE
+          1=1  AND STATUS  <>  '2' 
+
+--AND  DATA_REG >= TO_DATE('01/20/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+---------------
+AND   FORM_TYPE IN  ('6_nr_25') 
