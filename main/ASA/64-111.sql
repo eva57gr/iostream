@@ -67,11 +67,7 @@ SELECT
                 (
                 SUBSTR(CODUL,2,2)  IN ('47','45')
                 OR 
-                SUBSTR(CODUL,2,3)  IN ('461')
-                
-                
-                
-                )
+                SUBSTR(CODUL,2,3)  IN ('461') )
                 
                 
                 

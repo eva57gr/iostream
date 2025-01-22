@@ -1,11 +1,13 @@
 
 SELECT 
+L.CNT_R,
 L.RIND,
 L.CNT,
 L.CAEM2
 FROM
 (
 SELECT 
+ ROWNUM CNT_R,
  D.RIND,
  COUNT(D.RIND) AS CNT,
  TO_CHAR(NVAL(MAX(CASE WHEN D.CAPITOL IN (1127) AND D.RIND NOT IN ('400','-') THEN D.COL31  ELSE NULL END)))  AS CAEM2
@@ -52,7 +54,8 @@ WHERE
 
 
 GROUP BY
-D.RIND
+D.RIND,
+ROWNUM
 
 HAVING
 
@@ -78,3 +81,19 @@ MAX(DD.COL1) > 0  ) L LEFT JOIN
                 
                 
  ) R ON R.COL3 = L.CAEM2
+ 
+ GROUP BY
+L.CNT_R,
+L.RIND,
+L.CNT,
+L.CAEM2,
+R.COL3
+
+--
+-- HAVING
+-- 
+-- R.COL3 IS  NULL 
+ 
+Rescrie aceasta  
+L este A
+R este b
