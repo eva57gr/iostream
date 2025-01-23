@@ -1,5 +1,5 @@
 SELECT 
-    CASE 
+    CASE ----------------------------------
         WHEN (SELECT COUNT(*) 
               FROM (
                   SELECT ROWNUM CNT_R
