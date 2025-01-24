@@ -14,7 +14,7 @@
 
             SELECT 
                    FC.CUIIO,
-                   2013 CUIIO_VERS,
+                   FC.CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
@@ -47,10 +47,10 @@
             FC.CUIIO IN (
             
             SELECT CUIIO
-                FROM IDNO
+                FROM RENIM_5_CON
             )
 
-         AND   FC.CUIIO_VERS =     2013
+     --    AND   FC.CUIIO_VERS =     2013
           
           
           --------------------------------------------

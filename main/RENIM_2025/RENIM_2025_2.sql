@@ -1,6 +1,6 @@
 UPDATE USER_BANCU.RENIM_5_CON
 
-SET CUIIO_VERS = 2013;
+SET CUIIO_VERS = 1063;  
 ;
 --Is SQL Oracle
 --IDNO  is field varchar 
