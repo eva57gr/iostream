@@ -1,5 +1,5 @@
  SELECT *
-        FROM  USER_BANCU.IDNO;
+        FROM  USER_BANCU.RENIM_5_CON;
         
 --        
 --        ORDER BY 
