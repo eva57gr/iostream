@@ -1,8 +1,9 @@
 SELECT 
-A.CNT_R,
-A.RIND,
-A.CNT,
-A.CAEM2
+MAX(A.CAEM2) AS CAEM2,
+    CASE 
+        WHEN COUNT(B.COL3) = 0 THEN 'CAEM nu corespunde parametrilor solicitati'
+    
+    END AS REZULTAT
 FROM
 (
     SELECT 
@@ -57,9 +58,13 @@ LEFT JOIN (
             SUBSTR(CODUL, 2, 3) IN ('461')
         )
 ) B ON B.COL3 = A.CAEM2
-GROUP BY
-    A.CNT_R,
-    A.RIND,
-    A.CNT,
-    A.CAEM2,
-    B.COL3
+
+
+--
+--GROUP BY
+-- A.CAEM2 
+HAVING 
+COUNT(B.COL3) = 0
+
+AND 
+MAX(A.CAEM2)  IS NOT NULL
