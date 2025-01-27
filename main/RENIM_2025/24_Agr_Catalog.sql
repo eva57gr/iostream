@@ -1,0 +1,4 @@
+
+
+SELECT * 
+FROM VW_27
