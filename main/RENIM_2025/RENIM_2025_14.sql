@@ -8,7 +8,7 @@
 --)
 --
 --
---
+----
 
 --SELECT 
 --        L.CUIIO,
@@ -27,7 +27,7 @@ SELECT
        --  R.CUIIO  R_CUIIO,       
          L.CUIIO  CUIIO,
          2013 CUIIO_VERS,
-         63 FORM,
+         12 FORM,
          2000    FORM_VERS,
         '1' STATUT
 
@@ -64,7 +64,7 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.RENIM_5_CON
+        FROM USER_BANCU.IDNO
         
         WHERE 
         CUIIO IS NOT NULL
