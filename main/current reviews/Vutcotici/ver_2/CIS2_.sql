@@ -81,7 +81,9 @@ SELECT
 
          
          
-    FROM (SELECT DISTINCT D.CUIIO,
+    FROM (
+    
+    SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM

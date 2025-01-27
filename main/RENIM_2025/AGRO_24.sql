@@ -1,0 +1,27 @@
+CREATE TABLE USER_BANCU.AGRO_24
+(
+  CUIIO       NUMBER,
+  CUIIO_VERS  NUMBER,
+
+  CUATM       VARCHAR2(1024 BYTE),
+  COL1        VARCHAR2(1024 BYTE)
+ 
+
+)
+TABLESPACE TBS_DTI_USERS
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
