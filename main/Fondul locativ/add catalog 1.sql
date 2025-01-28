@@ -1,32 +1,32 @@
---INSERT INTO RENIM 
---(
---
---
---CUIIO,
---    CUIIO_VERS,
---    DENUMIRE,
---    EDIT_USER,
---    STATUT,
---    CUATM,
---    CFP,
---    CFOJ,
---    CAEM,
---    COCM,
---    LANG,
---    SPEC,
---    TIP_INV,
---    TIP_INV_DEG,
---    TIP_LOCAL,
---    CUATM4,
---    CFP1,
---    AP_BUGET,
---    CAEM2
---)
--- 
+INSERT INTO M53.RENIM 
+(
+
+
+CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    EDIT_USER,
+    STATUT,
+    CUATM,
+    CFP,
+    CFOJ,
+    CAEM,
+    COCM,
+    LANG,
+    SPEC,
+    TIP_INV,
+    TIP_INV_DEG,
+    TIP_LOCAL,
+    CUATM4,
+    CFP1,
+    AP_BUGET,
+    CAEM2
+)
+ 
 SELECT 
     
     CUIIO,
-   313  CUIIO_VERS,
+    314 CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -47,33 +47,29 @@ SELECT
 
 
             FROM 
-            --M53.RENIM
+        --    M53.RENIM
             USER_BANCU.VW_MAX_RENIM_M53
             
             WHERE 
             
             CUIIO IN (
-3400119.116,
-38902125,
-4712708.31,
-37368953,
-4492388,
-5694711,
-59115336,
-7015944,
-4494559,
-4494660,
-3866473,
-5694001,
-5694001.1,
-3598512,
-4498675,
-4499189,
-4500580,
-3399132,
-37397400,
-38675153
-
+320293168,
+38182274,
+13557,
+493864,
+38976318,
+2730352,
+38998923,
+2562529,
+3135290,
+2167632,
+3210494,
+20319583,
+3597760,
+5910037,
+1846809,
+3399652,
+3597563
 )
 
- AND CUIIO_VERS =  313
+ AND CUIIO_VERS <> 314  
