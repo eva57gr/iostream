@@ -1,21 +1,18 @@
---    
---    CREATE OR REPLACE FORCE VIEW VW_27
---(
---
---
---    CUIIO,
+    
+    CREATE OR REPLACE FORCE VIEW VW_27
+(
+
+
+    CUIIO,
 --    CUIIO_VERS,
 --    CUATM,
---    COL1
--- 
--- )
---AS 
-    
-    SELECT
+    COL1
+ 
+ )
+AS 
+SELECT
     DISTINCT 
     D.CUIIO,
---    D.CUIIO_VERS,
---    D.CUATM,
     D.COL1
     
     FROM 
@@ -56,4 +53,21 @@
            WHERE D.PERIOADA  = 2013   AND D.FORM IN (27)
              AND D.ID_SCHEMA = '2'
              
-             ) D
+             ) D  LEFT JOIN (
+             
+              SELECT DISTINCT D.CUIIO,
+--                          D.CUIIO_VERS,
+--                          D.CUATM,
+--                          D.FORM,
+                          'CIS2' AS COL1
+                          
+            FROM CIS2.VW_DATA_ALL D
+            
+                 
+           WHERE D.PERIOADA = 2013 AND D.FORM IN (27)
+             ) R ON D.CUIIO = R.CUIIO
+             
+             
+             WHERE
+             
+             R.CUIIO IS NOT NULL
