@@ -1,4 +1,31 @@
+INSERT INTO AGRO_29
+
+(
+    CUIIO,
+    CUIIO_VERS,
+    CUATM,
+    COL1 
+)
+
+SELECT 
+    CUIIO,
+    NULL CUIIO_VERS,
+    NULL CUATM,
+    COL1 
+FROM VW_45;
 
 
-SELECT * 
-FROM VW_27
+
+SELECT 
+    CUIIO,
+    CUIIO_VERS,
+    CUATM,
+    COL1 
+FROM AGRO_29;
+
+
+
+DELETE  
+ FROM AGRO_29;
+
+
