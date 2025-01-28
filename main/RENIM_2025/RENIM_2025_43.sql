@@ -18,7 +18,7 @@ CURSOR C IS
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.FORM_CUIIO SET
+UPDATE --CIS2.FORM_CUIIO SET
 
   STATUT = '3'
 --DENUMIRE = CR.DENUMIRE,
