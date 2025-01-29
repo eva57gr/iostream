@@ -102,10 +102,10 @@ SELECT
              
              
                      SELECT CUIIO
-        FROM USER_BANCU.ADD_NEW_SU_M3
+        FROM USER_BANCU.ADD_NEW_SU_M3_2024
                     )
                     
-                    AND CUIIO_VERS <>  2011 
+                    AND CUIIO_VERS <>  2013 
                     
                     --CUIIO IN (
            
@@ -151,3 +151,30 @@ SELECT
 --        ) 
 --        
 --        AND CUIIO_VERS <>       2011
+
+
+;
+
+
+SELECT 
+ CUIIO
+ FROM    VW_RENIM_2013_CIS2
+                    WHERE 
+                  
+                  
+
+                    
+                   
+CUIIO IN (
+
+ SELECT
+ DISTINCT  CUIIO
+        FROM  USER_BANCU.ADD_NEW_SU_M3_2024
+
+          )
+
+        
+        AND 
+        
+        
+        CUIIO_VERS  =  2013 
