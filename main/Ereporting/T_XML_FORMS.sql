@@ -1,8 +1,3 @@
---Din TO_DATE('10/23/2023 00:00:00') 
---sunt  10540 cu statut 5 si 
---  aproximativ 33340 -cu statut 2 
--- Executa SQL si o sa vezi. 
-
 SELECT 
  FORMID,
 --  XML,
@@ -24,11 +19,11 @@ SELECT
           WHERE
           1=1  
 ----
---AND STATUS  =  '5' 
-------AND 
+AND STATUS  =  '2' 
+----AND 
 --
 ----
---AND  DATA_REG >= TO_DATE('01/21/2025 16:18:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('01/26/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
@@ -38,7 +33,7 @@ SELECT
 --  
 --  FORM_TYPE = '1-ac'
 ----  OR 
-AND   FORM_TYPE IN  ('6_nr_25') 
+--AND   FORM_TYPE IN  ('6_nr_25') 
 --   
 --AND CUIIO IN (
 --40583939,
