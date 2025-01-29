@@ -39,13 +39,13 @@
 --
 -- 
 -- )
-
+--
 
 
 
 SELECT 
  CUIIO,
- 1063 CUIIO_VERS,
+ 2013  CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -95,50 +95,91 @@ SELECT
                     
                    
 CUIIO IN (
-
- SELECT
- DISTINCT  CUIIO
-        FROM  USER_BANCU.RENIM_5_CON
- )
-
-AND CUIIO_VERS =   2013         
+--
+-- SELECT
+-- DISTINCT  CUIIO
+--        FROM  USER_BANCU.RENIM_2_INVEST_24
 
 
-AND 
-
-
-CUIIO NOT IN (
+-------------------------------------
 
 SELECT 
- CUIIO
- 
- FROM   -- VW_RENIM_2013_CIS2
- 
-        USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
-                    
- 
-                    
-                    WHERE 
-                  
-                  
-
-                    
+                   FC.CUIIO
+--                   FC.CUIIO_VERS,
+--                   FC.FORM,
+--                   FC.FORM_VERS,
+--                   FC.STATUT
                    
-CUIIO IN (
+                   FROM
+      (
+      SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS2.FORM_CUIIO  FC
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
+                                  
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE 
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             --AND FC.FORM_VERS = 2011
+             
+             ) FC 
+             
+             
+             WHERE 
+          
 
- SELECT
- DISTINCT  CUIIO
-        FROM  USER_BANCU.RENIM_5_CON
+          
 
-          )
 
-        
-        AND 
-        
-        
-        CUIIO_VERS  =  1063 
+  FC.CUIIO_VERS <>  2013
+---------------------------------------
+ )
 
-)
+AND CUIIO_VERS <>    2013         
+
+
+--AND 
+--
+--
+--CUIIO NOT IN (
+--
+--SELECT 
+-- CUIIO
+-- 
+-- FROM    VW_RENIM_2013_CIS2
+-- 
+--    --    USER_BANCU.VW_MAX_RENIM_CIS2
+--                    
+-- 
+--                    
+--                    WHERE 
+--                  
+--                  
+--
+--                    
+--                   
+--CUIIO IN (
+--
+-- SELECT
+-- DISTINCT  CUIIO
+--        FROM  USER_BANCU.RENIM_2_INVEST_24
+--
+--          )
+--
+--        
+--        AND 
+--        
+--        
+--        CUIIO_VERS  =  2013 
+--
+--)
 
 ORDER BY 
 

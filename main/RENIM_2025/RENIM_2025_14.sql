@@ -1,14 +1,14 @@
-------------------------------------------------------------------------
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
+----------------------------------------------------------------------
+INSERT INTO CIS2.FORM_CUIIO R (
+        CUIIO,
+        CUIIO_VERS,
+        FORM,
+        FORM_VERS,
+        STATUT 
+)
+
+
 --
---
-----
 
 --SELECT 
 --        L.CUIIO,
@@ -27,7 +27,7 @@ SELECT
        --  R.CUIIO  R_CUIIO,       
          L.CUIIO  CUIIO,
          2013 CUIIO_VERS,
-         12 FORM,
+         8 FORM,
          2000    FORM_VERS,
         '1' STATUT
 
@@ -64,7 +64,7 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.IDNO
+        FROM USER_BANCU.RENIM_2_INVEST_24
         
         WHERE 
         CUIIO IS NOT NULL
