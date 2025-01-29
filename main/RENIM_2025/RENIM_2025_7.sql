@@ -116,7 +116,11 @@ SELECT FC.CUIIO
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
-             FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC 
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             
+             
+             
+             ) FC 
              
              
              

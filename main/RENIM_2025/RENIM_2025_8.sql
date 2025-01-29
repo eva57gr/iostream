@@ -29,7 +29,7 @@
         TRIM(TRIM(L.IDNO))  IDNO
       --  TRIM(L.ETAPA_PROD) ETAPA_PROD 
       --  L.IDNO
-        FROM   RENIM_5_CON L
+        FROM   IDNO L
         
              --   CIS.RENIM  L
         
@@ -39,7 +39,7 @@
                         
                         WHERE
                         
-                        C.CUIIO IS NULL  
+                        C.CUIIO IS NOT NULL  
 --                        
 --                        C.CUIIO  is    NULL
 --                        
@@ -67,3 +67,15 @@ SET
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+2013
