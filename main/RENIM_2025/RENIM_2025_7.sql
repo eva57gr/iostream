@@ -1,4 +1,4 @@
- INSERT INTO CIS.RENIM (
+ --INSERT INTO CIS.RENIM (
 -- 
 -- 
 -- CUIIO,
@@ -40,26 +40,26 @@
 -- 
 
 
-CUIIO,
-  CUIIO_VERS,
-  DENUMIRE,
-  EDIT_USER,
-  STATUT,
-  CUATM,
-  CFP,
-  CFOJ,
-  COCM,
-  CAEM,
-  BUGET,
-  TIP,
-  PROD,
-  FOR_CUB,
-  ETAPA_PROD,
-  RENIM_PERS,
-  CAEM2  
- )
-
-
+--CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  EDIT_USER,
+--  STATUT,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  COCM,
+--  CAEM,
+--  BUGET,
+--  TIP,
+--  PROD,
+--  FOR_CUB,
+--  ETAPA_PROD,
+--  RENIM_PERS,
+--  CAEM2  
+-- )
+--
+--
 
 
 SELECT 
@@ -100,7 +100,7 @@ SELECT
 -- IDNO
 
   CUIIO,
-  479 CUIIO_VERS,
+  CUIIO_VERS,
   DENUMIRE,
   EDIT_USER,
   STATUT,
@@ -118,11 +118,11 @@ SELECT
   CAEM2      
                     FROM   --USER_BANCU.VW_RENIM_2012_CIS2
                      
-                         --  USER_BANCU.VW_MAX_RENIM_CIS2
+                           USER_BANCU.VW_MAX_RENIM_CIS
                     
                     --   VW_RENIM_2013_CIS2
                          -- USER_BANCU.VW_MAX_RENIM_TRIM_CIS
-                         VW_MAX_RENIM_299_CIS
+                      --   VW_MAX_RENIM_299_CIS
                           
                     
                     WHERE 
@@ -134,12 +134,12 @@ SELECT
 CUIIO IN (
 
  SELECT CUIIO
-        FROM  USER_BANCU.CUATM_TRIM_4
+        FROM  USER_BANCU.PROD_24
 )
 -------------------------------------
 
 
---AND CUIIO_VERS <>  1063         
+AND CUIIO_VERS <>  2013         
 
 
 --AND 
