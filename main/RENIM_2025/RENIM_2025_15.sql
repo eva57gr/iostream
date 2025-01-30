@@ -20,7 +20,7 @@ CURSOR C IS
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.RENIM SET
+UPDATE CIS.RENIM SET
 --
 --DENUMIRE = CR.DENUMIRE,
 CUATM = CR.CUATM
