@@ -2,16 +2,53 @@ DECLARE -- ====================================================================
 
 CURSOR C IS
 
+--SELECT 
+--  distinct 
+--  
+--  CUIIO,
+--  CUIIO_VERS,
+--  IDNO  
+--
+----------------------------------
+--------------------------------------
+--FROM cis2.RENIM
+--
+--
+--
+--group by
+--
+--  CUIIO,
+--  CUIIO_VERS,
+--  IDNO  
+--
+--having 
+--
+--IDNO is not null 
+--
+--AND 
+--(CUIIO_VERS >= 2011 and CUIIO_VERS < 2013)
+--            
+--            --------------------------------
+
 SELECT 
-  CUIIO,
+  distinct CUIIO,
+  IDNO
   
-  IDNO  
+  
 
 --------------------------------
 ------------------------------------
-FROM USER_BANCU.IDNO 
-            
-            --------------------------------
+FROM cis2.RENIM
+
+
+
+GROUP BY
+CUIIO,
+IDNO 
+
+HAVING 
+
+IDNO IS NOT NULL
             ;
 
 BEGIN -- ======================================================================
