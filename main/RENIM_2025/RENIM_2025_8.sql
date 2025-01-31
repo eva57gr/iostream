@@ -1,17 +1,17 @@
-INSERT INTO CIS.RENIM  (
-        CUIIO,
-        CUIIO_VERS,
-        DENUMIRE,
-        EDIT_USER,
-        STATUT,
-        CUATM,
-        CFP,
-       -- CFOJ,
-        CAEM2,
-        ETAPA_PROD
-        
-        
-)
+--INSERT INTO CIS.RENIM  (
+--        CUIIO,
+--        CUIIO_VERS,
+--        DENUMIRE,
+--        EDIT_USER,
+--        STATUT,
+--        CUATM,
+--        CFP,
+--       -- CFOJ,
+--        CAEM2,
+--        ETAPA_PROD
+--        
+--        
+--)
 
 
 
@@ -30,17 +30,17 @@ INSERT INTO CIS.RENIM  (
       --  TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.IDNO
-        FROM   PROD_24 L
+        FROM   PRETIND L
         
              --   CIS.RENIM  L
         
         
-                        LEFT  JOIN CIS.RENIM C ON C.CUIIO  =  L.CUIIO  
+                        LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
                                                   AND C.CUIIO_VERS  =  L.CUIIO_VERS  
                         
                         WHERE
                         
-                        C.CUIIO IS  NULL  
+                        C.CUIIO IS NOT  NULL  
 --                        
 --                        C.CUIIO  is    NULL
 --                        
