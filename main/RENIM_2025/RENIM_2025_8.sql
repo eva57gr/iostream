@@ -1,24 +1,24 @@
---INSERT INTO CIS.RENIM  (
---        CUIIO,
---        CUIIO_VERS,
---        DENUMIRE,
---        EDIT_USER,
---        STATUT,
---        CUATM,
---        CFP,
---       -- CFOJ,
---        CAEM2,
---        ETAPA_PROD
---        
---        
---)
+INSERT INTO CIS2.RENIM  (
+        CUIIO,
+        CUIIO_VERS,
+        DENUMIRE,
+        EDIT_USER,
+        STATUT,
+        CUATM,
+        CFP,
+       -- CFOJ,
+        CAEM2,
+        ETAPA_PROD
+        
+        
+)
 
 
 
  SELECT 
  
         TRIM(L.CUIIO) CUIIO ,
-        2013  CUIIO_VERS,
+        1064  CUIIO_VERS,
         TRIM(L.DENUMIRE)  DENUMIRE,
         1   EDIT_USER,
         '1' STATUT,
@@ -26,11 +26,11 @@
         TRIM(L.CFP) CFP,
       --  TRIM(L.CFOJ) CFOJ,
         TRIM(L.CAEM2)  CAEM2,
-        TRIM(L.ETAPA_PROD) ETAPA_PROD
-      --  TRIM(TRIM(L.IDNO))  IDNO
+     --   TRIM(L.ETAPA_PROD) ETAPA_PROD
+        TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.IDNO
-        FROM   PRETIND L
+        FROM   AUTO_65 L
         
              --   CIS.RENIM  L
         
@@ -40,7 +40,7 @@
                         
                         WHERE
                         
-                        C.CUIIO IS NOT  NULL  
+                        C.CUIIO IS  NULL  
 --                        
 --                        C.CUIIO  is    NULL
 --                        
