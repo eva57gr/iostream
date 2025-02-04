@@ -18,7 +18,7 @@ SELECT
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.RENIM SET
+UPDATE CIS.RENIM SET
 
 --  STATUT = '3'
 --DENUMIRE = CR.DENUMIRE,
