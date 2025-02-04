@@ -1,11 +1,7 @@
  SELECT FC.CUIIO,
- 
-        R.IDNO,
-        R.CUATM,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
+        FC.CUIIO_VERS,
+        R.IDNO
+                   
                    FROM
       (
       SELECT FC.CUIIO,
@@ -28,10 +24,18 @@
              ) FC INNER JOIN CIS2.RENIM R ON R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS 
              
              
-          WHERE
-          
-          FC.CUIIO LIKE  41469447||'%'
+--          WHERE
+--          
+--          FC.CUIIO LIKE  41469447||'%'
 
          --Daca FC.CUIIO are 8 caractere si fie inclus in LIKE daca nu atunci nu, 
+         
+         
+         GROUP BY 
+         FC.CUIIO,
+        FC.CUIIO_VERS,
+        R.IDNO
+         HAVING 
+         R.IDNO is  not null
 ORDER BY
 FC.CUIIO
