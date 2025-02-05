@@ -1,6 +1,3 @@
---UPDATE CIS2.FORM_CUIIO 
---SET STATUT = '3'
-
 SELECT *  ----------------
 
     FROM CIS2.FORM_CUIIO 
@@ -46,4 +43,3 @@ AND FORM = 63
 AND FORM_VERS = 2000
 AND STATUT = '1'
         
-             
