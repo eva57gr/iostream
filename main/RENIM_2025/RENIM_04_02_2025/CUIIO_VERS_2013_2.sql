@@ -1,8 +1,12 @@
+SELECT *  ----------------
+
+    FROM CIS2.FORM_CUIIO 
+    WHERE 
+
+CUIIO IN (
 SELECT FC.CUIIO
---                   FC.CUIIO_VERS,
---                   FC.FORM,
---                   FC.FORM_VERS,
---                   FC.STATUT
+      
+
               FROM
               ( 
               SELECT FC.CUIIO,
@@ -10,18 +14,33 @@ SELECT FC.CUIIO
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (63) AND CUIIO_VERS <= 2013
                                   
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
-             FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
+             FC.FORM IN (63) AND FC.STATUT <> '3') FC
              
              
              WHERE
              
-             FC.CUIIO_VERS <> 2013
+             FC.CUIIO IN (
+            SELECT
+               DISTINCT  CUIIO
+            FROM  USER_BANCU.IDNO
+
+          ) )
+
+   
+
+AND CUIIO_VERS = 2013
+AND FORM = 63
+
+AND FORM_VERS = 2000
+AND STATUT = '1'
+        
+             
