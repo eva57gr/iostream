@@ -1,14 +1,14 @@
-INSERT INTO USER_EREPORTING.RENIM_EXTRA  R
-(
-  R.CUIIO,
-  R.CUIIO_VERS,
-  R.DENUMIRE,
-  R.CUATM,
-  R.CFP,
-  R.CFOJ,
-  R.CAEM2,
-  R.ID_SCHEMA
- )
+--INSERT INTO USER_EREPORTING.RENIM_EXTRA  R
+--(
+--  R.CUIIO,
+--  R.CUIIO_VERS,
+--  R.DENUMIRE,
+--  R.CUATM,
+--  R.CFP,
+--  R.CFOJ,
+--  R.CAEM2,
+--  R.ID_SCHEMA
+-- )
 
 SELECT 
 --  L.CUIIO,
@@ -39,5 +39,5 @@ SELECT
                 L.FORM = 136
                 AND L.FORM_VERS = 2000
                 
-                AND L.CUIIO_VERS = 2012
+                AND L.CUIIO_VERS <> 2012
                 
