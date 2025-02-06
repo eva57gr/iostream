@@ -1,3 +1,5 @@
+--This is SQL  code in Oracle -find duplicates in column cuiio.
+--Add - find and delete duplicates 
 SELECT *
 FROM USER_BANCU.IDNO
 WHERE CUIIO IN (
@@ -6,3 +8,24 @@ WHERE CUIIO IN (
     GROUP BY CUIIO
     HAVING COUNT(*) > 1
 );
+
+
+DELETE FROM USER_BANCU.IDNO
+WHERE ROWID IN (
+    SELECT ROWID
+    FROM (
+        SELECT ROWID,
+               ROW_NUMBER() OVER (PARTITION BY CUIIO ORDER BY ROWID) AS rn
+        FROM USER_BANCU.IDNO
+    )
+    WHERE rn > 1
+);
+
+
+SELECT CUIIO, COUNT(*)
+FROM USER_BANCU.IDNO
+GROUP BY CUIIO
+HAVING COUNT(*) > 1;
+
+SELECT *
+FROM USER_BANCU.IDNO;
