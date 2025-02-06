@@ -4,16 +4,16 @@ SELECT
   L.FORM,
   L.FORM_VERS,
   L.STATUT,
-  L.ID_SCHEMA, 
+  L.ID_SCHEMA 
   
-  R.CUIIO,
-  R.CUIIO_VERS,
-  R.DENUMIRE,
-  R.CUATM,
-  R.CFP,
-  R.CFOJ,
-  R.CAEM2,
-  R.ID_SCHEMA
+--  R.CUIIO,
+--  R.CUIIO_VERS,
+--  R.DENUMIRE,
+--  R.CUATM,
+--  R.CFP,
+--  R.CFOJ,
+--  R.CAEM2,
+--  R.ID_SCHEMA
                 FROM USER_EREPORTING.FORM_CUIIO_EXTRA L
                                             INNER JOIN USER_EREPORTING.RENIM_EXTRA R 
                                             
@@ -26,3 +26,6 @@ SELECT
                 WHERE 
                 L.FORM = 136
                 AND L.FORM_VERS = 2000
+                
+                AND L.CUIIO_VERS <> 2012
+                
