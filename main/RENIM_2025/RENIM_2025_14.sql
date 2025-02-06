@@ -26,9 +26,9 @@
 SELECT   
        --  R.CUIIO  R_CUIIO,       
          L.CUIIO  CUIIO,
-         1064 CUIIO_VERS,
-         5 FORM,
-         1004    FORM_VERS,
+         2013 CUIIO_VERS,
+         42 FORM,
+         2000    FORM_VERS,
         '1' STATUT
 
          
@@ -64,7 +64,7 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.AUTO_65
+        FROM USER_BANCU.IDNO
         
         WHERE 
         CUIIO IS NOT NULL
