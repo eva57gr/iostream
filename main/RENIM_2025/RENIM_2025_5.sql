@@ -1,5 +1,5 @@
 
-UPDATE USER_BANCU.IDNO
+UPDATE USER_BANCU.AUTO_65
 SET 
     CUIIO = REPLACE(REPLACE(TRIM(CUIIO), CHR(9), ' '), '  ', ' '),
     CUIIO_VERS = REPLACE(REPLACE(TRIM(CUIIO_VERS), CHR(9), ' '), '  ', ' '),
@@ -27,15 +27,15 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.PRETIND L
+        FROM  USER_BANCU.AUTO_65 L
         
 --        ORDER BY
 --        L.CUIIO
 --        
         
-                      LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
+                    --  LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
 --                        
-                --       LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
+                      -- LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
 --                        
                 --        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
                 
