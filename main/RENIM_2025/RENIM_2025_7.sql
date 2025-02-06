@@ -24,7 +24,7 @@
              
              WHERE
              
-             FC.CUIIO_VERS <> 2013;
+             FC.CUIIO_VERS = 2013;
  
  
 -- INSERT INTO CIS.RENIM (
