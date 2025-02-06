@@ -24,14 +24,14 @@ SELECT FC.CUIIO,
              ) FC
              
              
-             WHERE
-             
-             FC.CUIIO IN (
-            SELECT
-               DISTINCT  CUIIO
-            FROM  USER_BANCU.IDNO
-
-          ) 
+--             WHERE
+--             
+--             FC.CUIIO IN (
+--            SELECT
+--               DISTINCT  CUIIO
+--            FROM  USER_BANCU.IDNO
+--
+--          ) 
 
    
 --
