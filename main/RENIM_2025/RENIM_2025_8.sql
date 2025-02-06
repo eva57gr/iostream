@@ -1,18 +1,18 @@
-INSERT INTO CIS2.RENIM  (
-        CUIIO,
-        CUIIO_VERS,
-        DENUMIRE,
-        EDIT_USER,
-        STATUT,
-        CUATM,
-        CFP,
-       -- CFOJ,
-        CAEM2,
-        ETAPA_PROD
-        
-        
-)
-
+--INSERT INTO CIS2.RENIM  (
+--        CUIIO,
+--        CUIIO_VERS,
+--        DENUMIRE,
+--        EDIT_USER,
+--        STATUT,
+--        CUATM,
+--        CFP,
+--       -- CFOJ,
+--        CAEM2,
+--        ETAPA_PROD
+--        
+--        
+--)
+--
 
 
  SELECT 
@@ -30,7 +30,7 @@ INSERT INTO CIS2.RENIM  (
         TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.IDNO
-        FROM   AUTO_65 L
+        FROM   IDNO L
         
              --   CIS.RENIM  L
         
@@ -40,7 +40,7 @@ INSERT INTO CIS2.RENIM  (
                         
                         WHERE
                         
-                        C.CUIIO IS  NULL  
+                        C.CUIIO IS  NOT NULL  
 --                        
 --                        C.CUIIO  is    NULL
 --                        

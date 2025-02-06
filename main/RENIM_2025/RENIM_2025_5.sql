@@ -1,5 +1,5 @@
 
-UPDATE USER_BANCU.AUTO_65
+UPDATE USER_BANCU.ADD_NEW_SU_M3_2024
 SET 
     CUIIO = REPLACE(REPLACE(TRIM(CUIIO), CHR(9), ' '), '  ', ' '),
     CUIIO_VERS = REPLACE(REPLACE(TRIM(CUIIO_VERS), CHR(9), ' '), '  ', ' '),
@@ -7,7 +7,9 @@ SET
     CUATM = REPLACE(REPLACE(TRIM(CUATM), CHR(9), ' '), '  ', ' '),
     CFP = REPLACE(REPLACE(TRIM(CFP), CHR(9), ' '), '  ', ' '),
     CFOJ = REPLACE(REPLACE(TRIM(CFOJ), CHR(9), ' '), '  ', ' '),
-    CAEM2 = REPLACE(REPLACE(TRIM(CAEM2), CHR(9), ' '), '  ', ' ');
+    CAEM2 = REPLACE(REPLACE(TRIM(CAEM2), CHR(9), ' '), '  ', ' '),
+    IDNO = REPLACE(REPLACE(TRIM(IDNO), CHR(9), ' '), '  ', ' ')
+    ;
 
 -------------------------------------------------------------------
 SELECT 
@@ -27,17 +29,17 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.AUTO_65 L
+        FROM  USER_BANCU.ADD_NEW_SU_M3_2024 L
         
 --        ORDER BY
 --        L.CUIIO
 --        
         
-                    --  LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  L.CUATM
+                      --LEFT JOIN CIS2.CL_CUATM C ON TRIM(C.CODUL) =  TRIM(L.CUATM)
 --                        
                       -- LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
 --                        
-                --        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
+                 --        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
                 
                        -- LEFT JOIN CIS2.VW_CL_CFOJ C ON C.CODUL =  L.CFOJ 
                         WHERE 
