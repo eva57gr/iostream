@@ -1,7 +1,7 @@
 --This is SQL  code in Oracle -find duplicates in column cuiio.
 --Add - find and delete duplicates 
 SELECT *
-FROM USER_BANCU.IDNO
+FROM USER_BANCU.ADD_NEW_SU_M3_2024
 WHERE CUIIO IN (
     SELECT CUIIO
     FROM USER_BANCU.IDNO

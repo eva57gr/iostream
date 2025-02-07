@@ -12,7 +12,7 @@
                         INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
             
                     WHERE 
-                    D.PERIOADA IN (1060)
+                    D.PERIOADA IN (1060-16)
                     AND D.FORM IN (45)
                     AND 
                     capitol=399 
