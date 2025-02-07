@@ -9,9 +9,6 @@
         L.CAEM2
        
         
-        
-    
-        
         FROM  ADD_NEW_SU_M3_2024 L 
            LEFT JOIN CIS2.RENIM R 
         
