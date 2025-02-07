@@ -1,4 +1,4 @@
---
+
 --INSERT INTO CIS2.FORM_CUIIO 
 --(
 --
@@ -9,7 +9,7 @@
 --                   STATUT
 --                   
 --)
---
+
 
 
             SELECT 
