@@ -33,3 +33,50 @@ MONITORING;
 
 
 ---------------------------------------------
+
+
+
+
+ SELECT 
+ 
+        L.CUIIO,
+        L.CUIIO_VERS,
+        L.DENUMIRE,
+        L.CUATM RSF_CUATM,
+        R.CUATM M3_CUATM,
+--        --SUBSTR(L.CUATM,1,2) AS SUBSTR_CUATM,
+        
+        L.CFP,
+        L.CFOJ,
+        L.CAEM2 RSF_CAEM2,
+        R.CAEM2 M3_CAEM2,
+        L.IDNO
+        
+        FROM  USER_BANCU.IDNO L 
+           INNER JOIN ADD_NEW_SU_M3_2024 R 
+        
+        ON L.CUIIO =  R.CUIIO
+        
+        
+        
+        WHERE
+--        
+--        
+        L.CUATM = R.CUATM
+--        
+--        
+AND         TRIM(L.CAEM2) = TRIM(R.CAEM2)
+        
+       -- SUBSTR(L.CUATM,1,2) <> SUBSTR(R.CUATM,1,2)
+        
+
+
+
+
+
+
+
+
+
+
+
