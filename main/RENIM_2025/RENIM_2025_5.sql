@@ -1,5 +1,5 @@
 
-UPDATE USER_BANCU.ADD_NEW_SU_M3_2024
+UPDATE USER_BANCU.IDNO
 SET 
     CUIIO = REPLACE(REPLACE(TRIM(CUIIO), CHR(9), ' '), '  ', ' '),
     CUIIO_VERS = REPLACE(REPLACE(TRIM(CUIIO_VERS), CHR(9), ' '), '  ', ' '),
@@ -29,7 +29,7 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.ADD_NEW_SU_M3_2024 L
+        FROM  USER_BANCU.IDNO L
         
 --        ORDER BY
 --        L.CUIIO
@@ -39,9 +39,9 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
 --                        
                       -- LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
 --                        
-                 --        LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
+                  --      LEFT JOIN CIS.VW_CL_CFP C ON C.CODUL =  L.CFP
                 
-                       -- LEFT JOIN CIS2.VW_CL_CFOJ C ON C.CODUL =  L.CFOJ 
+                   --     LEFT JOIN CIS2.VW_CL_CFOJ C ON C.CODUL =  L.CFOJ 
                         WHERE 
                         
                         C.CODUL IS  NULL 

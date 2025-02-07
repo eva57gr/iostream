@@ -1,5 +1,5 @@
  SELECT *
-        FROM  USER_BANCU.ADD_NEW_SU_M3_2024;
+        FROM  USER_BANCU.IDNO;
         
 --        
 --        ORDER BY 
@@ -29,7 +29,7 @@ SET CUATM = CASE
             END;
 
 
-UPDATE USER_BANCU.ADD_NEW_SU_M3_2024
+UPDATE USER_BANCU.IDNO
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'
