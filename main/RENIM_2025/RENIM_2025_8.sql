@@ -8,17 +8,17 @@
 --        CFP,
 --       -- CFOJ,
 --        CAEM2,
---        ETAPA_PROD
+--        IDNO
 --        
 --        
 --)
---
+
 
 
  SELECT 
- 
+        TRIM(C.CUIIO) CUIIO_RENIM,
         TRIM(L.CUIIO) CUIIO ,
-        1064  CUIIO_VERS,
+        L.CUIIO_VERS,
         TRIM(L.DENUMIRE)  DENUMIRE,
         1   EDIT_USER,
         '1' STATUT,
@@ -36,11 +36,11 @@
         
         
                         LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  L.CUIIO  
-                                                  AND C.CUIIO_VERS  =  L.CUIIO_VERS  
+                                                  AND C.CUIIO_VERS  =  L.CUIIO_VERS 
                         
                         WHERE
                         
-                        C.CUIIO IS  NOT NULL  
+                        C.CUIIO IS NOT  NULL  
 --                        
 --                        C.CUIIO  is    NULL
 --                        
