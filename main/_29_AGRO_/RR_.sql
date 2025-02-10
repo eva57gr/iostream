@@ -12,12 +12,12 @@
                         INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS
             
                     WHERE 
-                    D.PERIOADA IN (1060-16)
+                    D.PERIOADA IN (1060)
                     AND D.FORM IN (45)
                     AND 
                     capitol=399 
                     
-                    AND D.RIND IN ('1302')
+                    AND D.RIND IN ('1300')
 
                 GROUP BY
                 
