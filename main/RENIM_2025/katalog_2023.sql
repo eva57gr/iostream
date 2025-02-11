@@ -19,4 +19,19 @@
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
-             FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC   
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC    LEFT JOIN (
+             
+             SELECT 
+DISTINCT D.CUIIO
+
+
+FROM CIS2.VW_DATA_ALL D 
+
+WHERE 
+  (D.PERIOADA =:pPERIOADA) AND
+  (D.FORM =:pFORM)
+             ) R ON R.CUIIO = FC.CUIIO
+             
+             WHERE
+             
+              R.CUIIO IS NOT NULL
