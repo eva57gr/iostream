@@ -1,14 +1,14 @@
---INSERT INTO    CIS2.SYS_USER_ACCES
---    (
---  ID_USER,
---  CUATM,
---  FORM,
---  FORM_VERS,
---  ISADMIN,
---  ACCES_TYPE,
---  CAPITOL_ACCES,
---  DATA_REG
---  )
+INSERT INTO  CIS2.SYS_USER_ACCES
+    (
+  ID_USER,
+  CUATM,
+  FORM,
+  FORM_VERS,
+  ISADMIN,
+  ACCES_TYPE,
+  CAPITOL_ACCES,
+  DATA_REG
+  )
 
 
 --ID_USER IN  (
@@ -20,7 +20,7 @@
 
 
 SELECT
-  1621 ID_USER,
+  1636 ID_USER,
   L.CUATM,
   L.FORM,
   L.FORM_VERS,
@@ -47,7 +47,9 @@ FROM
 
         WHERE
 
-        ID_USER IN (80)
+        ID_USER IN (734)
+        
+        AND FORM IN (61,58,62,54,73,43,30,36,26,27,45,39)
 ---------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------ss
 -------------------------------------------------------------------------------------------
@@ -70,7 +72,7 @@ FROM
 
         WHERE
 
-        ID_USER IN (1621)
+        ID_USER IN (1636)
 
         ) R ON R.FORM = L.FORM
 
@@ -89,6 +91,6 @@ GROUP BY
   L.CAPITOL_ACCES,
   ROWNUM
 
---      HAVING
---
---      ROWNUM <=10
+      HAVING
+
+      ROWNUM <=10
