@@ -19,11 +19,11 @@ SELECT
           WHERE
           1=1  
 ----
-AND STATUS  =  '2' 
+--AND STATUS  =  '2' 
 ----AND 
 --
 ----
-AND  DATA_REG >= TO_DATE('01/26/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('01/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
@@ -31,7 +31,7 @@ AND  DATA_REG >= TO_DATE('01/26/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --)
 --  AND 
 --  
---  FORM_TYPE = '1-ac'
+AND   FORM_TYPE = '1-achiz'
 ----  OR 
 --AND   FORM_TYPE IN  ('6_nr_25') 
 --   
