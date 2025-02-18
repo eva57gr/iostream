@@ -31,7 +31,7 @@ AND  DATA_REG >= TO_DATE('01/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --)
 --  AND 
 --  
-AND   FORM_TYPE = '1-achiz'
+AND   FORM_TYPE = '1-achiz' --------------------
 ----  OR 
 --AND   FORM_TYPE IN  ('6_nr_25') 
 --   
