@@ -22,7 +22,7 @@ FROM CIS2.MD_RIND D
 WHERE
 D.STATUT = '1'  AND  
 ---- 
-D.capitol= 407 AND D.capitol_vers=1064
+D.capitol= 405 AND D.capitol_vers=1052
 and d.rind not in ('--')
   GROUP BY
   D.ID_MD,
@@ -39,7 +39,7 @@ and d.rind not in ('--')
 WHERE
 D.STATUT = '1'  AND  
 ---- 
-D.capitol= 407 AND D.capitol_vers = 1064
+D.capitol= 405 AND D.capitol_vers = 1052
 
 AND D.RIND NOT IN ('-')
 --AND 
