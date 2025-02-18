@@ -32,8 +32,8 @@ SELECT
                 R.DENUMIRE,
                 D.RIND,
                 R.CFOJ,
-                D.CUATM,
-                R.IDNO
+                D.CUATM
+                --R.IDNO
                 
 --                HAVING 
 --                SUM(D.COL1)  >= 70 
