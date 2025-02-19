@@ -32,7 +32,7 @@ SELECT
            R.CUATM
            
       FROM (
-      
+ ---------------------------------     
   SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
