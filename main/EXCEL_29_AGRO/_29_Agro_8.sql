@@ -1,21 +1,21 @@
---SELECT *
---FROM USER_BANCU.KATALOG_45_1063_D_PARENT 
---;
---
---insert into USER_BANCU.KATALOG_45_1063_D_PARENT 
---
---(
---  CUIIO,
---  CUIIO_VERS,
---  DENUMIRE,
---  CUATM,
---  CFP,
---  CFOJ,
---  --COCM,
---  CAEM2,
---  --CAEM,
---  IDNO
---)
+SELECT *
+FROM USER_BANCU.KATALOG_45_1063_PARENT
+;
+
+insert into USER_BANCU.KATALOG_45_1063_PARENT 
+
+(
+  CUIIO,
+  CUIIO_VERS,
+  DENUMIRE,
+  CUATM,
+  CFP,
+  CFOJ,
+  --COCM,
+  CAEM2,
+  --CAEM,
+  IDNO
+)
 
 
 SELECT   

@@ -1,4 +1,17 @@
-SELECT *
+SELECT   
+ CUIIO, 
+ PARENT_CUIIO, 
+ CUIIO_VERS, 
+ DENUMIRE, 
+ CUATM, 
+ PARENT_CUATM, 
+ CFP, 
+ CFOJ, 
+ COCM, 
+ CAEM2, 
+ CAEM, 
+ IDNO, 
+ SORT_ORDER
 FROM (
     -- Partea 1: Rândurile care satisfac rela?ia substring-string
     SELECT 
