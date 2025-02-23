@@ -1,11 +1,17 @@
-﻿SELECT 
+--update CIS.MD_CONTROL  
+
+
+SELECT 
       L.CONTROL,
       L.CONTROL_VERS,
       L.FORMULA,
       L.SQL_TEXT,
       L.PRIORITATEA,
-      L.STATU
- FROM
+      L.STATUT
+      
+      
+        
+        FROM
 
 ( 
 SELECT 
@@ -52,10 +58,16 @@ SELECT
           
           
           WHERE 
-          1=1 
-      
+          1=1  AND
 
---AND L.SQL_TEXT LIKE '%VW_DATA_ALL_TEMP%'    
+--create update  
+--L.SQL_TEXT LIKE '%VW_DATA_ALL%'
+
+
+DBMS_LOB.INSTR(L.SQL_TEXT, 'VW_DATA_ALL') > 0
+--AND 
+--DBMS_LOB.INSTR(L.SQL_TEXT, '%VW_DATA_ALL%') > 0;
+ 
 
 
 
