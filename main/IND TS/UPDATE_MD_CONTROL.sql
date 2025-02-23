@@ -1,6 +1,3 @@
---update CIS.MD_CONTROL  
-
-
 SELECT 
       L.CONTROL,
       L.CONTROL_VERS,
@@ -34,7 +31,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 3
+         AND A.FORM  = 10
                
          GROUP BY 
           A.CONTROL
@@ -47,7 +44,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 3
+         AND B.FORM  = 10
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
@@ -58,21 +55,28 @@ SELECT
           
           
           WHERE 
-          1=1  AND
+          1=1  
 
---create update  
---L.SQL_TEXT LIKE '%VW_DATA_ALL%'
+----create update  
+----L.SQL_TEXT LIKE '%VW_DATA_ALL%'
+--
+----
 
-
-DBMS_LOB.INSTR(L.SQL_TEXT, 'VW_DATA_ALL') > 0
+AND 
+DBMS_LOB.INSTR(L.SQL_TEXT, 'VW_DATA_ALL_TEMP') > 0
 --AND 
---DBMS_LOB.INSTR(L.SQL_TEXT, '%VW_DATA_ALL%') > 0;
- 
+--DBMS_LOB.INSTR(L.SQL_TEXT, '%VW_DATA_ALL%') > 0
 
 
 
-          --and  control_vers <> 384
---          AND  L.FORMULA LIKE '%Cap.I %'
+
+
+-- 
+--
+--
+--
+--          --and  control_vers <> 384
+----          AND  L.FORMULA LIKE '%Cap.I %'
 --
 --    AND
 --    L.CONTROL NOT IN ('54-002','54-004','54-007','54-008','54-013','54-020', '54-014','54-017','54-015','54-001','54-010', '54-005','54-006'
