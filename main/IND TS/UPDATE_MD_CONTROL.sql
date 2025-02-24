@@ -52,7 +52,7 @@ SELECT
          
          ORDER BY 
           B.CONTROL ) L
-          
+          ---------------------------
           
           WHERE 
           1=1  
