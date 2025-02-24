@@ -1,6 +1,17 @@
 
+
+--INSERT INTO USER_EREPORTING.FORM_CUIIO_EXTRA (
+--CUIIO,
+--CUIIO_VERS,
+--FORM,
+--FORM_VERS,
+-- STATUT,
+-- ID_SCHEMA 
+--
+--)
+-- 
 SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
+                   2013 CUIIO_VERS,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT,
@@ -25,6 +36,6 @@ SELECT FC.CUIIO,
              
              
              
---             WHERE 
---             
---             FC.CUIIO_VERS <>  2012
+             WHERE 
+             
+             FC.CUIIO_VERS <>  2013

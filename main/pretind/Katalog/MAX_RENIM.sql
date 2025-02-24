@@ -13,7 +13,7 @@
 SELECT     
            
            R.CUIIO,
-           2012 CUIIO_VERS,
+           2013 CUIIO_VERS,
            R.DENUMIRE,
            R.CUATM,
            R.CFP,
@@ -59,4 +59,4 @@ SELECT FC.CUIIO
 )
 
 
-AND R.CUIIO_VERS <> 2012
+AND R.CUIIO_VERS <> 2013
