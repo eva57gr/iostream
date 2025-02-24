@@ -38,7 +38,7 @@ SELECT
         ORDER BY 
           B.CONTROL ) L
           WHERE 
-          1=1 AND 
+          1=1 AND -------------------
     
 ( DBMS_LOB.INSTR(L.SQL_TEXT, 'VW_DATA_ALL_TEMP') > 0
 AND 
