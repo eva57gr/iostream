@@ -1,0 +1,64 @@
+SELECT
+   R.CUIIO,
+   MAX(R.DENUMIRE) DENUMIRE,
+   R.CUATM,
+   RD.RIND AS NR_ROW,  
+   RD.ORDINE AS ORDINE,
+   RD.DENUMIRE AS NUME_ROW, 
+  CIS2.NVAL(MAX (CASE WHEN D.CAPITOL IN (1185) AND RD.RIND LIKE '%'||D.RIND||'%'  THEN D.COL1 ELSE NULL END)) AS COL1, 
+NULL AS COL2 
+
+ FROM
+      CIS2.VW_DATA_ALL D 
+      INNER JOIN CIS2.RENIM R ON R.CUIIO=D.CUIIO AND R.CUIIO_VERS=D.CUIIO_VERS 
+      CROSS JOIN (
+      SELECT 
+
+      D.RIND,
+      D.DENUMIRE,
+      D.RIND_VERS,
+      D.ORDINE  
+     FROM     CIS2.MD_RIND D
+     
+     WHERE 
+     
+     D.CAPITOL  IN (1185)
+     AND D.CAPITOL_VERS = 2014 
+     AND D.RIND IN ('511','512','520','531','532','533','541','542','543','560','570')   
+     
+     AND STATUT IN ('1')
+      AND D.FORM_VERS = 2011
+GROUP BY 
+      D.RIND,
+      D.RIND_VERS,
+      D.DENUMIRE,
+      D.ORDINE          
+      
+      ORDER BY 
+      D.ORDINE
+      
+      
+      ) RD
+      
+     
+WHERE  
+       D.FORM IN (71)             AND  
+       D.PERIOADA IN (:pPERIOADA ) AND
+       D.FORM = :pFORM AND
+       D.FORM_VERS = :pFORM_VERS  AND  
+       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
+       D.CAPITOL IN (1185) 
+           
+       AND D.CUIIO = 37720723
+         
+GROUP BY  
+   R.CUIIO ,
+   R.DENUMIRE,
+   RD.RIND,  
+   RD.ORDINE,
+   RD.DENUMIRE  
+   
+   ORDER BY
+   R.CUIIO,
+   RD.ORDINE
+   
