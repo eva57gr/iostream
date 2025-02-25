@@ -1,23 +1,23 @@
-BEGIN
-INSERT INTO CIS2.TABLE_OUT 
-(
-  PERIOADA,
-  FORM,
-  FORM_VERS,
-  ID_MDTABLE,
-  COD_CUATM,
-  NR_SECTIE,
-  NUME_SECTIE,
-  NR_SECTIE1,
-  NUME_SECTIE1,
-  NR_SECTIE2,
-  NUME_SECTIE2,
-  NR_ROW,
-  ORDINE,
-  DECIMAL_POS,
-  NUME_ROW,   
-  COL1, COL2, COL3
-)
+--BEGIN
+--INSERT INTO CIS2.TABLE_OUT 
+--(
+--  PERIOADA,
+--  FORM,
+--  FORM_VERS,
+--  ID_MDTABLE,
+--  COD_CUATM,
+--  NR_SECTIE,
+--  NUME_SECTIE,
+--  NR_SECTIE1,
+--  NUME_SECTIE1,
+--  NR_SECTIE2,
+--  NUME_SECTIE2,
+--  NR_ROW,
+--  ORDINE,
+--  DECIMAL_POS,
+--  NUME_ROW,   
+--  COL1, COL2, COL3
+--)
 
   SELECT 
   :pPERIOADA AS PERIOADA,
@@ -76,7 +76,7 @@ WHERE
        D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
        D.CAPITOL IN (1185) 
        --AND D.RIND IN ('221','222','223','224')       
-  --     AND D.CUIIO = 1000545
+     --  AND D.CUIIO = 1000545
          
 GROUP BY  
    R.CUIIO ,
@@ -143,6 +143,6 @@ GROUP BY
    ORDINE
       )
       
-         ;
-END;
-   
+--         ;
+--END;
+--   
