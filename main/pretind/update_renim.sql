@@ -23,7 +23,7 @@
 --     --   L.CFOJ,
 --        L.CAEM2
 --      --  L.IDNO
-        FROM USER_BANCU.GAZ L
+        FROM USER_BANCU.KAT_112 L
         
         WHERE 
         1=1
