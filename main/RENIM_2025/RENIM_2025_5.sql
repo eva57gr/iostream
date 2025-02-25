@@ -29,13 +29,13 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
         L.CFP,
         L.CFOJ,
         L.CAEM2
-        FROM  USER_BANCU.IDNO L
+        FROM  USER_BANCU.KAT_112 L
         
 --        ORDER BY
 --        L.CUIIO
 --        
         
-                      --LEFT JOIN CIS2.CL_CUATM C ON TRIM(C.CODUL) =  TRIM(L.CUATM)
+                      LEFT JOIN CIS2.CL_CUATM C ON TRIM(C.CODUL) =  TRIM(L.CUATM)
 --                        
                       -- LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  L.CAEM2
 --                        
