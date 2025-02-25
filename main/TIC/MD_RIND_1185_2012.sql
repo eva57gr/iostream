@@ -7,9 +7,9 @@ SELECT
      
      WHERE 
      
-     D.CAPITOL  IN (1185)
+     D.CAPITOL  IN (1186)
      AND D.CAPITOL_VERS = 2012 
-     AND D.RIND IN ('511','512','520','531','532','533','541','542','543','560','570')   
+     AND D.RIND IN ('611','612','620','631','632','633','641','642','643','660','670')   
 GROUP BY 
       D.RIND,
       D.RIND_VERS,
