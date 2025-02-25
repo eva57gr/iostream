@@ -40,7 +40,7 @@ SELECT
           A.CONTROL
         
         )  A  ON A.CONTROL = B.CONTROL AND A.CONTROL_VERS = B.CONTROL_VERS   
-        
+        -----------------------
         
          WHERE
          1=1
