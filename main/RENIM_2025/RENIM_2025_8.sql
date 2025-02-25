@@ -40,8 +40,8 @@
                         
                         WHERE
                         
-                        C.CUIIO IS   NULL  
-                        AND C.CUIIO_VERS IS NULL 
+                        C.CUIIO IS  NOT  NULL  
+                        AND C.CUIIO_VERS IS NOT  NULL 
                         
                         --                        
 --                        C.CUIIO  is    NULL
@@ -109,3 +109,43 @@ SELECT
 ORDER BY 
 
 TRIM(TRIM(L.IDNO)) DESC;
+
+
+
+
+SELECT
+  D.CUIIO,
+  D.CUIIO_VERS,
+  D.DENUMIRE,
+  D.CUATM, 
+  D.CFP,
+  D.CFOJ,
+  D.COCM,
+  D.CAEM2,
+  D.CAEM,
+  D.IDNO    
+
+FROM USER_BANCU.KAT_112 D
+
+                                
+--                                
+----                                INNER JOIN CIS2.CL_CUATM74 L ON D.CUATM = L.CODUL4 
+--                                 LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
+--                                
+--                                
+--                                
+--                                ) D
+                                
+                           
+
+                       -- LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
+                                
+                     --  LEFT JOIN CIS2.VW_CL_CUATM C ON C.CODUL =  D.CUATM
+                        
+                   --    LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  D.CAEM2
+                        
+                    --  LEFT JOIN CIS2.VW_CL_CFOJ C ON C.CODUL =  L.CFOJ
+                       
+                        WHERE 
+                        
+                        C.CODUL IS    NULL 
