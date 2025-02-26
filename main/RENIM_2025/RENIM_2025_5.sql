@@ -24,12 +24,12 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
  
         L.CUIIO,
         L.CUIIO_VERS,
-        L.DENUMIRE,
-        L.CUATM,------------------------
-        L.CFP,
-        L.CFOJ,
-        L.CAEM2
-        FROM  USER_BANCU.KAT_112 L
+--        L.DENUMIRE,
+        L.CUATM------------------------
+--        L.CFP,
+--        L.CFOJ,
+--        L.CAEM2
+        FROM  USER_BANCU.AGRO_24 L
         
 --        ORDER BY
 --        L.CUIIO

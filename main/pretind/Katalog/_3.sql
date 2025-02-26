@@ -1,23 +1,19 @@
-
-
-
 --INSERT INTO USER_EREPORTING.FORM_CUIIO_EXTRA (
 --CUIIO,
 --CUIIO_VERS,
 --FORM,
 --FORM_VERS,
--- STATUT,
--- ID_SCHEMA 
---
+--STATUT,
+--ID_SCHEMA 
 --)
 --   
 SELECT
-R.CUIIO
---R.CUIIO_VERS
---112 FORM,
---2000  FORM_VERS,
---'1' STATUT,
---4 ID_SCHEMA 
+R.CUIIO,
+R.CUIIO_VERS,
+116 FORM,
+2000  FORM_VERS,
+'1' STATUT,
+4 ID_SCHEMA 
 
 
 
@@ -74,4 +70,4 @@ FROM USER_BANCU.KAT_116 D
              
              
              WHERE 
-             L.CUIIO IS   NOT NULL 
+             L.CUIIO IS  NULL 

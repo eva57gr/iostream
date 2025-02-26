@@ -20,7 +20,7 @@ SELECT
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.RENIM SET
+UPDATE CIS.RENIM SET
 
 --  STATUT = '3'
 --DENUMIRE = CR.DENUMIRE,
@@ -58,15 +58,3 @@ END;
 
 
 
-
-SELECT
-  D.CUIIO,
-  D.CUIIO_VERS,
-  D.DENUMIRE,
-  D.CUATM,
-  D.CFP,
- 
-  D.CAEM2,
-  D.ETAPA_PROD
- 
-  FROM USER_BANCU.PROD_24 D
