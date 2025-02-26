@@ -1,5 +1,5 @@
  SELECT *
-        FROM  USER_BANCU.IDNO;
+        FROM  USER_BANCU.AGRO_24;
         
 --        
 --        ORDER BY 
@@ -29,7 +29,7 @@ SET CUATM = CASE
             END;
 
 
-UPDATE USER_BANCU.IDNO
+UPDATE USER_BANCU.AGRO_24
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'
