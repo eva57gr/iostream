@@ -3,8 +3,8 @@ UPDATE USER_EREPORTING.FORM_CUIIO_EXTRA
 SET STATUT = '3'
 
 --SELECT *
---
---
+----
+----
 --    FROM USER_EREPORTING.FORM_CUIIO_EXTRA
     
     WHERE
@@ -56,7 +56,7 @@ SELECT
   D.CAEM,
   D.IDNO    
 
-FROM USER_BANCU.KAT_112 D
+FROM USER_BANCU.KAT_110 D
 
 
              ) R ON R.CUIIO = L.CUIIO 
@@ -66,11 +66,10 @@ FROM USER_BANCU.KAT_112 D
              R.CUIIO IS   NULL 
     ) 
     
-    AND FORM IN (112)
+    AND FORM IN (110)
     
-    AND CUIIO_VERS = 2013 
-    
-    AND FORM_VERS = 2000
+    AND CUIIO_VERS = 480 
+    AND FORM_VERS = 299
     AND STATUT = '1'
     AND ID_SCHEMA = 4
     

@@ -7,11 +7,11 @@
 -- ID_SCHEMA 
 --
 --)
-   
+--   
 SELECT
 R.CUIIO, 
 R.CUIIO_VERS,
-112 FORM,
+111 FORM,
 2000  FORM_VERS,
 '1' STATUT,
 4 ID_SCHEMA 
@@ -64,11 +64,11 @@ SELECT
   D.CAEM,
   D.IDNO    
 
-FROM USER_BANCU.KAT_112 D
+FROM USER_BANCU.KAT_111 D
 
 
              ) R ON R.CUIIO = L.CUIIO 
              
              
              WHERE 
-             L.CUIIO IS   NULL 
+             L.CUIIO IS NOT   NULL 

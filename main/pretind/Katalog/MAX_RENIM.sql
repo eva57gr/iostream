@@ -1,19 +1,19 @@
---INSERT INTO USER_EREPORTING.RENIM_EXTRA
---(
---  CUIIO,
---  CUIIO_VERS,
---  DENUMIRE,
---  CUATM,
---  CFP,
---  CFOJ,
---  CAEM2,
---  ID_SCHEMA   
---)
+INSERT INTO USER_EREPORTING.RENIM_EXTRA
+(
+  CUIIO,
+  CUIIO_VERS,
+  DENUMIRE,
+  CUATM,
+  CFP,
+  CFOJ,
+  CAEM2,
+  ID_SCHEMA   
+)
 
 SELECT     
            
            R.CUIIO,
-           2013 CUIIO_VERS,
+           480 CUIIO_VERS,
            R.DENUMIRE,
            R.CUATM,
            R.CFP,
@@ -39,7 +39,11 @@ SELECT
            INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) AS CUIIO_VERS
                            FROM USER_EREPORTING.RENIM_EXTRA
                        GROUP BY CUIIO) A
-               ON (A.CUIIO = R.CUIIO AND A.CUIIO_VERS = R.CUIIO_VERS) ) R
+               ON (A.CUIIO = R.CUIIO AND A.CUIIO_VERS = R.CUIIO_VERS) 
+               
+               WHERE 
+               R.CUIIO_VERS <= 480
+               ) R
 
 
 
@@ -59,4 +63,4 @@ SELECT FC.CUIIO
 )
 
 
-AND R.CUIIO_VERS <>  2013
+AND R.CUIIO_VERS <>  480
