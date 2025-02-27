@@ -1,25 +1,25 @@
-﻿ INSERT INTO CIS.RENIM (
- 
- 
-    CUIIO,
-    CUIIO_VERS,
-    DENUMIRE,
-    EDIT_USER,
-    STATUT,
-    CUATM,
-    CFP,
-    CFOJ,
-    COCM,
-    CAEM,
-    BUGET,
-    TIP,
-    PROD,
-    FOR_CUB,
-    ETAPA_PROD,
-    RENIM_PERS,
-    CAEM2
-)
- 
+﻿-- INSERT INTO CIS.RENIM (
+-- 
+-- 
+--    CUIIO,
+--    CUIIO_VERS,
+--    DENUMIRE,
+--    EDIT_USER,
+--    STATUT,
+--    CUATM,
+--    CFP,
+--    CFOJ,
+--    COCM,
+--    CAEM,
+--    BUGET,
+--    TIP,
+--    PROD,
+--    FOR_CUB,
+--    ETAPA_PROD,
+--    RENIM_PERS,
+--    CAEM2
+--)
+-- 
 
 
 
