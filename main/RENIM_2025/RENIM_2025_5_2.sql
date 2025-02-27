@@ -74,7 +74,7 @@
 
 SELECT 
  CUIIO,
- 2013 CUIIO_VERS,
+ CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -129,7 +129,9 @@ SELECT
 CUIIO IN (
 
 SELECT DISTINCT CUIIO
-        FROM  USER_BANCU.AGRO_24
+        FROM  USER_BANCU.KAT_111
+        
+        
         
 
 
@@ -137,46 +139,46 @@ SELECT DISTINCT CUIIO
  )
 ---------------------------------------
 
-AND CUIIO_VERS <>   2013
+--AND CUIIO_VERS <>   2013
      
 )
 
-AND 
-
-
-CUIIO NOT IN (
-
-SELECT 
- DISTINCT CUIIO
- 
- FROM    VW_RENIM_2013_CIS2
- 
-    --    USER_BANCU.VW_MAX_RENIM_CIS2
-                    
- 
-                    
-                    WHERE 
-                  
-                  
-
-                    
-                   
-CUIIO IN (
-
- SELECT
- DISTINCT  CUIIO
-        FROM  USER_BANCU.AGRO_24
-
-          )
-
-        
-        AND 
-        
-        
-        CUIIO_VERS  =  2013 
-
-)
-
-ORDER BY 
-
-CUIIO;
+--AND 
+--
+--
+--CUIIO NOT IN (
+--
+--SELECT 
+-- DISTINCT CUIIO
+-- 
+-- FROM    VW_RENIM_2013_CIS2
+-- 
+--    --    USER_BANCU.VW_MAX_RENIM_CIS2
+--                    
+-- 
+--                    
+--                    WHERE 
+--                  
+--                  
+--
+--                    
+--                   
+--CUIIO IN (
+--
+-- SELECT
+-- DISTINCT  CUIIO
+--        FROM  USER_BANCU.KAT_111
+--
+--          )
+--
+--        
+--        AND 
+--        
+--        
+--        CUIIO_VERS  =  2013 
+--
+--)
+--
+--ORDER BY 
+--
+--CUIIO;
