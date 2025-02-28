@@ -1,12 +1,12 @@
-INSERT INTO  USER_EREPORTING.FORM_CUIIO_EXTRA (
-
-                   CUIIO,
-                   CUIIO_VERS,
-                   FORM,
-                   FORM_VERS,
-                   STATUT,
-                   ID_SCHEMA
-)
+--INSERT INTO  USER_EREPORTING.FORM_CUIIO_EXTRA (
+--
+--                   CUIIO,
+--                   CUIIO_VERS,
+--                   FORM,
+--                   FORM_VERS,
+--                   STATUT,
+--                   ID_SCHEMA
+--)
 
 SELECT             FC.CUIIO,
                    480 CUIIO_VERS,
@@ -33,4 +33,4 @@ SELECT FC.CUIIO,
              
              WHERE
              
-             FC.CUIIO_VERS <>  480
+             FC.CUIIO_VERS = 480
