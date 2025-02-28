@@ -1,14 +1,14 @@
-INSERT INTO USER_EREPORTING.RENIM_EXTRA
-(
-  CUIIO,
-  CUIIO_VERS,
-  DENUMIRE,
-  CUATM,
-  CFP,
-  CFOJ,
-  CAEM2,
-  ID_SCHEMA   
-)
+--INSERT INTO USER_EREPORTING.RENIM_EXTRA
+--(
+--  CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  CAEM2,
+--  ID_SCHEMA   
+--)
 
 SELECT     
            
@@ -45,10 +45,14 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (110)  AND FC.STATUT <> '3' 
              
-             ) FC INNER JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS 
+             ) FC LEFT JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS 
              
              
---   WHERE 
---   R.CUIIO IS NOT  NULL 
+   WHERE 
+  R.CUIIO 
+  
+  
    
-   AND R.CUIIO_VERS <>  480
+   
+--   --AND
+--    R.CUIIO_VERS <>  480

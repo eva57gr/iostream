@@ -1,14 +1,14 @@
-INSERT INTO USER_EREPORTING.RENIM_EXTRA
-(
-  CUIIO,
-  CUIIO_VERS,
-  DENUMIRE,
-  CUATM,
-  CFP,
-  CFOJ,
-  CAEM2,
-  ID_SCHEMA   
-)
+--INSERT INTO USER_EREPORTING.RENIM_EXTRA
+--(
+--  CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  CAEM2,
+--  ID_SCHEMA   
+--)
 SELECT  
   L.CUIIO,
   L.CUIIO_VERS,
@@ -20,12 +20,12 @@ SELECT
   4 ID_SCHEMA   
 
 
-                   FROM USER_BANCU.KAT_110  L
+                   FROM USER_BANCU.KAT_114  L
 
                     LEFT JOIN USER_EREPORTING.RENIM_EXTRA R ON R.CUIIO = L.CUIIO AND R.CUIIO_VERS = L.CUIIO_VERS 
                     
                     WHERE
-                    R.CUIIO IS   NULL 
+                    R.CUIIO IS  NOT  NULL 
                     
 --                    AND length(TRIM(L.CFP)) =  3 
                     
