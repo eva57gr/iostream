@@ -6,9 +6,9 @@ from CIS2.VW_CL_CUATM C
 
 WHERE
 
-C.FULL_CODE LIKE '%'||:pCOD_CUATM||'%'
+--C.FULL_CODE LIKE '%'||:pCOD_CUATM||'%'
 
-
+C.PRGS IN ('2')
 group by 
 C.CODUL,
 C.DENUMIRE,
