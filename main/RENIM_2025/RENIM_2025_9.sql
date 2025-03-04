@@ -1,14 +1,13 @@
-
-INSERT INTO CIS2.FORM_CUIIO 
-(
-
-                   CUIIO,
-                   CUIIO_VERS,
-                   FORM,
-                   FORM_VERS,
-                   STATUT
-                   
-)
+--INSERT INTO CIS2.FORM_CUIIO 
+--(
+--
+--                   CUIIO,
+--                   CUIIO_VERS,
+--                   FORM,
+--                   FORM_VERS,
+--                   STATUT
+--                   
+--)
 
 
 
@@ -23,3 +22,14 @@ INSERT INTO CIS2.FORM_CUIIO
                    SELECT DISTINCT CUIIO
         FROM  USER_BANCU."16_AGRO"
                    ) FC
+
+
+
+                WHERE 
+                
+                FC.CUIIO NOT IN (
+                40872543,
+40876179,
+41210548
+
+                )
