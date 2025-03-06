@@ -1,10 +1,10 @@
 --This is SQL  code in Oracle -find duplicates in column cuiio.
 --Add - find and delete duplicates 
 SELECT *
-FROM USER_BANCU.AGRO_24
+FROM USER_BANCU."16_AGRO"
 WHERE CUIIO IN (
     SELECT CUIIO
-    FROM USER_BANCU.AGRO_24
+    FROM USER_BANCU."16_AGRO"
     GROUP BY CUIIO
     HAVING COUNT(*) > 1
 );
