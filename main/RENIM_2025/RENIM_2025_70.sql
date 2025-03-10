@@ -14,7 +14,7 @@
 
 SELECT   
        --  R.CUIIO  R_CUIIO,       
-         L.CUIIO  CUIIO,
+         R.CUIIO  CUIIO,
          2013 CUIIO_VERS,
          36 FORM,
          2000    FORM_VERS,
@@ -49,7 +49,7 @@ SELECT     R.CUIIO,
            INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
-               RIGHT   JOIN (
+               LEFT   JOIN (
                
                SELECT CUIIO
                
@@ -64,7 +64,7 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CUIIO IS     NULL  
+               L.CUIIO IS     NULL  
 --               ) L  
               
                
