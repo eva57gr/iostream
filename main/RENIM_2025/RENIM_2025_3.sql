@@ -1,22 +1,22 @@
 --This is SQL  code in Oracle -find duplicates in column cuiio.
 --Add - find and delete duplicates 
 SELECT *
-FROM USER_BANCU."16_AGRO"
+FROM USER_BANCU.AGRO_36
 WHERE CUIIO IN (
     SELECT CUIIO
-    FROM USER_BANCU."16_AGRO"
+    FROM USER_BANCU.AGRO_36
     GROUP BY CUIIO
     HAVING COUNT(*) > 1
 );
 
 
-DELETE FROM USER_BANCU.IDNO
+DELETE FROM USER_BANCU.AGRO_36
 WHERE ROWID IN (
     SELECT ROWID
     FROM (
         SELECT ROWID,
                ROW_NUMBER() OVER (PARTITION BY CUIIO ORDER BY ROWID) AS rn
-        FROM USER_BANCU.IDNO
+        FROM USER_BANCU.AGRO_36
     )
     WHERE rn > 1
 );
