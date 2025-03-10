@@ -1,5 +1,20 @@
+ 
+        DELETE 
+        FROM  USER_BANCU.AGRO_36
+        WHERE 
+        
+        CUIIO IS NULL
+        
+        ;
+ 
+ 
  SELECT *
-        FROM  USER_BANCU.AGRO_24;
+        FROM  USER_BANCU.AGRO_36
+        WHERE 
+        
+        CUIIO IS NOT NULL
+        
+        ;
         
 --        
 --        ORDER BY 
