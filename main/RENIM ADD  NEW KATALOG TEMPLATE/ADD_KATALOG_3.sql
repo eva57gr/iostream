@@ -8,8 +8,9 @@
         L.CUATM,
         L.CFP,
         L.CFOJ,
-        L.CAEM2
-        FROM  USER_BANCU.RENIM_NEW L
+        L.CAEM2,
+        L.IDNO
+        FROM  USER_BANCU.AGRO_36 L
         
 --        ORDER BY
 --        L.CUIIO
