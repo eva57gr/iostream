@@ -50,7 +50,7 @@ SELECT     R.CUIIO,
                
                SELECT CUIIO
                
-        FROM USER_BANCU.AGRO_36
+        FROM USER_BANCU.AGRO_16_17
         
         WHERE 
         CUIIO IS NOT NULL

@@ -1,6 +1,6 @@
  
         DELETE 
-        FROM  USER_BANCU.AGRO_36
+        FROM  USER_BANCU.AGRO_16
         WHERE 
         
         CUIIO IS NULL
@@ -9,7 +9,7 @@
  
  
  SELECT *
-        FROM  USER_BANCU.AGRO_36
+        FROM  USER_BANCU.AGRO_16
         WHERE 
         
         CUIIO IS NOT NULL
