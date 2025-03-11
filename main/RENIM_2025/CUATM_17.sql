@@ -1,7 +1,7 @@
 SELECT     
-           R.CUIIO,
-           R.CUIIO_VERS,
-           R.CUATM
+           L.CUIIO,
+           L.CUIIO_VERS
+         --  R.CUATM
           
       FROM 
 (
@@ -37,4 +37,7 @@ SELECT
                
                WHERE 
                
-               C.FULL_CODE LIKE '%'||:pCUATM||';%') R LEFT JOIN 
+               C.FULL_CODE LIKE '%'||:pCUATM||';%') R RIGHT JOIN AGRO_16_17 L ON L.CUIIO = R.CUIIO -- AND L.CUIIO_VERS = R.CUIIO_VERS 
+               
+               WHERE 
+               R.CUIIO IS  NULL
