@@ -29,7 +29,7 @@ WHERE CUIIO LIKE '%  %' OR CUIIO LIKE '%' || CHR(9) || '%'
 --        L.CFP,
 --        L.CFOJ,
 --        L.CAEM2
-        FROM  USER_BANCU.AGRO_36 L
+        FROM  USER_BANCU.AGRO_16 L
         
 --        ORDER BY
 --        L.CUIIO
