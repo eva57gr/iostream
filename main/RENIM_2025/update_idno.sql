@@ -7,8 +7,8 @@
         L.CFP,
         L.CFOJ,
         L.CAEM2,
-        TRIM(L.IDNO) AS IDNO
-         FROM  USER_BANCU.AGRO_36 L
+        RTRIM(TRIM(L.IDNO)) AS IDNO
+         FROM  USER_BANCU.AGRO_16 L
         
         WHERE
         (L.IDNO IS NOT NULL
@@ -21,5 +21,20 @@
            
         L.CFP IS NOT NULL
         
-        ORDER BY
-        TRIM(L.IDNO)
+        
+        
+        GROUP BY 
+        L.CUIIO,
+        L.CUIIO_VERS,
+        L.DENUMIRE,
+        L.CUATM,
+        L.CFP,
+        L.CFOJ,
+        L.CAEM2,
+        L.IDNO
+        
+        HAVING 
+        LENGTH(L.IDNO) > 13
+        
+        ORDER BY        
+        IDNO
