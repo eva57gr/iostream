@@ -34,3 +34,5 @@ FROM USER_BANCU.IDNO R LEFT JOIN CIS2.RENIM L ON R.CUIIO = L.CUIIO  AND R.CUIIO_
 
             WHERE
             L.CUIIO IS  NULL;
+            
+            ----------------------------------
