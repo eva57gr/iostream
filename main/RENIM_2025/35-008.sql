@@ -1,0 +1,26 @@
+SELECT DISTINCT 
+   'Rind.'||D.RIND||' COL1 <> COL2' AS REZULTAT
+FROM
+  VW_DATA_ALL D 
+WHERE
+  (D.PERIOADA=:PERIOADA          ) AND
+  (D.CUIIO=:CUIIO                ) AND
+  (:CUIIO_VERS=:CUIIO_VERS     OR :CUIIO_VERS = -1) AND
+  (D.FORM = :FORM               ) AND
+  (D.FORM_VERS=:FORM_VERS ) AND
+  (D.CAPITOL=:CAPITOL           OR :CAPITOL = -1) AND
+  (:CAPITOL_VERS=:CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  
+  D.FORM IN (36)  AND
+  D.CAPITOL IN (386)
+GROUP BY
+  D.RIND,D.COL1,D.COL2
+HAVING
+  ((NVAL(D.COL1) <> 0 AND
+  NVAL(D.COL2) = 0)) 
+  
+  OR 
+  
+  ((NVAL(D.COL1) = 0 AND
+  NVAL(D.COL2) <>  0)) 
