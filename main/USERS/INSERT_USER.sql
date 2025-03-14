@@ -20,7 +20,7 @@ INSERT INTO  CIS2.SYS_USER_ACCES
 
 
 SELECT
-  1638 ID_USER,
+  1979 ID_USER,
   L.CUATM,
   L.FORM,
   L.FORM_VERS,
@@ -47,7 +47,7 @@ FROM
 
         WHERE
 
-        ID_USER IN (80)
+        ID_USER IN (33)
         
    --     AND FORM IN (61,58,62,54,73,43,30,36,26,27,45,39)
 ---------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ FROM
 
         WHERE
 
-        ID_USER IN (1638)
+        ID_USER IN (1979)
 
         ) R ON R.FORM = L.FORM
 
