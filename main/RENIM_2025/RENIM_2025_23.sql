@@ -11,3 +11,5 @@ JOIN
 ON 
     A.CUIIO <> B.CUIIO
     AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%';
+    
+    ---------------------------------------------------------------------------
