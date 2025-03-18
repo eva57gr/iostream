@@ -6,7 +6,7 @@
      'Total' AS NUME_ROW,
      CIS2.NVAL(COUNT(DISTINCT CASE WHEN  D.CAPITOL IN (1004)   AND  NT.CODUL <> '6' THEN D.CUIIO ELSE NULL END))  AS  COL1
 
---       
+  
        FROM    
              CIS2.VW_DATA_ALL D    
                       
