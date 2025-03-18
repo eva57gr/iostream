@@ -1,9 +1,5 @@
 SELECT
-     :pID_MDTABLE -1,
-     :pCOD_CUATM AS COD_CUATM,
-     '01' AS NR_ROW,
-      1  AS ORDINE,
-    ' Total' AS NUME_ROW, 
+
        COUNT(DISTINCT CASE WHEN  D.CAPITOL IN (1004)  AND  NT.CODUL <> '6' THEN D.CUIIO ELSE NULL END)  AS  COL1
 
        
@@ -14,7 +10,7 @@ SELECT
                -------------------------------------------------------------------------------------                           
                INNER JOIN CIS2.CL_N85_NTIIP NT ON (RN.N85_NTIIP=NT.CODUL)  
                ------------------------------------------------------------------------------------
-               INNER JOIN CIS2.CL_N85_NTL NTL ON (RN.N85_NTL=NTL.CODUL)  
+              
                
                WHERE  
                (D.PERIOADA =:pPERIOADA) AND
@@ -29,12 +25,8 @@ SELECT
                UNION ALL 
                
                SELECT
-     :pID_MDTABLE -1,
-     :pCOD_CUATM AS COD_CUATM,
-     '01' AS NR_ROW,
-      1  AS ORDINE,
-     'Total' AS NUME_ROW,
-     CIS2.NVAL(COUNT(DISTINCT CASE WHEN  D.CAPITOL IN (1004)   AND  NT.CODUL <> '6' THEN D.CUIIO ELSE NULL END))  AS  COL1
+
+     COUNT(DISTINCT CASE WHEN  D.CAPITOL IN (1004)   AND  NT.CODUL <> '6' THEN D.CUIIO ELSE NULL END)  AS  COL1
 
        
        FROM    
@@ -44,7 +36,7 @@ SELECT
                -------------------------------------------------------------------------------------                           
                INNER JOIN CIS2.CL_N85_NTIIP NT ON (RN.N85_NTIIP=NT.CODUL)  
                --------------------------------------------------------------------------------------------------
-               INNER JOIN CIS2.CL_N85_NSIIP NS ON (RN.N85_NSIIP=NS.CODUL)  
+            
                 
                 WHERE  
                (D.PERIOADA =:pPERIOADA) AND
