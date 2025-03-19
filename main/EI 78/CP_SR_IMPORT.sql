@@ -27,7 +27,7 @@ SELECT
             D.FORM = 44
             AND D.ANUL IN  (2024,2023,2022)
          --   AND D.PERIOADA = 1063
-            AND D.RIND NOT IN ('01','05')
+            AND D.RIND  IN ('05')
             AND D.capitol=14 AND D.capitol_vers=1028
             
             
