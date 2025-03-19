@@ -23,7 +23,7 @@ SELECT
 ----AND 
 --
 ----
-AND  DATA_REG >= TO_DATE('03/17/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('03/18/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 
   
