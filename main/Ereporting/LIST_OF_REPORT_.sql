@@ -29,7 +29,7 @@ AND  DATA_REG >= TO_DATE('03/18/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --41583965
 --)  
   
-  
+  -------------------
 --  GROUP BY
 --   FORMID,
 ----  XML,
