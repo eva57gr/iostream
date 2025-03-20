@@ -1,5 +1,5 @@
 SELECT 
-            
+            --------------------------
         DISTINCT 
        -- D.PERIOADA,
         D.CUIIO,
