@@ -7,6 +7,8 @@ SELECT
         
           FROM  USER_EREPORTING.F_XML_FORMS
           
+          ----------------------------------------------
+          
           
           WHERE
           1=1  
