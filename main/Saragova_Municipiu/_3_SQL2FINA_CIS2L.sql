@@ -1,3 +1,4 @@
+------------------------------------
 SELECT
 L.DEN_SHORT,
 L.CUIIO,
@@ -58,6 +59,7 @@ CUIIO
 SELECT 
 DEN_SHORT,
 CUIIO,
+
 SUM(CNT) AS CNT
 
 FROM
