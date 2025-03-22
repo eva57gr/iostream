@@ -1,6 +1,6 @@
 ﻿SELECT 
       L.CONTROL,
-      L.CONTROL_VERS,
+    --  L.CONTROL_VERS,
       L.FORMULA,
       L.SQL_TEXT,
       L.PRIORITATEA,
@@ -20,7 +20,7 @@ SELECT
         FROM CIS2.MD_CONTROL A
          WHERE
          1=1
-         AND A.FORM  = 36
+         AND A.FORM  = 48
         GROUP BY 
           A.CONTROL
           ORDER BY 
@@ -28,7 +28,7 @@ SELECT
         )  A  ON A.CONTROL = B.CONTROL AND A.CONTROL_VERS = B.CONTROL_VERS   
           WHERE
          1=1
-         AND B.FORM  = 36
+         AND B.FORM  = 48
          AND B.STATUT <> '3'
         ORDER BY 
           B.CONTROL ) L
