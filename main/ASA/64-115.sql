@@ -5,9 +5,9 @@ SELECT
  AS REZULTAT
 
  
-
+--------------------------------------------
         
-FROM VW_DATA_ALL_TEMP D
+FROM VW_DATA_ALL D
 
 WHERE
   (D.PERIOADA=:PERIOADA          ) AND
