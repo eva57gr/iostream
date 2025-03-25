@@ -1,4 +1,4 @@
-UPDATE USER_BANCU.INVEST_2
+UPDATE USER_BANCU.AGRO_16
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'

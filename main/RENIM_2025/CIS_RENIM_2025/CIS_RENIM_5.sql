@@ -23,15 +23,15 @@
         TRIM(L.CUATM) CUATM,
         TRIM(L.CFP) CFP,
         TRIM(L.CAEM2)  CAEM2
-        FROM   USER_BANCU.INVEST_2 L
+        FROM   USER_BANCU.AGRO_16 L
         
              --   CIS.RENIM  L
         
         
-                        LEFT  JOIN CIS.RENIM C ON C.CUIIO  =  TRIM(L.CUIIO)  
+                        LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  TRIM(L.CUIIO)  
                                                   AND C.CUIIO_VERS  =  TRIM(L.CUIIO_VERS) 
                         
                         WHERE
                         
-                        C.CUIIO IS    NOT NULL  
-                        AND C.CUIIO_VERS IS  NOT  NULL 
+                        C.CUIIO IS   NOT  NULL  
+                        AND C.CUIIO_VERS IS NOT    NULL 
