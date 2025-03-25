@@ -162,31 +162,3 @@ CUIIO;
 
 
 
-SELECT 
- CUIIO
- 
- FROM   -- VW_RENIM_2013_CIS2
- 
-        USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
-                    
- 
-                    
-                    WHERE 
-                  
-                  
-
-                    
-                   
-CUIIO IN (
-
- SELECT
- DISTINCT  CUIIO
-        FROM  USER_BANCU.RENIM_5_CON
-
-          )
-
-        
-        AND 
-        
-        
-        CUIIO_VERS  =  1063 

@@ -1,11 +1,11 @@
-INSERT INTO CIS.FORM_CUIIO  (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
-
+--INSERT INTO CIS.FORM_CUIIO  (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
+--
 
 SELECT   
          L.CUIIO,
