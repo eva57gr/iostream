@@ -27,26 +27,26 @@
              FC.CUIIO_VERS = 2013;
  
  
--- INSERT INTO CIS.RENIM (
---  CUIIO,
---  CUIIO_VERS,
---  DENUMIRE,
---  EDIT_USER,
---  STATUT,
---  CUATM,
---  CFP,
---  CFOJ,
---  COCM,
---  CAEM,
---  BUGET,
---  TIP,
---  PROD,
---  FOR_CUB,
---  ETAPA_PROD,
---  RENIM_PERS,
---  CAEM2  
--- )
---
+ INSERT INTO CIS.RENIM (
+  CUIIO,
+  CUIIO_VERS,
+  DENUMIRE,
+  EDIT_USER,
+  STATUT,
+  CUATM,
+  CFP,
+  CFOJ,
+  COCM,
+  CAEM,
+  BUGET,
+  TIP,
+  PROD,
+  FOR_CUB,
+  ETAPA_PROD,
+  RENIM_PERS,
+  CAEM2  
+ )
+
 
 
 
@@ -80,60 +80,38 @@ SELECT
                           
                     
                     WHERE 
-                  
-                  
-
-                    
-                   
-CUIIO IN (
+   CUIIO IN (
 
  SELECT CUIIO
-        FROM  USER_BANCU.IDNO
+        FROM  USER_BANCU.INVEST_2
 ---------------------------------------
-
-
 )
 -------------------------------------
+AND CUIIO_VERS <>  1064         
 
+AND 
+CUIIO NOT IN (
 
---AND CUIIO_VERS <>  1064         
+SELECT 
+ CUIIO
+ 
+ FROM    VW_MAX_RENIM_TRIM_CIS  --VW_RENIM_2013_CIS2  --    USER_BANCU.VW_MAX_RENIM_CIS2
+                    WHERE 
+CUIIO IN (
 
+ SELECT
+ DISTINCT  CUIIO
+        FROM  USER_BANCU.INVEST_2
 
---AND 
---
---
---CUIIO NOT IN (
---
---SELECT 
--- CUIIO
--- 
--- FROM    VW_RENIM_2013_CIS2
--- 
---    --    USER_BANCU.VW_MAX_RENIM_CIS2
---                    
--- 
---                    
---                    WHERE 
---                  
---                  
---
---                    
---                   
---CUIIO IN (
---
--- SELECT
--- DISTINCT  CUIIO
---        FROM  USER_BANCU.RENIM_2_INVEST_24
---
---          )
---
---        
---        AND 
---        
---        
---        CUIIO_VERS  =  2013 
---
---)
+          )
+
+        
+        AND 
+        
+        
+        CUIIO_VERS  =  1064 
+
+)
 
 ORDER BY 
 
