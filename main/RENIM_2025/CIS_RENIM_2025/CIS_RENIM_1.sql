@@ -22,9 +22,10 @@
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
              
              
-             WHERE
-             
-             FC.CUIIO_VERS <> 1064;
+--             WHERE
+--             
+--             FC.CUIIO_VERS <> 1064
+                                         ;
  
  
  INSERT INTO CIS.RENIM (
