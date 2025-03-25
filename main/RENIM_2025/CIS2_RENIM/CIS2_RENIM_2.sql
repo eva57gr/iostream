@@ -1,0 +1,5 @@
+
+
+SELECT *
+
+    FROM  USER_BANCU.AGRO_16
