@@ -5,7 +5,7 @@
 --        FORM_VERS,
 --        STATUT 
 --)
---
+
 
 SELECT   
          L.CUIIO,
@@ -45,7 +45,7 @@ SELECT     R.CUIIO,
         FROM USER_BANCU.INVEST_2
                ) L ON L.CUIIO = R.CUIIO
                WHERE 
-               R.CUIIO IS NULL               
+               R.CUIIO IS NOT  NULL               
                
                
                
