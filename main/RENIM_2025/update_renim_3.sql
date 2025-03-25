@@ -11,16 +11,14 @@ CURSOR C IS
         L.CUATM,
         L.CFP,
         L.CFOJ,
-        L.CAEM2
+        L.CAEM2,
+        L.IDNO
        
         
-        FROM  ADD_NEW_SU_M3_2024 L 
-           LEFT JOIN CIS2.RENIM R 
+        FROM  USER_BANCU."16_AGRO" L 
+          
         
-        ON L.CUIIO =   R.CUIIO AND L.CUIIO_VERS = R.CUIIO_VERS
-        
-        WHERE
-        R.CUIIO IS NOT   NULL 
+      
           ;
 ---------------------------
 BEGIN -- ======================================================================
