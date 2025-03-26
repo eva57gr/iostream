@@ -22,32 +22,31 @@
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
              
              
---             WHERE
---             
---             FC.CUIIO_VERS <> 1064
-                                         ;
+             WHERE
+             
+             FC.CUIIO_VERS <> 1064;
  
  
- INSERT INTO CIS.RENIM (
-  CUIIO,
-  CUIIO_VERS,
-  DENUMIRE,
-  EDIT_USER,
-  STATUT,
-  CUATM,
-  CFP,
-  CFOJ,
-  COCM,
-  CAEM,
-  BUGET,
-  TIP,
-  PROD,
-  FOR_CUB,
-  ETAPA_PROD,
-  RENIM_PERS,
-  CAEM2  
- )
-
+-- INSERT INTO CIS.RENIM (
+--  CUIIO,
+--  CUIIO_VERS,
+--  DENUMIRE,
+--  EDIT_USER,
+--  STATUT,
+--  CUATM,
+--  CFP,
+--  CFOJ,
+--  COCM,
+--  CAEM,
+--  BUGET,
+--  TIP,
+--  PROD,
+--  FOR_CUB,
+--  ETAPA_PROD,
+--  RENIM_PERS,
+--  CAEM2  
+-- )
+--
 
 
 
@@ -162,3 +161,31 @@ CUIIO;
 
 
 
+SELECT 
+ CUIIO
+ 
+ FROM   -- VW_RENIM_2013_CIS2
+ 
+        USER_BANCU.VW_MAX_RENIM_TRIM_CIS2
+                    
+ 
+                    
+                    WHERE 
+                  
+                  
+
+                    
+                   
+CUIIO IN (
+
+ SELECT
+ DISTINCT  CUIIO
+        FROM  USER_BANCU.RENIM_5_CON
+
+          )
+
+        
+        AND 
+        
+        
+        CUIIO_VERS  =  1063 

@@ -1,8 +1,9 @@
 SELECT -------------------------------------------------------------------
----- FORMID,
+
 ----  XML,
 --  STATUS,
- DISTINCT  FORM_TYPE
+ DISTINCT  FORM_TYPE,
+  FORMID
         
         
           FROM  USER_EREPORTING.F_XML_FORMS
@@ -23,7 +24,7 @@ AND  DATA_REG >= TO_DATE('03/18/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
   
 ----  
---AND   FORM_TYPE = '1-inf.rev' --------------------
+AND   FORM_TYPE = 'm3' --------------------
 ----  OR 
 --AND   FORM_TYPE IN  ('6_nr_25') 
 --   
