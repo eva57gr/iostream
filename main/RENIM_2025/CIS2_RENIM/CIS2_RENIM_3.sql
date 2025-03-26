@@ -29,3 +29,11 @@ SELECT     R.CUIIO,
                
                WHERE 
                R.CUATM LIKE '87%'
+--               
+--               AND 
+               
+--               R.CUIIO IN (
+--               SELECT CUIIO
+--               
+--        FROM USER_BANCU.AGRO_16
+--               )

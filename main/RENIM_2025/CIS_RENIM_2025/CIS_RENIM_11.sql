@@ -1,6 +1,6 @@
 SELECT   
-         R.CUIIO  R_CUIIO,
-         R.CUATM    
+         L.CUIIO  R_CUIIO
+         --R.CUATM    
  
 
          
@@ -48,7 +48,9 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CUIIO IS  NOT NULL  
+               R.CUIIO IS NOT   NULL  
+               
+              -- AND R.CUATM LIKE '87%'
 
               
                ;
