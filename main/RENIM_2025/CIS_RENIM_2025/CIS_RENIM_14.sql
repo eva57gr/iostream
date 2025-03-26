@@ -12,3 +12,17 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE FC.FORM IN (36) 
              AND FC.STATUT <> '3'
+             
+             
+             AND 
+             
+             FC.CUIIO IN (
+             
+             
+             SELECT
+                 L.CUIIO
+ 
+               
+        FROM USER_BANCU.AGRO_16 L
+             
+             )
