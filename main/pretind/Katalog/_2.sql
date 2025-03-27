@@ -37,8 +37,8 @@ SELECT FC.CUIIO,
              
              
              
-             WHERE 
-             FC.CUIIO_VERS <> 2013
+--             WHERE 
+--             FC.CUIIO_VERS <> 2013
 --             FC.CUIIO   IN (
 --             2742837,
 --40182749,
