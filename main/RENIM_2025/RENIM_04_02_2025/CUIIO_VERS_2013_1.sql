@@ -37,13 +37,13 @@
 --    GEN_INSTITUTIE,
 --    IDNO
 --)
--- 
+ 
 
 
 
 SELECT 
  CUIIO,
- 2013 CUIIO_VERS,
+ 1064 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -79,17 +79,18 @@ SELECT
  IDNO
 
    
-                    FROM     USER_BANCU.VW_MAX_RENIM_CIS2
+                    FROM USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
+                    --USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     WHERE 
                   
 CUIIO IN (
 
  SELECT CUIIO
-        FROM  USER_BANCU.IDNO
+        FROM  USER_BANCU.ADD_NEW_SU_M3_2024
         )
         
-        AND CUIIO_VERS <> 2013
+        AND CUIIO_VERS <> 1064
         
         
         AND CUIIO NOT IN (
@@ -112,7 +113,7 @@ CUIIO IN (
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             and FC.FORM_VERS = 2009
+             and FC.FORM_VERS = 1004
              ) FC
              
              
@@ -125,7 +126,7 @@ CUIIO IN (
 
           )
 
-        AND FC.CUIIO_VERS = 2013
+        AND FC.CUIIO_VERS =  1064
         
              
         )
