@@ -1,8 +1,4 @@
-SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
+SELECT FC.CUIIO
               FROM
 
 (

@@ -122,7 +122,7 @@ CUIIO IN (
              FC.CUIIO IN (
             SELECT
                DISTINCT  CUIIO
-            FROM  USER_BANCU.IDNO
+            FROM  USER_BANCU.ADD_NEW_SU_M3_2024
 
           )
 

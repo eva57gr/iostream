@@ -30,7 +30,7 @@
         TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.KAT_112
-        FROM   KAT_112 L
+        FROM   ADD_NEW_SU_M3_2024 L
         
              --   CIS.RENIM  L
         
@@ -40,5 +40,5 @@
                         
                         WHERE
                         
-                        C.CUIIO IS  NOT  NULL  
-                        AND C.CUIIO_VERS IS NOT  NULL 
+                        C.CUIIO IS    NULL  
+                        AND C.CUIIO_VERS IS   NULL 
