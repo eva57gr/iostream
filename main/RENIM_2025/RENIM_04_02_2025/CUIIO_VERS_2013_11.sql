@@ -36,7 +36,7 @@
         
         
                         LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  TRIM(L.CUIIO)  
-                                                  AND C.CUIIO_VERS  =  TRIM(L.CUIIO_VERS) 
+                                                  AND C.CUIIO_VERS  =  2013 --TRIM(L.CUIIO_VERS) 
                         
                         WHERE
                         
