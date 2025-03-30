@@ -22,4 +22,4 @@ SELECT FC.CUIIO,
              
              WHERE
              
-             FC.CUIIO_VERS <> 1064
+             FC.CUIIO_VERS = 1064
