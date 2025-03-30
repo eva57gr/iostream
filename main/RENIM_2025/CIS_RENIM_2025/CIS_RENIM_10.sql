@@ -1,4 +1,4 @@
---INSERT INTO CIS.FORM_CUIIO R (
+--INSERT INTO CIS2.FORM_CUIIO R (
 --        CUIIO,
 --        CUIIO_VERS,
 --        FORM,
@@ -11,7 +11,7 @@ SELECT
          L.CUIIO  R_CUIIO,       
         -- L.CUIIO  CUIIO,
          1064 CUIIO_VERS,
-         6 FORM,
+         44 FORM,
          1004  FORM_VERS,
         '1' STATUT
 
