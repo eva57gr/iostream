@@ -1,9 +1,9 @@
 --UPDATE CIS2.FORM_CUIIO 
 --SET STATUT = '3'
 
---SELECT *  ----------------
+SELECT *  ----------------
 ----
---    FROM CIS2.FORM_CUIIO 
+    FROM CIS2.FORM_CUIIO 
     
     
     WHERE 
@@ -22,7 +22,7 @@ SELECT FC.CUIIO
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (44) AND CUIIO_VERS <= 2013
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1064
                                   
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
@@ -44,10 +44,10 @@ SELECT FC.CUIIO
 
    
 
-AND CUIIO_VERS = 2013
-AND FORM = 57
+AND CUIIO_VERS = 1064
+AND FORM = 44
 
-AND FORM_VERS = 2009
+AND FORM_VERS = 1004
 AND STATUT = '1'
         
              
