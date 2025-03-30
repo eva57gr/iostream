@@ -18,7 +18,8 @@
  SELECT 
  
         TRIM(L.CUIIO) CUIIO ,
-        L.CUIIO_VERS,
+        --2013 CUIIO_VERS,
+         L.CUIIO_VERS,
         TRIM(L.DENUMIRE)  DENUMIRE,
         1   EDIT_USER,
         '1' STATUT,
@@ -36,7 +37,7 @@
         
         
                         LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  TRIM(L.CUIIO)  
-                                                  AND C.CUIIO_VERS  =  2013 --TRIM(L.CUIIO_VERS) 
+                                                  AND C.CUIIO_VERS  =  TRIM(L.CUIIO_VERS) 
                         
                         WHERE
                         
