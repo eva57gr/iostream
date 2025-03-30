@@ -29,27 +29,27 @@ SELECT     R.CUIIO,
                    FC.FORM,
                    FC.FORM_VERS,
                    FC.STATUT
-              FROM CIS.FORM_CUIIO  FC
+              FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS.FORM_CUIIO
-                                  WHERE FORM IN (6) AND CUIIO_VERS <= 1064
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1064
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (6) 
+             WHERE FC.FORM IN (44) 
              AND FC.STATUT <> '3'
           --   AND FC.FORM_VERS = 2011
              
              
              ) FC
-           INNER JOIN CIS.RENIM R
+           INNER JOIN CIS2.RENIM R
                ON (R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS) ) R 
                
                RIGHT    JOIN (
                
                SELECT CUIIO
                
-        FROM USER_BANCU.AGRO_16
+        FROM USER_BANCU.ADD_NEW_SU_M3_2024
         
 --      WHERE 
 --      CUIIO = 41493032
