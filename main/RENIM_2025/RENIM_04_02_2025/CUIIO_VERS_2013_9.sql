@@ -17,7 +17,11 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             and FC.FORM_VERS = 1004 ) FC
+             and FC.FORM_VERS = 1004 
+             
+             
+             
+             ) FC
              
              
              WHERE
