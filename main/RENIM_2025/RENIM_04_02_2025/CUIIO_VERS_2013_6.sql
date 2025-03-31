@@ -1,4 +1,4 @@
-UPDATE USER_BANCU.ADD_NEW_SU_M3_2024
+UPDATE USER_BANCU.ADD_NEW_SU_M3_2024 ----------------------
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'
