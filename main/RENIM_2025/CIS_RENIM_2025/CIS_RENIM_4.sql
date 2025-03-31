@@ -34,4 +34,4 @@ SELECT     R.CUIIO,
         FROM USER_BANCU.ADD_NEW_SU_M3_2024
                ) L ON L.CUIIO = R.CUIIO
                WHERE 
-               R.CUIIO IS NULL               
+               R.CUIIO IS NOT NULL               
