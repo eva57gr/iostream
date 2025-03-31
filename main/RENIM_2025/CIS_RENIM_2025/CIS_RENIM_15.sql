@@ -1,10 +1,10 @@
-INSERT INTO CIS.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
 
 
 SELECT FC.CUIIO,
@@ -36,4 +36,4 @@ SELECT FC.CUIIO,
       
 
 WHERE 
-FC.CUIIO_VERS <> 1064
+FC.CUIIO_VERS = 1064
