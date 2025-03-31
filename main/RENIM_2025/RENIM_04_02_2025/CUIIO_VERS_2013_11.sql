@@ -19,7 +19,7 @@ INSERT INTO CIS2.RENIM  (
  
         TRIM(L.CUIIO) CUIIO ,
         --2013 CUIIO_VERS,
-        2013 CUIIO_VERS,
+         L.CUIIO_VERS,
         TRIM(L.DENUMIRE)  DENUMIRE,
         1   EDIT_USER,
         '1' STATUT,
@@ -31,13 +31,13 @@ INSERT INTO CIS2.RENIM  (
         TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.KAT_112
-        FROM   KATALOG_24_2013 L
+        FROM   USER_BANCU.KAT_26_1064 L
         
              --   CIS.RENIM  L
         
         
                         LEFT  JOIN CIS2.RENIM C ON C.CUIIO  =  TRIM(L.CUIIO)  
-                                                  AND C.CUIIO_VERS  =  2013 --TRIM(L.CUIIO_VERS) 
+                                                  AND C.CUIIO_VERS  =   TRIM(L.CUIIO_VERS) 
                         
                         WHERE
                         
