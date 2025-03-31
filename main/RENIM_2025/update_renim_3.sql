@@ -65,3 +65,8 @@ SELECT
   D.ETAPA_PROD
  
   FROM USER_BANCU.PROD_24 D
+  
+  
+
+
+
