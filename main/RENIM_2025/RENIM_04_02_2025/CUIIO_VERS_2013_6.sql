@@ -1,4 +1,4 @@
-UPDATE USER_BANCU.ADD_NEW_SU_M3_2024 ----------------------
+UPDATE USER_BANCU.KAT_26_1064 ----------------------
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'
@@ -13,7 +13,7 @@ SET CUATM =
     END;
     
     
-            UPDATE USER_BANCU.ADD_NEW_SU_M3_2024
+            UPDATE USER_BANCU.KAT_26_1064
         SET
          CUATM = CASE WHEN (LENGTH(CUATM) = 6 AND (SUBSTR(CUATM,1,1) = 1  OR SUBSTR(CUATM,1,1) = 3 )) THEN '0'||CUATM ELSE CUATM END,
          CUIIO_VERS = 1064;

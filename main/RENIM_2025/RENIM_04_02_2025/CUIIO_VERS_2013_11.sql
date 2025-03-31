@@ -1,17 +1,17 @@
-INSERT INTO CIS2.RENIM  (
-        CUIIO,
-        CUIIO_VERS,
-        DENUMIRE,
-        EDIT_USER,
-        STATUT,
-        CUATM,
-        CFP,
-        CFOJ,
-        CAEM2,
-        IDNO
-        
-        
-)
+--INSERT INTO CIS2.RENIM  (
+--        CUIIO,
+--        CUIIO_VERS,
+--        DENUMIRE,
+--        EDIT_USER,
+--        STATUT,
+--        CUATM,
+--        CFP,
+--        CFOJ,
+--        CAEM2,
+--        IDNO
+--        
+--        
+--)
 
 
 
