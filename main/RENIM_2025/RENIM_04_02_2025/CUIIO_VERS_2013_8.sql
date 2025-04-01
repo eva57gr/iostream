@@ -7,7 +7,7 @@ SELECT
   D.CFOJ,
   D.COCM,
   D.CAEM2,
-  D.CAEM,
+  D.CAEM, ----------------------
   D.IDNO    
 
 FROM USER_BANCU.KAT_26_1064 D
