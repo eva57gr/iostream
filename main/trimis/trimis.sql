@@ -1,7 +1,7 @@
 DECLARE
 
   CURSOR C IS
-
+---------------------------
 SELECT 
     DF.PERIOADA,
     DF.FORM,
