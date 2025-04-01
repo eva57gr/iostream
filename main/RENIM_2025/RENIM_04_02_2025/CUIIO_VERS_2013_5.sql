@@ -18,3 +18,5 @@ WHERE ROWID NOT IN (
     FROM USER_BANCU.ADD_NEW_SU_M3_2024
     GROUP BY CUIIO
 );
+
+-----------------------------------------------------------
