@@ -132,7 +132,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
         
              
    WHERE 
-  (D.PERIOADA = 1056) AND 
+  (D.PERIOADA = :pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   --(:pID_MDTABLE =:pID_MDTABLE) AND
@@ -172,7 +172,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
             INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
              
    WHERE 
-  (D.PERIOADA = 1056) AND 
+  (D.PERIOADA = :pPERIOADA) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
  -- (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -204,7 +204,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
                          
                       
                         WHERE
-                            (D.PERIOADA = 1056) AND          
+                            (D.PERIOADA = :pPERIOADA) AND          
                             
                            D.ID_MD  = 44519 
                               
@@ -255,7 +255,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
         
              
    WHERE 
-  (D.PERIOADA = 1057) AND 
+  (D.PERIOADA = :pPERIOADA -1 ) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   --(:pID_MDTABLE =:pID_MDTABLE) AND
@@ -295,7 +295,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
             INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
              
    WHERE 
-  (D.PERIOADA = 1057) AND 
+  (D.PERIOADA = :pPERIOADA -1) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
  -- (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -327,7 +327,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
                          
                       
                         WHERE
-                            (D.PERIOADA = 1057) AND          
+                            (D.PERIOADA = :pPERIOADA-1) AND          
                             
                            D.ID_MD  = 44519 
                               
@@ -381,7 +381,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
         
              
    WHERE 
-  (D.PERIOADA = 1058) AND 
+  (D.PERIOADA = :pPERIOADA -2 ) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   --(:pID_MDTABLE =:pID_MDTABLE) AND
@@ -421,7 +421,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
             INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
              
    WHERE 
-  (D.PERIOADA = 1058) AND 
+  (D.PERIOADA = :pPERIOADA -2) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
  -- (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -453,7 +453,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
                          
                       
                         WHERE
-                            (D.PERIOADA = 1058) AND          
+                            (D.PERIOADA = :pPERIOADA -2) AND          
                             
                            D.ID_MD  = 44519 
                               
@@ -504,7 +504,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
         
              
    WHERE 
-  (D.PERIOADA = 1059) AND 
+  (D.PERIOADA = :pPERIOADA -3) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   --(:pID_MDTABLE =:pID_MDTABLE) AND
@@ -544,7 +544,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
             INNER JOIN VW_CLS_CLASS_ITEM CII ON  (CII.CLASS_CODE IN ('CSPM2') AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||TRIM(CII.ITEM_CODE)||';%')
              
    WHERE 
-  (D.PERIOADA = 1059) AND 
+  (D.PERIOADA = :pPERIOADA-3) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
  -- (:pID_MDTABLE =:pID_MDTABLE) AND
@@ -576,7 +576,7 @@ SUM(CASE WHEN  MR.CAPITOL IN (407)  AND MR.RIND NOT IN ('1','-')  THEN CIS2.NVAL
                          
                       
                         WHERE
-                            (D.PERIOADA = 1059) AND          
+                            (D.PERIOADA = :pPERIOADA -3) AND          
                             
                            D.ID_MD  = 44519 
                               
