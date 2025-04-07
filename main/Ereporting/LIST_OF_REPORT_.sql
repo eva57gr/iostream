@@ -38,7 +38,7 @@ AND  DATA_REG >= TO_DATE('03/28/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 ----  
 --AND   FORM_TYPE = 'm3' --------------------
 ----  OR 
-AND   FORM_TYPE IN  ('anc_conj') 
+--AND   FORM_TYPE IN  ('anc_conj') 
 --   
 --AND CUIIO IN (
 --40583939,
