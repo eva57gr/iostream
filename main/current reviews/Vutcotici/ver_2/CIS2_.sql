@@ -50,7 +50,7 @@ SELECT
              WHERE 
              FC.FORM IN (:pFORM) 
              AND FC.STATUT <> '3'
---             AND FC.FORM_VERS IN (:pFORM_VERS)           
+             AND FC.FORM_VERS IN (:pFORM_VERS)           
              
              
              ) FC
@@ -91,6 +91,8 @@ SELECT
                --  INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
            WHERE D.PERIOADA = :pPERIOADA_LUNA AND D.FORM IN (:pFORM)
+           
+             AND D.FORM_VERS IN (:pFORM_VERS)      
            --  AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
            ) D
          INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
@@ -129,7 +131,7 @@ UNION
                  
            WHERE D.PERIOADA  = :pPERIOADA_LUNA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = 2
-             
+              AND D.FORM_VERS IN (:pFORM_VERS)   
         --     AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
              
                  
@@ -313,6 +315,7 @@ WHERE
 D.PERIOADA = :pPERIOADA_LUNA AND
 --D.CUATM LIKE '01%' AND
 D.FORM IN (:pFORM)
+ AND D.FORM_VERS IN (:pFORM_VERS)   
 
 --AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
 --AND D.CUIIO IN  (400001,400053,458868 )
@@ -509,6 +512,7 @@ WHERE
 D.PERIOADA = :pPERIOADA_LUNA AND
 --D.CUATM LIKE '01%' AND
 D.FORM IN (:pFORM)
+ AND D.FORM_VERS IN (:pFORM_VERS)   
 --AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
 --AND D.CUIIO IN  (2053696)
 GROUP BY
