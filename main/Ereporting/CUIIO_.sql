@@ -1,5 +1,7 @@
 SELECT 
-  CUIIO
+  DISTINCT FORM_TYPE
+  
+  
         
         
           FROM  USER_EREPORTING.F_XML_FORMS
@@ -8,11 +10,11 @@ SELECT
           WHERE
           1=1  
 --
---AND STATUS  =  '5' 
+AND STATUS  =  '5' 
 --AND 
 --
 ----
-AND  DATA_REG >= TO_DATE('01/20/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('04/07/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 --AND   CUIIO IN (
 --
@@ -21,8 +23,8 @@ AND  DATA_REG >= TO_DATE('01/20/2024 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --  AND 
 --  
 --  FORM_TYPE = '1-ac'
-----  OR 
-AND   FORM_TYPE IN  ('6_nr_25') 
+------  OR 
+--AND   FORM_TYPE IN  ('6_nr_25') 
 --   
 --AND CUIIO IN (
 --40583939,
@@ -47,6 +49,6 @@ AND   FORM_TYPE IN  ('6_nr_25')
 
 
 
- ORDER BY 
- 
-DATA_REG DESC 
+-- ORDER BY 
+-- 
+--DATA_REG DESC 
