@@ -27,16 +27,16 @@ SELECT -------------------------------------------------------------------
           WHERE
           1=1  
 ----
-AND STATUS  =  '5' 
-----AND 
+AND STATUS  =  '2' 
+
 --
 ----
-AND  DATA_REG >= TO_DATE('03/28/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('04/05/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 
   
 ----  
---AND   FORM_TYPE = 'm3' --------------------
+AND   FORM_TYPE = 'm1' --------------------
 ----  OR 
 --AND   FORM_TYPE IN  ('anc_conj') 
 --   
