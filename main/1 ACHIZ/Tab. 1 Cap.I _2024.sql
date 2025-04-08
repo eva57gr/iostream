@@ -1,3 +1,5 @@
+
+
 SELECT 
   :pPERIOADA AS PERIOADA,
   :pFORM AS FORM,
@@ -36,9 +38,7 @@ FROM
   VW_DATA_ALL D
   RIGHT JOIN (
   SELECT 
-            D.RIND,
-            D.RIND_VERS,
-            D.ORDINE 
+      D.*
             FROM CIS2.MD_RIND D  INNER JOIN (
             
             SELECT 
@@ -62,7 +62,11 @@ RIND
             D.capitol=1075 AND D.capitol_vers=2000
             
             AND D.STATUT = '1'
-            AND D.RIND NOT IN ('-')
+            AND D.RIND NOT IN ('-','--')
+            
+            ORDER BY 
+            D.ORDINE
+            
   ) MR ON (D.FORM=MR.FORM AND D.ID_MD=MR.ID_MD AND D.CAPITOL=MR.CAPITOL AND 
   D.PERIOADA IN (:pPERIOADA) AND 
   D.FORM_VERS = :pFORM_VERS     AND    
@@ -72,8 +76,8 @@ RIND
   
 WHERE
   MR.FORM IN (54)                 AND 
-  MR.CAPITOL IN (1075)  AND 
-  MR.RIND_VERS = 2008
+  MR.CAPITOL IN (1075)  
+
    
   
 GROUP BY
@@ -81,5 +85,7 @@ GROUP BY
   MR.DENUMIRE,
   MR.ORDINE
 
+
+ORDER BY
+MR.ORDINE
    
--
