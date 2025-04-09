@@ -12,7 +12,7 @@ CURSOR C IS
     --    TRIM(L.CFOJ) CFOJ,
         TRIM(L.CAEM2)  CAEM2,
         TRIM(L.IDNO)   IDNO
-        FROM   USER_BANCU.CFP_1064 L
+        FROM   USER_BANCU.CUATM_CIS L
   
  
             
@@ -22,11 +22,11 @@ CURSOR C IS
 BEGIN -- ======================================================================
 FOR CR IN C
 LOOP
-UPDATE CIS2.RENIM SET
+UPDATE CIS.RENIM SET
 --
 --DENUMIRE = CR.DENUMIRE,
---CUATM = CR.CUATM
-CFP = CR.CFP
+CUATM = CR.CUATM
+--CFP = CR.CFP
 ----CFOJ = CR.CFOJ,
 --CAEM2 = CR.CAEM2,
 --IDNO = CR.IDNO
