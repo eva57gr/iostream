@@ -43,8 +43,8 @@ SELECT
     CAEM2
     
     
-   FROM -- USER_BANCU.VW_MAX_RENIM_TRIM_CIS
-                     VW_MAX_RENIM_299_CIS  
+   FROM  USER_BANCU.VW_MAX_RENIM_TRIM_CIS
+               --      VW_MAX_RENIM_299_CIS  
    
    WHERE 
    
