@@ -30,7 +30,7 @@ SELECT     R.CUIIO,
                
                
                WHERE
-               R.CUIIO LIKE   40462673||'%'
+               R.CUIIO LIKE   40583135||'%'
 --OR 
 --R.CUIIO LIKE   38877935 ||'%'
 --OR 
