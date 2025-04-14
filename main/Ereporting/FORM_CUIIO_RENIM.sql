@@ -16,7 +16,7 @@ AND
 --OR 
 --D.CUIIO LIKE   40565505||'%' 
 
-D.CUIIO LIKE   40462673||'%'
+D.CUIIO LIKE   40583135||'%'
 ) 
 
 
