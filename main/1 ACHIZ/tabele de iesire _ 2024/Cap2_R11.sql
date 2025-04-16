@@ -33,7 +33,25 @@ SELECT
                       
                        INNER JOIN CIS2.RENIM RR ON (RR.CUIIO = D.CUIIO AND RR.CUIIO_VERS = D.CUIIO_VERS)
                        INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = RR.CUATM
-                       RIGHT JOIN CIS2.MD_RIND MR ON (MR.ID_MD=D.ID_MD 
+                       RIGHT JOIN (
+                       
+                       
+                       SELECT  D.*
+            FROM CIS2.MD_RIND D  INNER JOIN (
+            SELECT 
+  RIND,
+  MAX(RIND_VERS) RIND_VERS
+FROM CIS2.MD_RIND
+WHERE 
+capitol=1076 AND capitol_vers=2007
+GROUP BY 
+RIND
+            )DD ON DD.RIND = D.RIND AND DD.RIND_VERS = D.RIND_VERS
+            WHERE 
+            D.capitol=1076 AND D.capitol_vers=2007
+            AND D.STATUT = '1'
+            AND D.RIND NOT IN ('-')
+                       ) MR ON (MR.ID_MD=D.ID_MD 
                        -----------------------------------------------------------
                        AND  (D.FORM=:pFORM) AND
                        (D.FORM_VERS=:pFORM_VERS) AND
