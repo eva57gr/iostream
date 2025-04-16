@@ -70,6 +70,7 @@ RIND
                     1=1
                     AND MR.CAPITOL = 1076
                     AND MR.CAPITOL_VERS =  2007
+                    AND MR.RIND IN ('11')
                          
            
            
