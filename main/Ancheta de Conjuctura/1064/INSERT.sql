@@ -1,3 +1,17 @@
+--
+--INSERT INTO X_BAZA_SONDAJ 
+--
+--(
+--  PERS_IT,
+--  CIF_IT,
+--  DATALIK,
+--  CUIIO,
+--  ANUL  
+--
+--)
+
+
+
 SELECT
   0 PERS_IT,
   0 CIF_IT,

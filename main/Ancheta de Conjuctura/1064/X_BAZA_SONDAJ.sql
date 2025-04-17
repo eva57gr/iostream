@@ -1,14 +1,14 @@
 
-INSERT INTO X_BAZA_SONDAJ 
-
-(
-  PERS_IT,
-  CIF_IT,
-  DATALIK,
-  CUIIO,
-  ANUL  
-
-)
+--INSERT INTO X_BAZA_SONDAJ 
+--
+--(
+--  PERS_IT,
+--  CIF_IT,
+--  DATALIK,
+--  CUIIO,
+--  ANUL  
+--
+--)
 
 
 
