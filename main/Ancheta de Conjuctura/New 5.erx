@@ -1,0 +1,19 @@
+SELECT
+  T.ORDINE,
+  T.NR_ROW ,
+  T.COL1, 
+  T.COL2,
+  T.COL3,
+  T.COL4,  
+  T.COL5, 
+  T.COL6,
+  T.COL7,
+  T.COL8,
+  T.COL9 
+    
+    FROM CIS2.TABLE_OUT T
+    WHERE
+      T.COD_CUATM IN (:pCOD_CUATM) AND
+      T.FORM = :pFORM              AND
+      T.ID_MDTABLE= 14332   AND      
+      T.PERIOADA =:pPERIOADA;
