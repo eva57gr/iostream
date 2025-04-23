@@ -5,7 +5,8 @@ SELECT
     COUNT (DISTINCT CASE WHEN D.COL1 IS NOT NULL THEN D.CUIIO END) AS   TOTAL,
     COUNT (DISTINCT CASE WHEN D.COL1 IN ('EREPORTING') THEN D.CUIIO END) AS   EREPORTING,
     COUNT (DISTINCT CASE WHEN D.COL1 IN ('CIS2') THEN D.CUIIO END ) AS   CIS2
-   FROM  (SELECT
+   FROM  (
+   SELECT
     DISTINCT 
     D.CUIIO,
      D.CUIIO_VERS,
@@ -69,7 +70,12 @@ SELECT
              
              WHERE
              
-             R.CUIIO IS NOT NULL) D
+             R.CUIIO IS NOT NULL
+             
+             
+             
+             
+             ) D
    
                  INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
                  INNER JOIN CIS2.VW_CL_CUATM CC ON C.FULL_CODE LIKE '%'||CC.CODUL||';%'

@@ -45,6 +45,10 @@
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
              
+             
+             
+             
+             
              ) D  LEFT JOIN (
              
               SELECT DISTINCT D.CUIIO,
@@ -62,15 +66,7 @@
              
              WHERE
              
-             R.CUIIO IS NOT NULL;
-      
-
-------------------------------------------------------------------------------       
+             R.CUIIO IS NOT NULL
              
-            SELECT 
-            CUIIO,
-    CUIIO_VERS,
-    CUATM,
-    FORM,
-    COL1    
-            FROM  VW_36;
+             
+            
