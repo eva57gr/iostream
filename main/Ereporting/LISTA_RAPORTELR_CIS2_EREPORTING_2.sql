@@ -1,4 +1,4 @@
-CREATE OR REPLACE FORCE VIEW VW_27
+CREATE OR REPLACE FORCE VIEW VW_36
 (
 
 
@@ -30,7 +30,7 @@ SELECT
             FROM CIS2.VW_DATA_ALL D
             
                  
-           WHERE D.PERIOADA = 2013 AND D.FORM IN (27)
+           WHERE D.PERIOADA = 2013 AND D.FORM IN (36)
            
            AND D.CUIIO NOT IN (
             SELECT DISTINCT D.CUIIO
@@ -39,7 +39,7 @@ SELECT
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
                                         INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                 
-           WHERE D.PERIOADA  = 2013   AND D.FORM IN (27)
+           WHERE D.PERIOADA  = 2013   AND D.FORM IN (36)
              AND D.ID_SCHEMA = '2'
            
            )
@@ -54,7 +54,7 @@ SELECT
                           'EREPORTING' AS COL1
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
                 INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
-           WHERE D.PERIOADA  = 2013   AND D.FORM IN (27)
+           WHERE D.PERIOADA  = 2013   AND D.FORM IN (36)
              AND D.ID_SCHEMA = '2'
              
              ) D  LEFT JOIN (
@@ -68,7 +68,7 @@ SELECT
             FROM CIS2.VW_DATA_ALL D
             
                  
-           WHERE D.PERIOADA = 2013 AND D.FORM IN (27)
+           WHERE D.PERIOADA = 2013 AND D.FORM IN (36)
              ) R ON D.CUIIO = R.CUIIO
              
              
@@ -77,5 +77,10 @@ SELECT
              R.CUIIO IS NOT NULL;
              
              
-            SELECT *    
-            FROM  VW_27
+            SELECT 
+            CUIIO,
+    CUIIO_VERS,
+    CUATM,
+    FORM,
+    COL1    
+            FROM  VW_36
