@@ -1,3 +1,23 @@
+--
+--CREATE OR REPLACE FORCE VIEW VW_36_CNT
+--(
+--
+--
+--    CUIIO,
+--    DENUMIRE,
+--    CUATM,
+--    COL1 
+-- 
+-- )
+--AS 
+
+SELECT 
+    CUIIO,
+    DENUMIRE,
+    CUATM,
+    COL1 
+FROM
+(
 SELECT 
     L.CUIIO,
     C.DENUMIRE,
@@ -28,4 +48,12 @@ SELECT
                    
                    
                    ORDER BY 
-                   FULL_CODE;
+                   FULL_CODE );
+                   
+                   
+                   
+SELECT *
+   
+
+      FROM  VW_36_CNT;
+                   
