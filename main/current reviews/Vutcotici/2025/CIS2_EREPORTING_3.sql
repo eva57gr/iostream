@@ -32,8 +32,8 @@ SELECT
             SELECT DISTINCT D.CUIIO
                           
                           
-            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
-                                        INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+            FROM USER_EREPORTING.DATA_ALL_PRIMIT D
+                                      --  INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                 
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
@@ -45,10 +45,10 @@ SELECT
            
             SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
-                          D.CUATM,
+                          R.CUATM,
                           D.FORM,
                           'EREPORTING' AS COL1
-            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+            FROM USER_EREPORTING.DATA_ALL_PRIMIT D
                 INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
@@ -57,13 +57,14 @@ SELECT
              
               SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
-                          D.CUATM,
+                          R.CUATM,
                           D.FORM,
                           'CIS2' AS COL1
                           
-            FROM CIS2.VW_DATA_ALL D
+            FROM CIS2.DATA_ALL D
+            INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
             
-                 
+               
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
              ) R ON D.CUIIO = R.CUIIO
              
