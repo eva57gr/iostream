@@ -1,6 +1,6 @@
 DECLARE
   CURSOR UPD_TABLE_OUT_AC IS
-    
+    -----------------------------------------------------------------------
      SELECT
       T.NR_ROW,
       T.COL1 AS COL1,
