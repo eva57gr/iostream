@@ -25,7 +25,7 @@ SELECT
                           
             FROM CIS2.VW_DATA_ALL D
             
-                 
+                 --208
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
            
            AND D.CUIIO NOT IN (
