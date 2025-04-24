@@ -91,6 +91,7 @@ SELECT
              
                   INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA = :pPERIOADA_LUNA AND D.FORM IN (:pFORM)
+            AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
            
              AND D.FORM_VERS IN (:pFORM_VERS)      
            
@@ -131,7 +132,8 @@ UNION
                     INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA  = :pPERIOADA_LUNA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = 2
-              AND D.FORM_VERS IN (:pFORM_VERS)   
+              AND D.FORM_VERS IN (:pFORM_VERS)  
+               AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS')  
               
               
               AND D.CUIIO IN (
@@ -142,6 +144,7 @@ UNION
             
                  
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
+            AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
               )
          ) D
          INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = D.CUATM
@@ -331,9 +334,10 @@ D.FORM IN (:pFORM)
                  
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
               )
+              
+               AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
 
---AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
---AND D.CUIIO IN  (400001,400053,458868 )
+
 GROUP BY
 --F.DEN_SHORT,
 D.CUIIO,
@@ -523,8 +527,12 @@ CIS2.VW_DATA_ALL D --M1, CONS.TS, 5CI,65 AUTO, 2 INVEST
 WHERE
 D.PERIOADA = :pPERIOADA_LUNA AND
 
+
+
 D.FORM IN (:pFORM)
  AND D.FORM_VERS IN (:pFORM_VERS)   
+ 
+  AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
 
 GROUP BY
 --F.DEN_SHORT,
