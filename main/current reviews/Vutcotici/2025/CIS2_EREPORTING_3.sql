@@ -35,8 +35,10 @@ SELECT
             FROM USER_EREPORTING.DATA_ALL_PRIMIT D
                                       --  INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                 
-           WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
+           WHERE 
+             D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
+             AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
            
            )
            
@@ -52,6 +54,7 @@ SELECT
                 INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
+              AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
              
              ) D  LEFT JOIN (
              
@@ -66,6 +69,8 @@ SELECT
             
                
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
+           
+            AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
              ) R ON D.CUIIO = R.CUIIO
              
              
