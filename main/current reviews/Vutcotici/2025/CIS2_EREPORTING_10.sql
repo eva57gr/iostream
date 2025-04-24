@@ -5,7 +5,8 @@ NULL AS COL1,
 NULL AS COL2,
 NULL AS COL3,
 NULL AS COL4,
-SUM(CNT) AS COL5
+NULL AS  COL5,
+SUM(CNT) AS COL6
 
 FROM
 (
@@ -160,6 +161,19 @@ D.FORM IN (:pFORM)
  AND D.FORM_VERS IN (:pFORM_VERS)   
  
   AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') 
+  
+  
+  AND D.CUIIO NOT IN (
+            SELECT DISTINCT D.CUIIO
+                          
+                          
+            FROM USER_EREPORTING.DATA_ALL_PRIMIT D
+                                      --  INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+                
+           WHERE 
+             D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
+             AND D.ID_SCHEMA = '2'
+             AND D.DATA_REG  > TO_DATE('01/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') )
 
 GROUP BY
 --F.DEN_SHORT,

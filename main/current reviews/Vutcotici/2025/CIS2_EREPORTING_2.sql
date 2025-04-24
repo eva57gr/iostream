@@ -114,7 +114,17 @@ SELECT
                    
                    
                    ORDER BY 
-                   FULL_CODE );
+                   FULL_CODE )
+                   
+                   
+                   WHERE 
+                   
+                   CUATM LIKE '01%'
+                   
+                   
+                   
+                   
+                   ;
                    
                    
                    
