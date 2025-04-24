@@ -1,15 +1,15 @@
-CREATE OR REPLACE FORCE VIEW VW_36
-(
-
-
-    CUIIO,
-    CUIIO_VERS,
-    CUATM,
-    FORM,
-    COL1
- 
- )
-AS 
+--CREATE OR REPLACE FORCE VIEW VW_36
+--(
+--
+--
+--    CUIIO,
+--    CUIIO_VERS,
+--    CUATM,
+--    FORM,
+--    COL1
+-- 
+-- )
+--AS 
 SELECT
     DISTINCT 
     D.CUIIO,
