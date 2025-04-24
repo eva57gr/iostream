@@ -7,7 +7,7 @@ SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL3 ELSE NULL END
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL4 ELSE NULL END ) AS COL4,
 SUM(CASE WHEN  C.FULL_CODE LIKE '%'||CR.CS_CUATM||'%'  THEN L.COL5 ELSE NULL END ) AS COL5
 
--------------------------------------------------------------------------------------------------------
+
 FROM 
 
 (
@@ -85,11 +85,11 @@ SELECT
     
     SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
-                          D.CUATM,
+                          R.CUATM,
                           D.FORM
-            FROM CIS2.VW_DATA_ALL D
+            FROM CIS2.DATA_ALL D
              
-                 
+                  INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA = :pPERIOADA_LUNA AND D.FORM IN (:pFORM)
            
              AND D.FORM_VERS IN (:pFORM_VERS)      
@@ -124,11 +124,11 @@ UNION
     
     SELECT DISTINCT D.CUIIO,
                           D.CUIIO_VERS,
-                          D.CUATM,
+                          R.CUATM,
                           D.FORM
-            FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+            FROM USER_EREPORTING.DATA_ALL_PRIMIT D
 
-
+                    INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA  = :pPERIOADA_LUNA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = 2
               AND D.FORM_VERS IN (:pFORM_VERS)   
