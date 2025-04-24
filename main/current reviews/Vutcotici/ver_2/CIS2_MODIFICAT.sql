@@ -127,11 +127,24 @@ UNION
                           D.CUATM,
                           D.FORM
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
+            
+          --   INNER JOIN CIS2.DATA_ALL R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                  --INNER JOIN CIS2.VW_CL_CUATM C ON D.CUATM = C.CODUL
                  
            WHERE D.PERIOADA  = :pPERIOADA_LUNA   AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = 2
               AND D.FORM_VERS IN (:pFORM_VERS)   
+              
+              
+              AND D.CUIIO IN (
+              SELECT DISTINCT D.CUIIO
+                         
+                          
+            FROM CIS2.DATA_ALL D
+            
+                 
+           WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
+              )
         --     AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
              
                  
@@ -316,6 +329,16 @@ D.PERIOADA = :pPERIOADA_LUNA AND
 --D.CUATM LIKE '01%' AND
 D.FORM IN (:pFORM)
  AND D.FORM_VERS IN (:pFORM_VERS)   
+ 
+ AND D.CUIIO IN (
+              SELECT DISTINCT D.CUIIO
+                         
+                          
+            FROM CIS2.DATA_ALL D
+            
+                 
+           WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
+              )
 
 --AND (D.DATA_REG  > TO_DATE('03/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS') AND D.DATA_REG  <   TO_DATE('03/31/2025 23:59:59', 'MM/DD/YYYY HH24:MI:SS'))
 --AND D.CUIIO IN  (400001,400053,458868 )

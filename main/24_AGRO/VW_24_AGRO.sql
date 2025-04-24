@@ -70,4 +70,8 @@ SELECT
              
              WHERE
              
-             R.CUIIO IS NOT NULL
+             R.CUIIO IS NOT NULL;
+             
+             
+            SELECT *    
+            FROM  VW_27
