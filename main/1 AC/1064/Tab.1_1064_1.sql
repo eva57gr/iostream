@@ -9,4 +9,6 @@
       T.ID_MDTABLE = 13141   AND      
       T.PERIOADA =(:pPERIOADA-4) 
       --AND
+      
+      --------------------------------------------
     
