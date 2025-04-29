@@ -1,31 +1,31 @@
---INSERT INTO CIS.RENIM 
---
---(
---
---    CUIIO,
---    CUIIO_VERS,
---    DENUMIRE,
---    EDIT_USER,
---    STATUT,
---    CUATM,
---    CFP,
---    CFOJ,
---    COCM,
---    CAEM,
---    BUGET,
---    TIP,
---    PROD,
---    FOR_CUB,
---    ETAPA_PROD,
---    RENIM_PERS,
---    CAEM2
---    
---)
+INSERT INTO CIS.RENIM 
+
+(
+
+    CUIIO,
+    CUIIO_VERS,
+    DENUMIRE,
+    EDIT_USER,
+    STATUT,
+    CUATM,
+    CFP,
+    CFOJ,
+    COCM,
+    CAEM,
+    BUGET,
+    TIP,
+    PROD,
+    FOR_CUB,
+    ETAPA_PROD,
+    RENIM_PERS,
+    CAEM2
+    
+)
 
 SELECT
 
     CUIIO,
-    481 CUIIO_VERS,
+    1064 CUIIO_VERS,
     DENUMIRE,
     EDIT_USER,
     STATUT,
@@ -55,10 +55,10 @@ SELECT
    DISTINCT CUIIO 
    
    FROM 
-   USER_BANCU.CFP_1064
+   USER_BANCU.CUATM_CIS
    )
    
-   AND CUIIO_VERS <> 481;
+   AND CUIIO_VERS <> 1064;
    
    
    SELECT *
