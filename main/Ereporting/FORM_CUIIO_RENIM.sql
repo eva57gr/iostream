@@ -7,17 +7,17 @@ SELECT
 D.FORM = 33
 AND D.PERIOADA = :pPERIOADA
 
-AND 
-
-(
---D.CUIIO LIKE   40018903||'%'
---OR 
---D.CUIIO LIKE   38877935 ||'%'
---OR 
---D.CUIIO LIKE   40565505||'%' 
-
-D.CUIIO LIKE   40583135||'%'
-) 
+--AND 
+--
+--(
+----D.CUIIO LIKE   40018903||'%'
+----OR 
+----D.CUIIO LIKE   38877935 ||'%'
+----OR 
+----D.CUIIO LIKE   40565505||'%' 
+--
+----D.CUIIO LIKE   40583135||'%'
+--) 
 
 
 
