@@ -118,8 +118,8 @@ SELECT
                    
                    
                    WHERE 
-                   
-                   CUATM LIKE '01%'
+                   1=1 
+                   AND CUATM LIKE '01%'
                    
                    
                    
