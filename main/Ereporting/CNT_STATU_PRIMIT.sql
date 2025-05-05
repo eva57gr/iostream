@@ -1,5 +1,6 @@
 SELECT -------------------------------------------------------------------
   DISTINCT FORM_TYPE,
+  STATUS,
   COUNT (DISTINCT FORMID) AS CNT
 
  
@@ -14,17 +15,20 @@ SELECT -------------------------------------------------------------------
           WHERE
           1=1  
 ----
-AND STATUS  =  '5' 
+--AND STATUS  =  '2' 
 
 ----
 ----
-AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('05/05/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------------------------------------------------------
 
 
 GROUP BY
+FORM_TYPE,
+STATUS
+ 
+ORDER BY 
 FORM_TYPE
-  
 ------  
 --AND   FORM_TYPE = 'm3' --------------------
 
