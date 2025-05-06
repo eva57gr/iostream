@@ -1,0 +1,11 @@
+
+
+   SELECT 
+    COD_STATUS,  
+    CASE 
+    WHEN  COD_STATUS = 2 THEN 'Primit'
+    WHEN  COD_STATUS = 5 THEN 'Acceptat' 
+    ELSE NAME END NAME,         
+    DESCRIPTION   
+
+   FROM  USER_EREPORTING.F_XML_FORMS_STATUS
