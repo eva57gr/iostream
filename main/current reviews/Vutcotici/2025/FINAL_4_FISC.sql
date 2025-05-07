@@ -52,7 +52,7 @@ WHERE
 --
 --AND 
 
-f.DATA_REG >= TO_DATE('05/01/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
+f.DATA_REG >= TO_DATE('05/06/2025 00:00:00', 'MM/DD/YYYY HH24:MI:SS')
 
 AND f.FORM_TYPE IN ('2-inv-anual','2-inv','ind-ts')
 
