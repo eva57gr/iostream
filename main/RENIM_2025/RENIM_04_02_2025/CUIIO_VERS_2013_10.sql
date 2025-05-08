@@ -38,12 +38,12 @@
 --    IDNO
 --)
 ---- 
-
+--
 
 
 SELECT 
  CUIIO,
- 1064 CUIIO_VERS,
+ 1065 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -88,7 +88,7 @@ CUIIO IN (
 
 
 SELECT CUIIO 
- FROM USER_BANCU.CUATM_CIS
+ FROM USER_BANCU.AUTO_65
 
 --SELECT FC.CUIIO
 --              FROM
@@ -117,7 +117,7 @@ SELECT CUIIO
 --             FC.CUIIO_VERS <> 1064
         )
         
-        AND CUIIO_VERS <> 1064
+        AND CUIIO_VERS <> 1065
         
         
 --        AND CUIIO NOT IN (
