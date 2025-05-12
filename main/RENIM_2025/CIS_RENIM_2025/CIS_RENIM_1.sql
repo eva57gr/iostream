@@ -1,8 +1,10 @@
- SELECT FC.CUIIO,
+ SELECT            DISTINCT 
+                   FC.CUIIO,
                    FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
+--                   FC.FORM,
+--                   FC.FORM_VERS,
+--                   FC.STATUT,
+                   R.CAEM2
               FROM
               ( 
               SELECT FC.CUIIO,
@@ -19,12 +21,20 @@
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
-             FC.FORM IN (:pFORM) AND FC.STATUT <> '3') FC
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             
+             AND FC.CUIIO = 40604989
+             
+             ) FC
+             
+             INNER JOIN CIS.RENIM R ON R.CUIIO = FC.CUIIO AND R.CUIIO_VERS = FC.CUIIO_VERS
              
              
              WHERE
-             
-             FC.CUIIO_VERS <> 1064;
+             1=1
+             AND R.CUIIO = 40604989
+             ; 
+            --  AND FC.CUIIO_VERS <> 1064;
  
  
 -- INSERT INTO CIS.RENIM (
