@@ -66,7 +66,7 @@ WHERE
 
  --AND x.CUATM LIKE '01%'
 --AND 
-AND f.FORM_TYPE IN ('65-auto-22')
+AND f.FORM_TYPE IN ('ei-78')
 
 
 ORDER BY
