@@ -24,7 +24,7 @@ ITEM_CODE
 WHERE 
 D. ITEM_PATH LIKE '%'||:pCOD_CUATM||';%'
 
- -- AND  D.A01 IN ('3','4','5')
+  AND  D.A01 IN ('3','4','5')
 
 
 
