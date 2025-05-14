@@ -1,14 +1,14 @@
 SELECT
            DISTINCT R.CUIIO,
-           R.CUIIO_VERS,
-           R.DENUMIRE,
-           R.CUATM,
-           R.CFP,
-           R.CFOJ,
-           R.COCM,
-           R.CAEM2,
-           R.CAEM,
-           R.IDNO
+           MAX(R.CUIIO_VERS) CUIIO_VERS,
+           MAX(R.DENUMIRE) DENUMIRE,
+           R.CUATM
+--           R.CFP,
+--           R.CFOJ,
+--           R.COCM,
+--           R.CAEM2,
+--           R.CAEM,
+--           R.IDNO
 
   
 FROM 
@@ -23,12 +23,12 @@ WHERE
  
 GROUP BY
   R.CUIIO,
-           R.CUIIO_VERS,
-           R.DENUMIRE,
-           R.CUATM,
-           R.CFP,
-           R.CFOJ,
-           R.COCM,
-           R.CAEM2,
-           R.CAEM,
-           R.IDNO;
+         --  R.CUIIO_VERS,
+         --  R.DENUMIRE,
+           R.CUATM
+--           R.CFP,
+--           R.CFOJ,
+--           R.COCM,
+--           R.CAEM2,
+--           R.CAEM,
+--           R.IDNO;
