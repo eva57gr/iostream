@@ -18,7 +18,7 @@ WHERE
 
   D.FORM IN (45)
   
-  AND D.CUIIO = 400018      
+  AND D.CUIIO = 2741137      
  
 --GROUP BY
 --   R.CUIIO

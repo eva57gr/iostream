@@ -1,7 +1,18 @@
+
+SELECT 
+
+CUIIO,
+COUNT (CUIIO) AS CNT
+
+FROM 
+
+(
 SELECT
            DISTINCT 
            R.CUIIO,
-           R.DENUMIRE
+           R.CUATM,
+           MAX(R.CUIIO_VERS) CUIIO_VERS,
+           MAX(R.DENUMIRE) DENUMIRE 
           
          
 
@@ -18,8 +29,21 @@ WHERE
  
 GROUP BY
    R.CUIIO,
-   R.DENUMIRE
+   R.CUATM
+--   R.DENUMIRE
    
    
    ORDER BY 
-   R.CUIIO
+   R.CUIIO)
+   
+   
+   
+   
+   GROUP BY 
+   CUIIO
+   
+   HAVING 
+   
+   COUNT (CUIIO) > 1
+  ORDER BY
+   CUIIO
