@@ -85,10 +85,33 @@ SELECT
                     WHERE 
                   
 CUIIO IN (
+2930528,  
+20471658,
+38998320,
+40868464,
+41080092,
+41188501,
+41256898,
+41409669,
+41498526,
+41506510,
+41506616,
+41195056,
+41091248,
+38177853,
+38675309,
+40616797,
+41482034,
+37692636,
+37905888,
+40585803,
+40606882,
+40934273,
+41118541,
+41136094 
+)
 
-
-SELECT CUIIO 
- FROM USER_BANCU.AUTO_65
+AND CUIIO_VERS IN (2013)
 
 --SELECT FC.CUIIO
 --              FROM
@@ -115,10 +138,10 @@ SELECT CUIIO
 --             WHERE
 --             
 --             FC.CUIIO_VERS <> 1064
-        )
-        
-        AND CUIIO_VERS <> 1065
-        
+--        )
+--        
+--        AND CUIIO_VERS <> 1065
+--        
         
 --        AND CUIIO NOT IN (
 --        SELECT FC.CUIIO
