@@ -40,9 +40,9 @@ SELECT
                          D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM,
-                          'CIS2' AS COL1
+                          'CIS' AS COL1
                           
-            FROM CIS2.VW_DATA_ALL D
+            FROM CIS.VW_DATA_ALL D
             
                  
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
@@ -52,10 +52,10 @@ SELECT
                           
                           
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
-                                        INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+                                        INNER JOIN CIS.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                 
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
-             AND D.ID_SCHEMA = '2'
+             AND D.ID_SCHEMA = '1'
            
            )
            
@@ -68,9 +68,9 @@ SELECT
                           D.FORM,
                           'EREPORTING' AS COL1
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
-                INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
+                INNER JOIN CIS.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
            WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
-             AND D.ID_SCHEMA = '2'
+             AND D.ID_SCHEMA = '1'
              
              ) D  LEFT JOIN (
              
@@ -78,9 +78,9 @@ SELECT
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM,
-                          'CIS2' AS COL1
+                          'CIS' AS COL1
                           
-            FROM CIS2.VW_DATA_ALL D
+            FROM CIS.VW_DATA_ALL D
             
                  
            WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
@@ -92,7 +92,7 @@ SELECT
              R.CUIIO IS NOT NULL
             ) L 
             
-                   INNER JOIN CIS2.VW_CL_CUATM C ON C.CODUL = L.CUATM
+                   INNER JOIN CIS.VW_CL_CUATM C ON C.CODUL = L.CUATM
                    
                    UNION ALL 
                    
