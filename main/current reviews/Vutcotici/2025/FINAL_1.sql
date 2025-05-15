@@ -119,7 +119,7 @@ SELECT
                    
                    WHERE 
                    1=1 
-                   AND CUATM LIKE '01%'
+              --     AND CUATM LIKE '01%'
                    
                    
                    
