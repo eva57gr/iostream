@@ -1,20 +1,31 @@
 
               SELECT 
                  L.CUIIO,
-                 L.CUIIO_VERS 
+                 L.CUIIO_VERS,
+                 RR.DENUMIRE,
+                 RR.CAEM2,
+                 RR.CFP,
+                 RR.IDNO,
+                 L.USER_NAME 
                  FROM    
 
                ( 
                 SELECT DISTINCT D.CUIIO,
-                                D.CUIIO_VERS
+                                MAX(CUIIO_VERS) CUIIO_VERS,
+                                MAX(D.USER_NAME) USER_NAME
                 
                     FROM CIS2.VW_DATA_ALL D 
                     
                     WHERE 
                     D.FORM IN (:pFORM)
                     
-                    AND D.PERIOADA IN (:pPERIOADA) ) L LEFT JOIN (
+                    AND D.PERIOADA IN (:pPERIOADA)
                     
+                    GROUP BY
+                    D.CUIIO                    
+
+ ) L LEFT JOIN (
+                  -----------------------------------  
 
 
                     SELECT FC.CUIIO,
@@ -51,6 +62,8 @@
                     ) R ON R.CUIIO = L.CUIIO 
                     
                     
+                    INNER JOIN CIS2.RENIM RR ON L.CUIIO = RR.CUIIO AND L.CUIIO_VERS = RR.CUIIO_VERS 
+                    
                     WHERE 
                     
-                    R.CUIIO IS NULL; 
+                    R.CUIIO IS NULL
