@@ -30,7 +30,7 @@
                            WHERE 
                            
                            D.FORM IN (73)
-                           AND D.ANUL IN (2024,2025)
+                           AND D.ANUL IN (2025)
                            
                      --     AND D.CUIIO =  4499212
                            
