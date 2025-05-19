@@ -1,5 +1,9 @@
-
-
+--UPDATE CIS2.FORM_CUIIO
+--
+--SET STATUT = '3'
+--
+--
+--
 SELECT *
 
     FROM CIS2.FORM_CUIIO 
