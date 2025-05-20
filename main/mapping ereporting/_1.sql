@@ -1,16 +1,16 @@
 SELECT
-              vPERIOADA,
-              vFORM,
-              vFORM_VERS,
-              vCUIIO,
-              vCUIIO_VERS,
+              :vPERIOADA,
+              :vFORM,
+              :vFORM_VERS,
+              :vCUIIO,
+              :vCUIIO_VERS,
               RR.ID_MD,
               SYSDATE AS DATA_REG,
               9999 AS ID_USER,
               D.COL1,D.COL2,D.COL3,D.COL4,D.COL5,D.COL6,D.COL7,D.COL8,D.COL9,D.COL10,D.COL11,D.COL12,D.COL13,D.COL14,D.COL15,D.COL16,
               D.COL31,D.COL32,D.COL33,D.COL34,D.COL35,D.COL36,D.COL37,D.COL38,D.COL39,D.COL40,R.FORMID,--T_XML_FORM_ID from F_XML_FORMS
               SYSDATE AS CREATED_DATE,
-              vID_SCHEMA
+              :vID_SCHEMA
             FROM
             (
             SELECT
@@ -69,7 +69,7 @@ SELECT
               XML_NODE_VALUE
             FROM 
               XMLTABLE('//dec/DataSet/Data/*' PASSING   
-                (SELECT  xmltype(XML) FROM F_XML_FORMS WHERE FORMID IN (16709207))
+                (SELECT  xmltype(XML) FROM F_XML_FORMS WHERE FORMID IN (24374011))
                  COLUMNS 
                  XML_NODE_NAME VARCHAR2(100) PATH 'name()',
                  XML_NODE_VALUE VARCHAR2(100) PATH 'text()' 
@@ -102,26 +102,26 @@ SELECT
                   R.RIND_VERS,
                   R.ID_MD
                 FROM
-                  MD_RIND R
-                  INNER JOIN MD_CAPITOL C ON (R.CAPITOL=C.CAPITOL AND R.CAPITOL_VERS=C.CAPITOL_VERS)
+                  CIS2.MD_RIND R
+                  INNER JOIN CIS2.MD_CAPITOL C ON (R.CAPITOL=C.CAPITOL AND R.CAPITOL_VERS=C.CAPITOL_VERS)
                   INNER JOIN (
                     SELECT
                       R.CAPITOL,
                       R.RIND,
                       MAX(R.RIND_VERS) AS RIND_VERS
                     FROM
-                      MD_RIND R
+                      CIS2.MD_RIND R
                     WHERE
-                      R.FORM IN (vFORM) AND
-                      R.ID_SCHEMA IN (vID_SCHEMA) AND
-                      R.RIND_VERS <= (vPERIOADA)
+                      R.FORM IN (36) AND
+                    --  R.ID_SCHEMA IN (2) AND
+                      R.RIND_VERS <= (2013)
                     GROUP BY
                       R.CAPITOL,
                       R.RIND
                   ) RR ON (R.RIND=RR.RIND AND R.RIND_VERS=RR.RIND_VERS AND R.CAPITOL=RR.CAPITOL)
                 WHERE
-                  R.FORM IN (vFORM) AND
-                  R.ID_SCHEMA IN (vID_SCHEMA) AND
+                  R.FORM IN (36) AND
+                  --R.ID_SCHEMA IN (2) AND
                   R.STATUT <> '3'
                 ORDER BY
                   R.RIND) RR ON (D.NR_ROW = CASE WHEN RR.FORM IN (39) THEN DECODE(RR.DEN_SHORT,'Cap.I','CAP1')||'_R'||RR.RIND 
