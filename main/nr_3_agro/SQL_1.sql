@@ -49,8 +49,9 @@
                          MR.ORDINE
                          
                          ORDER BY
-                          D.ANUL,
+                          R.CUATM,
                          D.CUIIO,
+                        
                          MC.DEN_SHORT,
                          MR.ORDINE
                          
