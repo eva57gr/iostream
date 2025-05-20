@@ -1,4 +1,4 @@
-﻿BEGIN
+BEGIN
 INSERT INTO CIS2.TABLE_OUT 
 (
   PERIOADA,
@@ -50,7 +50,7 @@ L.CUATM,
 L.NR_ROW,
 L.ORDINE,
  MAX(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(L.NUME_ROW,'emsp'),'1'),'&'),'3'),'.'),';'),'-'),'2'),'4')) AS NUME_ROW, 
-RR.PACHET,
+L.PACHET,
 SUM(L.COL1) AS COL1,
 SUM(R.COL2) AS COL2
 FROM 
@@ -107,7 +107,7 @@ WHERE
        D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
        D.CAPITOL IN (1185) 
            
-       AND D.CUIIO = 277954
+      -- AND D.CUIIO = 37720723
          
 GROUP BY  
    R.CUIIO,
@@ -185,7 +185,7 @@ WHERE
        D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' AND
        D.CAPITOL IN (1186) 
            
-       AND D.CUIIO = 277954
+     --  AND D.CUIIO = 37720723
          
 GROUP BY  
    R.CUIIO,
@@ -202,26 +202,6 @@ GROUP BY
     )  R ON R.CUIIO = L.CUIIO AND L.NR_ROW = R.NR_ROW
     
     
-          LEFT JOIN (
-          
-          SELECT 
-      D.CUIIO,
-      MAX(D.PACHET) PACHET
-      
-      FROM CIS2.VW_DATA_ALL D  
-
-WHERE  
-       D.FORM IN (71)             AND  
-       D.PERIOADA IN (:pPERIOADA ) AND
-       D.FORM = :pFORM AND
-       D.FORM_VERS = :pFORM_VERS  AND  
-       D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'
-        AND D.CUIIO = 277954
-       GROUP BY 
-       D.CUIIO 
-          )  RR ON R.CUIIO = L.CUIIO  
-    
-    
     
     
     GROUP BY
@@ -231,7 +211,7 @@ L.CUATM,
 L.NR_ROW,
 L.ORDINE,
 L.NUME_ROW,
-RR.PACHET
+L.PACHET
 
 
 ) 
