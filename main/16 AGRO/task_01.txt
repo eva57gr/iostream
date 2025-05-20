@@ -1,0 +1,897 @@
+Este acest tabel 
+
+CREATE TABLE USER_EREPORTING.F_XML_FORMS
+(
+  FORMID              NUMBER,
+  XML                 CLOB                      NOT NULL,
+  STATUS              NUMBER                    NOT NULL,
+  FORM_TYPE           VARCHAR2(50 BYTE),
+  DATA_REG            DATE,
+  CHECK_CONFIRM       NUMBER,
+  MESAJ               VARCHAR2(4000 BYTE),
+  CUIIO               NUMBER,
+  SEND_REQUEST        NUMBER,
+  SEND_ATTEMPTS       NUMBER,
+  PROCESSING_MESSAGE  VARCHAR2(4000 BYTE)
+)
+LOB (XML) STORE AS BASICFILE (
+  TABLESPACE  TBS_BNSDB
+  ENABLE      STORAGE IN ROW
+  CHUNK       8192
+  RETENTION
+  NOCACHE
+  LOGGING)
+TABLESPACE TBS_BNSDB
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+MONITORING;
+
+COMMENT ON COLUMN USER_EREPORTING.F_XML_FORMS.MESAJ IS 'Mesajul care se transmite la Egov pentru a confirma';
+
+COMMENT ON COLUMN USER_EREPORTING.F_XML_FORMS.CUIIO IS 'Statistical Code';
+
+COMMENT ON COLUMN USER_EREPORTING.F_XML_FORMS.SEND_REQUEST IS 'Send request to change status on raportare.gov.md: 0 - not send; 1 - send request';
+
+COMMENT ON COLUMN USER_EREPORTING.F_XML_FORMS.SEND_ATTEMPTS IS 'How many request sended';
+
+COMMENT ON COLUMN USER_EREPORTING.F_XML_FORMS.PROCESSING_MESSAGE IS 'The error returned bey control';
+
+
+CREATE UNIQUE INDEX USER_EREPORTING.F_XML_FORMS_PK ON USER_EREPORTING.F_XML_FORMS
+(FORMID)
+LOGGING
+TABLESPACE TBS_BNSDB
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+CREATE INDEX USER_EREPORTING.IDX_F_XML_FORMS_TYPE ON USER_EREPORTING.F_XML_FORMS
+(FORM_TYPE)
+LOGGING
+TABLESPACE TBS_BNSDB
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+ALTER TABLE USER_EREPORTING.F_XML_FORMS ADD (
+  CONSTRAINT F_XML_FORMS_PK
+  PRIMARY KEY
+  (FORMID)
+  USING INDEX USER_EREPORTING.F_XML_FORMS_PK
+  ENABLE VALIDATE);
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON USER_EREPORTING.F_XML_FORMS TO USER_BANCU;
+
+Cu date 
+
+pentru FORMID IN (24374011) 
+
+24374011	<dec TypeName="16_agr_23">
+  <DataSet>
+    <Header>
+      <ENT_NAME>F.P.C. CODRU-ST S.R.L.</ENT_NAME>
+      <CUATM>8002</CUATM>
+      <STREET>OR.BUCOVATI Stefan cel Mare nr.33 bl.A</STREET>
+      <STREET_NR />
+      <CUIIO>15808570</CUIIO>
+      <IDNO>1002601004288</IDNO>
+      <HEAD>CHILIANU ION</HEAD>
+      <EXECUTOR>NASTAS PETRU</EXECUTOR>
+      <PHONE>069980280</PHONE>
+      <emal>nastas.petru@codru.st</emal>
+      <nalogPeriodLetter>A</nalogPeriodLetter>
+      <nalogPeriodType>A/2024</nalogPeriodType>
+      <YEAR>2024</YEAR>
+    </Header>
+    <Data>
+      <CAP1_R90_C1>56915</CAP1_R90_C1>
+      <CAP1_R90_C2>56915</CAP1_R90_C2>
+      <CAP1_R90_C3 />
+      <CAP1_R90_C4 />
+      <CAP1_R90_C5 />
+      <CAP1_R100_C1>11942</CAP1_R100_C1>
+      <CAP1_R100_C2>11942</CAP1_R100_C2>
+      <CAP1_R100_C3 />
+      <CAP1_R100_C4 />
+      <CAP1_R100_C5 />
+      <CAP1_R120_C1>3583</CAP1_R120_C1>
+      <CAP1_R120_C2>3583</CAP1_R120_C2>
+      <CAP1_R120_C3 />
+      <CAP1_R120_C4 />
+      <CAP1_R120_C5 />
+      <CAP1_R200_C1>21370</CAP1_R200_C1>
+      <CAP1_R200_C2>17449</CAP1_R200_C2>
+      <CAP1_R200_C3 />
+      <CAP1_R200_C4 />
+      <CAP1_R200_C5 />
+      <CAP1_R205_C1 />
+      <CAP1_R210_C1>93</CAP1_R210_C1>
+      <CAP1_R210_C2 />
+      <CAP1_R210_C3 />
+      <CAP1_R210_C4 />
+      <CAP1_R210_C5 />
+      <CAP1_R220_C1 />
+      <CAP1_R220_C2 />
+      <CAP1_R220_C3 />
+      <CAP1_R220_C4 />
+      <CAP1_R220_C5 />
+      <CAP1_R221_C1 />
+      <CAP1_R221_C2 />
+      <CAP1_R221_C3 />
+      <CAP1_R221_C4 />
+      <CAP1_R221_C5 />
+      <CAP1_R225_C1 />
+      <CAP1_R225_C2 />
+      <CAP1_R225_C3 />
+      <CAP1_R225_C4 />
+      <CAP1_R225_C5 />
+      <CAP1_R230_C1>7671</CAP1_R230_C1>
+      <CAP1_R230_C2>7671</CAP1_R230_C2>
+      <CAP1_R230_C3 />
+      <CAP1_R230_C4 />
+      <CAP1_R230_C5 />
+      <CAP1_R235_C1>2621</CAP1_R235_C1>
+      <CAP1_R235_C2 />
+      <CAP1_R235_C3 />
+      <CAP1_R235_C4 />
+      <CAP1_R235_C5 />
+      <CAP1_R240_C1>1207</CAP1_R240_C1>
+      <CAP1_R240_C2 />
+      <CAP1_R240_C3 />
+      <CAP1_R240_C4 />
+      <CAP1_R240_C5 />
+      <CAP1_R245_C1>26</CAP1_R245_C1>
+      <CAP1_R245_C2>26</CAP1_R245_C2>
+      <CAP1_R245_C3 />
+      <CAP1_R245_C4 />
+      <CAP1_R245_C5 />
+      <CAP1_R250_C1 />
+      <CAP1_R250_C2 />
+      <CAP1_R250_C3 />
+      <CAP1_R250_C4 />
+      <CAP1_R250_C5 />
+      <CAP1_R255_C1 />
+      <CAP1_R255_C2 />
+      <CAP1_R255_C3 />
+      <CAP1_R255_C4 />
+      <CAP1_R255_C5 />
+      <CAP1_R265_C1>8446</CAP1_R265_C1>
+      <CAP1_R265_C2>8446</CAP1_R265_C2>
+      <CAP1_R265_C3 />
+      <CAP1_R265_C4 />
+      <CAP1_R265_C5 />
+      <CAP1_R270_C1>1306</CAP1_R270_C1>
+      <CAP1_R270_C2>1306</CAP1_R270_C2>
+      <CAP1_R270_C3 />
+      <CAP1_R270_C4 />
+      <CAP1_R270_C5 />
+      <CAP1_R275_C1 />
+      <CAP1_R275_C2 />
+      <CAP1_R275_C3 />
+      <CAP1_R275_C4 />
+      <CAP1_R275_C5 />
+      <CAP1_R280_C1 />
+      <CAP1_R280_C2 />
+      <CAP1_R280_C3 />
+      <CAP1_R280_C4 />
+      <CAP1_R280_C5 />
+      <CAP1_R281_C1 />
+      <CAP1_R281_C2 />
+      <CAP1_R281_C3 />
+      <CAP1_R281_C4 />
+      <CAP1_R281_C5 />
+      <CAP1_R282_C1 />
+      <CAP1_R282_C2 />
+      <CAP1_R282_C3 />
+      <CAP1_R282_C4 />
+      <CAP1_R282_C5 />
+      <CAP1_R283_C1 />
+      <CAP1_R283_C2 />
+      <CAP1_R283_C3 />
+      <CAP1_R283_C4 />
+      <CAP1_R283_C5 />
+      <CAP1_R284_C1 />
+      <CAP1_R284_C2 />
+      <CAP1_R284_C3 />
+      <CAP1_R284_C4 />
+      <CAP1_R284_C5 />
+      <CAP1_R285_C1 />
+      <CAP1_R285_C2 />
+      <CAP1_R285_C3 />
+      <CAP1_R285_C4 />
+      <CAP1_R285_C5 />
+      <CAP1_R286_C1 />
+      <CAP1_R286_C2 />
+      <CAP1_R286_C3 />
+      <CAP1_R286_C4 />
+      <CAP1_R286_C5 />
+      <CAP1_R287_C1 />
+      <CAP1_R287_C2 />
+      <CAP1_R287_C3 />
+      <CAP1_R287_C4 />
+      <CAP1_R287_C5 />
+      <CAP1_R290_C1 />
+      <CAP1_R290_C2 />
+      <CAP1_R290_C3 />
+      <CAP1_R290_C4 />
+      <CAP1_R290_C5 />
+      <CAP1_R300_C1>9924</CAP1_R300_C1>
+      <CAP1_R300_C2 />
+      <CAP1_R300_C3 />
+      <CAP1_R300_C4 />
+      <CAP1_R300_C5 />
+      <CAP1_R500_C1>896</CAP1_R500_C1>
+      <CAP1_R500_C2 />
+      <CAP1_R500_C3 />
+      <CAP1_R500_C4 />
+      <CAP1_R500_C5 />
+      <CAP1_R600_C1>25</CAP1_R600_C1>
+      <CAP1_R600_C2 />
+      <CAP1_R600_C3 />
+      <CAP1_R600_C4 />
+      <CAP1_R600_C5 />
+      <CAP1_R700_C1>1558</CAP1_R700_C1>
+      <CAP1_R700_C2 />
+      <CAP1_R700_C3 />
+      <CAP1_R700_C4 />
+      <CAP1_R700_C5 />
+      <CAP1_R701_C1>217</CAP1_R701_C1>
+      <CAP1_R701_C2 />
+      <CAP1_R701_C3 />
+      <CAP1_R701_C4 />
+      <CAP1_R701_C5 />
+      <CAP1_R800_C1 />
+      <CAP1_R800_C2 />
+      <CAP1_R800_C3 />
+      <CAP1_R800_C4 />
+      <CAP1_R800_C5 />
+      <CAP1_R900_C1 />
+      <CAP1_R900_C2 />
+      <CAP1_R900_C3 />
+      <CAP1_R900_C4 />
+      <CAP1_R900_C5 />
+      <CAP1_R1000_C1>49298</CAP1_R1000_C1>
+      <CAP1_R1000_C2>32974</CAP1_R1000_C2>
+      <CAP1_R1000_C3 />
+      <CAP1_R1000_C4 />
+      <CAP1_R1000_C5 />
+      <CAP1_R1100_C1>1006</CAP1_R1100_C1>
+      <CAP1_R1100_C2 />
+      <CAP1_R1100_C3 />
+      <CAP1_R1100_C4 />
+      <CAP1_R1100_C5 />
+      <CAP1_R1101_C1>1004</CAP1_R1101_C1>
+      <CAP1_R1101_C2 />
+      <CAP1_R1101_C3 />
+      <CAP1_R1101_C4 />
+      <CAP1_R1101_C5 />
+      <CAP11_R0688_C1 />
+      <CAP11_R0689_C1 />
+      <CAP11_R0690_C1 />
+      <CAP11_R0691_C1 />
+      <CAP11_R0692_C1 />
+      <CAP11_R0693_C1 />
+      <CAP11_R0694_C1 />
+      <CAP11_R0695_C1 />
+      <CAP11_R0696_C1>40</CAP11_R0696_C1>
+      <CAP11_R0697_C1>1430</CAP11_R0697_C1>
+      <CAP11_R0698_C1>2</CAP11_R0698_C1>
+      <CAP11_R0699_C1>88</CAP11_R0699_C1>
+      <CAP11_R0700_C1 />
+      <CAP11_R0701_C1 />
+      <CAP11_R0702_C1 />
+      <CAP11_R0703_C1 />
+      <CAP11_R0704_C1>1518</CAP11_R0704_C1>
+      <CAP11_R0705_C1>1363</CAP11_R0705_C1>
+      <CAP2_R0010_C1 />
+      <CAP2_R0010_C2 />
+      <CAP2_R0012_C1 />
+      <CAP2_R0012_C2 />
+      <CAP2_R0013_C1 />
+      <CAP2_R0013_C2 />
+      <CAP2_R0014_C1 />
+      <CAP2_R0014_C2 />
+      <CAP2_R0020_C1 />
+      <CAP2_R0020_C2 />
+      <CAP2_R0021_C1 />
+      <CAP2_R0021_C2 />
+      <CAP2_R0030_C1 />
+      <CAP2_R0030_C2 />
+      <CAP2_R0031_C1 />
+      <CAP2_R0031_C2 />
+      <CAP2_R0034_C1 />
+      <CAP2_R0034_C2 />
+      <CAP2_R0040_C1 />
+      <CAP2_R0040_C2 />
+      <CAP2_R0041_C1 />
+      <CAP2_R0041_C2 />
+      <CAP2_R0050_C1 />
+      <CAP2_R0050_C2 />
+      <CAP2_R0051_C1 />
+      <CAP2_R0051_C2 />
+      <CAP2_R0060_C1 />
+      <CAP2_R0060_C2 />
+      <CAP2_R0070_C1 />
+      <CAP2_R0070_C2 />
+      <CAP2_R0080_C1 />
+      <CAP2_R0080_C2 />
+      <CAP22_R0100_C1 />
+      <CAP22_R0100_C2 />
+      <CAP22_R0100_C3 />
+      <CAP22_R0100_C4 />
+      <CAP22_R0100_C5 />
+      <CAP22_R0100_C6 />
+      <CAP22_R0100_C7 />
+      <CAP22_R0100_C8 />
+      <CAP22_R0200_C1 />
+      <CAP22_R0200_C2 />
+      <CAP22_R0200_C3 />
+      <CAP22_R0200_C4 />
+      <CAP22_R0200_C5 />
+      <CAP22_R0200_C6 />
+      <CAP22_R0200_C7 />
+      <CAP22_R0200_C8 />
+      <CAP22_R0300_C1 />
+      <CAP22_R0300_C2 />
+      <CAP22_R0300_C3 />
+      <CAP22_R0300_C4 />
+      <CAP22_R0300_C5 />
+      <CAP22_R0300_C6 />
+      <CAP22_R0300_C7 />
+      <CAP22_R0300_C8 />
+      <CAP22_R0400_C1 />
+      <CAP22_R0400_C2 />
+      <CAP22_R0400_C3 />
+      <CAP22_R0400_C4 />
+      <CAP22_R0400_C5 />
+      <CAP22_R0400_C6 />
+      <CAP22_R0400_C7 />
+      <CAP22_R0400_C8 />
+      <CAP3_R010_C1>2667</CAP3_R010_C1>
+      <CAP3_R010_C2>4252</CAP3_R010_C2>
+      <CAP3_R010_C3 />
+      <CAP3_R010_C4 />
+      <CAP3_R010_C5 />
+      <CAP3_R010_C6>6449</CAP3_R010_C6>
+      <CAP3_R010_C7>6449</CAP3_R010_C7>
+      <CAP3_R010_C8 />
+      <CAP3_R010_C9 />
+      <CAP3_R010_C10 />
+      <CAP3_R010_C11 />
+      <CAP3_R010_C12 />
+      <CAP3_R010_C13 />
+      <CAP3_R010_C14 />
+      <CAP3_R010_C15 />
+      <CAP3_R010_C16>470</CAP3_R010_C16>
+      <CAP3_R011_C1>2627</CAP3_R011_C1>
+      <CAP3_R011_C2>4252</CAP3_R011_C2>
+      <CAP3_R011_C3 />
+      <CAP3_R011_C4 />
+      <CAP3_R011_C5 />
+      <CAP3_R011_C6>6449</CAP3_R011_C6>
+      <CAP3_R011_C7>6449</CAP3_R011_C7>
+      <CAP3_R011_C8 />
+      <CAP3_R011_C9 />
+      <CAP3_R011_C10 />
+      <CAP3_R011_C11 />
+      <CAP3_R011_C12 />
+      <CAP3_R011_C13 />
+      <CAP3_R011_C14 />
+      <CAP3_R011_C15 />
+      <CAP3_R011_C16>430</CAP3_R011_C16>
+      <CAP3_R012_C1 />
+      <CAP3_R012_C2 />
+      <CAP3_R012_C3 />
+      <CAP3_R012_C4 />
+      <CAP3_R012_C5 />
+      <CAP3_R012_C6 />
+      <CAP3_R012_C7 />
+      <CAP3_R012_C8 />
+      <CAP3_R012_C9 />
+      <CAP3_R012_C10 />
+      <CAP3_R012_C11 />
+      <CAP3_R012_C12 />
+      <CAP3_R012_C13 />
+      <CAP3_R012_C14 />
+      <CAP3_R012_C15 />
+      <CAP3_R012_C16 />
+      <CAP3_R013_C1 />
+      <CAP3_R013_C2 />
+      <CAP3_R013_C3 />
+      <CAP3_R013_C4 />
+      <CAP3_R013_C5 />
+      <CAP3_R013_C6 />
+      <CAP3_R013_C7 />
+      <CAP3_R013_C8 />
+      <CAP3_R013_C9 />
+      <CAP3_R013_C10 />
+      <CAP3_R013_C11 />
+      <CAP3_R013_C12 />
+      <CAP3_R013_C13 />
+      <CAP3_R013_C14 />
+      <CAP3_R013_C15 />
+      <CAP3_R013_C16 />
+      <CAP3_R014_C1 />
+      <CAP3_R014_C2 />
+      <CAP3_R014_C3 />
+      <CAP3_R014_C4 />
+      <CAP3_R014_C5 />
+      <CAP3_R014_C6 />
+      <CAP3_R014_C7 />
+      <CAP3_R014_C8 />
+      <CAP3_R014_C9 />
+      <CAP3_R014_C10 />
+      <CAP3_R014_C11 />
+      <CAP3_R014_C12 />
+      <CAP3_R014_C13 />
+      <CAP3_R014_C14 />
+      <CAP3_R014_C15 />
+      <CAP3_R014_C16 />
+      <CAP3_R015_C1>40</CAP3_R015_C1>
+      <CAP3_R015_C2 />
+      <CAP3_R015_C3 />
+      <CAP3_R015_C4 />
+      <CAP3_R015_C5 />
+      <CAP3_R015_C6 />
+      <CAP3_R015_C7 />
+      <CAP3_R015_C8 />
+      <CAP3_R015_C9 />
+      <CAP3_R015_C10 />
+      <CAP3_R015_C11 />
+      <CAP3_R015_C12 />
+      <CAP3_R015_C13 />
+      <CAP3_R015_C14 />
+      <CAP3_R015_C15 />
+      <CAP3_R015_C16>40</CAP3_R015_C16>
+      <CAP3_R016_C1 />
+      <CAP3_R016_C2 />
+      <CAP3_R016_C3 />
+      <CAP3_R016_C4 />
+      <CAP3_R016_C5 />
+      <CAP3_R016_C6 />
+      <CAP3_R016_C7 />
+      <CAP3_R016_C8 />
+      <CAP3_R016_C9 />
+      <CAP3_R016_C10 />
+      <CAP3_R016_C11 />
+      <CAP3_R016_C12 />
+      <CAP3_R016_C13 />
+      <CAP3_R016_C14 />
+      <CAP3_R016_C15 />
+      <CAP3_R016_C16 />
+      <CAP3_R017_C1 />
+      <CAP3_R017_C2 />
+      <CAP3_R017_C3 />
+      <CAP3_R017_C4 />
+      <CAP3_R017_C5 />
+      <CAP3_R017_C6 />
+      <CAP3_R017_C7 />
+      <CAP3_R017_C8 />
+      <CAP3_R017_C9 />
+      <CAP3_R017_C10 />
+      <CAP3_R017_C11 />
+      <CAP3_R017_C12 />
+      <CAP3_R017_C13 />
+      <CAP3_R017_C14 />
+      <CAP3_R017_C15 />
+      <CAP3_R017_C16 />
+      <CAP3_R018_C1 />
+      <CAP3_R018_C2 />
+      <CAP3_R018_C3 />
+      <CAP3_R018_C4 />
+      <CAP3_R018_C5 />
+      <CAP3_R018_C6 />
+      <CAP3_R018_C7 />
+      <CAP3_R018_C8 />
+      <CAP3_R018_C9 />
+      <CAP3_R018_C10 />
+      <CAP3_R018_C11 />
+      <CAP3_R018_C12 />
+      <CAP3_R018_C13 />
+      <CAP3_R018_C14 />
+      <CAP3_R018_C15 />
+      <CAP3_R018_C16 />
+      <CAP3_R020_C1 />
+      <CAP3_R020_C2 />
+      <CAP3_R020_C3 />
+      <CAP3_R020_C4 />
+      <CAP3_R020_C5 />
+      <CAP3_R020_C6 />
+      <CAP3_R020_C7 />
+      <CAP3_R020_C8 />
+      <CAP3_R020_C9 />
+      <CAP3_R020_C10 />
+      <CAP3_R020_C11 />
+      <CAP3_R020_C12 />
+      <CAP3_R020_C13 />
+      <CAP3_R020_C14 />
+      <CAP3_R020_C15 />
+      <CAP3_R020_C16 />
+      <CAP3_R030_C1>25</CAP3_R030_C1>
+      <CAP3_R030_C2 />
+      <CAP3_R030_C3 />
+      <CAP3_R030_C4 />
+      <CAP3_R030_C5 />
+      <CAP3_R030_C6 />
+      <CAP3_R030_C7 />
+      <CAP3_R030_C8 />
+      <CAP3_R030_C9 />
+      <CAP3_R030_C10 />
+      <CAP3_R030_C11 />
+      <CAP3_R030_C12 />
+      <CAP3_R030_C13 />
+      <CAP3_R030_C14 />
+      <CAP3_R030_C15 />
+      <CAP3_R030_C16>25</CAP3_R030_C16>
+      <CAP3_R040_C1 />
+      <CAP3_R040_C2 />
+      <CAP3_R040_C3 />
+      <CAP3_R040_C4 />
+      <CAP3_R040_C5 />
+      <CAP3_R040_C6 />
+      <CAP3_R040_C7 />
+      <CAP3_R040_C8 />
+      <CAP3_R040_C9 />
+      <CAP3_R040_C10 />
+      <CAP3_R040_C11 />
+      <CAP3_R040_C12 />
+      <CAP3_R040_C13 />
+      <CAP3_R040_C14 />
+      <CAP3_R040_C15 />
+      <CAP3_R040_C16 />
+      <CAP3_R050_C1 />
+      <CAP3_R050_C2 />
+      <CAP3_R050_C3 />
+      <CAP3_R050_C4 />
+      <CAP3_R050_C5 />
+      <CAP3_R050_C6 />
+      <CAP3_R050_C7 />
+      <CAP3_R050_C8 />
+      <CAP3_R050_C9 />
+      <CAP3_R050_C10 />
+      <CAP3_R050_C11 />
+      <CAP3_R050_C12 />
+      <CAP3_R050_C13 />
+      <CAP3_R050_C14 />
+      <CAP3_R050_C15 />
+      <CAP3_R050_C16 />
+      <CAP3_R060_C1 />
+      <CAP3_R060_C2 />
+      <CAP3_R060_C3 />
+      <CAP3_R060_C4 />
+      <CAP3_R060_C5 />
+      <CAP3_R060_C6 />
+      <CAP3_R060_C7 />
+      <CAP3_R060_C8 />
+      <CAP3_R060_C9 />
+      <CAP3_R060_C10 />
+      <CAP3_R060_C11 />
+      <CAP3_R060_C12 />
+      <CAP3_R060_C13 />
+      <CAP3_R060_C14 />
+      <CAP3_R060_C15 />
+      <CAP3_R060_C16 />
+      <CAP3_R061_C1 />
+      <CAP3_R061_C2 />
+      <CAP3_R061_C3 />
+      <CAP3_R061_C4 />
+      <CAP3_R061_C5 />
+      <CAP3_R061_C6 />
+      <CAP3_R061_C7 />
+      <CAP3_R061_C8 />
+      <CAP3_R061_C9 />
+      <CAP3_R061_C10 />
+      <CAP3_R061_C11 />
+      <CAP3_R061_C12 />
+      <CAP3_R061_C13 />
+      <CAP3_R061_C14 />
+      <CAP3_R061_C15 />
+      <CAP3_R061_C16 />
+      <CAP3_R062_C1 />
+      <CAP3_R062_C2 />
+      <CAP3_R062_C3 />
+      <CAP3_R062_C4 />
+      <CAP3_R062_C5 />
+      <CAP3_R062_C6 />
+      <CAP3_R062_C7 />
+      <CAP3_R062_C8 />
+      <CAP3_R062_C9 />
+      <CAP3_R062_C10 />
+      <CAP3_R062_C11 />
+      <CAP3_R062_C12 />
+      <CAP3_R062_C13 />
+      <CAP3_R062_C14 />
+      <CAP3_R062_C15 />
+      <CAP3_R062_C16 />
+      <CAP3_R063_C1 />
+      <CAP3_R063_C2 />
+      <CAP3_R063_C3 />
+      <CAP3_R063_C4 />
+      <CAP3_R063_C5 />
+      <CAP3_R063_C6 />
+      <CAP3_R063_C7 />
+      <CAP3_R063_C8 />
+      <CAP3_R063_C9 />
+      <CAP3_R063_C10 />
+      <CAP3_R063_C11 />
+      <CAP3_R063_C12 />
+      <CAP3_R063_C13 />
+      <CAP3_R063_C14 />
+      <CAP3_R063_C15 />
+      <CAP3_R063_C16 />
+      <CAP3_R070_C1 />
+      <CAP3_R070_C2 />
+      <CAP3_R070_C3 />
+      <CAP3_R070_C4 />
+      <CAP3_R070_C5 />
+      <CAP3_R070_C6 />
+      <CAP3_R070_C7 />
+      <CAP3_R070_C8 />
+      <CAP3_R070_C9 />
+      <CAP3_R070_C10 />
+      <CAP3_R070_C11 />
+      <CAP3_R070_C12 />
+      <CAP3_R070_C13 />
+      <CAP3_R070_C14 />
+      <CAP3_R070_C15 />
+      <CAP3_R070_C16 />
+      <CAP3_R080_C1>6597</CAP3_R080_C1>
+      <CAP3_R080_C2>35145</CAP3_R080_C2>
+      <CAP3_R080_C3 />
+      <CAP3_R080_C4 />
+      <CAP3_R080_C5 />
+      <CAP3_R080_C6>35637</CAP3_R080_C6>
+      <CAP3_R080_C7>35637</CAP3_R080_C7>
+      <CAP3_R080_C8 />
+      <CAP3_R080_C9 />
+      <CAP3_R080_C10 />
+      <CAP3_R080_C11 />
+      <CAP3_R080_C12 />
+      <CAP3_R080_C13 />
+      <CAP3_R080_C14 />
+      <CAP3_R080_C15 />
+      <CAP3_R080_C16>6105</CAP3_R080_C16>
+      <CAP3_R081_C1>6597</CAP3_R081_C1>
+      <CAP3_R081_C2>22862</CAP3_R081_C2>
+      <CAP3_R081_C3 />
+      <CAP3_R081_C4 />
+      <CAP3_R081_C5 />
+      <CAP3_R081_C6>24526</CAP3_R081_C6>
+      <CAP3_R081_C7>24526</CAP3_R081_C7>
+      <CAP3_R081_C8 />
+      <CAP3_R081_C9 />
+      <CAP3_R081_C10 />
+      <CAP3_R081_C11 />
+      <CAP3_R081_C12 />
+      <CAP3_R081_C13 />
+      <CAP3_R081_C14 />
+      <CAP3_R081_C15 />
+      <CAP3_R081_C16>4933</CAP3_R081_C16>
+      <CAP3_R082_C1>0</CAP3_R082_C1>
+      <CAP3_R082_C2>0</CAP3_R082_C2>
+      <CAP3_R082_C3 />
+      <CAP3_R082_C4 />
+      <CAP3_R082_C5 />
+      <CAP3_R082_C6 />
+      <CAP3_R082_C7 />
+      <CAP3_R082_C8 />
+      <CAP3_R082_C9 />
+      <CAP3_R082_C10 />
+      <CAP3_R082_C11 />
+      <CAP3_R082_C12 />
+      <CAP3_R082_C13 />
+      <CAP3_R082_C14 />
+      <CAP3_R082_C15 />
+      <CAP3_R082_C16>0</CAP3_R082_C16>
+      <CAP3_R083_C1>0</CAP3_R083_C1>
+      <CAP3_R083_C2>0</CAP3_R083_C2>
+      <CAP3_R083_C3 />
+      <CAP3_R083_C4 />
+      <CAP3_R083_C5 />
+      <CAP3_R083_C6 />
+      <CAP3_R083_C7 />
+      <CAP3_R083_C8 />
+      <CAP3_R083_C9 />
+      <CAP3_R083_C10 />
+      <CAP3_R083_C11 />
+      <CAP3_R083_C12 />
+      <CAP3_R083_C13 />
+      <CAP3_R083_C14 />
+      <CAP3_R083_C15 />
+      <CAP3_R083_C16>0</CAP3_R083_C16>
+      <CAP3_R084_C1>0</CAP3_R084_C1>
+      <CAP3_R084_C2>7959</CAP3_R084_C2>
+      <CAP3_R084_C3 />
+      <CAP3_R084_C4 />
+      <CAP3_R084_C5 />
+      <CAP3_R084_C6>6787</CAP3_R084_C6>
+      <CAP3_R084_C7>6787</CAP3_R084_C7>
+      <CAP3_R084_C8 />
+      <CAP3_R084_C9 />
+      <CAP3_R084_C10 />
+      <CAP3_R084_C11 />
+      <CAP3_R084_C12 />
+      <CAP3_R084_C13 />
+      <CAP3_R084_C14 />
+      <CAP3_R084_C15 />
+      <CAP3_R084_C16>1172</CAP3_R084_C16>
+      <CAP3_R110_C1>1352</CAP3_R110_C1>
+      <CAP3_R110_C2>1486</CAP3_R110_C2>
+      <CAP3_R110_C3 />
+      <CAP3_R110_C4 />
+      <CAP3_R110_C5 />
+      <CAP3_R110_C6>2501</CAP3_R110_C6>
+      <CAP3_R110_C7>2501</CAP3_R110_C7>
+      <CAP3_R110_C8 />
+      <CAP3_R110_C9 />
+      <CAP3_R110_C10 />
+      <CAP3_R110_C11 />
+      <CAP3_R110_C12 />
+      <CAP3_R110_C13 />
+      <CAP3_R110_C14 />
+      <CAP3_R110_C15 />
+      <CAP3_R110_C16>337</CAP3_R110_C16>
+      <CAP3_R111_C1>1352</CAP3_R111_C1>
+      <CAP3_R111_C2>1486</CAP3_R111_C2>
+      <CAP3_R111_C3 />
+      <CAP3_R111_C4 />
+      <CAP3_R111_C5 />
+      <CAP3_R111_C6>2501</CAP3_R111_C6>
+      <CAP3_R111_C7>2501</CAP3_R111_C7>
+      <CAP3_R111_C8 />
+      <CAP3_R111_C9 />
+      <CAP3_R111_C10 />
+      <CAP3_R111_C11 />
+      <CAP3_R111_C12 />
+      <CAP3_R111_C13 />
+      <CAP3_R111_C14 />
+      <CAP3_R111_C15 />
+      <CAP3_R111_C16>337</CAP3_R111_C16>
+      <CAP3_R230_C1 />
+      <CAP3_R230_C2 />
+      <CAP3_R230_C3 />
+      <CAP3_R230_C4 />
+      <CAP3_R230_C5 />
+      <CAP3_R230_C6 />
+      <CAP3_R230_C7 />
+      <CAP3_R230_C8 />
+      <CAP3_R230_C9 />
+      <CAP3_R230_C10 />
+      <CAP3_R230_C11 />
+      <CAP3_R230_C12 />
+      <CAP3_R230_C13 />
+      <CAP3_R230_C14 />
+      <CAP3_R230_C15 />
+      <CAP3_R230_C16 />
+      <CAP3_R240_C1 />
+      <CAP3_R240_C2 />
+      <CAP3_R240_C3 />
+      <CAP3_R240_C4 />
+      <CAP3_R240_C5 />
+      <CAP3_R240_C6 />
+      <CAP3_R240_C7 />
+      <CAP3_R240_C8 />
+      <CAP3_R240_C9 />
+      <CAP3_R240_C10 />
+      <CAP3_R240_C11 />
+      <CAP3_R240_C12 />
+      <CAP3_R240_C13 />
+      <CAP3_R240_C14 />
+      <CAP3_R240_C15 />
+      <CAP3_R240_C16 />
+      <CAP3_R270_C1 />
+      <CAP3_R270_C2 />
+      <CAP3_R270_C3 />
+      <CAP3_R270_C4 />
+      <CAP3_R270_C5 />
+      <CAP3_R270_C6 />
+      <CAP3_R270_C7 />
+      <CAP3_R270_C8 />
+      <CAP3_R270_C9 />
+      <CAP3_R270_C10 />
+      <CAP3_R270_C11 />
+      <CAP3_R270_C12 />
+      <CAP3_R270_C13 />
+      <CAP3_R270_C14 />
+      <CAP3_R270_C15 />
+      <CAP3_R270_C16 />
+    </Data>
+  </DataSet>
+</dec>	5	16_agr_23	4/2/2025 11:34:20 AM			15808570	0	1	OK
+
+
+
+
+
+
+
+
+Eu am facut o interogare 
+SELECT 
+REGEXP_SUBSTR(XML_NODE_NAME, 'R[0-9]+') MOD_XML_NODE_NAME,
+              XML_NODE_NAME,
+              XML_NODE_VALUE
+            FROM 
+              XMLTABLE('//dec/DataSet/Data/*' PASSING   
+                (SELECT  xmltype(XML) FROM F_XML_FORMS 
+                WHERE 
+                FORMID IN (24374011)
+--                 DATA_REG >= TO_DATE('01/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+                 AND 
+                FORM_TYPE = '16_agr_23'
+                
+                )
+                 COLUMNS 
+                 XML_NODE_NAME VARCHAR2(100) PATH 'name()',
+                 XML_NODE_VALUE VARCHAR2(100) PATH 'text()' 
+            )
+            
+             WHERE
+             TRIM(REGEXP_SUBSTR(XML_NODE_NAME, 'R[0-9]+')) IN ('R0688','R0689','R0690','R0691','R0692','R0693','R0694','R0695','R0696'
+             ,'R0697','R0698','R0699','R0700','R0700','R0701','R0702','R0703','R0704','R0705')
+
+
+
+             care afiseaza 
+
+R0688	CAP11_R0688_C1	
+R0689	CAP11_R0689_C1	
+R0690	CAP11_R0690_C1	
+R0691	CAP11_R0691_C1	
+R0692	CAP11_R0692_C1	
+R0693	CAP11_R0693_C1	
+R0694	CAP11_R0694_C1	
+R0695	CAP11_R0695_C1	
+R0696	CAP11_R0696_C1	40
+R0697	CAP11_R0697_C1	1430
+R0698	CAP11_R0698_C1	2
+R0699	CAP11_R0699_C1	88
+R0700	CAP11_R0700_C1	
+R0701	CAP11_R0701_C1	
+R0702	CAP11_R0702_C1	
+R0703	CAP11_R0703_C1	
+R0704	CAP11_R0704_C1	1518
+R0705	CAP11_R0705_C1	1363
+
+
+Acum modifica interogarea ca sa fie inca o coloana cu CUIIO si IDNO 
+
+
+si conditia pentru WHERE 
+
+sa fie 
+                DATA_REG >= TO_DATE('01/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+           AND 
+                FORM_TYPE = '16_agr_23'
+
+                AND 
+                STATUS  =  '4'
