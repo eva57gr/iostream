@@ -1,6 +1,6 @@
 SELECT
          DISTINCT  
-            D.CUIIO NR_ROW,
+           TRIM(D.CUIIO)  NR_ROW,
            MAX(D.PACHET) AS COL1
            
       FROM CIS2.DATA_ALL D
@@ -8,6 +8,6 @@ SELECT
       WHERE 
          D.FORM = 71 AND
          D.PERIOADA IN (:pPERIOADA)
-          AND D.CUIIO = 277954
+          AND D.CUIIO IN  (277954,40174000)
       GROUP BY 
          D.CUIIO

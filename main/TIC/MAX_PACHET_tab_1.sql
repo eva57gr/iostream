@@ -10,6 +10,7 @@ DECLARE
       WHERE 
          D.FORM = 71 AND
          D.PERIOADA IN (:pPERIOADA)
+         AND D.CUIIO IN  (277954,40174000)
       GROUP BY 
          D.CUIIO
       ;
