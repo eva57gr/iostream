@@ -54,11 +54,11 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (4) AND CUIIO_VERS <= 2014
+                                  WHERE FORM IN (44) AND CUIIO_VERS <= 1064
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (4) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (44) AND FC.STATUT <> '3'
            --  AND FC.FORM_VERS = 2011
              
              
@@ -68,9 +68,12 @@ SELECT     R.CUIIO,
                
                RIGHT  JOIN (
                
-               SELECT CUIIO
-               
-        FROM USER_BANCU.TR_AUTO_2025
+              SELECT 
+    DISTINCT D.CUIIO 
+        FROM CIS2.VW_DATA_ALL  D
+        WHERE
+        D.FORM IN(:pFORM) AND
+        D.PERIOADA IN (:pPERIOADA)
         
 
         
@@ -78,7 +81,7 @@ SELECT     R.CUIIO,
                
                
                WHERE 
-               R.CUIIO IS    NOT  NULL  
+               R.CUIIO IS     NULL  
            --    )
                
 
