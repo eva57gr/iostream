@@ -22,7 +22,7 @@
                     WHERE 
                     D.PERIOADA IN (1063)
                     AND D.FORM IN (45)
-                    
+                    AND MR.DEN_SHORT IN ('Cap.I')
                     
                    
                 GROUP BY
