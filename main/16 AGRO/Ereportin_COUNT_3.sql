@@ -1,6 +1,3 @@
-
-
-
-
-            SELECT FROM 
-            USER_BANCU.F_XML_FORMS
+SELECT * 
+FROM USER_BANCU.F_XML_FORMS;
+            
