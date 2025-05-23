@@ -87,8 +87,8 @@ GROUP BY CC.DENUMIRE,
 WHERE
   PRGS IN ('2')
 ORDER BY
-  FULL_CODE,
-  ORDINE    
+  FULL_CODE
+   
   ) D
   
   LEFT JOIN   
@@ -139,3 +139,9 @@ ORDER BY
   
   
   ) DD ON  D.CODUL =DD.CODUL
+  
+  
+  ORDER BY
+  D.FULL_CODE
+  
+  
