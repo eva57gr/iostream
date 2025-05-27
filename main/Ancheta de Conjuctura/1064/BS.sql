@@ -65,7 +65,7 @@ FROM CIS2.X_BAZA_SONDAJ
 
 WHERE
 
-ANUL = 2024
+ANUL = 2025
 --AND PERS_IT <> 0
 
              ) R ON R.CUIIO = L.CUIIO
@@ -82,3 +82,5 @@ ANUL = 2024
              R.CUIIO IS NULL
 
 --)
+
+------------------------------------------------
