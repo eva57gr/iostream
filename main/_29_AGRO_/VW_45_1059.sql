@@ -1,0 +1,3 @@
+
+      SELECT *  
+      FROM   USER_BANCU.VW_45_1059
