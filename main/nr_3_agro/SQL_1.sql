@@ -18,7 +18,7 @@
                          TRIM(SUM(D.COL7)) AS COL5
                          
                          
-                         
+                         ------------------------------------------------
                 
                 
                            FROM CIS2.VW_DATA_ALL D 
