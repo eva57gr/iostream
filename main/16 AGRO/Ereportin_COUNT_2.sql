@@ -51,7 +51,7 @@ WHERE
       'R0704','R0705'
   )
   
-  
+  AND x.XML_NODE_VALUE IS NOT NULL
   
   ORDER BY
   f.DATA_REG DESC 
