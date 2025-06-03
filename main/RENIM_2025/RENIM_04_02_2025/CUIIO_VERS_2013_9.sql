@@ -39,4 +39,63 @@ AND
 
 FORM IN (43)
 
+ ;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select DISTINCT 
+ CUIIO,
+ CUIIO_VERS 
+ 
+ from USER_EREPORTING.DATA_ALL
+ 
+ WHERE
+ 
+ 
+ PERIOADA IN (:pPERIOADA)
+             and CUIIO LIKE :pCUIIO||'%'
+
+
+AND 
+
+FORM IN (43)
+
+ 
+;
+
+
+
+select DISTINCT 
+ CUIIO,
+ CUIIO_VERS 
+ 
+ from USER_EREPORTING.DATA_ALL_PRIMIT
+ 
+ WHERE
+ 
+ PERIOADA IN (:pPERIOADA)
+             and CUIIO LIKE :pCUIIO||'%'
+
+
+AND 
+
+FORM IN (43)
+
  
