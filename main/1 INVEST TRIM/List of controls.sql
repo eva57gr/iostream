@@ -17,12 +17,12 @@ SELECT
       
       
         
-        FROM CIS2.MD_CONTROL B  INNER JOIN (
+        FROM CIS.MD_CONTROL B  INNER JOIN (
         SELECT 
         A.CONTROL, 
         MAX(A.CONTROL_VERS) CONTROL_VERS
         
-        FROM CIS2.MD_CONTROL A
+        FROM CIS.MD_CONTROL A
         
         
          WHERE
