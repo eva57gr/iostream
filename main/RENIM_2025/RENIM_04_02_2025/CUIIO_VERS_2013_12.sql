@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 --INSERT INTO CIS2.FORM_CUIIO R (
 --        CUIIO,
 --        CUIIO_VERS,
@@ -9,34 +9,14 @@
 --
 
 
---SELECT * 
---
---
--- FROM CIS2.FORM_CUIIO 
--- 
--- WHERE
--- 
--- CUIIO IN (
---
---
---
---SELECT 
---        L.CUIIO
---        2013 CUIIO_VERS,
---        27 FORM,
---        2000    FORM_VERS,
---        '1' STATUT
---        
---        FROM 
---
---
---(
 
 
 SELECT   
-         L.CUIIO 
-         -- R_CUIIO,       
-        -- L.CUIIO  CUIIO
+         L.CUIIO, 
+        2014 CUIIO_VERS,
+        43 FORM,
+        2000    FORM_VERS,
+        '1' STATUT
          
          FROM (
 
@@ -54,11 +34,11 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (17) AND CUIIO_VERS <= 2013
+                                  WHERE FORM IN (43) AND CUIIO_VERS <= 2014
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (17) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (43) AND FC.STATUT <> '3'
            --  AND FC.FORM_VERS = 2011
              
              
@@ -70,11 +50,48 @@ SELECT     R.CUIIO,
                
               SELECT 
     DISTINCT D.CUIIO 
-        FROM CIS2.VW_DATA_ALL  D
+        FROM CIS2.RENIM  D
         WHERE
-        D.FORM IN(:pFORM) AND
-        D.PERIOADA IN (:pPERIOADA)
+        CUIIO IN (
+
+41670244,
+40805989,
+40437356,
+38648749,
+40770972,
+41049863,
+40224608,
+40614031,
+41127882,
+40569543,
+40933865,
+37629000,
+2745187,
+40843205,
+40789316,
+41344295,
+41165204,
+41236045,
+41231740,
+41421966,
+2735562,
+41155074,
+40804949,
+41254155,
+40037711,
+41331884,
+38824531,
+41407251,
+38764970,
+40900966
+ 
+
+       )
         
+        AND CUIIO_VERS = 2014
+        
+        
+
 
         
                ) L ON L.CUIIO = R.CUIIO
