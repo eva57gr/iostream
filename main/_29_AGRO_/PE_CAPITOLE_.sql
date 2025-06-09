@@ -20,7 +20,7 @@
                         INNER JOIN CIS2.MD_CAPITOL MR ON MR.CAPITOL = D.CAPITOL AND MR.CAPITOL_VERS = D.CAPITOL_VERS  
             
                     WHERE 
-                    D.PERIOADA IN (1063)
+                    D.PERIOADA IN (1064)
                     AND D.FORM IN (45)
                     AND MR.DEN_SHORT IN ('Cap.I')
                     
@@ -35,6 +35,7 @@
                 MR.DEN_SHORT
                 
                 ORDER BY
+                R.CUATM,
                 D.CUIIO,
                 MR.DEN_SHORT,
                 D.RIND
