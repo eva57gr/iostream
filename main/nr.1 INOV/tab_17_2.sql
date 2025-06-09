@@ -1,9 +1,19 @@
+--SELECT 
+--D.CUIIO,
+--D.CAEM2,
+--COL1
+--FROM
+--(
 SELECT DISTINCT
       D.CUIIO,
+      R.DENUMIRE,
+      R.CUATM,
       D.CAEM2,
+      R.IDNO,
       COUNT(DISTINCT CASE WHEN D.CAPITOL||'.'||D.RIND IN ('1041.2.1.1','1041.2.1.2', '1042.3.1.1','1042.3.1.2','1042.3.1.3','1046.7.1.1','1046.7.1.2','1046.7.1.3','1047.8.1.1','1047.8.1.2','1047.8.1.3','1047.8.1.4') AND D.COL1=1 THEN 1 END) AS COL1
        FROM
-      CIS2.VW_DATA_ALL D  
+      CIS2.VW_DATA_ALL D  INNER JOIN 
+                          CIs2.RENIM R ON R.CUIIO = D.CUIIO  AND R.CUIIO_VERS = D.CUIIO_VERS 
     WHERE
       D.PERIOADA IN (:pPERIOADA) AND 
       D.FORM_VERS = :pFORM_VERS     AND   
@@ -13,8 +23,17 @@ SELECT DISTINCT
       D.FORM IN (48)
     GROUP BY
       D.CUIIO,
-      D.CAEM2
-      
+      R.DENUMIRE,
+      R.CUATM,
+      D.CAEM2,
+      R.IDNO
       HAVING 
       
       COUNT(DISTINCT CASE WHEN D.CAPITOL||'.'||D.RIND IN ('1041.2.1.1','1041.2.1.2', '1042.3.1.1','1042.3.1.2','1042.3.1.3','1046.7.1.1','1046.7.1.2','1046.7.1.3','1047.8.1.1','1047.8.1.2','1047.8.1.3','1047.8.1.4') AND D.COL1=1 THEN 1 END) = 1
+      
+      
+      ORDER BY
+      R.CUATM
+      
+  --    ) D
+      
