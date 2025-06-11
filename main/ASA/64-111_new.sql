@@ -55,8 +55,8 @@ LEFT JOIN (
         PRIM IN ('1') AND 
         (
             SUBSTR(CODUL, 2, 2) IN ('47', '45') 
-            --OR 
-            --SUBSTR(CODUL, 2, 3) IN ('461')
+         --   64-111	ASA - CAP.1 Daca sunt completate rd. 111  în CAP.4 trebuie sa fie un CAEM ?i anume G451, 4532, 454, 47
+
         )
 ) B ON B.COL3 = A.CAEM2
 
