@@ -67,3 +67,8 @@ COUNT(B.COL3) = 0
 
 AND 
 MAX(A.CAEM2)  IS NOT NULL
+
+
+--CAP.1 Daca sunt completate rd. 112 CAEM în CAP.4 trebuie sa fie un CAEM ?i anume G45 sau G46
+
+--64-112	ASA - CAP.1 Daca sunt completate rd. 112  în CAP.4 trebuie sa fie un CAEM ?i anume  3514, 3523, 451, 4531, 454, 462-469
