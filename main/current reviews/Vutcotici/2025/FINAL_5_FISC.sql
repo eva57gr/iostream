@@ -1,4 +1,4 @@
-
+*
 
    SELECT 
     COD_STATUS,  
