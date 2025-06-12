@@ -1,8 +1,6 @@
 SELECT FC.CUIIO,
        FC.CUIIO_VERS  
-              FROM
-
-(
+              FROM(
 SELECT FC.CUIIO,
                    FC.CUIIO_VERS,
                    FC.FORM,
@@ -19,8 +17,6 @@ SELECT FC.CUIIO,
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
              --and FC.FORM_VERS = 1004 
-             
-             
              
              ) FC
              
@@ -40,25 +36,6 @@ AND
 FORM IN (43)
 
  ;
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  select DISTINCT 
  CUIIO,
@@ -96,6 +73,23 @@ select DISTINCT
 
 AND 
 
+FORM IN (43);
+
+
+select DISTINCT 
+ CUIIO,
+ CUIIO_VERS 
+ 
+ from CIS2.DATA_ALL
+ 
+ WHERE
+ 
+ PERIOADA IN (:pPERIOADA)
+             and CUIIO LIKE :pCUIIO||'%'
+
+
+AND 
+
 FORM IN (43)
 
- 
+ --41301386
