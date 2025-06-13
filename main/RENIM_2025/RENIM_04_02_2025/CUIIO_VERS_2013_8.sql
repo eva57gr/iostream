@@ -10,7 +10,7 @@ SELECT
   D.CAEM, ----------------------
   D.IDNO    
 
-FROM USER_BANCU.CFP_1064 D
+FROM USER_BANCU.INVEST_1_TRIM D
 
                                 
 --                                
@@ -23,13 +23,13 @@ FROM USER_BANCU.CFP_1064 D
                                 
                            
 
-                     --  LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
+                    --    LEFT JOIN  USER_BANCU.VW_MAX_RENIM_CIS2   DD ON DD.CUIIO = D.CUIIO    
                                 
                       -- LEFT JOIN CIS.VW_CL_CUATM C ON C.CODUL =  D.CUATM
                         
                        --LEFT JOIN CIS2.VW_CL_CAEM2 C ON C.CODUL =  D.CAEM2
                         
-                       LEFT JOIN CIS2.VW_CL_CFP C ON C.CODUL =  D.CFP
+                      -- LEFT JOIN CIS2.VW_CL_CFP C ON C.CODUL =  D.CFP
                        
                         WHERE 
                         
