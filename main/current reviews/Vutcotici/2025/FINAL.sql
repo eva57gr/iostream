@@ -129,6 +129,6 @@ SELECT
                                     
                    
                    
-WHERE 
+--WHERE 
 
-CUATM LIKE '17%'
+--CUATM LIKE '17%'
