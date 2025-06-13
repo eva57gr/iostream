@@ -1,3 +1,5 @@
+------------------------------------------------------
+
 -- INSERT INTO CIS2.RENIM (
 -- 
 -- 
@@ -92,7 +94,7 @@ SELECT CUIIO
 
        )
         
-        AND CUIIO_VERS <> 2014
+      --  AND CUIIO_VERS <> 2014
         
         
 --        AND CUIIO NOT IN (
