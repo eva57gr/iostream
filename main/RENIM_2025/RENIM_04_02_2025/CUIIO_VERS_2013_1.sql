@@ -1,9 +1,7 @@
 ------------------------------------------------------
 
--- INSERT INTO CIS2.RENIM (
--- 
--- 
--- CUIIO,
+--INSERT INTO CIS2.RENIM (
+--    CUIIO,
 --    CUIIO_VERS,
 --    DENUMIRE,
 --    EDIT_USER,
@@ -45,7 +43,7 @@
 
 SELECT 
  CUIIO,
- 1065 CUIIO_VERS,
+ CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -94,7 +92,7 @@ SELECT CUIIO
 
        )
         
-        AND CUIIO_VERS <> 1065
+--        AND CUIIO_VERS <> 1065
         
         
 --        AND CUIIO NOT IN (
