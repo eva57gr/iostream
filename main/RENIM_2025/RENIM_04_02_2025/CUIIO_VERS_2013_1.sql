@@ -45,7 +45,7 @@
 
 SELECT 
  CUIIO,
- 2014 CUIIO_VERS,
+ 1065 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -81,8 +81,8 @@ SELECT
  IDNO
 
    
-                    FROM --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
-                    USER_BANCU.VW_MAX_RENIM_CIS2
+                    FROM USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
+                   -- USER_BANCU.VW_MAX_RENIM_CIS2
                     
                     WHERE 
                   
@@ -90,11 +90,11 @@ CUIIO IN (
 
 SELECT CUIIO
 
-    FROM USER_BANCU.K_4_AGRO_96
+    FROM USER_BANCU.INVEST_1_TRIM
 
        )
         
-      --  AND CUIIO_VERS <> 2014
+        AND CUIIO_VERS <> 1065
         
         
 --        AND CUIIO NOT IN (
