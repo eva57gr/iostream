@@ -1,17 +1,17 @@
---INSERT INTO CIS2.RENIM  (
---        CUIIO,
---        CUIIO_VERS,
---        DENUMIRE,
---        EDIT_USER,
---        STATUT,
---        CUATM,
---        CFP,
---        CFOJ,
---        CAEM2,
---        IDNO
---        
---        
---)
+INSERT INTO CIS2.RENIM  (
+        CUIIO,
+        CUIIO_VERS,
+        DENUMIRE,
+        EDIT_USER,
+        STATUT,
+        CUATM,
+        CFP,
+        CFOJ,
+        CAEM2,
+        IDNO
+        
+        
+)
 
 
 
@@ -31,7 +31,7 @@
         TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.KAT_112
-        FROM   USER_BANCU.K_4_AGRO_96 L
+        FROM   USER_BANCU.INVEST_1_TRIM L
         
              --   CIS.RENIM  L
         
@@ -41,5 +41,5 @@
                         
                         WHERE
                         
-                        C.CUIIO IS NOT  NULL  
+                        C.CUIIO IS  NULL  
                        -- AND C.CUIIO_VERS IS   NULL 

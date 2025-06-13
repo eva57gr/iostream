@@ -1,21 +1,21 @@
-------------------------------------------------------------------------------------
---INSERT INTO CIS2.FORM_CUIIO R (
---        CUIIO,
---        CUIIO_VERS,
---        FORM,
---        FORM_VERS,
---        STATUT 
---)
+----------------------------------------------------------------------------------
+INSERT INTO CIS2.FORM_CUIIO R (
+        CUIIO,
+        CUIIO_VERS,
+        FORM,
+        FORM_VERS,
+        STATUT 
+)
 
 
 
 
 
 SELECT   
-         L.CUIIO, 
-        2014 CUIIO_VERS,
-        43 FORM,
-        2000    FORM_VERS,
+        L.CUIIO, 
+        1065 CUIIO_VERS,
+        13 FORM,
+        1004    FORM_VERS,
         '1' STATUT
          
          FROM (
@@ -34,11 +34,11 @@ SELECT     R.CUIIO,
               FROM CIS2.FORM_CUIIO  FC
                    INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
                                    FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (43) AND CUIIO_VERS <= 2014
+                                  WHERE FORM IN (13) AND CUIIO_VERS <= 1065
                                GROUP BY CUIIO) BB
                        ON (    BB.CUIIO = FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE FC.FORM IN (43) AND FC.STATUT <> '3'
+             WHERE FC.FORM IN (13) AND FC.STATUT <> '3'
            --  AND FC.FORM_VERS = 2011
              
              
@@ -55,10 +55,10 @@ SELECT     R.CUIIO,
         CUIIO IN (
 
 SELECT CUIIO 
-FROM USER_BANCU.K_4_AGRO_96
+FROM USER_BANCU.INVEST_1_TRIM
        )
         
-        AND CUIIO_VERS = 2014
+        AND CUIIO_VERS = 1065
         
         
 
