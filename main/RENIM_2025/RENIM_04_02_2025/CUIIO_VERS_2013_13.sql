@@ -9,10 +9,10 @@ CURSOR C IS
         TRIM(L.DENUMIRE)  DENUMIRE,
         TRIM(L.CUATM) CUATM,
         TRIM(L.CFP) CFP,
-    --    TRIM(L.CFOJ) CFOJ,
+        TRIM(L.CFOJ) CFOJ,
         TRIM(L.CAEM2)  CAEM2,
         TRIM(L.IDNO)   IDNO
-        FROM   USER_BANCU.INVEST_1_TRIM L
+        FROM   USER_BANCU.INOV_1 L
   
  
             
