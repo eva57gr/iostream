@@ -1,4 +1,3 @@
-
 SELECT FC.CUIIO,
        FC.CUIIO_VERS
       
@@ -20,24 +19,8 @@ SELECT FC.CUIIO,
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             AND FC.FORM_VERS = 2009
+             AND FC.FORM_VERS = 2000
              ) FC
              
-             
---             WHERE
---             
---             FC.CUIIO IN (
---            SELECT
---               DISTINCT  CUIIO
---            FROM  USER_BANCU.IDNO
---
---          ) 
-
-   
---
---AND CUIIO_VERS = 2013
---AND FORM = 63
---
---AND FORM_VERS = 2000
---AND STATUT = '1'
---        
+             WHERE
+             FC.CUIIO_VERS <> 2013
