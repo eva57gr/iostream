@@ -29,10 +29,10 @@ FROM
       
       HAVING 
       
-      SUM(D.COL1) <> 0
+      NVAL(SUM(D.COL1)) <> 0
       
       OR 
-      SUM(D.COL2) <> 0
+      NVAL(SUM(D.COL2)) <> 0
       
       
       
