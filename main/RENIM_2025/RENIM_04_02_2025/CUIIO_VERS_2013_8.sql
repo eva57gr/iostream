@@ -10,7 +10,7 @@ SELECT
   D.CAEM, ----------------------
   D.IDNO    
 
-FROM USER_BANCU.INVEST_1_TRIM D
+FROM USER_BANCU.INOV_1 D
 
                                 
 --                                
