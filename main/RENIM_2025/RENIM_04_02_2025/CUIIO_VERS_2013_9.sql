@@ -75,12 +75,13 @@ AND
 
 FORM IN (43);
 
--------------------------------------------
+-------------------------------------------ss
 select DISTINCT 
  CUIIO,
- CUIIO_VERS 
+ CUIIO_VERS,
+ CUATM 
  
- from CIS2.DATA_ALL
+ from CIS2.VW_DATA_ALL
  
  WHERE
  
