@@ -75,7 +75,7 @@ AND
 
 FORM IN (43);
 
-
+-------------------------------------------
 select DISTINCT 
  CUIIO,
  CUIIO_VERS 
