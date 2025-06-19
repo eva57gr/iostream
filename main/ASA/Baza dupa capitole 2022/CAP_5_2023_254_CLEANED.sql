@@ -258,7 +258,7 @@ R.CAEM2,
      
 FROM   
 
-    CIS2.VW_DATA_ALL_COEF D    
+    CIS2.VW_DATA_ALL D    
      
      
     
