@@ -1,0 +1,46 @@
+SELECT 
+D.ANUL,
+D.CUIIO,
+R.IDNO,
+R.DENUMIRE,
+R.CUATM,-------------------
+R.CFP,
+R.CFOJ,
+R.CAEM2,
+D.RIND,
+SUM(D.COL1) AS COL1
+
+FROM  CIS2.VW_DATA_ALL D    
+    
+                    INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS  
+                    
+    WHERE
+     D.FORM_VERS = :PFORM_VERS  AND      
+  D.PERIOADA =:pPERIOADA AND
+  D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%'   AND
+  D.CAPITOL IN (100) 
+ 
+
+GROUP BY
+D.ANUL,
+D.CUIIO,
+R.IDNO,
+R.DENUMIRE,
+R.CUATM,-------------------
+R.CFP,
+R.CFOJ,
+R.CAEM2,
+D.RIND
+
+
+ORDER BY
+
+D.CUIIO,
+D.RIND
+
+
+                 
+  
+  
+  
+  
