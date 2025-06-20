@@ -1,0 +1,50 @@
+SELECT 
+    NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
+FROM (
+    SELECT
+        D.CUIIO,
+        SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('150') THEN NVAL(D.COL1) ELSE 0 END) AS COL1
+    FROM CIS2.VW_DATA_ALL_TEMP D
+    WHERE
+        (D.PERIOADA = :PERIOADA) AND
+        (D.CUIIO = :CUIIO) AND
+        (D.CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS = -1) AND
+        (D.FORM = :FORM) AND
+        (D.FORM_VERS = :FORM_VERS) AND
+        (D.CAPITOL = :CAPITOL OR :CAPITOL = -1) AND
+        (D.CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
+        (D.ID_MD = :ID_MD OR :ID_MD = -1) AND
+        D.FORM IN (64)
+    GROUP BY D.CUIIO
+) L 
+LEFT JOIN (
+    SELECT
+        D.CUIIO,
+        ROUND(SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1121.010') THEN D.COL2 ELSE NULL END) / 1000, 1) AS COL1,
+        ROUND(SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('57.1092.010') THEN D.COL2 ELSE NULL END) / 1000, 1) AS COL2
+    FROM CIS2.VW_DATA_ALL_FR D
+    WHERE
+        (D.PERIOADA = :PERIOADA) AND
+        (D.CUIIO = :CUIIO) AND
+        (:CUIIO_VERS = :CUIIO_VERS OR :CUIIO_VERS <> CUIIO_VERS) AND
+        (:FORM = :FORM OR :FORM <> :FORM) AND
+        (:FORM_VERS = :FORM_VERS OR :FORM_VERS <> :FORM_VERS) AND
+        (:CAPITOL = :CAPITOL OR :CAPITOL <> :CAPITOL) AND
+        (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
+        (:ID_MD = :ID_MD OR :ID_MD <> :ID_MD) AND
+        D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1121.010', '57.1092.010')
+    GROUP BY D.CUIIO
+) R ON R.CUIIO = L.CUIIO
+GROUP BY
+    L.CUIIO,
+    L.COL1,
+    R.COL1,
+    R.COL2
+HAVING
+    -- Ensures all columns are distinct and not all zero
+    NOT (
+        (NVL(L.COL1, 0) = NVL(R.COL1, 0) AND NVL(L.COL1, 0) <> 0) OR
+        (NVL(L.COL1, 0) = NVL(R.COL2, 0) AND NVL(L.COL1, 0) <> 0) OR
+        (NVL(R.COL1, 0) = NVL(R.COL2, 0) AND NVL(R.COL1, 0) <> 0)
+    )
+    AND (NVL(L.COL1, 0) <> 0 OR NVL(R.COL1, 0) <> 0 OR NVL(R.COL2, 0) <> 0)
