@@ -27,7 +27,7 @@ SELECT
         -------------------
          WHERE
          1=1
-         AND A.FORM  = 64
+         AND A.FORM  = 62
                
          GROUP BY 
           A.CONTROL
@@ -40,9 +40,9 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 64
-         AND B.STATUT <> '3'
-         AND B.FORM_VERS = 2000
+         AND B.FORM  = 62
+        -- AND B.STATUT <> '3'
+         AND B.FORM_VERS = 1004
                
          
          
