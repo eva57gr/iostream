@@ -1,10 +1,15 @@
+--De ce  330 <> .26  SUM(R.COL1) = .26 Dispare zero pana lavirgula
+
 SELECT 
-    NVAL(L.COL1) || ' <> ' || NVAL(R.COL2) || ' <> ' || NVAL(R.COL1) AS REZULTAT
+   -- SUM(L.COL1) || ' <> ' || SUM(R.COL1)  AS REZULTAT
+    
+    TO_CHAR(SUM(L.COL1), '9999990') || ' <> ' || TO_CHAR(SUM(R.COL1), '9999990.00') AS REZULTAT
 FROM (
     SELECT
         D.CUIIO,
-        SUM(CASE WHEN D.CAPITOL IN (1124) AND D.RIND IN ('150') THEN NVAL(D.COL1) ELSE 0 END) AS COL1
-    FROM CIS2.VW_DATA_ALL_TEMP D
+        SUM(CASE WHEN D.CAPITOL IN (1126) AND D.RIND IN ('330') THEN NVAL(D.COL1) ELSE 0 END) AS COL1
+        
+    FROM CIS2.VW_DATA_ALL D
     WHERE
         (D.PERIOADA = :PERIOADA) AND
         (D.CUIIO = :CUIIO) AND
@@ -15,13 +20,14 @@ FROM (
         (D.CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS = -1) AND
         (D.ID_MD = :ID_MD OR :ID_MD = -1) AND
         D.FORM IN (64)
+        AND D.CUIIO = 40039029
     GROUP BY D.CUIIO
 ) L 
 LEFT JOIN (
     SELECT
         D.CUIIO,
-        ROUND(SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1121.010') THEN D.COL2 ELSE NULL END) / 1000, 1) AS COL1,
-        ROUND(SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('57.1092.010') THEN D.COL2 ELSE NULL END) / 1000, 1) AS COL2
+        
+        SUM(CASE WHEN D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('57.1090.260') THEN D.COL1 ELSE NULL END) / 1000 AS COL1
     FROM CIS2.VW_DATA_ALL_FR D
     WHERE
         (D.PERIOADA = :PERIOADA) AND
@@ -32,19 +38,14 @@ LEFT JOIN (
         (:CAPITOL = :CAPITOL OR :CAPITOL <> :CAPITOL) AND
         (:CAPITOL_VERS = :CAPITOL_VERS OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
         (:ID_MD = :ID_MD OR :ID_MD <> :ID_MD) AND
-        D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('63.1121.010', '57.1092.010')
+        D.FORM || '.' || D.CAPITOL || '.' || D.RIND IN ('57.1090.260')
+        AND D.CUIIO = 40039029
     GROUP BY D.CUIIO
 ) R ON R.CUIIO = L.CUIIO
 GROUP BY
-    L.CUIIO,
-    L.COL1,
-    R.COL1,
-    R.COL2
-HAVING
-    -- Ensures all columns are distinct and not all zero
-    NOT (
-        (NVL(L.COL1, 0) = NVL(R.COL1, 0) AND NVL(L.COL1, 0) <> 0) OR
-        (NVL(L.COL1, 0) = NVL(R.COL2, 0) AND NVL(L.COL1, 0) <> 0) OR
-        (NVL(R.COL1, 0) = NVL(R.COL2, 0) AND NVL(R.COL1, 0) <> 0)
-    )
-    AND (NVL(L.COL1, 0) <> 0 OR NVL(R.COL1, 0) <> 0 OR NVL(R.COL2, 0) <> 0)
+    L.CUIIO
+    
+    
+    HAVING
+
+NVAL(ROUND(SUM(L.COL1), 2)) <> NVAL(ROUND(SUM(R.COL1), 2))
