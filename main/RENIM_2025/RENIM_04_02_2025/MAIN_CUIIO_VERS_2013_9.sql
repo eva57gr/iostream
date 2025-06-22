@@ -82,9 +82,10 @@ FORM IN (43);
 select DISTINCT 
  CUIIO,
  CUIIO_VERS,
+ CUATM,
  USER_NAME,
  DATA_REG
-  
+  -------------------------------------------------------------------------------------------
  
  from CIS2.VW_DATA_ALL
  
