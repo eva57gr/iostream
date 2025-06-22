@@ -29,7 +29,7 @@ SELECT FC.CUIIO,
  
              
              CUIIO LIKE :pCUIIO||'%'
-
+---------------------------------
 
 AND 
 
