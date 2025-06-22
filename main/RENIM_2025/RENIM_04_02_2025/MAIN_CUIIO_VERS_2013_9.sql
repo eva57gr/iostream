@@ -31,6 +31,9 @@ SELECT FC.CUIIO,
              CUIIO LIKE :pCUIIO||'%'
 ---------------------------------ss
 --------------------------------------------
+----------------------------------------------------------------------------------
+
+------------------------------------------
 AND 
 
 FORM IN (43)
@@ -78,9 +81,12 @@ FORM IN (43);
 
 select DISTINCT 
  CUIIO,
- CUIIO_VERS 
+ CUIIO_VERS,
+ USER_NAME,
+ DATA_REG
+  
  
- from CIS2.DATA_ALL
+ from CIS2.VW_DATA_ALL
  
  WHERE
  
