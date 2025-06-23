@@ -1,4 +1,4 @@
---CREATE OR REPLACE VIEW USER_BANCU.VW_45_1059  AS
+CREATE OR REPLACE VIEW USER_BANCU.VW_45_1060  AS
         SELECT
                 D.CUIIO,
                 R.DENUMIRE,
@@ -19,7 +19,7 @@
                     WHERE 
                     D.PERIOADA IN (1060)
                     AND D.FORM IN (45)
-                    AND D.CAPITOL IN  (399,401)
+                   -- AND D.CAPITOL IN  (399,401)
                    
                     
                     
@@ -31,9 +31,9 @@
                 R.CUATM,
                 R.CFOJ
                 
-                HAVING 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1218')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-               OR 
-               SUM(CASE WHEN  D.capitol=401   AND  D.RIND IN ('2200')THEN D.COL1 ELSE NULL END ) IS NOT NULL
+--                HAVING 
+--                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1218')THEN D.COL1 ELSE NULL END ) IS NOT NULL
+--               OR 
+--               SUM(CASE WHEN  D.capitol=401   AND  D.RIND IN ('2200')THEN D.COL1 ELSE NULL END ) IS NOT NULL
                 ORDER BY
                 R.CUATM
