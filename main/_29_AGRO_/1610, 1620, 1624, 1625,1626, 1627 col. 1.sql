@@ -4,12 +4,9 @@
                 R.DENUMIRE,
                 R.CUATM,
                 R.CFOJ,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1610')THEN D.COL1 ELSE NULL END ) AS R_1610,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1620')THEN D.COL1 ELSE NULL END ) AS R_1620,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1624')THEN D.COL1 ELSE NULL END ) AS R_1624,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1625')THEN D.COL1 ELSE NULL END ) AS R_1625,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1626')THEN D.COL1 ELSE NULL END ) AS R_1626,
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1627')THEN D.COL1 ELSE NULL END ) AS R_1627
+                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1218')THEN D.COL1 ELSE NULL END ) AS R_1218,
+                SUM(CASE WHEN  D.capitol=401   AND  D.RIND IN ('2200')THEN D.COL1 ELSE NULL END ) AS R_2200
+                
                 
                 --1610, 1620, 1624, 1625,1626, 1627 col. 1
                 
@@ -20,9 +17,9 @@
                         INNER JOIN CIS2.MD_CAPITOL MR ON MR.CAPITOL = D.CAPITOL AND MR.CAPITOL_VERS = D.CAPITOL_VERS  
             
                     WHERE 
-                    D.PERIOADA IN (1064)
+                    D.PERIOADA IN (1060)
                     AND D.FORM IN (45)
-                    AND D.CAPITOL = 399
+                    AND D.CAPITOL IN  (399,401)
                    
                     
                     
@@ -35,43 +32,8 @@
                 R.CFOJ
                 
                 HAVING 
-                
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1610')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1610')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              )
-              OR 
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1620')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1620')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              ) 
-              
-              
-              OR 
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1624')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1624')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              )
-              
-              OR 
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1625')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1625')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              )
-              
-              OR 
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1626')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1626')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              )
-              
-              OR 
-               ( SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1627')THEN D.COL1 ELSE NULL END ) > 0 
-                AND 
-                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1627')THEN D.COL1 ELSE NULL END ) IS NOT NULL
-              )
---1610, 1620, 1624, 1625,1626, 1627 col. 1
-
-
+                SUM(CASE WHEN  D.capitol=399   AND  D.RIND IN ('1218')THEN D.COL1 ELSE NULL END ) IS NOT NULL
+               OR 
+               SUM(CASE WHEN  D.capitol=401   AND  D.RIND IN ('2200')THEN D.COL1 ELSE NULL END ) IS NOT NULL
                 ORDER BY
                 R.CUATM
