@@ -82,7 +82,7 @@ SELECT
                     FROM --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
                     --USER_BANCU.VW_MAX_RENIM_CIS2
                     USER_BANCU.VW_MAX_RENIM_CIS2_2013
-                    
+                ----------------------------------------------------------------    
                     WHERE 
                   
 CUIIO IN (
