@@ -1,11 +1,11 @@
-SELECT 
-    CUIIO,
-    DENUMIRE,
-    CUATM,
-    DATA_REG,
-    COL1 
-FROM
-(
+--SELECT 
+--    CUIIO,
+--    DENUMIRE,
+--    CUATM,
+--    DATA_REG,
+--    COL1 
+--FROM
+--(
 SELECT 
     L.CUIIO,
     C.DENUMIRE,
@@ -29,7 +29,7 @@ SELECT
                   SELECT DISTINCT 
                           D.CUIIO,
                           D.CUIIO_VERS,
-                          D.CUATM,
+                          MAX(D.CUATM) CUATM,
                           D.FORM,
                           MAX(D.DATA_REG) DATA_REG,
                           'CIS2' AS COL1
@@ -80,7 +80,8 @@ SELECT
              
              ) D  LEFT JOIN (
              
-              SELECT DISTINCT D.CUIIO,
+              SELECT DISTINCT 
+                          D.CUIIO,
                           D.CUIIO_VERS,
                           D.CUATM,
                           D.FORM,
@@ -115,13 +116,18 @@ SELECT
                    FROM CIS2.VW_CL_CUATM
                    
                    WHERE 
-                   PRGS IN ('2')
+                   PRGS IN ('2','3','4','8','9','6')
                    AND CODUL NOT IN ('0000000')
                    
                    
                    
                    ORDER BY 
-                   FULL_CODE )
+                   FULL_CODE,
+                   CUIIO DESC
+                   
+                   
+                   
+                   --)
                    
                    
                    
@@ -130,5 +136,10 @@ SELECT
                    
                    
 --WHERE 
+--
+--CUATM LIKE '45%'
 
---CUATM LIKE '17%'
+
+--
+--AND 
+--COL1  LIKE 'CIS2%'
