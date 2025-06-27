@@ -1,9 +1,4 @@
-
-
-
-
-
-        SELECT
+SELECT
     D.ANUL,
     D.CUIIO,
     R.IDNO,
@@ -26,7 +21,7 @@ WHERE
     AND D.PERIOADA = :pPERIOADA
     AND D.CUATM_FULL LIKE '%' || :pCOD_CUATM || ';%'
     AND D.CAPITOL IN (100)
-    AND D.CUIIO = 819906
+  --  AND D.CUIIO = 819906
 GROUP BY
     D.ANUL,
     D.CUIIO,
