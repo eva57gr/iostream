@@ -1,4 +1,4 @@
-UPDATE USER_BANCU.INOV_1 ----------------------
+UPDATE USER_BANCU.VINZARI_21 ----------------------
 SET CUATM = 
     CASE 
         -- Ruleaza prima verificare: înlocuie?te 'O' cu '0'
@@ -13,10 +13,10 @@ SET CUATM =
     END;
     
     
-            UPDATE USER_BANCU.INOV_1
+            UPDATE USER_BANCU.VINZARI_21
         SET
          CUATM = CASE WHEN (LENGTH(CUATM) = 6 AND (SUBSTR(CUATM,1,1) = 1  OR SUBSTR(CUATM,1,1) = 3 )) THEN '0'||CUATM ELSE CUATM END,
-         CUIIO_VERS = 2013;
+         CUIIO_VERS = 1065;
         -- CFOJ = '420'
         --CUATM = '0'||REPLACE(CUATM,'O','0')
 --        ,
