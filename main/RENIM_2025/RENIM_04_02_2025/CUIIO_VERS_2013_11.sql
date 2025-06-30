@@ -12,7 +12,7 @@
 --        
 --        
 --)
-
+--
 
 
  SELECT 
@@ -31,7 +31,7 @@
         TRIM(TRIM(L.IDNO))  IDNO
       
       --  L.KAT_112
-        FROM   USER_BANCU.INOV_1 L
+        FROM   USER_BANCU.VINZARI_21 L
         
              --   CIS.RENIM  L
         
@@ -41,5 +41,5 @@
                         
                         WHERE
                         
-                        C.CUIIO IS  NOT NULL  
+                        C.CUIIO IS   NULL  
                        -- AND C.CUIIO_VERS IS   NULL 
