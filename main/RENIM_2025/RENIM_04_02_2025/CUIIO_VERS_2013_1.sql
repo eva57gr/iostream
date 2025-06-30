@@ -79,9 +79,9 @@ SELECT
  IDNO
 
    
-                    FROM --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
+                    FROM USER_BANCU.VW_MAX_RENIM_TRIM_CIS2     
                     --USER_BANCU.VW_MAX_RENIM_CIS2
-                    USER_BANCU.VW_MAX_RENIM_CIS2_2013
+                 --   USER_BANCU.VW_MAX_RENIM_CIS2_2013
                 ----------------------------------------------------------------    
                     WHERE 
                   
@@ -89,16 +89,16 @@ CUIIO IN (
 
 SELECT CUIIO 
 
-FROM USER_BANCU.INOV_1
+FROM USER_BANCU.VINZARI_21
 )
 
---AND CUIIO_VERS  <> 2014
+AND CUIIO_VERS  <> 1065
         
 --        AND CUIIO_VERS <> 1065
         
         
-        AND CUIIO NOT IN (
---        SELECT FC.CUIIO
+--        AND CUIIO NOT IN (
+----        SELECT FC.CUIIO
 --
 --              FROM
 --              ( 
