@@ -23,13 +23,13 @@ SELECT -------------------------------------------------------------------
           WHERE
           1=1  
           
-          AND STATUS  =  '4' 
+         -- AND STATUS  =  '4' 
 
 ----
 ----
 AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 ----
---AND STATUS  =  '5' 
+AND STATUS  =  '5' 
 --
 ------
 ------
@@ -38,7 +38,7 @@ AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
   
 --------  
---AND   FORM_TYPE = 'm1' --------------------
+AND   FORM_TYPE = 'anc_conj' --------------------
 
 
 
