@@ -1,11 +1,11 @@
---SELECT 
---    CUIIO,
---    DENUMIRE,
---    CUATM,
---    DATA_REG,
---    COL1 
---FROM
---(
+SELECT 
+    CUIIO,
+    DENUMIRE,
+    CUATM,
+    DATA_REG,
+    COL1 
+FROM
+(
 SELECT 
     L.CUIIO,
     C.DENUMIRE,
@@ -127,7 +127,10 @@ SELECT
                    
                    
                    
-                   --)
+                   )
+                   
+                   WHERE 
+                   COL1 IN ('EREPORTING')
                    
                    
                    
