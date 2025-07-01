@@ -13,7 +13,7 @@ WHERE
   (D.FORM_VERS=:FORM_VERS       OR :FORM_VERS = -1) AND
   (:CAPITOL=:CAPITOL            OR  :CAPITOL <> :CAPITOL) AND
   (:CAPITOL_VERS=:CAPITOL_VERS  OR :CAPITOL_VERS <> :CAPITOL_VERS) AND
-  (D.ID_MD=:ID_MD               OR :ID_MD = -1) AND
+  ( :ID_MD=:ID_MD               OR :ID_MD <>  :ID_MD) AND
     
   D.FORM IN (48)  AND
   D.ID_SCHEMA IN (2)
