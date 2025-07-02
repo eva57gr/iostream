@@ -129,8 +129,8 @@ SELECT
                    
                    )
                    
-                   WHERE 
-                   COL1 IN ('EREPORTING')
+--                   WHERE 
+--                   COL1 IN ('EREPORTING')
                    
                    
                    
