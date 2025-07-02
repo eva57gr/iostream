@@ -37,8 +37,10 @@ SELECT
             FROM CIS2.VW_DATA_ALL D
             
                  
-           WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
-           
+           WHERE 
+           D.PERIOADA = :pPERIOADA 
+           AND D.FORM IN (:pFORM)
+           AND D.FORM_VERS IN (:pFORM_VERS)
            AND D.CUIIO NOT IN (
             SELECT DISTINCT D.CUIIO
                           
@@ -46,7 +48,10 @@ SELECT
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
                                         INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
                 
-           WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
+           WHERE 
+           D.PERIOADA  = :pPERIOADA   
+           AND D.FORM IN (:pFORM)
+            AND D.FORM_VERS IN (:pFORM_VERS)
              AND D.ID_SCHEMA = '2'
              
              )
@@ -69,9 +74,11 @@ SELECT
                           'EREPORTING' AS COL1
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
                 INNER JOIN CIS2.RENIM R ON R.CUIIO = D.CUIIO AND R.CUIIO_VERS = D.CUIIO_VERS 
-           WHERE D.PERIOADA  = :pPERIOADA   AND D.FORM IN (:pFORM)
+           WHERE 
+           D.PERIOADA  = :pPERIOADA
+             AND D.FORM IN (:pFORM)
              AND D.ID_SCHEMA = '2'
-             
+              AND D.FORM_VERS IN (:pFORM_VERS)
              GROUP BY
              D.CUIIO,
              D.CUIIO_VERS,
@@ -90,7 +97,10 @@ SELECT
             FROM CIS2.VW_DATA_ALL D
             
                  
-           WHERE D.PERIOADA = :pPERIOADA AND D.FORM IN (:pFORM)
+           WHERE 
+           D.PERIOADA = :pPERIOADA 
+           AND D.FORM IN (:pFORM)
+            AND D.FORM_VERS IN (:pFORM_VERS)
              ) R ON D.CUIIO = R.CUIIO
              
              
@@ -186,10 +196,10 @@ D. ITEM_PATH
                    
                    
 --WHERE 
-------
---CUATM LIKE '45%'
-
-
+--------
+----CUATM LIKE '45%'
 --
---AND 
+--
+----
+----AND 
 --COL1  LIKE 'CIS2%'
