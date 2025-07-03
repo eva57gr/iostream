@@ -18,25 +18,13 @@ SELECT FC.CUIIO,
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
              --and FC.FORM_VERS = 1004 
              
-             ) FC
+             ) FC 
              
              
              WHERE
              
              --FC.CUIIO_VERS = 1064
-            
-
- 
-             
-             CUIIO LIKE :pCUIIO||'%'
----------------------------------ss
---------------------------------------------
-----------------------------------------------------------------------------------
-
-------------------------------------------
-AND 
-
-FORM IN (43)
+CUIIO LIKE :pCUIIO||'%' AND  FORM IN (:pFORM)
 
  ;
  
