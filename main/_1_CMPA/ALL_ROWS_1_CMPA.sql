@@ -1,5 +1,5 @@
 ﻿SELECT 
-    'TRIM_3' AS TRIM,  -- Static value for the TRIM column
+    'TRIM_2' AS TRIM,  -- Static value for the TRIM column
     D.UNIT_CODE,
     D.CUATM,
     CASE 
@@ -89,7 +89,7 @@
 FROM
     CIS2.VW_DATA_ALL_GC D
 WHERE
-    D.PERIOADA IN (1062)  
+    D.PERIOADA IN (1065)  
     AND D.CUATM_FULL LIKE '%'||:pCOD_CUATM||';%' 
     AND D.FORM IN (61) 
     AND D.CAPITOL IN (1114, 1113, 1112, 1111, 1110)
