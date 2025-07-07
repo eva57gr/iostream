@@ -1,4 +1,6 @@
-﻿SELECT 
+﻿--Modify this SQL - add in - having condition - to display the row that has at least one column of data
+
+SELECT 
     CASE 
 --        WHEN TO_CHAR(D.PERIOADA) = '1062'  THEN 'TRM III 2024'
         WHEN TO_CHAR(D.PERIOADA) = '1065'  THEN 'TRM II 2025'
