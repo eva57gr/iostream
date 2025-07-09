@@ -29,7 +29,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 33
+         AND A.FORM IN (:pFORM)
                
          GROUP BY 
           A.CONTROL
@@ -42,7 +42,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 33
+         AND B.FORM IN  (:pFORM)
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
@@ -55,6 +55,6 @@ SELECT
           WHERE 
           1=1
          -- AND  L.FORMULA LIKE '%Cap.2%'
-         AND CONTROL LIKE '33%'
+--         AND CONTROL LIKE '33%'
           
           

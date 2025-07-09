@@ -43,7 +43,7 @@ CUIIO LIKE :pCUIIO||'%' AND  FORM IN (:pFORM)
 
 AND 
 
-FORM IN (43)
+FORM IN (:pFORM)
 
  
 ;
