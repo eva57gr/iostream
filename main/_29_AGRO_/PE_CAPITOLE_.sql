@@ -1,7 +1,10 @@
-        SELECT
+       
+--Modifica SQL Oracle - daca COL1 - COL7 este egal cu zero sa fie null 
+ SELECT
                 D.CUIIO,
                 R.DENUMIRE,
                 R.CUATM,
+                R.CAEM2,
                 R.CFOJ,
                 MR.DEN_SHORT,
                 D.RIND,
@@ -20,9 +23,9 @@
                         INNER JOIN CIS2.MD_CAPITOL MR ON MR.CAPITOL = D.CAPITOL AND MR.CAPITOL_VERS = D.CAPITOL_VERS  
             
                     WHERE 
-                    D.PERIOADA IN (1064)
+                    D.PERIOADA IN (1065)
                     AND D.FORM IN (45)
-                    AND MR.DEN_SHORT IN ('Cap.I')
+                 --   AND MR.DEN_SHORT IN ('Cap.I')
                     
                    
                 GROUP BY
@@ -30,6 +33,7 @@
                 D.CUIIO,
                 R.DENUMIRE,
                 R.CUATM,
+                R.CAEM2,
                 R.CFOJ,
                 D.RIND,
                 MR.DEN_SHORT
