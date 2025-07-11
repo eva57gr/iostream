@@ -33,4 +33,5 @@ GROUP BY
     R.CAEM2,
     D.RIND
 ORDER BY
-    D.CUIIO
+    D.CUIIO,
+    D.RIND
