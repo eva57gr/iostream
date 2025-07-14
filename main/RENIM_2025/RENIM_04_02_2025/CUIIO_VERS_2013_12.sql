@@ -1,12 +1,12 @@
-----------------------------------------------------------------------------------
-INSERT INTO CIS2.FORM_CUIIO R (
-        CUIIO,
-        CUIIO_VERS,
-        FORM,
-        FORM_VERS,
-        STATUT 
-)
-
+------------------------------------------------------------------------------------
+--INSERT INTO CIS2.FORM_CUIIO R (
+--        CUIIO,
+--        CUIIO_VERS,
+--        FORM,
+--        FORM_VERS,
+--        STATUT 
+--)
+--
 
 
 
@@ -14,8 +14,8 @@ INSERT INTO CIS2.FORM_CUIIO R (
 SELECT   
         L.CUIIO,
         2013 CUIIO_VERS,
-        57 FORM,
-        2009 FORM_VERS,
+        63 FORM,
+        2000 FORM_VERS,
         '1' STATUT 
       
          
@@ -36,8 +36,8 @@ FROM  RENIM_2024
 AND 
 
 CUIIO_VERS IN (2013)
-AND FORM IN (57)
-AND FORM_VERS = 2009
+AND FORM IN (63)
+AND FORM_VERS = 2000
 ) R ON R.CUIIO = L.CUIIO 
 
 WHERE 
@@ -45,22 +45,22 @@ R.CUIIO IS NULL
 
 ;
 
-SELECT CUIIO 
-
-FROM CIS2.FORM_CUIIO 
-
-WHERE
-
-CUIIO IN (
-
-SELECT 
-CUIIO
-FROM  VINZARI_21
-
-)
-
-AND 
-
-CUIIO_VERS IN (1065)
-AND FORM IN (26)
-         
+--SELECT CUIIO 
+--
+--FROM CIS2.FORM_CUIIO 
+--
+--WHERE
+--
+--CUIIO IN (
+--
+--SELECT 
+--CUIIO
+--FROM  VINZARI_21
+--
+--)
+--
+--AND 
+--
+--CUIIO_VERS IN (1065)
+--AND FORM IN (26)
+--         
