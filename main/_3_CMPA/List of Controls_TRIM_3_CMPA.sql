@@ -62,7 +62,7 @@ SELECT
         
          WHERE
          1=1
-         AND A.FORM  = 61
+         AND A.FORM  = 62
                
          GROUP BY 
           A.CONTROL
@@ -75,7 +75,7 @@ SELECT
         
          WHERE
          1=1
-         AND B.FORM  = 61
+         AND B.FORM  = 62
          AND B.STATUT <> '3'
         -- AND B.FORM_VERS = 2009
                
