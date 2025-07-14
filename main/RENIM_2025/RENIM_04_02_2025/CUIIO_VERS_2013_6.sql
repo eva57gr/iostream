@@ -25,3 +25,5 @@ SET CUATM =
         
         SELECT *
         FROM USER_BANCU.RENIM_2024;
+        
+        ----------------------------------------------
