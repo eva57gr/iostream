@@ -1,12 +1,12 @@
-UPDATE CIS2.FORM_CUIIO
+--UPDATE CIS2.FORM_CUIIO
+--
+--SET STATUT = '3'
 
-SET STATUT = '3'
+--
+--
+SELECT *
 
---
---
---SELECT *
---
---    FROM CIS2.FORM_CUIIO 
+    FROM CIS2.FORM_CUIIO 
     
     WHERE 
 
@@ -33,13 +33,13 @@ SELECT FC.CUIIO
                            AND BB.CUIIO_VERS = FC.CUIIO_VERS)
              WHERE 
              FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
-             AND FC.FORM_VERS = 2000
+             AND FC.FORM_VERS = 1800
              ) FC
              
              WHERE
-             FC.CUIIO_VERS = 2014
+             FC.CUIIO_VERS = 1830
 )
 
-AND CUIIO_VERS   IN (2014)
-AND FORM IN (39)
-AND STATUT IN ('1') AND FORM_VERS IN (2000)
+AND CUIIO_VERS   IN (1830)
+AND FORM IN (37)
+AND STATUT IN ('1') AND FORM_VERS IN (1800)
