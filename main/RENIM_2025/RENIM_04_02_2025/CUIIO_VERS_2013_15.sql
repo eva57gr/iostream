@@ -1,22 +1,45 @@
---UPDATE CIS2.FORM_CUIIO
---
---SET STATUT = '3'
---
---
---
-SELECT *
+UPDATE CIS2.FORM_CUIIO
 
-    FROM CIS2.FORM_CUIIO 
+SET STATUT = '3'
+
+--
+--
+--SELECT *
+--
+--    FROM CIS2.FORM_CUIIO 
     
     WHERE 
 
 CUIIO IN 
 (
-SELECT CUIIO
-               
-        FROM USER_BANCU.TR_AUTO_2025
+SELECT FC.CUIIO
+
+      
+
+              FROM
+              ( 
+              SELECT FC.CUIIO,
+                   FC.CUIIO_VERS,
+                   FC.FORM,
+                   FC.FORM_VERS,
+                   FC.STATUT
+              FROM CIS2.FORM_CUIIO  FC
+                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
+                                   FROM CIS2.FORM_CUIIO
+                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
+                                  
+                               GROUP BY CUIIO) BB
+                       ON (    BB.CUIIO = FC.CUIIO
+                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
+             WHERE 
+             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
+             AND FC.FORM_VERS = 2000
+             ) FC
+             
+             WHERE
+             FC.CUIIO_VERS = 2014
 )
 
-AND CUIIO_VERS   IN (2013)
-AND FORM IN (4)
+AND CUIIO_VERS   IN (2014)
+AND FORM IN (39)
 AND STATUT IN ('1') AND FORM_VERS IN (2000)
