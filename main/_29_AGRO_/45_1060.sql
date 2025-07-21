@@ -163,6 +163,12 @@ ORDER BY SORT_ORDER,
          CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
          CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC
          
-         ) L LEFT JOIN VW_45_1060 R  ON R.CUIIO = L.CUIIO 
+         ) L LEFT JOIN VW_45_1060 R  ON R.CUIIO = L.CUIIO;
+         
+         
+         
+         SELECT *
+         
+            FROM VW_45_1060
 
 
