@@ -1,5 +1,5 @@
-----------------------------------------------------
---
+--------------------------------------------------
+
 --INSERT INTO CIS2.RENIM (
 --    CUIIO,
 --    CUIIO_VERS,
@@ -43,7 +43,7 @@
 
 SELECT 
  CUIIO,
- 1830 CUIIO_VERS,
+ 1065 CUIIO_VERS,
  DENUMIRE,
  EDIT_USER,
  STATUT,
@@ -79,92 +79,30 @@ SELECT
  IDNO
 
    
-                    FROM --USER_BANCU.VW_MAX_RENIM_TRIM_CIS2    
-                           USER_BANCU.VW_MAX_RENIM_2LIVII 
+                    FROM USER_BANCU.VW_MAX_RENIM_TRIM_CIS2    
+                          -- USER_BANCU.VW_MAX_RENIM_2LIVII 
                      -- USER_BANCU.VW_MAX_RENIM_CIS2
                  --   USER_BANCU.VW_MAX_RENIM_CIS2_2013
                 ----------------------------------------------------------------    
                     WHERE 
                   
 CUIIO IN (
-SELECT FC.CUIIO
---,
---       FC.CUIIO_VERS
-      
-
-              FROM
-              ( 
-              SELECT FC.CUIIO,
-                   FC.CUIIO_VERS,
-                   FC.FORM,
-                   FC.FORM_VERS,
-                   FC.STATUT
-              FROM CIS2.FORM_CUIIO  FC
-                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
-                                   FROM CIS2.FORM_CUIIO
-                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
-                                  
-                               GROUP BY CUIIO) BB
-                       ON (    BB.CUIIO = FC.CUIIO
-                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
-             WHERE 
-             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
---             AND FC.FORM_VERS = 2000
-             ) FC
-             
-             WHERE
-             FC.CUIIO_VERS <> 1830
+SELECT 
+    CUIIO
+    
+    FROM CUATM 
 )
 
---AND CUIIO_VERS  <> 2013
+AND CUIIO_VERS  <> 1065
         
---        AND CUIIO_VERS <> 1065
-        
-        
---        AND CUIIO NOT IN (
-----        SELECT FC.CUIIO
---
---              FROM
---              ( 
---              SELECT FC.CUIIO,
---                   FC.CUIIO_VERS,
---                   FC.FORM,
---                   FC.FORM_VERS,
---                   FC.STATUT
---              FROM CIS2.FORM_CUIIO  FC
---                   INNER JOIN (  SELECT CUIIO, MAX (CUIIO_VERS) CUIIO_VERS
---                                   FROM CIS2.FORM_CUIIO
---                                  WHERE FORM IN (:pFORM) AND CUIIO_VERS <= :pPERIOADA
---                                  
---                               GROUP BY CUIIO) BB
---                       ON (    BB.CUIIO = FC.CUIIO
---                           AND BB.CUIIO_VERS = FC.CUIIO_VERS)
---             WHERE 
---             FC.FORM IN (:pFORM) AND FC.STATUT <> '3'
---             and FC.FORM_VERS = 1004
---             ) FC
---             
---             
---             WHERE
---             
---             FC.CUIIO IN (
---            SELECT
---               DISTINCT  CUIIO
---            FROM  USER_BANCU.ADD_NEW_SU_M3_2024
---
---          )
---
---        AND FC.CUIIO_VERS =  1064
---        
---             
---        )
+
 
 ;
 
 
 SELECT 
        FC.CUIIO,
-       FC.CUIIO_VERS
+ 
       
 
               FROM
@@ -188,4 +126,4 @@ SELECT
              ) FC
              
 --             WHERE
---             FC.CUIIO_VERS =  2013
+--             FC.CUIIO_VERS =    1830
