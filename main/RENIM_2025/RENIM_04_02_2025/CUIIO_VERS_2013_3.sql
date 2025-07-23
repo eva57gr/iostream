@@ -23,4 +23,15 @@ SELECT FC.CUIIO,
              ) FC
              
              WHERE
-             FC.CUIIO_VERS <> 2013
+             FC.CUIIO_VERS <> 2013;
+             
+             
+             
+             
+SELECT *
+
+FROM CIS2.VW_DATA_ALL 
+
+WHERE 
+
+FORM = 39 AND PERIOADA = 2013 
