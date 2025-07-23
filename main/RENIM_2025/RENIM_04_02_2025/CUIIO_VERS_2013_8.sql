@@ -10,7 +10,7 @@ SELECT
   D.CAEM, ----------------------
   D.IDNO    
 
-FROM USER_BANCU.VINZARI_21 D
+FROM USER_BANCU.CUATM D
 
                                 
 --                                
