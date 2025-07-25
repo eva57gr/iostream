@@ -13,7 +13,7 @@ FROM
       T.COD_CUATM IN (:pCOD_CUATM)  AND
       T.FORM = :pFORM         AND
       T.ID_MDTABLE = 13754   AND      
-      T.PERIOADA = (:pPERIOADA-4)
+      T.PERIOADA = (:pPERIOADA-1)
     UNION   
    -- 13753
 --13766

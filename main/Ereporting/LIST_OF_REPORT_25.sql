@@ -1,16 +1,16 @@
 SELECT -------------------------------------------------------------------
- FORMID,
- XML,
-  STATUS,
-  FORM_TYPE,
-  DATA_REG,
-  CHECK_CONFIRM,
-  MESAJ,
-  CUIIO,
-    LENGTH(CUIIO) STR_CUIIO,
-  SEND_REQUEST,
-  SEND_ATTEMPTS,
-  PROCESSING_MESSAGE 
+ distinct --FORMID
+-- XML,
+--  STATUS,
+ FORM_TYPE
+--  DATA_REG,
+--  CHECK_CONFIRM,
+--  MESAJ,
+--  CUIIO,
+--    LENGTH(CUIIO) STR_CUIIO,
+--  SEND_REQUEST,
+--  SEND_ATTEMPTS,
+--  PROCESSING_MESSAGE 
  
         
         
@@ -27,9 +27,9 @@ SELECT -------------------------------------------------------------------
 
 ----
 ----
-AND  DATA_REG >= TO_DATE('07/24/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('07/25/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 ----
-AND STATUS  =  '5' 
+AND STATUS  =  '2'  -- 553 
 --
 ------
 ------
@@ -43,6 +43,6 @@ AND STATUS  =  '5'
 
 
 
- ORDER BY 
--- 
-DATA_REG DESC 
+-- ORDER BY 
+---- 
+--DATA_REG DESC 
