@@ -1,5 +1,5 @@
 SELECT 
---     d.cuiio,   
+     d.cuiio,   
      SUM(CASE WHEN  D.CAPITOL IN (405) and CI.ITEM_CODE in ('62.01.11','62.01.12','62.02.10','62.02.20','62.02.30','62.03.11','62.03.12','62.09.20','63.11.11','63.11.12','63.11.13','63.11.19', '95.11')
       AND D.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) AS COL1,
       
@@ -134,7 +134,7 @@ SELECT
          
 
    WHERE 
-  (D.PERIOADA BETWEEN 1052 AND 1055) AND 
+  (D.PERIOADA BETWEEN 10562AND 1055) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   
@@ -143,6 +143,6 @@ SELECT
 
   
   
---  GROUP BY 
---  d.cuiio
+  GROUP BY 
+  d.cuiio
 
