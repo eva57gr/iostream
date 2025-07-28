@@ -22,7 +22,7 @@ SELECT FC.CUIIO,
              
              
              WHERE
-             
+             --------------------------
              --FC.CUIIO_VERS = 1064
             
 
