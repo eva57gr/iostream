@@ -32,7 +32,7 @@ FROM
 
  
 
- AND DD.COL4 <> D.COL2       
+ --AND DD.COL4 <> D.COL2       
   
   GROUP BY 
     D.RIND 

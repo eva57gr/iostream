@@ -1,3 +1,26 @@
+
+SELECT * 
+
+FROM USER_BANCU.F_XML_FORMS;
+
+
+--INSERT INTO USER_BANCU.F_XML_FORMS
+--(
+--FORMID,
+-- XML,
+--  STATUS,
+--  FORM_TYPE,
+--  DATA_REG,
+--  CHECK_CONFIRM,
+--  MESAJ,
+--  CUIIO,
+--  --  LENGTH(CUIIO) STR_CUIIO,
+--  SEND_REQUEST,
+--  SEND_ATTEMPTS,
+--  PROCESSING_MESSAGE 
+--)
+
+
 SELECT -------------------------------------------------------------------
  FORMID,
  XML,
@@ -7,7 +30,7 @@ SELECT -------------------------------------------------------------------
   CHECK_CONFIRM,
   MESAJ,
   CUIIO,
-    LENGTH(CUIIO) STR_CUIIO,
+  --  LENGTH(CUIIO) STR_CUIIO,
   SEND_REQUEST,
   SEND_ATTEMPTS,
   PROCESSING_MESSAGE 
@@ -27,9 +50,9 @@ SELECT -------------------------------------------------------------------
 
 ----
 ----
-AND  DATA_REG >= TO_DATE('07/24/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('07/21/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 ----
-AND STATUS  =  '5' 
+AND STATUS  =  '5'  -- 553 
 --
 ------
 ------
@@ -38,7 +61,7 @@ AND STATUS  =  '5'
 
   
 --------  
---AND   FORM_TYPE = 'anc_conj' --------------------
+AND   FORM_TYPE = '2-inv-trim' --------------------
 
 
 
