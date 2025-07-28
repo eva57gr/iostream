@@ -1,0 +1,61 @@
+SELECT 
+--     d.cuiio,   
+     SUM(CASE WHEN  D.CAPITOL IN (405) and CI.ITEM_CODE in ('62.01.11','62.01.12','62.02.10','62.02.20','62.02.30','62.03.11','62.03.12','62.09.20','63.11.11','63.11.12','63.11.13','63.11.19', '95.11')
+      AND D.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) AS COL1,
+      
+           SUM(CASE WHEN  D.CAPITOL IN (405) and CI.ITEM_CODE in ('58.21.2','58.21.3','58.29.31','58.29.32','58.29.40','62.01.21','62.01.29')
+      AND D.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) AS COL2,
+      
+       SUM(CASE WHEN  D.CAPITOL IN (405) and CI.ITEM_CODE in ('58.21.2','58.21.3','58.29.31','58.29.32','58.29.40','62.01.21','62.01.29')
+      AND D.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) AS COL3 
+--Modifica pentru coloana 3 codurile de mai jos in CI.ITEM_CODE - sa fie 
+64.11.10
+64.19.11
+64.19.12
+64.19.21
+64.19.22
+64.19.23
+64.19.24
+64.19.25
+64.19.26
+64.19.29
+64.19.30
+64.2
+64.3
+64.91.10
+64.92.11
+64.92.12
+64.92.13
+64.92.14
+64.92.15
+64.92.16
+64.92.19
+64.99.11
+64.99.19
+66.11
+66.12
+66.19
+66.30.11
+
+
+  
+     
+
+     FROM VW_DATA_ALL D
+         INNER JOIN VW_CLS_CLASS_ITEM CI ON (CI.CLASS_CODE IN ('CSPM2') AND TRIM(D.COL31)=TRIM(CI.ITEM_CODE)) 
+         
+         
+
+   WHERE 
+  (D.PERIOADA =:pPERIOADA) AND 
+  (D.FORM =:pFORM) AND
+  (D.FORM_VERS =:pFORM_VERS) AND 
+  
+  D.FORM IN (44)
+  AND D.CAPITOL IN (405) 
+
+  
+  
+--  GROUP BY 
+--  d.cuiio
+
