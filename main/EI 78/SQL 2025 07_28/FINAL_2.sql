@@ -1,5 +1,5 @@
 SELECT 
---     d.cuiio,   
+     d.cuiio,   
      SUM(CASE WHEN  D.CAPITOL IN (405)   AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||'9.2.2'||';%'
       AND D.RIND NOT IN ('1','-')  THEN CIS2.NVAL(D.COL4) ELSE 0 END) AS COL1,
            SUM(CASE WHEN  D.CAPITOL IN (405)   AND REPLACE(' '||CI.ITEM_PATH,';','; ') LIKE '% '||'9.2.1'||';%'
@@ -34,7 +34,9 @@ SELECT
                  
        
    WHERE 
-  (D.PERIOADA =:pPERIOADA) AND 
+  --(D.PERIOADA =:pPERIOADA) AND 
+ -- (D.PERIOADA BETWEEN FLOOR(:pPERIOADA/4)*4 AND :pPERIOADA)  AND    
+  (D.PERIOADA BETWEEN 1052 AND 1055) AND 
   (D.FORM =:pFORM) AND
   (D.FORM_VERS =:pFORM_VERS) AND 
   
@@ -43,7 +45,7 @@ SELECT
 --  and CI.ITEM_CODE in ('9.2.2')
   
   
---  GROUP BY 
---  d.cuiio
+  GROUP BY 
+  d.cuiio
 ----  CII.SHOW_ORDER,  
 ----  CII.NAME
