@@ -1,0 +1,27 @@
+SELECT 
+ T.NR_ROW,
+ SUM(T.COL1) AS COL1,
+ SUM(T.COL2) AS COL2
+FROM
+(
+ SELECT
+      T.NR_ROW,
+      T.COL1 AS COL1,
+      T.COL2 AS COL2
+    FROM CIS2.TABLE_OUT T
+    WHERE
+      T.COD_CUATM IN (:pCOD_CUATM)  AND
+      T.FORM = :pFORM         AND
+      T.ID_MDTABLE = (CASE 
+      WHEN :pPERIOADA = 1065 THEN  13752 
+      WHEN :pPERIOADA IN  (1066,1067) THEN  13778
+      WHEN :pPERIOADA IN  (1068) THEN  14386 
+      WHEN :pPERIOADA  > 1068 THEN 14492 END )  AND      
+      T.PERIOADA = (:pPERIOADA-4)
+    
+      
+      )  T
+      
+      GROUP BY
+      
+     T.NR_ROW
