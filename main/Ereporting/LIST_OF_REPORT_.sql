@@ -61,11 +61,9 @@ AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
   
 --------  
-AND   FORM_TYPE = '2-inv-trim' --------------------
+AND   FORM_TYPE = '5-ci-23' --------------------
 
-AND TCUIIO NOT IN (
-7032440, 38990369, 41244369, 41320123  
-)
+AND CUIIO IN  (20271764,41261178)
 
 
  ORDER BY 
