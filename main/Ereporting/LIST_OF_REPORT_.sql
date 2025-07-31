@@ -61,13 +61,10 @@ AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 
   
 --------  
-AND   FORM_TYPE = 'ei-78' --------------------
+AND   FORM_TYPE = '2-inv-trim' --------------------
 
-AND CUIIO IN (
-40761950,
-41166623,
-2738276,
-41506645
+AND TCUIIO NOT IN (
+7032440, 38990369, 41244369, 41320123  
 )
 
 
