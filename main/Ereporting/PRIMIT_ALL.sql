@@ -4,7 +4,7 @@ D.CUIIO,
 D.CUIIO_VERS,
 D.CUATM
 
-        
+        -------------------------------
                           
                           
             FROM CIS2.VW_DATA_ALL D
