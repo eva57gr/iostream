@@ -21,12 +21,12 @@ GROUP BY
 FORM_TYPE,
 STATUS
 
-HAVING 
+HAVING
 STATUS = '2'
 -- 
 --
-----AND   
---FORM_TYPE = 'ei-78'
+AND   
+FORM_TYPE = '5-ci-23'
 --
 --AND CUIIO IN (
 --40761950,
