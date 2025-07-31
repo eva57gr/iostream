@@ -8,7 +8,7 @@ D.T_XML_FORM_ID
                           
             FROM USER_EREPORTING.VW_DATA_ALL_PRIMIT D
             
-            
+   ---------------------------         
             WHERE 
             
             D.CUIIO IN (

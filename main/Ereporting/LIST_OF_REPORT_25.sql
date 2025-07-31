@@ -1,5 +1,5 @@
 SELECT -------------------------------------------------------------------
- distinct --FORMID
+ distinct --FORMID -------------------------
 -- XML,
 --  STATUS,
  FORM_TYPE
