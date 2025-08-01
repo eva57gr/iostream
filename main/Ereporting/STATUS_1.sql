@@ -1,0 +1,23 @@
+SELECT 
+  L.CUIIO,
+  D.DESCRIPTION,
+  L.STATUS,
+  L.FORM_TYPE,
+  L.DATA_REG,
+  L.CHECK_CONFIRM,
+  L.MESAJ,
+  L.PROCESSING_MESSAGE 
+ 
+    FROM  USER_EREPORTING.F_XML_FORMS L INNER JOIN USER_EREPORTING.F_XML_FORMS_STATUS D  ON L.STATUS = D.COD_STATUS
+          WHERE
+          1=1  
+          AND  DATA_REG >= TO_DATE('07/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+          AND STATUS  <>  '5'  
+          AND   FORM_TYPE IN  ('5-ci-23','1-b-sc','inov1','2-inv-trim','5-con_22','65-auto-22','consts','ei-78','ind-ts') 
+
+--AND CUIIO IN  (20271764,41261178)
+
+
+ ORDER BY 
+-- 
+DATA_REG DESC 
