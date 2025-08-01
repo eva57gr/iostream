@@ -21,12 +21,12 @@ GROUP BY
 FORM_TYPE,
 STATUS
 
-HAVING
-STATUS = '2'
--- 
---
-AND   
-FORM_TYPE = '5-ci-23'
+--HAVING
+--STATUS = '2'
+---- 
+----
+--AND   
+--FORM_TYPE = '5-ci-23'
 --
 --AND CUIIO IN (
 --40761950,
