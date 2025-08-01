@@ -50,9 +50,9 @@ SELECT -------------------------------------------------------------------
 
 ----
 ----
-AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
+AND  DATA_REG >= TO_DATE('07/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 ----
---AND STATUS  =  '2'  -- 553 
+AND STATUS  <>  '5'  -- 553 
 ----------------------------------
 ------
 ------
@@ -63,7 +63,7 @@ AND  DATA_REG >= TO_DATE('05/01/2025 00:00:', 'MM/DD/YYYY HH24:MI:SS')
 --------  
 AND   FORM_TYPE = '5-ci-23' --------------------
 
-AND CUIIO IN  (20271764,41261178)
+--AND CUIIO IN  (20271764,41261178)
 
 
  ORDER BY 
